@@ -1,0 +1,21 @@
+Introduction
+============
+
+--------------------------------------------------------------------------------
+Asterisk versions supported
+===========================
+
+--------------------------------------------------------------------------------
+Example
+=======
+Please see docs/examples/quickstart/example.php for a very basic example.
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Developers
+==========
+* build.xml is a phing build file, not ant.
+* It's very possible that you may need to edit build.properties.
+* Available main targets: all, build, test, report.
+* Tools run: phpdoc, phploc, phpcs, phpmd, phpcpd, phpdepend, phpunit.
+--------------------------------------------------------------------------------
