@@ -1,6 +1,7 @@
 <?php
 
 namespace PAGI\Client\Impl;
+use PAGI\Exception\PAGIException;
 use PAGI\Client\IClient;
 
 class ClientImpl implements IClient
@@ -127,6 +128,25 @@ class ClientImpl implements IClient
             return false;
         }
         $result = $this->read();
+        $response = explode(' ', $result);
+        if ($response[0] != 200) {
+            throw new PAGIException(
+            	'Could not send command: ' . $text . ' - '
+                . print_r($result, true)
+            );
+        }
+        return true;
+    }
+
+    public function sayDigits($digits, $escapeDigits = '')
+    {
+        $cmd = 'SAY DIGITS ' . $digits . ' "' . $escapeDigits . '"';
+        return $this->send($cmd);
+    }
+
+    public function answer()
+    {
+        return $this->send('ANSWER');
     }
 
     public function log($msg)
@@ -163,7 +183,11 @@ class ClientImpl implements IClient
 
     protected function read()
     {
-        return substr(fgets($this->_input), 0, -1);
+        $line = fgets($this->_input);
+        if ($line === false) {
+            throw new PAGIException('Could not read from AGI');
+        }
+        return substr($line, 0, -1);
     }
 
     public static function getInstance()

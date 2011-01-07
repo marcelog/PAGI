@@ -30,24 +30,31 @@ Autoloader::register(); // Call autoloader register for ding autoloader.
 use PAGI\Client\Impl\ClientImpl;
 
 $client = ClientImpl::getInstance();
-$client->log('Request: '. $client->getRequest());
-$client->log('Channel: '. $client->getChannel());
-$client->log('Language: '. $client->getLanguage());
-$client->log('Type: '. $client->getType());
-$client->log('UniqueId: ' . $client->getUniqueId());
-$client->log('Version: ' . $client->getVersion());
-$client->log('CallerId: ' . $client->getCallerId());
-$client->log('CallerId name: ' . $client->getCallerIdName());
-$client->log('CallerId pres: ' . $client->getCallingPres());
-$client->log('CallingAni2: ' . $client->getCallingAni2());
-$client->log('CallingTon: ' . $client->getCallingTon());
-$client->log('CallingTNS: ' . $client->getCallingTns());
-$client->log('DNID: ' . $client->getDNID());
-$client->log('RDNIS: ' . $client->getRDNIS());
-$client->log('Context: ' . $client->getContext());
-$client->log('Extension: ' . $client->getDNIS());
-$client->log('Priority: ' . $client->getPriority());
-$client->log('Enhanced: ' . $client->getEnhanced());
-$client->log('AccountCode: ' . $client->getAccountCode());
-$client->log('ThreadId: ' . $client->getThreadId());
-sleep(10);
+
+try
+{
+    $client->log('Request: '. $client->getRequest());
+    $client->log('Channel: '. $client->getChannel());
+    $client->log('Language: '. $client->getLanguage());
+    $client->log('Type: '. $client->getType());
+    $client->log('UniqueId: ' . $client->getUniqueId());
+    $client->log('Version: ' . $client->getVersion());
+    $client->log('CallerId: ' . $client->getCallerId());
+    $client->log('CallerId name: ' . $client->getCallerIdName());
+    $client->log('CallerId pres: ' . $client->getCallingPres());
+    $client->log('CallingAni2: ' . $client->getCallingAni2());
+    $client->log('CallingTon: ' . $client->getCallingTon());
+    $client->log('CallingTNS: ' . $client->getCallingTns());
+    $client->log('DNID: ' . $client->getDNID());
+    $client->log('RDNIS: ' . $client->getRDNIS());
+    $client->log('Context: ' . $client->getContext());
+    $client->log('Extension: ' . $client->getDNIS());
+    $client->log('Priority: ' . $client->getPriority());
+    $client->log('Enhanced: ' . $client->getEnhanced());
+    $client->log('AccountCode: ' . $client->getAccountCode());
+    $client->log('ThreadId: ' . $client->getThreadId());
+    $client->answer();
+    $client->sayDigits('123123123');
+} catch (\Exception $e) {
+    $client->log('Exception caught: ' . $e->getMessage());
+}
