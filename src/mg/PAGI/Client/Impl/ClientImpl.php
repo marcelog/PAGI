@@ -123,25 +123,53 @@ class ClientImpl implements IClient
     {
         $text .= "\n";
         $len = strlen($text);
-        $result = fwrite($this->_output, $text) === $len;
-        if ($result != true) {
+        $res = fwrite($this->_output, $text) === $len;
+        if ($res != true) {
             return false;
         }
-        $result = $this->read();
-        $response = explode(' ', $result);
+        do {
+            $res = $this->read();
+        } while(strlen($res) < 2);
+        $response = explode(' ', $res);
+        $code = $response[0];
+        $result = '';
+        $data = '';
+
+        $result = explode('=', $response[1]);
+        if (isset($result[1])) {
+            $result = $result[1];
+        }
+
+        if (isset($response[2])) {
+            unset($response[0]);
+            unset($response[1]);
+            $data = implode(' ', $response);
+        }
+        $ret = array('code' => $code, 'result' => $result, 'data' => $data);
         if ($response[0] != 200) {
             throw new PAGIException(
             	'Could not send command: ' . $text . ' - '
-                . print_r($result, true)
+                . print_r($res, true)
             );
         }
-        return true;
+        return array('code' => $code, 'result' => $result, 'data' => $data);
     }
 
-    public function sayDigits($digits, $escapeDigits = '')
+    public function sayDigits($digits, $escapeDigits = '', &$interrupted = false, &$digit = false)
     {
         $cmd = 'SAY DIGITS ' . $digits . ' "' . $escapeDigits . '"';
-        return $this->send($cmd);
+        $result = $this->send($cmd, $interrupted, $digit);
+        switch($result['result'])
+        {
+        case -1:
+            break;
+        case 0:
+            break;
+        default:
+            $interrupted = true;
+            $digit = chr($result['result']);
+            break;
+        }
     }
 
     public function answer()
@@ -151,7 +179,12 @@ class ClientImpl implements IClient
 
     public function log($msg)
     {
-        return $this->send('VERBOSE "' . $msg . '" 1');
+        $msg = str_replace("\r", '', $msg);
+        $msg = explode("\n", $msg);
+        foreach ($msg as $line) {
+            $this->send('VERBOSE "' . str_replace('"', '\'', $line) . '" 1');
+        }
+        return true;
     }
 
     protected function open()

@@ -54,7 +54,12 @@ try
     $client->log('AccountCode: ' . $client->getAccountCode());
     $client->log('ThreadId: ' . $client->getThreadId());
     $client->answer();
-    $client->sayDigits('123123123');
+    $int = false;
+    $digit = false;
+    $client->sayDigits('123123123', '#', $int, $digit);
+    if ($int) {
+        $client->log('Interrupted with: ' . $digit);
+    }
 } catch (\Exception $e) {
     $client->log('Exception caught: ' . $e->getMessage());
 }
