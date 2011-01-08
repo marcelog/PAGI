@@ -99,6 +99,7 @@ class ClientImpl implements IClient
         $this->_input = fopen('php://stdin', 'r');
         $this->_output = fopen('php://stdout', 'w');
         $variables = array();
+        $arguments = $variables; // Just reusing an empty array.
         while(true) {
             $line = $this->read($this->_input);
             if (strlen($line) < 1) {
@@ -110,13 +111,17 @@ class ClientImpl implements IClient
             if ($this->_logger->isDebugEnabled()) {
                 $this->_logger->debug(print_r($variableName, true));
             }
-            $value = implode('', $variableName);
-            $variables[$key] = $value;
+            $value = trim(implode('', $variableName));
+            if (strncmp($key, 'arg_', 4) === 0) {
+                $arguments[] = $value;
+            } else {
+                $variables[$key] = $value;
+            }
         }
         if ($this->_logger->isDebugEnabled()) {
             $this->_logger->debug(print_r($variables, true));
         }
-        $this->_variables = new ClientVariables($variables);
+        $this->_variables = new ClientVariables($variables, $arguments);
     }
 
     protected function close()

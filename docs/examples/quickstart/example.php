@@ -55,10 +55,10 @@ try
     $client->log('Enhanced: ' . $variables->getEnhanced());
     $client->log('AccountCode: ' . $variables->getAccountCode());
     $client->log('ThreadId: ' . $variables->getThreadId());
-    //$client->log('Arguments: ' . intval($variables->getTotalArguments()));
-    //for ($i = 1; $i <= $variables->getTotalArguments(); $i++) {
-    //    $client->log(' -- Argument ' . intval($i) . ': ' . $variables->getArgument($i));
-    //}
+    $client->log('Arguments: ' . intval($variables->getTotalArguments()));
+    for ($i = 0; $i < $variables->getTotalArguments(); $i++) {
+        $client->log(' -- Argument ' . intval($i) . ': ' . $variables->getArgument($i));
+    }
     $client->answer();
     $int = false;
     $digit = false;

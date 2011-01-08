@@ -4,6 +4,7 @@ namespace PAGI\Client;
 class ClientVariables
 {
     private $_variables;
+    private $_arguments;
 
     protected function getAGIVariable($key)
     {
@@ -115,21 +116,20 @@ class ClientVariables
 
     public function getTotalArguments()
     {
-        global $argc;
-        return $argc;
+        return count($this->_arguments);
     }
 
     public function getArgument($index)
     {
-        global $argv;
-        if (isset($argv[$index])) {
-            return $argv[$index];
+        if (isset($this->_arguments[$index])) {
+            return $this->_arguments[$index];
         }
         return false;
     }
 
-    public function __construct(array $variables)
+    public function __construct(array $variables, array $arguments)
     {
         $this->_variables = $variables;
+        $this->_arguments = $arguments;
     }
 }
