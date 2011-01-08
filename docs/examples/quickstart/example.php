@@ -29,37 +29,43 @@ require_once 'PAGI/Autoloader/Autoloader.php'; // Include ding autoloader.
 Autoloader::register(); // Call autoloader register for ding autoloader.
 use PAGI\Client\Impl\ClientImpl;
 
-$client = ClientImpl::getInstance();
+$loggerConfig = realpath('./log4php.properties');
+$client = ClientImpl::getInstance(array('log4php.properties' => $loggerConfig));
 
 try
 {
-    $client->log('Request: '. $client->getRequest());
-    $client->log('Channel: '. $client->getChannel());
-    $client->log('Language: '. $client->getLanguage());
-    $client->log('Type: '. $client->getType());
-    $client->log('UniqueId: ' . $client->getUniqueId());
-    $client->log('Version: ' . $client->getVersion());
-    $client->log('CallerId: ' . $client->getCallerId());
-    $client->log('CallerId name: ' . $client->getCallerIdName());
-    $client->log('CallerId pres: ' . $client->getCallingPres());
-    $client->log('CallingAni2: ' . $client->getCallingAni2());
-    $client->log('CallingTon: ' . $client->getCallingTon());
-    $client->log('CallingTNS: ' . $client->getCallingTns());
-    $client->log('DNID: ' . $client->getDNID());
-    $client->log('RDNIS: ' . $client->getRDNIS());
-    $client->log('Context: ' . $client->getContext());
-    $client->log('Extension: ' . $client->getDNIS());
-    $client->log('Priority: ' . $client->getPriority());
-    $client->log('Enhanced: ' . $client->getEnhanced());
-    $client->log('AccountCode: ' . $client->getAccountCode());
-    $client->log('ThreadId: ' . $client->getThreadId());
+    $variables = $client->getClientVariables();
+    $client->log('Request: '. $variables->getRequest());
+    $client->log('Channel: '. $variables->getChannel());
+    $client->log('Language: '. $variables->getLanguage());
+    $client->log('Type: '. $variables->getType());
+    $client->log('UniqueId: ' . $variables->getUniqueId());
+    $client->log('Version: ' . $variables->getVersion());
+    $client->log('CallerId: ' . $variables->getCallerId());
+    $client->log('CallerId name: ' . $variables->getCallerIdName());
+    $client->log('CallerId pres: ' . $variables->getCallingPres());
+    $client->log('CallingAni2: ' . $variables->getCallingAni2());
+    $client->log('CallingTon: ' . $variables->getCallingTon());
+    $client->log('CallingTNS: ' . $variables->getCallingTns());
+    $client->log('DNID: ' . $variables->getDNID());
+    $client->log('RDNIS: ' . $variables->getRDNIS());
+    $client->log('Context: ' . $variables->getContext());
+    $client->log('Extension: ' . $variables->getDNIS());
+    $client->log('Priority: ' . $variables->getPriority());
+    $client->log('Enhanced: ' . $variables->getEnhanced());
+    $client->log('AccountCode: ' . $variables->getAccountCode());
+    $client->log('ThreadId: ' . $variables->getThreadId());
+    //$client->log('Arguments: ' . intval($variables->getTotalArguments()));
+    //for ($i = 1; $i <= $variables->getTotalArguments(); $i++) {
+    //    $client->log(' -- Argument ' . intval($i) . ': ' . $variables->getArgument($i));
+    //}
     $client->answer();
     $int = false;
     $digit = false;
-    $client->sayDigits('123123123', '#', $int, $digit);
+    $client->sayDigits('123123123', '12#', $int, $digit);
     if ($int) {
         $client->log('Interrupted with: ' . $digit);
     }
 } catch (\Exception $e) {
-    $client->log('Exception caught: ' . $e->getMessage());
+    $client->log('Exception caught: ' . $e);
 }

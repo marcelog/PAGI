@@ -1,26 +1,35 @@
 <?php
+/**
+ * AGI Client interface.
+ *
+ * PHP Version 5
+ *
+ * @category Pagi
+ * @package  Exception
+ * @author   Marcelo Gornstein <marcelog@gmail.com>
+ * @license  http://www.noneyet.ar/ Apache License 2.0
+ * @version  SVN: $Id$
+ * @link     http://www.noneyet.ar/
+ */
 namespace PAGI\Client;
 
+/**
+ * AGI Client interface.
+ *
+ * PHP Version 5
+ *
+ * @category Pagi
+ * @package  Exception
+ * @author   Marcelo Gornstein <marcelog@gmail.com>
+ * @license  http://www.noneyet.ar/ Apache License 2.0
+ * @link     http://www.noneyet.ar/
+ */
 interface IClient
 {
-    public function getChannel();
-    public function getLanguage();
-    public function getType();
-    public function getUniqueId();
-    public function getVersion();
-    public function getCallerId();
-    public function getCallerIdName();
-    public function getCallingPres();
-    public function getCallingAni2();
-    public function getCallingTon();
-    public function getCallingTns();
-    public function getDNID();
-    public function getContext();
-    public function getRDNIS();
-    public function getRequest();
-    public function getDNIS();
-    public function getThreadId();
-    public function getAccountCode();
-    public function getEnhanced();
-    public function getPriority();
+    /**
+     * Returns an instance of ClientVariables to access agi variables.
+     *
+     * @return ClientVariables
+     */
+    public function getClientVariables();
 }
