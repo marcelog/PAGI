@@ -1,7 +1,7 @@
 <?php
 namespace PAGI\Client;
 
-class ClientVariables
+class ChannelVariables
 {
     private $_variables;
     private $_arguments;

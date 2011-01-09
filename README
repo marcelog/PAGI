@@ -26,6 +26,10 @@ Example
 Please see docs/examples/quickstart/example.php for a very basic example.
 
 --------------------------------------------------------------------------------
+Available Facades
+=================
+PAGI\Client\CDR: Provided to access cdr variables.
+PAGI\Client\ChannelVariables: Provided to access channel variables.
 --------------------------------------------------------------------------------
 Developers
 ==========

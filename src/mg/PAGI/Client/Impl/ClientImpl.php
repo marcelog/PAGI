@@ -2,7 +2,7 @@
 
 namespace PAGI\Client\Impl;
 
-use PAGI\Client\ClientVariables;
+use PAGI\Client\ChannelVariables;
 use PAGI\Exception\PAGIException;
 use PAGI\Exception\ChannelDownException;
 use PAGI\Exception\SoundFileException;
@@ -287,7 +287,7 @@ class ClientImpl implements IClient
         if ($this->_logger->isDebugEnabled()) {
             $this->_logger->debug(print_r($variables, true));
         }
-        $this->_variables = new ClientVariables($variables, $arguments);
+        $this->_variables = new ChannelVariables($variables, $arguments);
     }
 
     protected function close()
