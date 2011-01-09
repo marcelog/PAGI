@@ -66,6 +66,10 @@ try
     if ($int) {
         $client->log('Interrupted with: ' . $digit);
     }
+    $client->sayNumber('123123123', '12#', $int, $digit);
+    if ($int) {
+        $client->log('Interrupted with: ' . $digit);
+    }
 } catch (\Exception $e) {
     $client->log('Exception caught: ' . $e);
 }

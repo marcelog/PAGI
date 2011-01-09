@@ -79,6 +79,24 @@ class ClientImpl implements IClient
         }
     }
 
+    public function sayNumber($digits, $escapeDigits = '', &$interrupted = false, &$digit = false)
+    {
+        $cmd = 'SAY NUMBER ' . $digits . ' "' . $escapeDigits . '"';
+        $result = $this->send($cmd, $interrupted, $digit);
+        switch($result['result'])
+        {
+        case -1:
+            throw new ChannelDownException('SayNumber failed');
+            break;
+        case 0:
+            break;
+        default:
+            $interrupted = true;
+            $digit = chr($result['result']);
+            break;
+        }
+    }
+
     public function answer()
     {
         return $this->send('ANSWER');
