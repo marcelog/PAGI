@@ -28,6 +28,7 @@ ini_set(
 require_once 'PAGI/Autoloader/Autoloader.php'; // Include ding autoloader.
 Autoloader::register(); // Call autoloader register for ding autoloader.
 use PAGI\Client\Impl\ClientImpl;
+use PAGI\Client\ChannelStatus;
 
 $loggerConfig = realpath('./log4php.properties');
 $client = ClientImpl::getInstance(array('log4php.properties' => $loggerConfig));
@@ -84,6 +85,7 @@ try
 
     $client->streamFile('/var/lib/asterisk/sounds/welcome', '#', $digit);
     $client->log('Played and Read: ' . $digit);
+    $client->log('Channel status: ' . ChannelStatus::toString($client->channelStatus()));
 
 } catch (\Exception $e) {
     $client->log('Exception caught: ' . $e);

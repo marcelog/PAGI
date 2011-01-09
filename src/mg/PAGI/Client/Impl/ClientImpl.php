@@ -62,6 +62,23 @@ class ClientImpl implements IClient
         return array('code' => $code, 'result' => $result, 'data' => $data);
     }
 
+    public function channelStatus($channel = false)
+    {
+        $digit = false;
+        $cmd = implode(
+        	' ',
+        	array(
+        		'CHANNEL', 'STATUS',
+        		$channel ? '"' . $channel . '"' : ''
+        	)
+        );
+        $result = $this->send($cmd);
+        if ($result['result'] == -1) {
+            throw new ChannelDownException('StreamFile failed');
+        }
+        return intval($result['result']);
+    }
+
     public function streamFile($file, $escapeDigits, &$digit = false)
     {
         $digit = false;
