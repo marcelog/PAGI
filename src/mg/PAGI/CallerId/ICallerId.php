@@ -38,5 +38,4 @@ interface ICallerId
     public function getName();
     public function getNumber();
     public function setNumber($value);
-    public static function getInstance(IClient $client = null);
 }

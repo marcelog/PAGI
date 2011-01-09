@@ -25,7 +25,4 @@ interface IChannelVariables
     public function getPriority();
     public function getTotalArguments();
     public function getArgument($index);
-    public static function getInstance(
-        array $variables = array(), array $arguments = array()
-    );
 }

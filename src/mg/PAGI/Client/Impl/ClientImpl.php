@@ -271,9 +271,6 @@ class ClientImpl implements IClient
             $variableName = explode(':', substr($line, 4));
             $key = trim($variableName[0]);
             unset($variableName[0]);
-            if ($this->_logger->isDebugEnabled()) {
-                $this->_logger->debug(print_r($variableName, true));
-            }
             $value = trim(implode('', $variableName));
             if (strncmp($key, 'arg_', 4) === 0) {
                 $this->_arguments[] = $value;
