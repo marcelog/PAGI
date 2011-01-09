@@ -199,16 +199,6 @@ class ClientImpl implements IClient
         }
     }
 
-    public function getCDRVariable($name)
-    {
-        return $this->getFullVariable('CDR(' . $name . ')');
-    }
-
-    public function setCDRVariable($name, $value)
-    {
-        $this->setVariable('CDR(' . $name . ')', $value);
-    }
-
     public function getVariable($name)
     {
         $cmd = implode(

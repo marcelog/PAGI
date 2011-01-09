@@ -308,7 +308,7 @@ class CDR
      */
     public function getCustom($name)
     {
-        return $this->_client->getCDRVariable($name);
+        return $this->getCDRVariable($name);
     }
 
     /**
@@ -321,7 +321,32 @@ class CDR
      */
     public function setCustom($name, $value)
     {
-        return $this->_client->setCDRVariable($name, $value);
+        return $this->setCDRVariable($name, $value);
+    }
+
+    /**
+     * Access AGI client to get the variables.
+     *
+     * @param string $name Variable name.
+     *
+     * @return string
+     */
+    protected function getCDRVariable($name)
+    {
+        return $this->_client->getFullVariable('CDR(' . $name . ')');
+    }
+
+    /**
+     * Access AGI client to set the variable.
+     *
+     * @param string $name  Variable name.
+     * @param string $value Value.
+     *
+     * @return void
+     */
+    protected function setCDRVariable($name, $value)
+    {
+        $this->_client->setVariable('CDR(' . $name . ')', $value);
     }
 
     /**
