@@ -86,6 +86,14 @@ try
     $client->streamFile('/var/lib/asterisk/sounds/welcome', '#', $digit);
     $client->log('Played and Read: ' . $digit);
     $client->log('Channel status: ' . ChannelStatus::toString($client->channelStatus()));
+    $client->log('Channel status: ' . ChannelStatus::toString($client->channelStatus($variables->getChannel())));
+    $client->log('Variable: ' . $client->getVariable('EXTEN'));
+    $client->log('FullVariable: ' . $client->getFullVariable('EXTEN'));
+    $cdr = $client->getCDR();
+    $client->log('CDRVariable: ' . $cdr->getSource());
+    $cdr->setAccountCode('foo');
+    $client->log('CDRVariable: ' . $cdr->getAccountCode());
+    $client->hangup();
 
 } catch (\Exception $e) {
     $client->log('Exception caught: ' . $e);

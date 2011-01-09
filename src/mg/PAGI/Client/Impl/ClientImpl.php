@@ -8,6 +8,7 @@ use PAGI\Exception\ChannelDownException;
 use PAGI\Exception\SoundFileException;
 use PAGI\Exception\InvalidCommandException;
 use PAGI\Client\IClient;
+use PAGI\Client\CDR;
 
 class ClientImpl implements IClient
 {
@@ -73,9 +74,6 @@ class ClientImpl implements IClient
         	)
         );
         $result = $this->send($cmd);
-        if ($result['result'] == -1) {
-            throw new ChannelDownException('StreamFile failed');
-        }
         return intval($result['result']);
     }
 
@@ -180,7 +178,86 @@ class ClientImpl implements IClient
 
     public function answer()
     {
-        return $this->send('ANSWER');
+        $result = $this->send('ANSWER');
+        if ($result['result'] == -1) {
+            throw new ChannelDownException('Answer failed');
+        }
+    }
+
+    public function hangup($channel = false)
+    {
+        $cmd = implode(
+        	' ',
+        	array(
+        		'HANGUP',
+        		$channel ? '"' . $channel . '"' : ''
+        	)
+        );
+        $result = $this->send($cmd);
+        if ($result['result'] == -1) {
+            throw new ChannelDownException('Hangup failed');
+        }
+    }
+
+    public function getCDRVariable($name)
+    {
+        return $this->getFullVariable('CDR(' . $name . ')');
+    }
+
+    public function setCDRVariable($name, $value)
+    {
+        $this->setVariable('CDR(' . $name . ')', $value);
+    }
+
+    public function getVariable($name)
+    {
+        $cmd = implode(
+        	' ',
+        	array(
+        		'GET', 'VARIABLE',
+        	    '"' . $name . '"'
+        	)
+        );
+        $result = $this->send($cmd);
+        if ($result['result'] == 0) {
+            return false;
+        }
+        return substr($result['data'], 1, -1);
+    }
+
+    public function getFullVariable($name, $channel = false)
+    {
+        $cmd = implode(
+        	' ',
+        	array(
+        		'GET', 'FULL', 'VARIABLE',
+        	    '"${' . $name . '}"',
+        		$channel ? '"' . $channel . '"' : ''
+        	)
+        );
+        $result = $this->send($cmd);
+        if ($result['result'] == 0) {
+            return false;
+        }
+        return substr($result['data'], 1, -1);
+    }
+
+    public function setVariable($name, $value)
+    {
+        $cmd = implode(
+        	' ',
+        	array(
+        		'SET', 'VARIABLE',
+        	    '"' . $name . '"',
+        	    '"' . str_replace('"', '\\"', $value) . '"'
+        	)
+        );
+        $result = $this->send($cmd);
+    }
+
+    public function getCDR()
+    {
+        return new CDR($this);
     }
 
     public function log($msg)
