@@ -81,6 +81,10 @@ try
 
     $client->getData('/var/lib/asterisk/sounds/welcome', 10000, 4, $int, $digit);
     $client->log('Read: ' . $digit . ' ' . ($int ? 'with timeout' : ''));
+
+    $client->streamFile('/var/lib/asterisk/sounds/welcome', '#', $digit);
+    $client->log('Played and Read: ' . $digit);
+
 } catch (\Exception $e) {
     $client->log('Exception caught: ' . $e);
 }

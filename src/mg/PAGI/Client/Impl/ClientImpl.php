@@ -5,6 +5,7 @@ namespace PAGI\Client\Impl;
 use PAGI\Client\ClientVariables;
 use PAGI\Exception\PAGIException;
 use PAGI\Exception\ChannelDownException;
+use PAGI\Exception\SoundFileException;
 use PAGI\Exception\InvalidCommandException;
 use PAGI\Client\IClient;
 
@@ -60,6 +61,31 @@ class ClientImpl implements IClient
         }
         return array('code' => $code, 'result' => $result, 'data' => $data);
     }
+
+    public function streamFile($file, $escapeDigits, &$digit = false)
+    {
+        $digit = false;
+        $cmd = implode(
+        	' ',
+        	array(
+        		'STREAM', 'FILE',
+        		'"' . $file . '"',
+        	    '"' . $escapeDigits . '"'
+        	)
+        );
+        $result = $this->send($cmd);
+        if ($result['result'] == -1) {
+            throw new ChannelDownException('StreamFile failed');
+        }
+        $data = explode('=', $result['data']);
+        if ($data[1] == 0) {
+            throw new SoundFileException('Invalid format?');
+        }
+        if ($result['result'] > 0) {
+            $digit = chr($result['result']);
+        }
+    }
+
     public function getData($file, $maxTime, $maxDigits, &$timeout = false, &$digits = false)
     {
         $timeout = false;
