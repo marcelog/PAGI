@@ -2,9 +2,56 @@ Introduction
 ============
 This software is still in development, stay tuned.
 
+This framework is intended to simply making agi applications. You will 
+extend PAGIApplication like:
+
+class MyPAGIApplication extends PAGIApplication
+{
+    public function init()
+    {
+        $this->log('Init');
+        $client = $this->getAgi();
+        $client->answer();
+    }
+
+    public function shutdown()
+    {
+        $this->log('Shutdown');
+        $client = $this->getAgi();
+        $client->hangup();
+    }
+
+    public function run()
+    {
+        $this->log('Run');
+    }
+
+    public function errorHandler($type, $message, $file, $line)
+    {
+    }
+
+    public function signalHandler($signal)
+    {
+    }
+}
+
+and that's your application ;) Please see the api for more details. 
+you signal handler, error handler, init, and shutdown methods are automatically
+setup and called.
+
+Please see docs/examples/quickstart for a very basic example. You'll need
+something like this in your dialplan:
+
+[default]
+switch => Realtime
+exten => 1,1,AGI(/tmp/PAGI/docs/examples/quickstart/run.sh,a,b,c,d)
+exten => 1,n,Hangup
 --------------------------------------------------------------------------------
-Asterisk versions supported
-===========================
+Available Facades
+=================
+PAGI\Client\CDR: Provided to access cdr variables.
+PAGI\Client\ChannelVariables: Provided to access channel variables.
+PAGI\Client\CallerID: Provided to access caller id variables.
 --------------------------------------------------------------------------------
 Debugging, logging
 ==================
@@ -21,17 +68,6 @@ docs/examples/quickstart.
 Of course it is recommended that you do not set DEBUG output in your log4php
 configuration (or remove it from the include path so PAGI will notice and not
 use it). This *will* create a difference in performance.
---------------------------------------------------------------------------------
-Example
-=======
-Please see docs/examples/quickstart/example.php for a very basic example.
-
---------------------------------------------------------------------------------
-Available Facades
-=================
-PAGI\Client\CDR: Provided to access cdr variables.
-PAGI\Client\ChannelVariables: Provided to access channel variables.
-PAGI\Client\CallerID: Provided to access caller id variables.
 --------------------------------------------------------------------------------
 Developers
 ==========

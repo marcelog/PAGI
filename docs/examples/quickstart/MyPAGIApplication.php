@@ -10,25 +10,7 @@
  * @version  SVN: $Id$
  * @link     http://www.noneyet.ar/
  */
-// Setup include path.
 use PAGI\Application\PAGIApplication;
-ini_set(
-    'include_path',
-    implode(
-        PATH_SEPARATOR,
-        array(
-            ini_get('include_path'),
-            implode(DIRECTORY_SEPARATOR, array('..', '..', '..', 'src', 'mg'))
-        )
-    )
-);
-
-////////////////////////////////////////////////////////////////////////////////
-// Mandatory stuff to bootstrap.
-////////////////////////////////////////////////////////////////////////////////
-require_once 'PAGI/Autoloader/Autoloader.php'; // Include ding autoloader.
-Autoloader::register(); // Call autoloader register for ding autoloader.
-use PAGI\Client\Impl\ClientImpl;
 use PAGI\Client\ChannelStatus;
 
 class MyPAGIApplication extends PAGIApplication
@@ -118,17 +100,4 @@ class MyPAGIApplication extends PAGIApplication
     {
         $this->log('SignalHandler got signal: ' . $signal);
     }
-}
-
-try
-{
-    $myApp = new MyPAGIApplication(
-        array(
-        	'log4php.properties' => realpath('./log4php.properties')
-        )
-    );
-    $myApp->init();
-    $myApp->run();
-} catch (\Exception $e) {
-    $myApp->log('Exception caught: ' . $e);
 }
