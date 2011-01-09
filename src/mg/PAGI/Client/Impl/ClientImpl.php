@@ -60,11 +60,40 @@ class ClientImpl implements IClient
         }
         return array('code' => $code, 'result' => $result, 'data' => $data);
     }
+    public function getData($file, $maxTime, $maxDigits, &$timeout = false, &$digits = false)
+    {
+        $timeout = false;
+        $digits = false;
+        $cmd = implode(
+        	' ',
+        	array(
+        		'GET', 'DATA',
+        		'"' . $file . '"',
+        	    '"' . $maxTime . '"',
+        	    '"' . $maxDigits . '"'
+        	)
+        );
+        $result = $this->send($cmd);
+        if ($result['result'] == -1) {
+            throw new ChannelDownException('GetData failed');
+        }
+        $timeout = (strpos($result['data'], '(timeout)') !== false);
+        $digits = $result['result'];
+    }
 
     public function sayDigits($digits, $escapeDigits = '', &$interrupted = false, &$digit = false)
     {
-        $cmd = 'SAY DIGITS ' . $digits . ' "' . $escapeDigits . '"';
-        $result = $this->send($cmd, $interrupted, $digit);
+        $digit = false;
+        $interrupted = false;
+        $cmd = implode(
+        	' ',
+        	array(
+        		'SAY', 'DIGITS',
+        		'"' . $digits . '"',
+        	    '"' . $escapeDigits . '"'
+        	)
+        );
+        $result = $this->send($cmd);
         switch($result['result'])
         {
         case -1:
@@ -81,8 +110,17 @@ class ClientImpl implements IClient
 
     public function sayNumber($digits, $escapeDigits = '', &$interrupted = false, &$digit = false)
     {
-        $cmd = 'SAY NUMBER ' . $digits . ' "' . $escapeDigits . '"';
-        $result = $this->send($cmd, $interrupted, $digit);
+        $digit = false;
+        $interrupted = false;
+        $cmd = implode(
+        	' ',
+        	array(
+        		'SAY', 'NUMBER',
+        		'"' . $digits . '"',
+        	    '"' . $escapeDigits . '"'
+        	)
+        );
+        $result = $this->send($cmd);
         switch($result['result'])
         {
         case -1:
@@ -107,7 +145,7 @@ class ClientImpl implements IClient
         $msg = str_replace("\r", '', $msg);
         $msg = explode("\n", $msg);
         foreach ($msg as $line) {
-            $this->send('VERBOSE "' . str_replace('"', '\'', $line) . '" 1');
+            $this->send('VERBOSE "' . str_replace('"', '\\"', $line) . '" 1');
         }
         return true;
     }

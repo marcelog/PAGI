@@ -32,6 +32,14 @@ use PAGI\Client\Impl\ClientImpl;
 $loggerConfig = realpath('./log4php.properties');
 $client = ClientImpl::getInstance(array('log4php.properties' => $loggerConfig));
 
+function myErrorHandler()
+{
+    global $client;
+    $client->log(print_r(func_get_args(), true));
+}
+
+set_error_handler('myErrorHandler');
+
 try
 {
     $variables = $client->getClientVariables();
@@ -62,14 +70,17 @@ try
     $client->answer();
     $int = false;
     $digit = false;
-    $client->sayDigits('123123123', '12#', $int, $digit);
+    $client->sayDigits('12345', '12#', $int, $digit);
     if ($int) {
         $client->log('Interrupted with: ' . $digit);
     }
-    $client->sayNumber('123123123', '12#', $int, $digit);
+    $client->sayNumber('12345', '12#', $int, $digit);
     if ($int) {
         $client->log('Interrupted with: ' . $digit);
     }
+
+    $client->getData('/var/lib/asterisk/sounds/welcome', 10000, 4, $int, $digit);
+    $client->log('Read: ' . $digit . ' ' . ($int ? 'with timeout' : ''));
 } catch (\Exception $e) {
     $client->log('Exception caught: ' . $e);
 }
