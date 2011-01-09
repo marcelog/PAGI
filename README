@@ -30,6 +30,7 @@ Available Facades
 =================
 PAGI\Client\CDR: Provided to access cdr variables.
 PAGI\Client\ChannelVariables: Provided to access channel variables.
+PAGI\Client\CallerID: Provided to access caller id variables.
 --------------------------------------------------------------------------------
 Developers
 ==========

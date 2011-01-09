@@ -9,6 +9,7 @@ use PAGI\Exception\SoundFileException;
 use PAGI\Exception\InvalidCommandException;
 use PAGI\Client\IClient;
 use PAGI\Client\CDR;
+use PAGI\Client\CallerID;
 
 class ClientImpl implements IClient
 {
@@ -248,6 +249,11 @@ class ClientImpl implements IClient
     public function getCDR()
     {
         return new CDR($this);
+    }
+
+    public function getCallerId()
+    {
+        return new CallerId($this);
     }
 
     public function log($msg)

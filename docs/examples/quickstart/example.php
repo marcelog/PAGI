@@ -93,6 +93,8 @@ try
     $client->log('CDRVariable: ' . $cdr->getSource());
     $cdr->setAccountCode('foo');
     $client->log('CDRVariable: ' . $cdr->getAccountCode());
+    $callerId = $client->getCallerId();
+    $client->log('CallerID: ' . $callerId);
     $client->hangup();
 
 } catch (\Exception $e) {
