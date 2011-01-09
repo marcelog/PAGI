@@ -27,9 +27,32 @@ namespace PAGI\Client;
 interface IClient
 {
     /**
-     * Returns an instance of ClientVariables to access agi variables.
+     * Returns an instance of ChannelVariables to access agi variables.
      *
-     * @return ClientVariables
+     * @return IChannelVariables
      */
-    public function getClientVariables();
+    public function getChannelVariables();
+
+    /**
+     * Returns a cdr facade.
+     *
+     * @return ICDR
+     */
+    public function getCDR();
+
+    /**
+     * Returns a caller id facade.
+     *
+     * @return ICallerID
+     */
+    public function getCallerID();
+
+    /**
+     * Logs to asterisk console.
+     *
+     * @param string $msg Message to log.
+     *
+     * @return void
+     */
+    public function log($msg);
 }

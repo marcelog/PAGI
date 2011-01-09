@@ -1,10 +1,13 @@
 <?php
-namespace PAGI\Client;
+namespace PAGI\ChannelVariables\Impl;
 
-class ChannelVariables
+use PAGI\ChannelVariables\IChannelVariables;
+
+class ChannelVariablesFacade implements IChannelVariables
 {
     private $_variables;
     private $_arguments;
+    private static $_instance = false;
 
     protected function getAGIVariable($key)
     {
@@ -127,7 +130,19 @@ class ChannelVariables
         return false;
     }
 
-    public function __construct(array $variables, array $arguments)
+    public static function getInstance(
+        array $variables = array(), array $arguments = array()
+    ) {
+        if (self::$_instance === false) {
+            $ret = new ChannelVariablesFacade($variables, $arguments);
+            self::$_instance = $ret;
+        } else {
+            $ret = self::$_instance;
+        }
+        return $ret;
+    }
+
+    protected function __construct(array $variables, array $arguments)
     {
         $this->_variables = $variables;
         $this->_arguments = $arguments;

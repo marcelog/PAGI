@@ -5,13 +5,16 @@
  * PHP Version 5
  *
  * @category Pagi
- * @package  Client
+ * @package  Callerid
  * @author   Marcelo Gornstein <marcelog@gmail.com>
  * @license  http://www.noneyet.ar/ Apache License 2.0
  * @version  SVN: $Id$
  * @link     http://www.noneyet.ar/
  */
-namespace PAGI\Client;
+namespace PAGI\CallerId\Impl;
+
+use PAGI\CallerId\ICallerId;
+use PAGI\Client\IClient;
 
 /**
  * AGI Caller id facade.
@@ -19,18 +22,20 @@ namespace PAGI\Client;
  * PHP Version 5
  *
  * @category Pagi
- * @package  Client
+ * @package  Callerid
  * @author   Marcelo Gornstein <marcelog@gmail.com>
  * @license  http://www.noneyet.ar/ Apache License 2.0
  * @link     http://www.noneyet.ar/
  */
-class CallerID
+class CallerIdFacade implements ICallerId
 {
     /**
      * Instance of client to access caller id variables.
      * @var IClient
      */
     private $_client;
+
+    private static $_instance = false;
 
     /**
      * Sets caller id ani.
@@ -184,6 +189,18 @@ class CallerID
             . ']'
         ;
     }
+
+    public static function getInstance(IClient $client = null)
+    {
+        if (self::$_instance === false) {
+            $ret = new CallerIdFacade($client);
+            self::$_instance = $ret;
+        } else {
+            $ret = self::$_instance;
+        }
+        return $ret;
+    }
+
     /**
      * Constructor.
      *
@@ -191,7 +208,7 @@ class CallerID
      *
      * @return void
      */
-    public function __construct(IClient $client)
+    protected function __construct(IClient $client)
     {
         $this->_client = $client;
     }

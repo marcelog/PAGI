@@ -2,19 +2,20 @@
 
 namespace PAGI\Client\Impl;
 
-use PAGI\Client\ChannelVariables;
 use PAGI\Exception\PAGIException;
 use PAGI\Exception\ChannelDownException;
 use PAGI\Exception\SoundFileException;
 use PAGI\Exception\InvalidCommandException;
 use PAGI\Client\IClient;
-use PAGI\Client\CDR;
-use PAGI\Client\CallerID;
+use PAGI\ChannelVariables\Impl\ChannelVariablesFacade;
+use PAGI\CDR\Impl\CDRFacade;
+use PAGI\CallerId\Impl\CallerIdFacade;
 
 class ClientImpl implements IClient
 {
     private $_logger;
     private $_variables;
+    private $_arguments;
     private $_input;
     private $_output;
 
@@ -246,16 +247,6 @@ class ClientImpl implements IClient
         $result = $this->send($cmd);
     }
 
-    public function getCDR()
-    {
-        return new CDR($this);
-    }
-
-    public function getCallerId()
-    {
-        return new CallerId($this);
-    }
-
     public function log($msg)
     {
         $msg = str_replace("\r", '', $msg);
@@ -270,8 +261,8 @@ class ClientImpl implements IClient
     {
         $this->_input = fopen('php://stdin', 'r');
         $this->_output = fopen('php://stdout', 'w');
-        $variables = array();
-        $arguments = $variables; // Just reusing an empty array.
+        $this->_variables = array();
+        $this->_arguments = $this->_variables; // Just reusing an empty array.
         while(true) {
             $line = $this->read($this->_input);
             if (strlen($line) < 1) {
@@ -285,15 +276,14 @@ class ClientImpl implements IClient
             }
             $value = trim(implode('', $variableName));
             if (strncmp($key, 'arg_', 4) === 0) {
-                $arguments[] = $value;
+                $this->_arguments[] = $value;
             } else {
-                $variables[$key] = $value;
+                $this->_variables[$key] = $value;
             }
         }
         if ($this->_logger->isDebugEnabled()) {
-            $this->_logger->debug(print_r($variables, true));
+            $this->_logger->debug(print_r($this->_variables, true));
         }
-        $this->_variables = new ChannelVariables($variables, $arguments);
     }
 
     protected function close()
@@ -330,10 +320,23 @@ class ClientImpl implements IClient
         return $ret;
     }
 
-    public function getClientVariables()
+    public function getChannelVariables()
     {
-        return $this->_variables;
+        return ChannelVariablesFacade::getInstance(
+            $this->_variables, $this->_arguments
+        );
     }
+
+    public function getCDR()
+    {
+        return CDRFacade::getInstance($this);
+    }
+
+    public function getCallerId()
+    {
+        return CallerIdFacade::getInstance($this);
+    }
+
 
     protected function __construct(array $options)
     {

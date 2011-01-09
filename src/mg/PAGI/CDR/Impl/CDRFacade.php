@@ -43,7 +43,11 @@
  * @version  SVN: $Id$
  * @link     http://www.noneyet.ar/
  */
-namespace PAGI\Client;
+namespace PAGI\CDR\Impl;
+
+use PAGI\Client\IClient;
+use PAGI\CDR\ICDR;
+
 /**
  * CDR Facade.
  * If the channel has a cdr, that cdr record has it's own set of variables which
@@ -87,13 +91,19 @@ namespace PAGI\Client;
  * @license  http://www.noneyet.ar/ Apache License 2.0
  * @link     http://www.noneyet.ar/
  */
-class CDR
+class CDRFacade implements ICDR
 {
     /**
      * AGI Client, needed to access cdr data.
      * @var IClient
      */
     private $_client;
+
+    /**
+     * Current instance.
+     * @var CDRFacade
+     */
+    private static $_instance = false;
 
     /**
      * Set userfileds for cdr. CDR(userfield).
@@ -349,6 +359,17 @@ class CDR
         $this->_client->setVariable('CDR(' . $name . ')', $value);
     }
 
+    public static function getInstance(IClient $client = null)
+    {
+        if (self::$_instance === false) {
+            $ret = new CDRFacade($client);
+            self::$_instance = $ret;
+        } else {
+            $ret = self::$_instance;
+        }
+        return $ret;
+    }
+
     /**
      * Constructor.
      *
@@ -356,7 +377,7 @@ class CDR
      *
      * @return void
      */
-    public function __construct(IClient $client)
+    protected function __construct(IClient $client)
     {
         $this->_client = $client;
     }

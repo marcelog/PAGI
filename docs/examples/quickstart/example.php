@@ -43,7 +43,7 @@ set_error_handler('myErrorHandler');
 
 try
 {
-    $variables = $client->getClientVariables();
+    $variables = $client->getChannelVariables();
     $client->log('Request: '. $variables->getRequest());
     $client->log('Channel: '. $variables->getChannel());
     $client->log('Language: '. $variables->getLanguage());
@@ -94,6 +94,8 @@ try
     $cdr->setAccountCode('foo');
     $client->log('CDRVariable: ' . $cdr->getAccountCode());
     $callerId = $client->getCallerId();
+    $client->log('CallerID: ' . $callerId);
+    $callerId->setName('pepe');
     $client->log('CallerID: ' . $callerId);
     $client->hangup();
 
