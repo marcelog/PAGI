@@ -126,6 +126,7 @@ class MyPAGIApplication extends PAGIApplication
             $client->log('Interrupted with: ' . $digit);
         }
         $client->setAutoHangup(10);
+        $client->setPriority(1000);
         //sleep(20);
     }
 

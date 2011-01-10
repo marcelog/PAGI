@@ -164,6 +164,16 @@ interface IClient
     public function sayDate($time, $escapeDigits = '');
 
     /**
+     * Changes the priority for continuation upon exiting the application.
+     * Uses agi command "SET PRIORITY".
+     *
+     * @param string $priority New priority.
+     *
+     * @return void
+     */
+    public function setPriority($priority);
+
+    /**
      * Answers the current channel. Uses agi command "ANSWER".
      *
      * @throws ChannelDownException

@@ -297,6 +297,16 @@ class ClientImpl implements IClient
 
     /**
      * (non-PHPdoc)
+     * @see PAGI\Client.IClient::setPriority()
+     */
+    public function setPriority($priority)
+    {
+        $cmd = implode(' ', array('SET', 'PRIORITY', '"' . $priority . '"'));
+        $this->send($cmd);
+    }
+
+    /**
+     * (non-PHPdoc)
      * @see PAGI\Client.IClient::sayDateTime()
      */
     public function sayDateTime($time, $format, $escapeDigits = '')
