@@ -291,6 +291,16 @@ interface IClient
     public function exec($application, array $options = array());
 
     /**
+     * Sends the given text on a channel. Uses agi command "SEND TEXT".
+     *
+     * @param string $text Text to send.
+     *
+     * @throws PAGIException
+     * @return void
+     */
+    public function sendText($text);
+
+    /**
      * Cause the channel to automatically hangup at <time> seconds in the future.
      * Of course it can be hungup before then as well.
 	 * Setting to 0 will cause the autohangup feature to be disabled on this channel.

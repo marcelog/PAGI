@@ -658,6 +658,19 @@ class ClientImpl implements IClient
     }
 
     /**
+     * (non-PHPdoc)
+     * @see PAGI\Client.IClient::sendText()
+     */
+    public function sendText($text)
+    {
+        $cmd = implode(' ', array('SEND', 'TEXT', '"' . $text. '"'));
+        $result = $this->send($cmd);
+        if ($result['result'] == -1) {
+            throw new PAGIException('Command failed');
+        }
+    }
+
+    /**
      * Opens connection to agi. Will also read initial channel variables given
      * by asterisk when launching the agi.
      *
