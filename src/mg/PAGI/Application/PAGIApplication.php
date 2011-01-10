@@ -1,22 +1,87 @@
 <?php
+/**
+ * Parent class for all PAGIApplications.
+ *
+ * PHP Version 5
+ *
+ * @category Pagi
+ * @package  Application
+ * @author   Marcelo Gornstein <marcelog@gmail.com>
+ * @license  http://www.noneyet.ar/ Apache License 2.0
+ * @version  SVN: $Id$
+ * @link     http://www.noneyet.ar/
+ */
 namespace PAGI\Application;
 
 use PAGI\Client\Impl\ClientImpl;
-use PAGI\Call\Call;
-use PAGI\Call\Peer;
-use PAGI\Call\CallerId;
 
+/**
+ * Parent class for all PAGIApplications.
+ *
+ * PHP Version 5
+ *
+ * @category Pagi
+ * @package  Application
+ * @author   Marcelo Gornstein <marcelog@gmail.com>
+ * @license  http://www.noneyet.ar/ Apache License 2.0
+ * @link     http://www.noneyet.ar/
+ */
 abstract class PAGIApplication
 {
+    /**
+     * log4php logger or our own dummy.
+     * @var Logger
+     */
     private $_logger;
-    private $_agiClient;
-    private $_call;
 
+    /**
+     * AGI Client.
+     * @var IClient
+     */
+    private $_agiClient;
+
+    /**
+     * Called to initialize the application
+     *
+     * @return void
+     */
     public abstract function init();
+
+    /**
+     * Called when PHPvm is shutting down.
+     *
+     * @return void
+     */
     public abstract function shutdown();
+
+    /**
+     * Your error handler. Be careful when implementing this one.
+     *
+     * @param integer $type    PHP Error type constant.
+     * @param string  $message Human readable error message string.
+     * @param string  $file    File that triggered the error.
+     * @param integer $line    Line that triggered the error.
+     *
+     * @return boolean
+     */
     public abstract function errorHandler($type, $message, $file, $line);
+
+    /**
+     * Your signal handler. Be careful when implementing this one.
+     *
+     * @param integer $signal Signal catched.
+     *
+     * @return void
+     */
     public abstract function signalHandler($signal);
 
+    /**
+     * Logs to asterisk console.
+     *
+     * @param string $msg Message to log.
+     *
+     * @return void
+     */
     public function log($msg)
     {
         $this->_agiClient->log($msg);
@@ -25,11 +90,25 @@ abstract class PAGIApplication
         }
     }
 
-    public function getAgi()
+    /**
+     * Returns AGI Client.
+     *
+     * @return IClient
+     */
+    protected function getAgi()
     {
         return $this->_agiClient;
     }
 
+    /**
+     * Constructor. Will call set_error_handler() and pcntl_signal() to setup
+     * your errorHandler() and signalHandler(). Also will call
+     * register_shutdown_function() to register your shutdown() function.
+     *
+     * @param array $properties Optional additional properties.
+     *
+     * @return void
+     */
     public function __construct(array $properties = array())
     {
         if (isset($properties['log4php.properties'])) {
