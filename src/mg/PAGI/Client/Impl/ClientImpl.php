@@ -14,6 +14,8 @@
  */
 namespace PAGI\Client\Impl;
 
+use PAGI\Client\ChannelStatus;
+
 use PAGI\Exception\ExecuteCommandException;
 use PAGI\Exception\PAGIException;
 use PAGI\Exception\ChannelDownException;
@@ -302,6 +304,16 @@ class ClientImpl implements IClient
     public function setPriority($priority)
     {
         $cmd = implode(' ', array('SET', 'PRIORITY', '"' . $priority . '"'));
+        $this->send($cmd);
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\Client.IClient::setExtension()
+     */
+    public function setExtension($extension)
+    {
+        $cmd = implode(' ', array('SET', 'EXTENSION', '"' . $extension. '"'));
         $this->send($cmd);
     }
 

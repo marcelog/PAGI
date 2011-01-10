@@ -174,6 +174,16 @@ interface IClient
     public function setPriority($priority);
 
     /**
+     * Changes the extension for continuation upon exiting the application.
+     * Uses agi command "SET EXTENSION".
+     *
+     * @param string $extension New extension.
+     *
+     * @return void
+     */
+    public function setExtension($extension);
+
+    /**
      * Enables/Disables the music on hold generator.
      *
      * @param boolean $enable True to enable, false to disable.
