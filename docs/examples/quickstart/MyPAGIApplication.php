@@ -58,21 +58,19 @@ class MyPAGIApplication extends PAGIApplication
         for ($i = 0; $i < $variables->getTotalArguments(); $i++) {
             $client->log(' -- Argument ' . intval($i) . ': ' . $variables->getArgument($i));
         }
-        $int = false;
-        $digit = false;
-        $client->sayDigits('12345', '12#', $int, $digit);
-        if ($int) {
+        $digit = $client->sayDigits('12345', '12#');
+        if ($digit !== false) {
             $client->log('Interrupted with: ' . $digit);
         }
-        $client->sayNumber('12345', '12#', $int, $digit);
-        if ($int) {
+        $digit = $client->sayNumber('12345', '12#');
+        if ($digit !== false) {
             $client->log('Interrupted with: ' . $digit);
         }
 
         $client->getData('/var/lib/asterisk/sounds/welcome', 10000, 4, $int, $digit);
         $client->log('Read: ' . $digit . ' ' . ($int ? 'with timeout' : ''));
 
-        $client->streamFile('/var/lib/asterisk/sounds/welcome', '#', $digit);
+        $digit = $client->streamFile('/var/lib/asterisk/sounds/welcome', '#');
         $client->log('Played and Read: ' . $digit);
         $client->log('Channel status: ' . ChannelStatus::toString($client->channelStatus()));
         $client->log('Channel status: ' . ChannelStatus::toString($client->channelStatus($variables->getChannel())));

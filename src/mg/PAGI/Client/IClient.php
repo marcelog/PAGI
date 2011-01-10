@@ -55,4 +55,65 @@ interface IClient
      * @return void
      */
     public function log($msg);
+
+    /**
+     * Retrieves channel status.
+     *
+     * @param string $channel Optional, channel name.
+     *
+     * @return integer
+     */
+    public function channelStatus($channel = false);
+
+    public function streamFile($file, $escapeDigits);
+    public function getData($file, $maxTime, $maxDigits, &$timeout = false, &$digits = false);
+    public function sayDigits($digits, $escapeDigits = '');
+    public function sayNumber($digits, $escapeDigits = '');
+
+    /**
+     * Answers the current channel. Uses agi command "ANSWER".
+     *
+     * @return void
+     */
+    public function answer();
+
+    /**
+     * Hangups the current channel. Uses agi command "HANGUP".
+     *
+     * @param string $channel Optional channel name.
+     *
+     * @return void
+     */
+    public function hangup();
+
+    /**
+     * Returns a variable value. Uses agi command "GET VARIABLE". False if
+     * variable is not set.
+     *
+     * @param string $name Variable name.
+     *
+     * @return string
+     */
+    public function getVariable($name);
+
+    /**
+     * Returns a variable value. Uses agi command "GET FULL VARIABLE". False if
+     * variable is not set.
+     *
+     * @param string $name    Variable name.
+     * @param string $channel Optional channel name.
+     *
+     * @return string
+     */
+    public function getFullVariable($name, $channel = false);
+
+    /**
+     * Sets a variable. Uses agi command "SET VARIABLE".
+     *
+     * @param string $name  Variable name.
+     * @param string $value Variable value.
+     *
+     * @return void
+     */
+    public function setVariable($name, $value);
 }

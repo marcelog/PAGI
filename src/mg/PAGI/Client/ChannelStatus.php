@@ -1,17 +1,87 @@
 <?php
+/**
+ * ChannelStatus 'Helper'. See: http://www.voip-info.org/wiki/view/channel+status
+ *
+ * PHP Version 5
+ *
+ * @category Pagi
+ * @package  Client
+ * @author   Marcelo Gornstein <marcelog@gmail.com>
+ * @license  http://www.noneyet.ar/ Apache License 2.0
+ * @version  SVN: $Id$
+ * @link     http://www.noneyet.ar/
+ */
 namespace PAGI\Client;
 
+/**
+ * ChannelStatus 'Helper'. See: http://www.voip-info.org/wiki/view/channel+status
+ *
+ * PHP Version 5
+ *
+ * @category Pagi
+ * @package  Client
+ * @author   Marcelo Gornstein <marcelog@gmail.com>
+ * @license  http://www.noneyet.ar/ Apache License 2.0
+ * @link     http://www.noneyet.ar/
+ */
 class ChannelStatus
 {
+    /**
+     * Down and Available.
+     * @var integer
+     */
     const DOWN_AVAILABLE = 0;
+
+    /**
+     * Channel is down, but reserved.
+     * @var integer
+     */
     const DOWN_RESERVED = 1;
+
+    /**
+     * Channel is off hook.
+     * @var integer
+     */
     const OFF_HOOK = 2;
+
+    /**
+     * Digits (or equivalent) have been dialed.
+     * @var integer
+     */
     const DIGITS_DIALED = 3;
+
+    /**
+     * Line is ringing.
+     * @var integer
+     */
     const LINE_RINGING = 4;
+
+    /**
+     * Remote end is ringing.
+     * @var integer
+     */
     const REMOTE_RINGING = 5;
+
+    /**
+     * Channel is up and running (normal operation).
+     * @var integer
+     */
     const LINE_UP = 6;
+
+    /**
+     * Line is busy.
+     * @var integer
+     */
     const LINE_BUSY = 7;
 
+    /**
+     * This will return the human readable description for the given channel
+     * status. See class constants. (False if the status is invalid).
+     *
+     * @param integer $status Channel status.
+     *
+     * @return string
+     */
     public static function toString($status)
     {
         switch($status)

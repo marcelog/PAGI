@@ -1,5 +1,16 @@
 <?php
-
+/**
+ * An AGI client implementation.
+ *
+ * PHP Version 5
+ *
+ * @category Pagi
+ * @package  Client
+ * @author   Marcelo Gornstein <marcelog@gmail.com>
+ * @license  http://www.noneyet.ar/ Apache License 2.0
+ * @version  SVN: $Id$
+ * @link     http://www.noneyet.ar/
+ */
 namespace PAGI\Client\Impl;
 
 use PAGI\Exception\PAGIException;
@@ -11,17 +22,68 @@ use PAGI\ChannelVariables\Impl\ChannelVariablesFacade;
 use PAGI\CDR\Impl\CDRFacade;
 use PAGI\CallerId\Impl\CallerIdFacade;
 
+/**
+ * An AGI client implementation.
+ *
+ * PHP Version 5
+ *
+ * @category Pagi
+ * @package  Client
+ * @author   Marcelo Gornstein <marcelog@gmail.com>
+ * @license  http://www.noneyet.ar/ Apache License 2.0
+ * @link     http://www.noneyet.ar/
+ */
 class ClientImpl implements IClient
 {
-    private $_logger;
-    private $_variables;
-    private $_arguments;
-    private $_input;
-    private $_output;
-
+    /**
+     * Current instance.
+     * @var ClientImpl
+     */
     private static $_instance = false;
 
+    /**
+     * log4php logger or dummy.
+     * @var Logger
+     */
+    private $_logger;
 
+    /**
+     * Initial channel variables given by asterisk at start.
+     * @var string[]
+     */
+    private $_variables;
+
+    /**
+     * Initial arguments given by the user in the dialplan.
+     * @var string[]
+     */
+    private $_arguments;
+
+    /**
+     * AGI input
+     * @var stream
+     */
+    private $_input;
+
+    /**
+     * AGI output
+     * @var stream
+     */
+    private $_output;
+
+    /**
+     * Sends a command to asterisk. Returns an array with:
+     * [0] => AGI Result (3 digits)
+     * [1] => Command result
+     * [2] => Result data.
+     *
+     * @param string $text Command
+     *
+     * @throws ChannelDownException
+     * @throws InvalidCommandException
+     *
+     * @return array
+     */
     protected function send($text)
     {
         if ($this->_logger->isDebugEnabled()) {
@@ -65,6 +127,13 @@ class ClientImpl implements IClient
         return array('code' => $code, 'result' => $result, 'data' => $data);
     }
 
+    /**
+     * Retrieves channel status.
+     *
+     * @param string $channel Optional, channel name.
+     *
+     * @return integer
+     */
     public function channelStatus($channel = false)
     {
         $digit = false;
@@ -79,7 +148,16 @@ class ClientImpl implements IClient
         return intval($result['result']);
     }
 
-    public function streamFile($file, $escapeDigits, &$digit = false)
+    /**
+     * Plays a file, can be interrupted by escapeDigits. Returns the digit
+     * pressed (if any).
+     *
+     * @param string $file
+     * @param string $escapeDigits
+     *
+     * @return integer
+     */
+    public function streamFile($file, $escapeDigits)
     {
         $digit = false;
         $cmd = implode(
@@ -99,8 +177,9 @@ class ClientImpl implements IClient
             throw new SoundFileException('Invalid format?');
         }
         if ($result['result'] > 0) {
-            $digit = chr($result['result']);
+            return chr($result['result']);
         }
+        return false;
     }
 
     public function getData($file, $maxTime, $maxDigits, &$timeout = false, &$digits = false)
@@ -124,10 +203,9 @@ class ClientImpl implements IClient
         $digits = $result['result'];
     }
 
-    public function sayDigits($digits, $escapeDigits = '', &$interrupted = false, &$digit = false)
+    public function sayDigits($digits, $escapeDigits = '')
     {
         $digit = false;
-        $interrupted = false;
         $cmd = implode(
         	' ',
         	array(
@@ -149,12 +227,12 @@ class ClientImpl implements IClient
             $digit = chr($result['result']);
             break;
         }
+        return $digit;
     }
 
-    public function sayNumber($digits, $escapeDigits = '', &$interrupted = false, &$digit = false)
+    public function sayNumber($digits, $escapeDigits = '')
     {
         $digit = false;
-        $interrupted = false;
         $cmd = implode(
         	' ',
         	array(
@@ -172,12 +250,17 @@ class ClientImpl implements IClient
         case 0:
             break;
         default:
-            $interrupted = true;
             $digit = chr($result['result']);
             break;
         }
+        return $digit;
     }
 
+    /**
+     * Answers the current channel. Uses agi command "ANSWER".
+     *
+     * @return void
+     */
     public function answer()
     {
         $result = $this->send('ANSWER');
@@ -186,6 +269,13 @@ class ClientImpl implements IClient
         }
     }
 
+    /**
+     * Hangups the current channel. Uses agi command "HANGUP".
+     *
+     * @param string $channel Optional channel name.
+     *
+     * @return void
+     */
     public function hangup($channel = false)
     {
         $cmd = implode(
@@ -201,6 +291,14 @@ class ClientImpl implements IClient
         }
     }
 
+    /**
+     * Returns a variable value. Uses agi command "GET VARIABLE". False if
+     * variable is not set.
+     *
+     * @param string $name Variable name.
+     *
+     * @return string
+     */
     public function getVariable($name)
     {
         $cmd = implode(
@@ -217,6 +315,15 @@ class ClientImpl implements IClient
         return substr($result['data'], 1, -1);
     }
 
+    /**
+     * Returns a variable value. Uses agi command "GET FULL VARIABLE". False if
+     * variable is not set.
+     *
+     * @param string $name    Variable name.
+     * @param string $channel Optional channel name.
+     *
+     * @return string
+     */
     public function getFullVariable($name, $channel = false)
     {
         $cmd = implode(
@@ -234,6 +341,14 @@ class ClientImpl implements IClient
         return substr($result['data'], 1, -1);
     }
 
+    /**
+     * Sets a variable. Uses agi command "SET VARIABLE".
+     *
+     * @param string $name  Variable name.
+     * @param string $value Variable value.
+     *
+     * @return void
+     */
     public function setVariable($name, $value)
     {
         $cmd = implode(
@@ -247,6 +362,15 @@ class ClientImpl implements IClient
         $result = $this->send($cmd);
     }
 
+    /**
+     * Log to asterisk console. Uses agi command VERBOSE
+     *
+     * @param string $msg Message to send.
+     *
+     * @see PAGI\Client.IClient::log()
+     *
+     * @return void
+     */
     public function log($msg)
     {
         $msg = str_replace("\r", '', $msg);
@@ -254,9 +378,14 @@ class ClientImpl implements IClient
         foreach ($msg as $line) {
             $this->send('VERBOSE "' . str_replace('"', '\\"', $line) . '" 1');
         }
-        return true;
     }
 
+    /**
+     * Opens connection to agi. Will also read initial channel variables given
+     * by asterisk when launching the agi.
+     *
+     * @return void
+     */
     protected function open()
     {
         $this->_input = fopen('php://stdin', 'r');
@@ -283,6 +412,11 @@ class ClientImpl implements IClient
         }
     }
 
+    /**
+     * Closes the connection to agi.
+     *
+     * @return void
+     */
     protected function close()
     {
         if ($this->_input !== false) {
@@ -293,6 +427,13 @@ class ClientImpl implements IClient
         }
     }
 
+    /**
+     * Reads input from asterisk.
+     *
+     * @throws PAGIException
+     *
+     * @return string
+     */
     protected function read()
     {
         $line = fgets($this->_input);
@@ -306,6 +447,13 @@ class ClientImpl implements IClient
         return $line;
     }
 
+    /**
+     * Returns a client instance for this call.
+     *
+     * @param array $options Optional properties.
+     *
+     * @return ClientImpl
+     */
     public static function getInstance(array $options = array())
     {
         if (self::$_instance === false) {
@@ -317,6 +465,11 @@ class ClientImpl implements IClient
         return $ret;
     }
 
+    /**
+     * Returns a channel variables facade.
+     *
+     * @return IChannelVariables
+     */
     public function getChannelVariables()
     {
         return ChannelVariablesFacade::getInstance(
@@ -324,17 +477,33 @@ class ClientImpl implements IClient
         );
     }
 
+    /**
+     * Returns a cdr facade.
+     *
+     * @return ICDR
+     */
     public function getCDR()
     {
         return CDRFacade::getInstance($this);
     }
 
+    /**
+     * Returns a caller id facade.
+     *
+     * @return ICallerId
+     */
     public function getCallerId()
     {
         return CallerIdFacade::getInstance($this);
     }
 
-
+    /**
+     * Constructor.
+     *
+     * @param array $options Optional properties.
+     *
+     * @return void
+     */
     protected function __construct(array $options)
     {
         $this->_variables = false;
