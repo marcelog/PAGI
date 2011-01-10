@@ -125,9 +125,12 @@ class MyPAGIApplication extends PAGIApplication
         if ($digit !== false) {
             $client->log('Interrupted with: ' . $digit);
         }
-        $client->setAutoHangup(10);
         $client->setPriority(1000);
-        //sleep(20);
+        $client->setMusic(true);
+        sleep(10);
+        $client->setMusic(false);
+        $client->setAutoHangup(10);
+        sleep(20);
     }
 
     /**

@@ -174,6 +174,17 @@ interface IClient
     public function setPriority($priority);
 
     /**
+     * Enables/Disables the music on hold generator.
+     *
+     * @param boolean $enable True to enable, false to disable.
+     * @param string  $class  If <class> is not specified then the default
+     * music on hold class will be used.
+     *
+	 * @return void
+     */
+    public function setMusic($enable, $class = false);
+
+    /**
      * Answers the current channel. Uses agi command "ANSWER".
      *
      * @throws ChannelDownException

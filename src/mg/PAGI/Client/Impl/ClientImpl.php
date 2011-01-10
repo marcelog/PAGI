@@ -307,6 +307,23 @@ class ClientImpl implements IClient
 
     /**
      * (non-PHPdoc)
+     * @see PAGI\Client.IClient::setMusic()
+     */
+    public function setMusic($enable, $class = false)
+    {
+        $cmd = implode(
+        	' ',
+        	array(
+        		'SET', 'MUSIC',
+        	    $enable ? 'on' : 'off',
+        	    $class ? '"' . $class . '"' : ''
+            )
+        );
+        $this->send($cmd);
+    }
+
+    /**
+     * (non-PHPdoc)
      * @see PAGI\Client.IClient::sayDateTime()
      */
     public function sayDateTime($time, $format, $escapeDigits = '')
