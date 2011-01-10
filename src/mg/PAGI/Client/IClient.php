@@ -176,13 +176,13 @@ interface IClient
     /**
      * Executes an application. Uses agi command "EXEC".
      *
-     * @param string $application Application name.
-     * @param string $options     Application arguments.
+     * @param string   $application Application name.
+     * @param string[] $options     Application arguments.
      *
      * @throws ExecuteCommandException
      * @return string
      */
-    public function exec($application, $options);
+    public function exec($application, array $options = array());
 
     /**
      * Cause the channel to automatically hangup at <time> seconds in the future.

@@ -134,10 +134,13 @@ class ClientImpl implements IClient
      * (non-PHPdoc)
      * @see PAGI\Client.IClient::exec()
      */
-    public function exec($application, $options = '')
+    public function exec($application, array $options = array())
     {
         $cmd = implode(
-        	' ', array('EXEC', '"' . $application . '"', '"' . $options . '"')
+        	' ', array(
+        		'EXEC', '"' . $application . '"',
+        		'"' . implode(',', $options) . '"'
+            )
         );
         $result = $this->send($cmd);
         if ($result['result'] == -2) {
