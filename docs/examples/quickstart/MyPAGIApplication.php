@@ -136,6 +136,10 @@ class MyPAGIApplication extends PAGIApplication
         $client->setMusic(true);
         sleep(10);
         $client->setMusic(false);
+        $digit = $client->waitDigit(20000);
+        if ($digit !== false) {
+            $client->log('Read: ' . $digit);
+        }
         //$client->setAutoHangup(10);
         //sleep(20);
     }

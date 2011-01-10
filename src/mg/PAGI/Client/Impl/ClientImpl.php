@@ -450,6 +450,35 @@ class ClientImpl implements IClient
 
     /**
      * (non-PHPdoc)
+     * @see PAGI\Client.IClient::waitDigit()
+     */
+    public function waitDigit($timeout)
+    {
+        $digit = false;
+        $cmd = implode(
+        	' ',
+        	array(
+        		'WAIT', 'FOR', 'DIGIT',
+        		'"' . $timeout . '"'
+        	)
+        );
+        $result = $this->send($cmd);
+        switch($result['result'])
+        {
+        case -1:
+            throw new ChannelDownException('WaitDigit failed');
+            break;
+        case 0:
+            break;
+        default:
+            $digit = chr($result['result']);
+            break;
+        }
+        return $digit;
+    }
+
+    /**
+     * (non-PHPdoc)
      * @see PAGI\Client.IClient::answer()
      */
     public function answer()

@@ -81,6 +81,17 @@ interface IClient
     public function streamFile($file, $escapeDigits);
 
     /**
+     * Waits up to <timeout> milliseconds for channel to receive a DTMF digit.
+     * Returns the digit pressed (false if none).
+     *
+     * @param integer $timeout Milliseconds to wait. -1 to block indefinitely.
+     *
+     * @throws ChannelDownException
+     * @return string
+     */
+    public function waitDigit($timeout);
+
+    /**
      * Reads input from user. Uses agi command "GET DATA". Returns the digits
      * pressed (false if none).
      *
