@@ -35,14 +35,15 @@ class CallerIdFacade implements ICallerId
      */
     private $_client;
 
+    /**
+     * Current instance.
+     * @var CallerIdFacade
+     */
     private static $_instance = false;
 
     /**
-     * Sets caller id ani.
-     *
-     * @param string $value ANI.
-     *
-     * @return void
+     * (non-PHPdoc)
+     * @see PAGI\CallerId.ICallerId::setANI()
      */
     public function setANI($value)
     {
@@ -50,9 +51,8 @@ class CallerIdFacade implements ICallerId
     }
 
     /**
-     * Returns caller id ani.
-     *
-     * @return string
+     * (non-PHPdoc)
+     * @see PAGI\CallerId.ICallerId::getANI()
      */
     public function getANI()
     {
@@ -60,11 +60,8 @@ class CallerIdFacade implements ICallerId
     }
 
     /**
-     * Sets caller id dnid.
-     *
-     * @param string $value DNID.
-     *
-     * @return void
+     * (non-PHPdoc)
+     * @see PAGI\CallerId.ICallerId::setDNID()
      */
     public function setDNID($value)
     {
@@ -72,9 +69,8 @@ class CallerIdFacade implements ICallerId
     }
 
     /**
-     * Returns caller id dnid.
-     *
-     * @return string
+     * (non-PHPdoc)
+     * @see PAGI\CallerId.ICallerId::getDNID()
      */
     public function getDNID()
     {
@@ -82,11 +78,8 @@ class CallerIdFacade implements ICallerId
     }
 
     /**
-     * Sets caller id rdnis.
-     *
-     * @param string $value RDNIS.
-     *
-     * @return void
+     * (non-PHPdoc)
+     * @see PAGI\CallerId.ICallerId::setRDNIS()
      */
     public function setRDNIS($value)
     {
@@ -94,9 +87,8 @@ class CallerIdFacade implements ICallerId
     }
 
     /**
-     * Returns caller id rdnis.
-     *
-     * @return string
+     * (non-PHPdoc)
+     * @see PAGI\CallerId.ICallerId::getRDNIS()
      */
     public function getRDNIS()
     {
@@ -104,11 +96,8 @@ class CallerIdFacade implements ICallerId
     }
 
     /**
-     * Sets caller id name.
-     *
-     * @param string $value Name.
-     *
-     * @return void
+     * (non-PHPdoc)
+     * @see PAGI\CallerId.ICallerId::setName()
      */
     public function setName($value)
     {
@@ -116,9 +105,8 @@ class CallerIdFacade implements ICallerId
     }
 
     /**
-     * Returns caller id name.
-     *
-     * @return string
+     * (non-PHPdoc)
+     * @see PAGI\CallerId.ICallerId::getName()
      */
     public function getName()
     {
@@ -126,9 +114,8 @@ class CallerIdFacade implements ICallerId
     }
 
     /**
-     * Returns caller id number.
-     *
-     * @return string
+     * (non-PHPdoc)
+     * @see PAGI\CallerId.ICallerId::getNumber()
      */
     public function getNumber()
     {
@@ -136,11 +123,8 @@ class CallerIdFacade implements ICallerId
     }
 
     /**
-     * Sets caller id number.
-     *
-     * @param string $value Number.
-     *
-     * @return void
+     * (non-PHPdoc)
+     * @see PAGI\CallerId.ICallerId::setNumber()
      */
     public function setNumber($value)
     {
@@ -190,6 +174,13 @@ class CallerIdFacade implements ICallerId
         ;
     }
 
+    /**
+     * Returns an instance for this facade.
+     *
+     * @param IClient $client AGI Client to use.
+     *
+     * @return CallerIdFacade
+     */
     public static function getInstance(IClient $client = null)
     {
         if (self::$_instance === false) {
