@@ -646,8 +646,8 @@ class ClientImpl implements IClient
         	' ',
         	array(
         		'DATABASE', 'PUT',
-        	    '"' . $family. '"',
-        	    '"' . $key. '"',
+        	    '"' . $family . '"',
+        	    '"' . $key . '"',
         	    '"' . $value . '"',
         	)
         );
@@ -663,13 +663,25 @@ class ClientImpl implements IClient
      */
     public function sendText($text)
     {
-        $cmd = implode(' ', array('SEND', 'TEXT', '"' . $text. '"'));
+        $cmd = implode(' ', array('SEND', 'TEXT', '"' . $text . '"'));
         $result = $this->send($cmd);
         if ($result['result'] == -1) {
             throw new PAGIException('Command failed');
         }
     }
 
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\Client.IClient::sendImage()
+     */
+    public function sendImage($filename)
+    {
+        $cmd = implode(' ', array('SEND', 'IMAGE', '"' . $filename . '"'));
+        $result = $this->send($cmd);
+        if ($result['result'] == -1) {
+            throw new PAGIException('Command failed');
+        }
+    }
     /**
      * Opens connection to agi. Will also read initial channel variables given
      * by asterisk when launching the agi.
