@@ -127,11 +127,12 @@ class MyPAGIApplication extends PAGIApplication
         }
         $client->setPriority(1000);
         $client->setExtension(1000);
+        $client->setContext('foo');
         $client->setMusic(true);
         sleep(10);
         $client->setMusic(false);
-        $client->setAutoHangup(10);
-        sleep(20);
+        //$client->setAutoHangup(10);
+        //sleep(20);
     }
 
     /**

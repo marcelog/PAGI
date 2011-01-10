@@ -313,7 +313,17 @@ class ClientImpl implements IClient
      */
     public function setExtension($extension)
     {
-        $cmd = implode(' ', array('SET', 'EXTENSION', '"' . $extension. '"'));
+        $cmd = implode(' ', array('SET', 'EXTENSION', '"' . $extension . '"'));
+        $this->send($cmd);
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\Client.IClient::setContext()
+     */
+    public function setContext($context)
+    {
+        $cmd = implode(' ', array('SET', 'CONTEXT', '"' . $context . '"'));
         $this->send($cmd);
     }
 
@@ -457,7 +467,6 @@ class ClientImpl implements IClient
             throw new ChannelDownException('Hangup failed');
         }
     }
-
 
     /**
      * (non-PHPdoc)

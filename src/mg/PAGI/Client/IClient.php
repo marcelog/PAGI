@@ -184,6 +184,16 @@ interface IClient
     public function setExtension($extension);
 
     /**
+     * Changes the context for continuation upon exiting the application.
+     * Uses agi command "SET CONTEXT".
+     *
+     * @param string $context New context.
+     *
+     * @return void
+     */
+    public function setContext($context);
+
+    /**
      * Enables/Disables the music on hold generator.
      *
      * @param boolean $enable True to enable, false to disable.
