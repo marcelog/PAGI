@@ -3,41 +3,8 @@ Introduction
 This software is still in development, stay tuned.
 
 This framework is intended to simply making agi applications. You will 
-extend PAGIApplication like:
-
-class MyPAGIApplication extends PAGIApplication
-{
-    public function init()
-    {
-        $this->log('Init');
-        $client = $this->getAgi();
-        $client->answer();
-    }
-
-    public function shutdown()
-    {
-        $this->log('Shutdown');
-        $client = $this->getAgi();
-        $client->hangup();
-    }
-
-    public function run()
-    {
-        $this->log('Run');
-    }
-
-    public function errorHandler($type, $message, $file, $line)
-    {
-    }
-
-    public function signalHandler($signal)
-    {
-    }
-}
-
-and that's your application ;) Please see the api for more details. 
-you signal handler, error handler, init, and shutdown methods are automatically
-setup and called.
+extend PAGIApplication and your signal handler, error handler, init, and
+shutdown methods are automatically setup and called.
 
 Please see docs/examples/quickstart for a very basic example. You'll need
 something like this in your dialplan:
