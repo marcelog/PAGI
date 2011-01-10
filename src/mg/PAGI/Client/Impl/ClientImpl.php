@@ -284,7 +284,7 @@ class ClientImpl implements IClient
         switch($result['result'])
         {
         case -1:
-            throw new ChannelDownException('SayTime failed');
+            throw new ChannelDownException('SayDateTime failed');
             break;
         case 0:
             break;
