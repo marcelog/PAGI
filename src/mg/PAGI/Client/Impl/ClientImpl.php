@@ -329,6 +329,17 @@ class ClientImpl implements IClient
 
     /**
      * (non-PHPdoc)
+     * @see PAGI\Client.IClient::setCallerId()
+     */
+    public function setCallerId($name, $number)
+    {
+        $clid = '\\"' . $name . '\\"<' . $number . '>';
+        $cmd = implode(' ', array('SET', 'CALLERID', '"' . $clid . '"'));
+        $this->send($cmd);
+    }
+
+    /**
+     * (non-PHPdoc)
      * @see PAGI\Client.IClient::setMusic()
      */
     public function setMusic($enable, $class = false)

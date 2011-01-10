@@ -86,6 +86,7 @@ class MyPAGIApplication extends PAGIApplication
         for ($i = 0; $i < $variables->getTotalArguments(); $i++) {
             $client->log(' -- Argument ' . intval($i) . ': ' . $variables->getArgument($i));
         }
+
         $digit = $client->sayDigits('12345', '12#');
         if ($digit !== false) {
             $client->log('Interrupted with: ' . $digit);
@@ -108,10 +109,14 @@ class MyPAGIApplication extends PAGIApplication
         $client->log('CDRVariable: ' . $cdr->getSource());
         $cdr->setAccountCode('foo');
         $client->log('CDRVariable: ' . $cdr->getAccountCode());
+
         $callerId = $client->getCallerId();
         $client->log('CallerID: ' . $callerId);
         $callerId->setName('pepe');
         $client->log('CallerID: ' . $callerId);
+        $client->setCallerId('foo', '123123');
+        $client->log('CallerID: ' . $callerId);
+
         $client->log($client->exec('Dial', array('SIP/sip', 30, 'r')));
         $digit = $client->sayTime(time(), '123#');
         if ($digit !== false) {

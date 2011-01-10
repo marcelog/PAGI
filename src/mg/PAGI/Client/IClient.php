@@ -194,6 +194,16 @@ interface IClient
     public function setContext($context);
 
     /**
+     * Changes the callerid of the current channel.
+     *
+     * @param string $name   CallerId name.
+     * @param string $number CallerId number.
+     *
+     * @return void
+     */
+    public function setCallerId($name, $number);
+
+    /**
      * Enables/Disables the music on hold generator.
      *
      * @param boolean $enable True to enable, false to disable.
