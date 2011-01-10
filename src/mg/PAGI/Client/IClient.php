@@ -61,6 +61,7 @@ interface IClient
      *
      * @param string $channel Optional, channel name.
      *
+     * @throws ChannelDownException
      * @return integer
      */
     public function channelStatus($channel = false);
@@ -123,6 +124,7 @@ interface IClient
     /**
      * Answers the current channel. Uses agi command "ANSWER".
      *
+     * @throws ChannelDownException
      * @return void
      */
     public function answer();
@@ -132,6 +134,7 @@ interface IClient
      *
      * @param string $channel Optional channel name.
      *
+     * @throws ChannelDownException
      * @return void
      */
     public function hangup();
@@ -142,6 +145,7 @@ interface IClient
      *
      * @param string $name Variable name.
      *
+     * @throws ChannelDownException
      * @return string
      */
     public function getVariable($name);
@@ -153,6 +157,7 @@ interface IClient
      * @param string $name    Variable name.
      * @param string $channel Optional channel name.
      *
+     * @throws ChannelDownException
      * @return string
      */
     public function getFullVariable($name, $channel = false);
@@ -163,7 +168,19 @@ interface IClient
      * @param string $name  Variable name.
      * @param string $value Variable value.
      *
+     * @throws ChannelDownException
      * @return void
      */
     public function setVariable($name, $value);
+
+    /**
+     * Executes an application. Uses agi command "EXEC".
+     *
+     * @param string $application Application name.
+     * @param string $options     Application arguments.
+     *
+     * @throws ExecuteCommandException
+     * @return string
+     */
+    public function exec($application, $options);
 }

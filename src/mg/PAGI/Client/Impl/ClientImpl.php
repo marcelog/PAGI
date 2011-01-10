@@ -14,6 +14,7 @@
  */
 namespace PAGI\Client\Impl;
 
+use PAGI\Exception\ExecuteCommandException;
 use PAGI\Exception\PAGIException;
 use PAGI\Exception\ChannelDownException;
 use PAGI\Exception\SoundFileException;
@@ -128,6 +129,23 @@ class ClientImpl implements IClient
         }
         return array('code' => $code, 'result' => $result, 'data' => $data);
     }
+
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\Client.IClient::exec()
+     */
+    public function exec($application, $options = '')
+    {
+        $cmd = implode(
+        	' ', array('EXEC', '"' . $application . '"', '"' . $options . '"')
+        );
+        $result = $this->send($cmd);
+        if ($result == -2) {
+            throw new ExecuteCommandException('Failed to execute: ' . $cmd);
+        }
+        return $result['result'];
+    }
+
     /**
      * (non-PHPdoc)
      * @see PAGI\Client.IClient::channelStatus()
