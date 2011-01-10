@@ -36,12 +36,13 @@
  *
  * PHP Version 5
  *
- * @category Pagi
- * @package  Client
- * @author   Marcelo Gornstein <marcelog@gmail.com>
- * @license  http://www.noneyet.ar/ Apache License 2.0
- * @version  SVN: $Id$
- * @link     http://www.noneyet.ar/
+ * @category   Pagi
+ * @package    CDR
+ * @subpackage Impl
+ * @author     Marcelo Gornstein <marcelog@gmail.com>
+ * @license    http://www.noneyet.ar/ Apache License 2.0
+ * @version    SVN: $Id$
+ * @link       http://www.noneyet.ar/
  */
 namespace PAGI\CDR\Impl;
 
@@ -85,11 +86,12 @@ use PAGI\CDR\ICDR;
  *
  * PHP Version 5
  *
- * @category Pagi
- * @package  Client
- * @author   Marcelo Gornstein <marcelog@gmail.com>
- * @license  http://www.noneyet.ar/ Apache License 2.0
- * @link     http://www.noneyet.ar/
+ * @category   Pagi
+ * @package    CDR
+ * @subpackage Impl
+ * @author     Marcelo Gornstein <marcelog@gmail.com>
+ * @license    http://www.noneyet.ar/ Apache License 2.0
+ * @link       http://www.noneyet.ar/
  */
 class CDRFacade implements ICDR
 {
@@ -106,11 +108,8 @@ class CDRFacade implements ICDR
     private static $_instance = false;
 
     /**
-     * Set userfileds for cdr. CDR(userfield).
-     *
-     * @param string $value New userfields to use.
-     *
-     * @return void
+     * (non-PHPdoc)
+     * @see PAGI\CDR.ICDR::setUserfield()
      */
     public function setUserfield($value)
     {
@@ -118,9 +117,8 @@ class CDRFacade implements ICDR
     }
 
     /**
-     * The channels uses specified field (read-write). CDR(userfield).
-     *
-     * @return string
+     * (non-PHPdoc)
+     * @see PAGI\CDR.ICDR::getUserfield()
      */
     public function getUserfield()
     {
@@ -128,9 +126,8 @@ class CDRFacade implements ICDR
     }
 
     /**
-     * The channel uniqueid. CDR(uniqueid).
-     *
-     * @return string
+     * (non-PHPdoc)
+     * @see PAGI\CDR.ICDR::getUniqueId()
      */
     public function getUniqueId()
     {
@@ -138,11 +135,8 @@ class CDRFacade implements ICDR
     }
 
     /**
-     * Sets account code. CDR(accountcode).
-     *
-     * @param string $value New account code.
-     *
-     * @return void
+     * (non-PHPdoc)
+     * @see PAGI\CDR.ICDR::setAccountCode()
      */
     public function setAccountCode($value)
     {
@@ -150,9 +144,8 @@ class CDRFacade implements ICDR
     }
 
     /**
-     * The channel account code. CDR(accountcode).
-     *
-     * @return string
+     * (non-PHPdoc)
+     * @see PAGI\CDR.ICDR::getAccountCode()
      */
     public function getAccountCode()
     {
@@ -160,9 +153,8 @@ class CDRFacade implements ICDR
     }
 
     /**
-     * DOCUMENTATION, BILL, IGNORE etc. CDR(amaflags).
-     *
-     * @return string
+     * (non-PHPdoc)
+     * @see PAGI\CDR.ICDR::getAMAFlags()
      */
     public function getAMAFlags()
     {
@@ -170,9 +162,8 @@ class CDRFacade implements ICDR
     }
 
     /**
-     * ANSWERED, NO ANSWER, BUSY, etc. CDR(disposition).
-     *
-     * @return string
+     * (non-PHPdoc)
+     * @see PAGI\CDR.ICDR::getStatus()
      */
     public function getStatus()
     {
@@ -180,9 +171,8 @@ class CDRFacade implements ICDR
     }
 
     /**
-     * Total length for answered part of the call. CDR(billsec).
-     *
-     * @return string
+     * (non-PHPdoc)
+     * @see PAGI\CDR.ICDR::getAnswerLength()
      */
     public function getAnswerLength()
     {
@@ -190,19 +180,18 @@ class CDRFacade implements ICDR
     }
 
     /**
-     * Total length for the call. CDR(duration).
-     *
-     * @return string
+     * (non-PHPdoc)
+     * @see PAGI\CDR.ICDR::getTotalLength()
      */
     public function getTotalLength()
     {
         return $this->getCustom('duration');
     }
 
+
     /**
-     * Unix timestamp for the time when the call ended. CDR(end).
-     *
-     * @return integer
+     * (non-PHPdoc)
+     * @see PAGI\CDR.ICDR::getEndTime()
      */
     public function getEndTime()
     {
@@ -210,9 +199,8 @@ class CDRFacade implements ICDR
     }
 
     /**
-     * Unix timestamp for the time when the call was answered. CDR(answer).
-     *
-     * @return integer
+     * (non-PHPdoc)
+     * @see PAGI\CDR.ICDR::getAnswerTime()
      */
     public function getAnswerTime()
     {
@@ -220,9 +208,8 @@ class CDRFacade implements ICDR
     }
 
     /**
-     * Unix timestamp for the time when the call started. CDR(start).
-     *
-     * @return integer
+     * (non-PHPdoc)
+     * @see PAGI\CDR.ICDR::getStartTime()
      */
     public function getStartTime()
     {
@@ -230,9 +217,8 @@ class CDRFacade implements ICDR
     }
 
     /**
-     * Last application data. CDR(lastdata).
-     *
-     * @return string
+     * (non-PHPdoc)
+     * @see PAGI\CDR.ICDR::getLastAppData()
      */
     public function getLastAppData()
     {
@@ -240,9 +226,8 @@ class CDRFacade implements ICDR
     }
 
     /**
-     * Last application run. CDR(lastapp).
-     *
-     * @return string
+     * (non-PHPdoc)
+     * @see PAGI\CDR.ICDR::getLastApp()
      */
     public function getLastApp()
     {
@@ -250,9 +235,8 @@ class CDRFacade implements ICDR
     }
 
     /**
-     * Returns channel name. CDR(channel).
-     *
-     * @return string
+     * (non-PHPdoc)
+     * @see PAGI\CDR.ICDR::getChannel()
      */
     public function getChannel()
     {
@@ -260,19 +244,18 @@ class CDRFacade implements ICDR
     }
 
     /**
-     * Returns destination channel for this call. CDR(dstchannel)
-     *
-     * @return string
+     * (non-PHPdoc)
+     * @see PAGI\CDR.ICDR::getDestinationChannel()
      */
     public function getDestinationChannel()
     {
         return $this->getCustom('dstchannel');
     }
 
+
     /**
-     * Returns caller id for this call. CDR(clid)
-     *
-     * @return string
+     * (non-PHPdoc)
+     * @see PAGI\CDR.ICDR::getCallerId()
      */
     public function getCallerId()
     {
@@ -280,9 +263,8 @@ class CDRFacade implements ICDR
     }
 
     /**
-     * Returns source for this call. CDR(src)
-     *
-     * @return string
+     * (non-PHPdoc)
+     * @see PAGI\CDR.ICDR::getSource()
      */
     public function getSource()
     {
@@ -290,9 +272,8 @@ class CDRFacade implements ICDR
     }
 
     /**
-     * Returns destination for this call. CDR(dst)
-     *
-     * @return string
+     * (non-PHPdoc)
+     * @see PAGI\CDR.ICDR::getDestination()
      */
     public function getDestination()
     {
@@ -300,9 +281,8 @@ class CDRFacade implements ICDR
     }
 
     /**
-     * Returns destination context for this call. CDR(dcontext)
-     *
-     * @return string
+     * (non-PHPdoc)
+     * @see PAGI\CDR.ICDR::getDestinationContext()
      */
     public function getDestinationContext()
     {
@@ -310,11 +290,8 @@ class CDRFacade implements ICDR
     }
 
     /**
-     * Returns the custom CDR variable.
-     *
-     * @param string $name CDR Variable.
-     *
-     * @return string
+     * (non-PHPdoc)
+     * @see PAGI\CDR.ICDR::getCustom()
      */
     public function getCustom($name)
     {
@@ -322,12 +299,8 @@ class CDRFacade implements ICDR
     }
 
     /**
-     * Sets a custom cdr variable.
-     *
-     * @param string $name  CDR variable.
-     * @param string $value Value.
-     *
-     * @return void
+     * (non-PHPdoc)
+     * @see PAGI\CDR.ICDR::setCustom()
      */
     public function setCustom($name, $value)
     {
@@ -359,6 +332,13 @@ class CDRFacade implements ICDR
         $this->_client->setVariable('CDR(' . $name . ')', $value);
     }
 
+    /**
+     * Returns an instance for this facade.
+     *
+     * @param IClient $client AGI Client to use.
+     *
+     * @return CDRFacade
+     */
     public static function getInstance(IClient $client = null)
     {
         if (self::$_instance === false) {
