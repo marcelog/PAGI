@@ -6,7 +6,7 @@
  *
  * @category   Pagi
  * @package    Client
- * @subpacakge Impl
+ * @subpackage Impl
  * @author     Marcelo Gornstein <marcelog@gmail.com>
  * @license    http://www.noneyet.ar/ Apache License 2.0
  * @version    SVN: $Id$
@@ -30,7 +30,7 @@ use PAGI\CallerId\Impl\CallerIdFacade;
  *
  * @category   Pagi
  * @package    Client
- * @subpacakge Impl
+ * @subpackage Impl
  * @author     Marcelo Gornstein <marcelog@gmail.com>
  * @license    http://www.noneyet.ar/ Apache License 2.0
  * @link       http://www.noneyet.ar/
