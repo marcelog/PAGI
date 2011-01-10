@@ -112,7 +112,11 @@ class MyPAGIApplication extends PAGIApplication
         $client->log('CallerID: ' . $callerId);
         $callerId->setName('pepe');
         $client->log('CallerID: ' . $callerId);
-        $client->log($client->exec('Dial', array('SIP/sip', 'r')));
+        $client->log($client->exec('Dial', array('SIP/sip', 30, 'r')));
+        $digit = $client->sayTime(time(), '123#');
+        if ($digit !== false) {
+            $client->log('Interrupted with: ' . $digit);
+        }
         $client->setAutoHangup(10);
         //sleep(20);
     }

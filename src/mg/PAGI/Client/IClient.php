@@ -122,6 +122,19 @@ interface IClient
     public function sayNumber($digits, $escapeDigits = '');
 
     /**
+     * Says time. Uses agi command "SAY TIME". Returns the digit pressed
+     * to skip the sound (false if none).
+     *
+     * @param string $time         Unix timestamp.
+     * @param string $escapeDigits Optional sequence of digits that can be used
+     * to skip the sound.
+     *
+     * @throws ChannelDownException
+     * @return string
+     */
+    public function sayTime($time, $escapeDigits = '');
+
+    /**
      * Answers the current channel. Uses agi command "ANSWER".
      *
      * @throws ChannelDownException
