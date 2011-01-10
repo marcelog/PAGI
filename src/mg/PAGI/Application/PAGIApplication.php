@@ -55,6 +55,13 @@ abstract class PAGIApplication
     public abstract function shutdown();
 
     /**
+     * Called to run the application, after calling init().
+     *
+     * @return void
+     */
+    public abstract function run();
+
+    /**
      * Your error handler. Be careful when implementing this one.
      *
      * @param integer $type    PHP Error type constant.

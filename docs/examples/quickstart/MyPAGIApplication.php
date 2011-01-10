@@ -1,20 +1,40 @@
 <?php
 /**
- * PAGI basic use example.
+ * PAGI basic use example. Please see run.sh in this same directory for an
+ * example of how to actually run this from your dialplan.
  *
  * PHP Version 5
  *
- * @category Pagi
- * @author   Marcelo Gornstein <marcelog@gmail.com>
- * @license  http://www.noneyet.ar/ Apache License 2.0
- * @version  SVN: $Id$
- * @link     http://www.noneyet.ar/
+ * @category   Pagi
+ * @package    examples
+ * @subpackage quickstart
+ * @author     Marcelo Gornstein <marcelog@gmail.com>
+ * @license    http://www.noneyet.ar/ Apache License 2.0
+ * @version    SVN: $Id$
+ * @link       http://www.noneyet.ar/
  */
 use PAGI\Application\PAGIApplication;
 use PAGI\Client\ChannelStatus;
 
+/**
+ * PAGI basic use example. Please see run.sh in this same directory for an
+ * example of how to actually run this from your dialplan.
+ *
+ * PHP Version 5
+ *
+ * @category   Pagi
+ * @package    examples
+ * @subpackage quickstart
+ * @author     Marcelo Gornstein <marcelog@gmail.com>
+ * @license    http://www.noneyet.ar/ Apache License 2.0
+ * @link       http://www.noneyet.ar/
+ */
 class MyPAGIApplication extends PAGIApplication
 {
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\Application.PAGIApplication::init()
+     */
     public function init()
     {
         $this->log('Init');
@@ -22,6 +42,10 @@ class MyPAGIApplication extends PAGIApplication
         $client->answer();
     }
 
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\Application.PAGIApplication::shutdown()
+     */
     public function shutdown()
     {
         $this->log('Shutdown');
@@ -29,6 +53,10 @@ class MyPAGIApplication extends PAGIApplication
         $client->hangup();
     }
 
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\Application.PAGIApplication::run()
+     */
     public function run()
     {
         $this->log('Run');
@@ -86,6 +114,10 @@ class MyPAGIApplication extends PAGIApplication
         $client->log('CallerID: ' . $callerId);
     }
 
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\Application.PAGIApplication::errorHandler()
+     */
     public function errorHandler($type, $message, $file, $line)
     {
         $this->log(
@@ -94,6 +126,10 @@ class MyPAGIApplication extends PAGIApplication
         );
     }
 
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\Application.PAGIApplication::signalHandler()
+     */
     public function signalHandler($signal)
     {
         $this->log('SignalHandler got signal: ' . $signal);

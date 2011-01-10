@@ -1,7 +1,12 @@
 #!/bin/bash
+################################################################################
+# Sample application to run from your dialplan.
+################################################################################ 
 
 # This is the application that will be run.
 export PAGIApplication=MyPAGIApplication
+
+# Location for your log4php.properties
 export log4php_properties=/tmp/log4php.properties
 
 # Make sure this is in the include path.
