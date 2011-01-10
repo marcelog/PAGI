@@ -67,7 +67,7 @@ class MyPAGIApplication extends PAGIApplication
             $client->log('Interrupted with: ' . $digit);
         }
 
-        $client->getData('/var/lib/asterisk/sounds/welcome', 10000, 4, $int, $digit);
+        $digit = $client->getData('/var/lib/asterisk/sounds/welcome', 10000, 4, $int);
         $client->log('Read: ' . $digit . ' ' . ($int ? 'with timeout' : ''));
 
         $digit = $client->streamFile('/var/lib/asterisk/sounds/welcome', '#');

@@ -152,12 +152,15 @@ class ClientImpl implements IClient
      * Plays a file, can be interrupted by escapeDigits. Returns the digit
      * pressed (if any).
      *
-     * @param string $file
-     * @param string $escapeDigits
+     * @param string $file         File to play, without .wav extension.
+     * @param string $escapeDigits Optional sequence of digits that can be used
+     * to skip the sound.
      *
+     * @throws SoundFileException
+     * @throws ChannelDownException
      * @return integer
      */
-    public function streamFile($file, $escapeDigits)
+    public function streamFile($file, $escapeDigits = '')
     {
         $digit = false;
         $cmd = implode(
@@ -182,7 +185,20 @@ class ClientImpl implements IClient
         return false;
     }
 
-    public function getData($file, $maxTime, $maxDigits, &$timeout = false, &$digits = false)
+    /**
+     * Reads input from user. Uses agi command "GET DATA". Returns the digits
+     * pressed (false if none).
+     *
+     * @param string  $file         File to play.
+     * @param integer $maxTime      Maximum time between digits before timeout.
+     * @param string  $maxDigits    Maximum number of digits expected.
+     * @param string  &$timeout     Will become true if the read aborted by
+     * timeout.
+     *
+     * @throws ChannelDownException
+     * @return string
+     */
+    public function getData($file, $maxTime, $maxDigits, &$timeout = false)
     {
         $timeout = false;
         $digits = false;
@@ -200,9 +216,20 @@ class ClientImpl implements IClient
             throw new ChannelDownException('GetData failed');
         }
         $timeout = (strpos($result['data'], '(timeout)') !== false);
-        $digits = $result['result'];
+        return $result['result'];
     }
 
+    /**
+     * Says digits. Uses agi command "SAY DIGITS". Returns the digit pressed
+     * to skip the sound (false if none).
+     *
+     * @param string $digits       Number to say.
+     * @param string $escapeDigits Optional sequence of digits that can be used
+     * to skip the sound.
+     *
+     * @throws ChannelDownException
+     * @return string
+     */
     public function sayDigits($digits, $escapeDigits = '')
     {
         $digit = false;
@@ -230,6 +257,17 @@ class ClientImpl implements IClient
         return $digit;
     }
 
+    /**
+     * Says a number. Uses agi command "SAY NUMBER". Returns the digit pressed
+     * to skip the sound (false if none).
+     *
+     * @param string $digits       Number to say.
+     * @param string $escapeDigits Optional sequence of digits that can be used
+     * to skip the sound.
+     *
+     * @throws ChannelDownException
+     * @return string
+     */
     public function sayNumber($digits, $escapeDigits = '')
     {
         $digit = false;
@@ -259,6 +297,7 @@ class ClientImpl implements IClient
     /**
      * Answers the current channel. Uses agi command "ANSWER".
      *
+     * @throws ChannelDownException
      * @return void
      */
     public function answer()
@@ -274,6 +313,7 @@ class ClientImpl implements IClient
      *
      * @param string $channel Optional channel name.
      *
+     * @throws ChannelDownException
      * @return void
      */
     public function hangup($channel = false)

@@ -65,9 +65,59 @@ interface IClient
      */
     public function channelStatus($channel = false);
 
+    /**
+     * Plays a file, can be interrupted by escapeDigits. Returns the digit
+     * pressed (if any).
+     *
+     * @param string $file         File to play, without .wav extension.
+     * @param string $escapeDigits Optional sequence of digits that can be used
+     * to skip the sound.
+     *
+     * @throws SoundFileException
+     * @throws ChannelDownException
+     * @return integer
+     */
     public function streamFile($file, $escapeDigits);
-    public function getData($file, $maxTime, $maxDigits, &$timeout = false, &$digits = false);
+
+    /**
+     * Reads input from user. Uses agi command "GET DATA". Returns the digits
+     * pressed (false if none).
+     *
+     * @param string  $file         File to play.
+     * @param integer $maxTime      Maximum time between digits before timeout.
+     * @param string  $maxDigits    Maximum number of digits expected.
+     * @param string  &$timeout     Will become true if the read aborted by
+     * timeout.
+     *
+     * @throws ChannelDownException
+     * @return string
+     */
+    public function getData($file, $maxTime, $maxDigits, &$timeout = false);
+
+    /**
+     * Says digits. Uses agi command "SAY DIGITS". Returns the digit pressed
+     * to skip the sound (false if none).
+     *
+     * @param string $digits       Number to say.
+     * @param string $escapeDigits Optional sequence of digits that can be used
+     * to skip the sound.
+     *
+     * @throws ChannelDownException
+     * @return string
+     */
     public function sayDigits($digits, $escapeDigits = '');
+
+    /**
+     * Says a number. Uses agi command "SAY NUMBER". Returns the digit pressed
+     * to skip the sound (false if none).
+     *
+     * @param string $digits       Number to say.
+     * @param string $escapeDigits Optional sequence of digits that can be used
+     * to skip the sound.
+     *
+     * @throws ChannelDownException
+     * @return string
+     */
     public function sayNumber($digits, $escapeDigits = '');
 
     /**
