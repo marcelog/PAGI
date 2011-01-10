@@ -10,7 +10,6 @@ Please see docs/examples/quickstart for a very basic example. You'll need
 something like this in your dialplan:
 
 [default]
-switch => Realtime
 exten => 1,1,AGI(/tmp/PAGI/docs/examples/quickstart/run.sh,a,b,c,d)
 exten => 1,n,Hangup
 --------------------------------------------------------------------------------
