@@ -140,10 +140,22 @@ class ClientImpl implements IClient
         	' ', array('EXEC', '"' . $application . '"', '"' . $options . '"')
         );
         $result = $this->send($cmd);
-        if ($result == -2) {
+        if ($result['result'] == -2) {
             throw new ExecuteCommandException('Failed to execute: ' . $cmd);
         }
         return $result['result'];
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\Client.IClient::setAutoHangup()
+     */
+    public function setAutoHangup($time)
+    {
+        $cmd = implode(
+        	' ', array('SET', 'AUTOHANGUP', $time)
+        );
+        $this->send($cmd);
     }
 
     /**

@@ -183,4 +183,15 @@ interface IClient
      * @return string
      */
     public function exec($application, $options);
+
+    /**
+     * Cause the channel to automatically hangup at <time> seconds in the future.
+     * Of course it can be hungup before then as well.
+	 * Setting to 0 will cause the autohangup feature to be disabled on this channel.
+	 *
+     * @param integer $time Time to hangup channel.
+     *
+     * @return void
+     */
+    public function setAutoHangup($time);
 }
