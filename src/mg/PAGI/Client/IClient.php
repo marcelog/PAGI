@@ -45,7 +45,7 @@ interface IClient
      *
      * @return ICallerID
      */
-    public function getCallerID();
+    public function getCallerId();
 
     /**
      * Logs to asterisk console.

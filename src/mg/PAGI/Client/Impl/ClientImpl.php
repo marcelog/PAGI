@@ -126,13 +126,9 @@ class ClientImpl implements IClient
         }
         return array('code' => $code, 'result' => $result, 'data' => $data);
     }
-
     /**
-     * Retrieves channel status.
-     *
-     * @param string $channel Optional, channel name.
-     *
-     * @return integer
+     * (non-PHPdoc)
+     * @see PAGI\Client.IClient::channelStatus()
      */
     public function channelStatus($channel = false)
     {
@@ -149,16 +145,8 @@ class ClientImpl implements IClient
     }
 
     /**
-     * Plays a file, can be interrupted by escapeDigits. Returns the digit
-     * pressed (if any).
-     *
-     * @param string $file         File to play, without .wav extension.
-     * @param string $escapeDigits Optional sequence of digits that can be used
-     * to skip the sound.
-     *
-     * @throws SoundFileException
-     * @throws ChannelDownException
-     * @return integer
+     * (non-PHPdoc)
+     * @see PAGI\Client.IClient::streamFile()
      */
     public function streamFile($file, $escapeDigits = '')
     {
@@ -186,17 +174,8 @@ class ClientImpl implements IClient
     }
 
     /**
-     * Reads input from user. Uses agi command "GET DATA". Returns the digits
-     * pressed (false if none).
-     *
-     * @param string  $file         File to play.
-     * @param integer $maxTime      Maximum time between digits before timeout.
-     * @param string  $maxDigits    Maximum number of digits expected.
-     * @param string  &$timeout     Will become true if the read aborted by
-     * timeout.
-     *
-     * @throws ChannelDownException
-     * @return string
+     * (non-PHPdoc)
+     * @see PAGI\Client.IClient::getData()
      */
     public function getData($file, $maxTime, $maxDigits, &$timeout = false)
     {
@@ -220,15 +199,8 @@ class ClientImpl implements IClient
     }
 
     /**
-     * Says digits. Uses agi command "SAY DIGITS". Returns the digit pressed
-     * to skip the sound (false if none).
-     *
-     * @param string $digits       Number to say.
-     * @param string $escapeDigits Optional sequence of digits that can be used
-     * to skip the sound.
-     *
-     * @throws ChannelDownException
-     * @return string
+     * (non-PHPdoc)
+     * @see PAGI\Client.IClient::sayDigits()
      */
     public function sayDigits($digits, $escapeDigits = '')
     {
@@ -258,15 +230,8 @@ class ClientImpl implements IClient
     }
 
     /**
-     * Says a number. Uses agi command "SAY NUMBER". Returns the digit pressed
-     * to skip the sound (false if none).
-     *
-     * @param string $digits       Number to say.
-     * @param string $escapeDigits Optional sequence of digits that can be used
-     * to skip the sound.
-     *
-     * @throws ChannelDownException
-     * @return string
+     * (non-PHPdoc)
+     * @see PAGI\Client.IClient::sayNumber()
      */
     public function sayNumber($digits, $escapeDigits = '')
     {
@@ -295,10 +260,8 @@ class ClientImpl implements IClient
     }
 
     /**
-     * Answers the current channel. Uses agi command "ANSWER".
-     *
-     * @throws ChannelDownException
-     * @return void
+     * (non-PHPdoc)
+     * @see PAGI\Client.IClient::answer()
      */
     public function answer()
     {
@@ -309,12 +272,8 @@ class ClientImpl implements IClient
     }
 
     /**
-     * Hangups the current channel. Uses agi command "HANGUP".
-     *
-     * @param string $channel Optional channel name.
-     *
-     * @throws ChannelDownException
-     * @return void
+     * (non-PHPdoc)
+     * @see PAGI\Client.IClient::hangup()
      */
     public function hangup($channel = false)
     {
@@ -331,13 +290,10 @@ class ClientImpl implements IClient
         }
     }
 
+
     /**
-     * Returns a variable value. Uses agi command "GET VARIABLE". False if
-     * variable is not set.
-     *
-     * @param string $name Variable name.
-     *
-     * @return string
+     * (non-PHPdoc)
+     * @see PAGI\Client.IClient::getVariable()
      */
     public function getVariable($name)
     {
@@ -356,13 +312,8 @@ class ClientImpl implements IClient
     }
 
     /**
-     * Returns a variable value. Uses agi command "GET FULL VARIABLE". False if
-     * variable is not set.
-     *
-     * @param string $name    Variable name.
-     * @param string $channel Optional channel name.
-     *
-     * @return string
+     * (non-PHPdoc)
+     * @see PAGI\Client.IClient::getFullVariable()
      */
     public function getFullVariable($name, $channel = false)
     {
@@ -381,13 +332,10 @@ class ClientImpl implements IClient
         return substr($result['data'], 1, -1);
     }
 
+
     /**
-     * Sets a variable. Uses agi command "SET VARIABLE".
-     *
-     * @param string $name  Variable name.
-     * @param string $value Variable value.
-     *
-     * @return void
+     * (non-PHPdoc)
+     * @see PAGI\Client.IClient::setVariable()
      */
     public function setVariable($name, $value)
     {
@@ -402,14 +350,10 @@ class ClientImpl implements IClient
         $result = $this->send($cmd);
     }
 
+
     /**
-     * Log to asterisk console. Uses agi command VERBOSE
-     *
-     * @param string $msg Message to send.
-     *
+     * (non-PHPdoc)
      * @see PAGI\Client.IClient::log()
-     *
-     * @return void
      */
     public function log($msg)
     {
@@ -505,10 +449,10 @@ class ClientImpl implements IClient
         return $ret;
     }
 
+
     /**
-     * Returns a channel variables facade.
-     *
-     * @return IChannelVariables
+     * (non-PHPdoc)
+     * @see PAGI\Client.IClient::getChannelVariables()
      */
     public function getChannelVariables()
     {
@@ -518,9 +462,8 @@ class ClientImpl implements IClient
     }
 
     /**
-     * Returns a cdr facade.
-     *
-     * @return ICDR
+     * (non-PHPdoc)
+     * @see PAGI\Client.IClient::getCDR()
      */
     public function getCDR()
     {
@@ -528,9 +471,8 @@ class ClientImpl implements IClient
     }
 
     /**
-     * Returns a caller id facade.
-     *
-     * @return ICallerId
+     * (non-PHPdoc)
+     * @see PAGI\Client.IClient::getCallerId()
      */
     public function getCallerId()
     {
