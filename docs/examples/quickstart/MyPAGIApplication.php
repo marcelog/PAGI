@@ -140,6 +140,7 @@ class MyPAGIApplication extends PAGIApplication
         if ($digit !== false) {
             $client->log('Read: ' . $digit);
         }
+        //$client->log($client->databaseGet('SIP', 'Registry'));
         //$client->setAutoHangup(10);
         //sleep(20);
     }

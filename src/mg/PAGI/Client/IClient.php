@@ -48,7 +48,7 @@ interface IClient
     public function getCallerId();
 
     /**
-     * Logs to asterisk console.
+     * Logs to asterisk console. Uses agi command "VERBOSE".
      *
      * @param string $msg Message to log.
      *
@@ -57,7 +57,7 @@ interface IClient
     public function log($msg);
 
     /**
-     * Retrieves channel status.
+     * Retrieves channel status. Uses agi command "CHANNEL STATUS"
      *
      * @param string $channel Optional, channel name.
      *
@@ -68,7 +68,7 @@ interface IClient
 
     /**
      * Plays a file, can be interrupted by escapeDigits. Returns the digit
-     * pressed (if any).
+     * pressed (if any). Uses agi command "STREAM FILE"
      *
      * @param string $file         File to play, without .wav extension.
      * @param string $escapeDigits Optional sequence of digits that can be used
@@ -82,7 +82,8 @@ interface IClient
 
     /**
      * Waits up to <timeout> milliseconds for channel to receive a DTMF digit.
-     * Returns the digit pressed (false if none).
+     * Returns the digit pressed (false if none). Uses agi command
+     * "WAIT FOR DIGIT".
      *
      * @param integer $timeout Milliseconds to wait. -1 to block indefinitely.
      *
@@ -205,7 +206,8 @@ interface IClient
     public function setContext($context);
 
     /**
-     * Changes the callerid of the current channel.
+     * Changes the callerid of the current channel. Uses agi command
+     * "SET CALLERID"
      *
      * @param string $name   CallerId name.
      * @param string $number CallerId number.
@@ -215,7 +217,7 @@ interface IClient
     public function setCallerId($name, $number);
 
     /**
-     * Enables/Disables the music on hold generator.
+     * Enables/Disables the music on hold generator. Uses agi command "SET MUSIC".
      *
      * @param boolean $enable True to enable, false to disable.
      * @param string  $class  If <class> is not specified then the default
@@ -292,10 +294,60 @@ interface IClient
      * Cause the channel to automatically hangup at <time> seconds in the future.
      * Of course it can be hungup before then as well.
 	 * Setting to 0 will cause the autohangup feature to be disabled on this channel.
+	 * Uses agi command "SET AUTOHANGUP".
 	 *
      * @param integer $time Time to hangup channel.
      *
      * @return void
      */
     public function setAutoHangup($time);
+
+    /**
+     * Deletes an entry in the Asterisk database for a given family and key.
+     * Uses agi command "DATABASE DEL".
+     *
+     * @param string $family Family for key.
+     * @param string $key    Key name.
+     *
+     * @throws DatabaseInvalidEntryException
+     * @return void
+     */
+    public function databaseDel($family, $key);
+
+    /**
+     * Deletes a family or specific keytree withing a family in the Asterisk database.
+     * Uses agi command "DATABASE DELTREE".
+     *
+     * @param string $family Family for key.
+     * @param string $key    Optional key name.
+     *
+     * @throws DatabaseInvalidEntryException
+     * @return void
+     */
+    public function databaseDeltree($family, $key = false);
+
+    /**
+     * Retrieves an entry in the Asterisk database for a given family and key.
+     * Uses agi command "DATABASE GET".
+     *
+     * @param string $family Family for key.
+     * @param string $key    Key name.
+     *
+     * @throws DatabaseInvalidEntryException
+     * @return string
+     */
+    public function databaseGet($family, $key);
+
+    /**
+     * Adds or updates an entry in the Asterisk database for a given family, key, and value.
+     * Uses agi command "DATABASE PUT".
+     *
+     * @param string $family Family for key.
+     * @param string $key    Key name.
+     * @param string $value  Value to set.
+     *
+     * @throws DatabaseInvalidEntryException
+     * @return void
+     */
+    public function databasePut($family, $key, $value);
 }

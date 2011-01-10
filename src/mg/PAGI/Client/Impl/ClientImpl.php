@@ -17,6 +17,7 @@ namespace PAGI\Client\Impl;
 use PAGI\Client\ChannelStatus;
 
 use PAGI\Exception\ExecuteCommandException;
+use PAGI\Exception\DatabaseInvalidEntryException;
 use PAGI\Exception\PAGIException;
 use PAGI\Exception\ChannelDownException;
 use PAGI\Exception\SoundFileException;
@@ -578,6 +579,81 @@ class ClientImpl implements IClient
         $msg = explode("\n", $msg);
         foreach ($msg as $line) {
             $this->send('VERBOSE "' . str_replace('"', '\\"', $line) . '" 1');
+        }
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\Client.IClient::databaseDel()
+     */
+    public function databaseDel($family, $key)
+    {
+        $cmd = implode(
+        	' ',
+        	array(
+        		'DATABASE', 'DELTREE', '"' . $family. '"', '"' . $key . '"'
+        	)
+        );
+        $result = $this->send($cmd);
+        if ($result['result'] == 0) {
+            throw new DatabaseInvalidEntryException('Invalid family or key.');
+        }
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\Client.IClient::databaseDeltree()
+     */
+    public function databaseDeltree($family, $key = false)
+    {
+        $cmd = implode(
+        	' ',
+        	array(
+        		'DATABASE', 'DELTREE',
+        	    '"' . $family. '"',
+        	    $key ? '"' . $key . '"' : ''
+        	)
+        );
+        $result = $this->send($cmd);
+        if ($result['result'] == 0) {
+            throw new DatabaseInvalidEntryException('Invalid family or key.');
+        }
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\Client.IClient::databaseGet()
+     */
+    public function databaseGet($family, $key)
+    {
+        $cmd = implode(
+        	' ', array('DATABASE', 'GET', '"' . $family. '"', '"' . $key. '"')
+        );
+        $result = $this->send($cmd);
+        if ($result['result'] == 0) {
+            throw new DatabaseInvalidEntryException('Invalid family or key.');
+        }
+        return substr($result['data'], 1, -1);
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\Client.IClient::databasePut()
+     */
+    public function databasePut($family, $key, $value)
+    {
+        $cmd = implode(
+        	' ',
+        	array(
+        		'DATABASE', 'PUT',
+        	    '"' . $family. '"',
+        	    '"' . $key. '"',
+        	    '"' . $value . '"',
+        	)
+        );
+        $result = $this->send($cmd);
+        if ($result['result'] == 0) {
+            throw new DatabaseInvalidEntryException('Invalid family or key.');
         }
     }
 
