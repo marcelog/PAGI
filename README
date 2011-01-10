@@ -24,7 +24,7 @@ Debugging, logging
 
 You need log4php (http://logging.apache.org/log4php/) if you want debugging
 output from the container. Just make sure you copy it to the include_path and
-Ding will pick it up from there.
+PAGI will pick it up from there.
 
 This means that this is NOT A REQUIREMENT FOR A DEPLOY. It's not even a
 requirement at develop time (except when you really want debug output).
