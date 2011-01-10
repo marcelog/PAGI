@@ -121,6 +121,10 @@ class MyPAGIApplication extends PAGIApplication
         if ($digit !== false) {
             $client->log('Interrupted with: ' . $digit);
         }
+        $digit = $client->sayDate(time(), '123#');
+        if ($digit !== false) {
+            $client->log('Interrupted with: ' . $digit);
+        }
         $client->setAutoHangup(10);
         //sleep(20);
     }

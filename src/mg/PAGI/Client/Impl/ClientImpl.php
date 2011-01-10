@@ -266,6 +266,37 @@ class ClientImpl implements IClient
 
     /**
      * (non-PHPdoc)
+     * @see PAGI\Client.IClient::sayDate()
+     */
+    public function sayDate($time, $escapeDigits = '')
+    {
+        $digit = false;
+        $cmd = implode(
+        	' ',
+        	array(
+        		'SAY', 'DATE',
+        		'"' . $time . '"',
+        		'"' . $escapeDigits . '"'
+            )
+        );
+        $result = $this->send($cmd);
+        switch($result['result'])
+        {
+        case -1:
+            throw new ChannelDownException('SayDate failed');
+            break;
+        case 0:
+            break;
+        default:
+            $interrupted = true;
+            $digit = chr($result['result']);
+            break;
+        }
+        return $digit;
+    }
+
+    /**
+     * (non-PHPdoc)
      * @see PAGI\Client.IClient::sayDateTime()
      */
     public function sayDateTime($time, $format, $escapeDigits = '')
