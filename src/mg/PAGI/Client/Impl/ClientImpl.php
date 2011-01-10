@@ -245,11 +245,7 @@ class ClientImpl implements IClient
         $digit = false;
         $cmd = implode(
         	' ',
-        	array(
-        		'SAY', 'TIME',
-        		'"' . $time . '"',
-        	    '"' . $escapeDigits . '"'
-        	)
+        	array('SAY', 'TIME', '"' . $time . '"','"' . $escapeDigits . '"')
         );
         $result = $this->send($cmd);
         switch($result['result'])
@@ -456,13 +452,7 @@ class ClientImpl implements IClient
     public function waitDigit($timeout)
     {
         $digit = false;
-        $cmd = implode(
-        	' ',
-        	array(
-        		'WAIT', 'FOR', 'DIGIT',
-        		'"' . $timeout . '"'
-        	)
-        );
+        $cmd = implode(' ', array('WAIT', 'FOR', 'DIGIT', '"' . $timeout . '"'));
         $result = $this->send($cmd);
         switch($result['result'])
         {
@@ -496,13 +486,7 @@ class ClientImpl implements IClient
      */
     public function hangup($channel = false)
     {
-        $cmd = implode(
-        	' ',
-        	array(
-        		'HANGUP',
-        		$channel ? '"' . $channel . '"' : ''
-        	)
-        );
+        $cmd = implode(' ', array('HANGUP', $channel ? '"' . $channel . '"' : ''));
         $result = $this->send($cmd);
         if ($result['result'] == -1) {
             throw new ChannelDownException('Hangup failed');
@@ -515,13 +499,7 @@ class ClientImpl implements IClient
      */
     public function getVariable($name)
     {
-        $cmd = implode(
-        	' ',
-        	array(
-        		'GET', 'VARIABLE',
-        	    '"' . $name . '"'
-        	)
-        );
+        $cmd = implode(' ', array('GET', 'VARIABLE', '"' . $name . '"'));
         $result = $this->send($cmd);
         if ($result['result'] == 0) {
             return false;
@@ -610,7 +588,7 @@ class ClientImpl implements IClient
         	' ',
         	array(
         		'DATABASE', 'DELTREE',
-        	    '"' . $family. '"',
+        	    '"' . $family . '"',
         	    $key ? '"' . $key . '"' : ''
         	)
         );
@@ -627,7 +605,7 @@ class ClientImpl implements IClient
     public function databaseGet($family, $key)
     {
         $cmd = implode(
-        	' ', array('DATABASE', 'GET', '"' . $family. '"', '"' . $key. '"')
+        	' ', array('DATABASE', 'GET', '"' . $family. '"', '"' . $key . '"')
         );
         $result = $this->send($cmd);
         if ($result['result'] == 0) {
