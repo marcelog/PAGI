@@ -125,14 +125,29 @@ interface IClient
      * Says time. Uses agi command "SAY TIME". Returns the digit pressed
      * to skip the sound (false if none).
      *
-     * @param string $time         Unix timestamp.
-     * @param string $escapeDigits Optional sequence of digits that can be used
+     * @param integer $time         Unix timestamp.
+     * @param string  $escapeDigits Optional sequence of digits that can be used
      * to skip the sound.
      *
      * @throws ChannelDownException
      * @return string
      */
     public function sayTime($time, $escapeDigits = '');
+
+    /**
+     * Say a given date and time, returning early if any of the given DTMF
+     * digits are received on the channel. Uses agi command "SAY DATETIME".
+     * Returns the digit pressed to skip the sound (false if none).
+     *
+     * @param integer $time         Unix timestamp.
+     * @param string  $format       Format the time should be said in.
+     * @param string  $escapeDigits Optional sequence of digits that can be used
+     * to skip the sound.
+     *
+     * @throws ChannelDownException
+     * @return string
+     */
+    public function sayDateTime($time, $format, $escapeDigits = '');
 
     /**
      * Answers the current channel. Uses agi command "ANSWER".
