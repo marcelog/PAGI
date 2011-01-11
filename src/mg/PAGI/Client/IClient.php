@@ -285,7 +285,7 @@ interface IClient
      * @param string[] $options     Application arguments.
      *
      * @throws ExecuteCommandException
-     * @return string
+     * @return ExecDecorator
      */
     public function exec($application, array $options = array());
 

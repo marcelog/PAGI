@@ -15,6 +15,7 @@
 namespace PAGI\Client\Impl;
 
 use PAGI\Client\Result\Result;
+use PAGI\Client\Result\ExecResult;
 use PAGI\Client\Result\DigitReadResult;
 use PAGI\Client\Result\DataReadResult;
 use PAGI\Client\Result\PlayResult;
@@ -134,11 +135,7 @@ class ClientImpl implements IClient
         		'"' . implode(',', $options) . '"'
             )
         );
-        $result = $this->send($cmd);
-        if ($result->isResult(-2)) {
-            throw new ExecuteCommandException('Failed to execute: ' . $cmd);
-        }
-        return $result->getResult();
+        return new ExecResult($this->send($cmd));
     }
 
     /**

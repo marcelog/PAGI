@@ -88,6 +88,10 @@ abstract class ResultDecorator implements IResult
         return $this->_result->getData();
     }
 
+    public function __toString()
+    {
+        return $this->_result->__toString();
+    }
     /**
      * Constructor.
      *
