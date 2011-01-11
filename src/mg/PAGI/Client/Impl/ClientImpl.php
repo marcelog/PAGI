@@ -16,6 +16,7 @@ namespace PAGI\Client\Impl;
 
 use PAGI\Client\Result\Result;
 use PAGI\Client\Result\ExecResult;
+use PAGI\Client\Result\DialResult;
 use PAGI\Client\Result\DigitReadResult;
 use PAGI\Client\Result\DataReadResult;
 use PAGI\Client\Result\PlayResult;
@@ -122,6 +123,25 @@ class ClientImpl implements IClient
         default:
             throw new InvalidCommandException($text . ' - ' . $result);
         }
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\Client.IClient::dial()
+     */
+    public function dial($channel, array $options = array())
+    {
+        $start = time();
+        array_unshift($options, $channel);
+        $result = new DialResult($this->exec('Dial', $options));
+        $end = time();
+        $result->setPeerName($this->getFullVariable('DIALEDPEERNAME'));
+        $result->setPeerNumber($this->getFullVariable('DIALEDPEERNUMBER'));
+        $result->setDialedTime($end - $start);
+        $result->setAnsweredTime($this->getFullVariable('ANSWEREDTIME'));
+        $result->setDialStatus($this->getFullVariable('DIALSTATUS'));
+        $result->setDynamicFeatures($this->getFullVariable('DYNAMIC_FEATURES'));
+        return $result;
     }
 
     /**

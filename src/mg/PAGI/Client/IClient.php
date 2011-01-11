@@ -418,4 +418,15 @@ interface IClient
      * @return RecordResult
      */
     public function record($file, $format, $escapeDigits, $maxRecordTime = -1, $silence = false);
+
+    /**
+     * Tries to dial the given channel.
+     *
+     * @param string   $channel What to dial.
+     * @param string[] $options Dial app options
+     *
+     * @throws ChannelDownException
+     * @return DialResult
+     */
+    public function dial($channel, array $options = array());
 }

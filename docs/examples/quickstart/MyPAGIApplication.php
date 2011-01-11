@@ -143,6 +143,7 @@ class MyPAGIApplication extends PAGIApplication
         $client->log('CallerID: ' . $callerId);
 
         $client->log($client->exec('Dial', array('SIP/sip', 30, 'r')));
+        $client->log($client->dial('SIP/01', array(30, 'r')));
 
         $result = $client->sayPhonetic('marcelog', '123#');
         if (!$result->isTimeout()) {
