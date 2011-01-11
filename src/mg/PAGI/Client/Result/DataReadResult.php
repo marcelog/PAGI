@@ -33,21 +33,6 @@ use PAGI\Exception\ChannelDownException;
 class DataReadResult extends DigitReadResult
 {
     /**
-     * Digits read.
-     * @var string
-     */
-    private $_digits;
-
-    /**
-     * (non-PHPdoc)
-     * @see PAGI\Client\Result.DigitReadResult::getDigits()
-     */
-    public function getDigits()
-    {
-        return $this->_digits;
-    }
-
-    /**
      * Constructor.
      *
      * @param IResult $result Result to decorate.
@@ -56,5 +41,8 @@ class DataReadResult extends DigitReadResult
     {
         parent::__construct($result);
         $this->_digits = $result->getResult();
+        if ($result->hasData()) {
+            $this->_timeout = (strpos($result->getData(), '(timeout)') !== false);
+        }
     }
 }

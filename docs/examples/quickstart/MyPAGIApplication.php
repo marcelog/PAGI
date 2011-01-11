@@ -105,11 +105,20 @@ class MyPAGIApplication extends PAGIApplication
             $client->log('Timeouted for say number.');
         }
 
-        $digit = $client->getData('/var/lib/asterisk/sounds/welcome', 10000, 4, $int);
-        $client->log('Read: ' . $digit . ' ' . ($int ? 'with timeout' : ''));
+        $result = $client->getData('/var/lib/asterisk/sounds/welcome', 10000, 4);
+        if (!$result->isTimeout()) {
+            $client->log('Read: ' . $result->getDigits());
+        } else {
+            $client->log('Timeouted for get data with: ' . $result->getDigits());
+        }
 
-        $digit = $client->streamFile('/var/lib/asterisk/sounds/welcome', '#');
-        $client->log('Played and Read: ' . $digit);
+        $result = $client->streamFile('/var/lib/asterisk/sounds/welcome', '#');
+        if (!$result->isTimeout()) {
+            $client->log('Read: ' . $result->getDigits());
+        } else {
+            $client->log('Timeouted for stream file.');
+        }
+
         $client->log('Channel status: ' . ChannelStatus::toString($client->channelStatus()));
         $client->log('Channel status: ' . ChannelStatus::toString($client->channelStatus($variables->getChannel())));
         $client->log('Variable: ' . $client->getVariable('EXTEN'));

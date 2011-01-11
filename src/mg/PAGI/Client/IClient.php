@@ -76,7 +76,7 @@ interface IClient
      *
      * @throws SoundFileException
      * @throws ChannelDownException
-     * @return integer
+     * @return PlayResult
      */
     public function streamFile($file, $escapeDigits);
 
@@ -87,7 +87,7 @@ interface IClient
      * @param integer $timeout Milliseconds to wait. -1 to block indefinitely.
      *
      * @throws ChannelDownException
-     * @return ReadResult
+     * @return DigitReadResult
      */
     public function waitDigit($timeout);
 
@@ -102,9 +102,9 @@ interface IClient
      * timeout.
      *
      * @throws ChannelDownException
-     * @return string
+     * @return PlayResult
      */
-    public function getData($file, $maxTime, $maxDigits, &$timeout = false);
+    public function getData($file, $maxTime, $maxDigits);
 
     /**
      * Says digits. Uses agi command "SAY DIGITS". Returns the digit pressed
@@ -115,7 +115,7 @@ interface IClient
      * to skip the sound.
      *
      * @throws ChannelDownException
-     * @return string
+     * @return PlayResult
      */
     public function sayDigits($digits, $escapeDigits = '');
 
@@ -128,7 +128,7 @@ interface IClient
      * to skip the sound.
      *
      * @throws ChannelDownException
-     * @return string
+     * @return PlayResult
      */
     public function sayNumber($digits, $escapeDigits = '');
 
@@ -141,7 +141,7 @@ interface IClient
      * to skip the sound.
      *
      * @throws ChannelDownException
-     * @return string
+     * @return PlayResult
      */
     public function sayTime($time, $escapeDigits = '');
 
@@ -156,7 +156,7 @@ interface IClient
      * to skip the sound.
      *
      * @throws ChannelDownException
-     * @return string
+     * @return PlayResult
      */
     public function sayDateTime($time, $format, $escapeDigits = '');
 
@@ -170,7 +170,7 @@ interface IClient
      * to skip the sound.
      *
      * @throws ChannelDownException
-     * @return string
+     * @return PlayResult
      */
     public function sayDate($time, $escapeDigits = '');
 

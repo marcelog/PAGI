@@ -40,13 +40,13 @@ class DigitReadResult extends ResultDecorator implements IReadResult
      * Digits read (if any).
      * @var string
      */
-    private $_digits;
+    protected $_digits;
 
     /**
      * Timeout?
      * @var boolean
      */
-    private $_timeout;
+    protected $_timeout;
 
     /**
      * (non-PHPdoc)

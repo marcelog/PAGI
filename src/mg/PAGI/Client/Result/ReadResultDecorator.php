@@ -26,11 +26,11 @@ namespace PAGI\Client\Result;
  * @license    http://www.noneyet.ar/ Apache License 2.0
  * @link       http://www.noneyet.ar/
  */
-abstract class ResultDecorator implements IResult
+abstract class ReadResultDecorator implements IReadResult
 {
     /**
      * Our decorated result.
-     * @var IResult
+     * @var IReadResult
      */
     private $_result;
 
@@ -89,13 +89,31 @@ abstract class ResultDecorator implements IResult
     }
 
     /**
+     * (non-PHPdoc)
+     * @see PAGI\Client\Result.IReadResult::isTimeout()
+     */
+    public function isTimeout()
+    {
+        return $this->_result->isTimeout();
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\Client\Result.IReadResult::getDigits()
+     */
+    public function getDigits()
+    {
+        return $this->_result->getDigits();
+    }
+
+    /**
      * Constructor.
      *
-     * @param IResult $result Result to decorate.
+     * @param IReadResult $result Result to decorate.
      *
      * @return void
      */
-    public function __construct(IResult $result)
+    public function __construct(IReadResult $result)
     {
         $this->_result = $result;
     }

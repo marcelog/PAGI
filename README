@@ -20,6 +20,13 @@ PAGI\Client\ChannelVariables: Provided to access channel variables.
 PAGI\Client\CallerID: Provided to access caller id variables.
 PAGI\Client\Result: Provided to wrap up the result for agi commands.
 --------------------------------------------------------------------------------
+Results
+=======
+For every operation, a Result is provided. Some operations decorate this
+Result to add functionality, like PlayResult, ReadResult, etc. For example,
+a stream file will return a PlayResult, which decorates a ReadResult which 
+in turn, decorated a Result.
+--------------------------------------------------------------------------------
 Debugging, logging
 ==================
 

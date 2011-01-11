@@ -17,6 +17,7 @@ namespace PAGI\Client\Impl;
 use PAGI\Client\Result\Result;
 use PAGI\Client\Result\DigitReadResult;
 use PAGI\Client\Result\DataReadResult;
+use PAGI\Client\Result\PlayResult;
 use PAGI\Client\ChannelStatus;
 
 use PAGI\Exception\ExecuteCommandException;
@@ -175,25 +176,14 @@ class ClientImpl implements IClient
         		'STREAM', 'FILE', '"' . $file . '"', '"' . $escapeDigits . '"'
         	)
         );
-        $result = $this->send($cmd);
-        if ($result->isResult(-1)) {
-            throw new ChannelDownException('StreamFile failed');
-        }
-        $data = explode('=', $result->getData());
-        if ($data[1] == 0) {
-            throw new SoundFileException('Invalid format?');
-        }
-        if ($result->isResult(0)) {
-            return chr($result);
-        }
-        return false;
+        return new PlayResult(new DigitReadResult($this->send($cmd)));
     }
 
     /**
      * (non-PHPdoc)
      * @see PAGI\Client.IClient::getData()
      */
-    public function getData($file, $maxTime, $maxDigits, &$timeout = false)
+    public function getData($file, $maxTime, $maxDigits)
     {
         $timeout = false;
         $cmd = implode(
@@ -205,12 +195,7 @@ class ClientImpl implements IClient
         	    '"' . $maxDigits . '"'
         	)
         );
-        $result = $this->send($cmd);
-        if ($result->isResult(-1)) {
-            throw new ChannelDownException('GetData failed');
-        }
-        $timeout = (strpos($result->getData(), '(timeout)') !== false);
-        return $result->getResult();
+        return new PlayResult(new DataReadResult($this->send($cmd)));
     }
 
     /**
@@ -224,7 +209,7 @@ class ClientImpl implements IClient
         	' ',
         	array('SAY', 'TIME', '"' . $time . '"','"' . $escapeDigits . '"')
         );
-        return new DigitReadResult($this->send($cmd));
+        return new PlayResult(new DigitReadResult($this->send($cmd)));
     }
 
     /**
@@ -240,7 +225,7 @@ class ClientImpl implements IClient
         		'SAY', 'DATE', '"' . $time . '"', '"' . $escapeDigits . '"'
             )
         );
-        return new DigitReadResult($this->send($cmd));
+        return new PlayResult(new DigitReadResult($this->send($cmd)));
     }
 
     /**
@@ -317,7 +302,7 @@ class ClientImpl implements IClient
         		'"' . $format . '"'
             )
         );
-        return new DigitReadResult($this->send($cmd));
+        return new PlayResult(new DigitReadResult($this->send($cmd)));
     }
 
     /**
@@ -333,7 +318,7 @@ class ClientImpl implements IClient
         		'SAY', 'DIGITS', '"' . $digits . '"', '"' . $escapeDigits . '"'
         	)
         );
-        return new DigitReadResult($this->send($cmd));
+        return new PlayResult(new DigitReadResult($this->send($cmd)));
     }
 
     /**
@@ -349,7 +334,7 @@ class ClientImpl implements IClient
         		'SAY', 'NUMBER', '"' . $digits . '"', '"' . $escapeDigits . '"'
         	)
         );
-        return new DigitReadResult($this->send($cmd));
+        return new PlayResult(new DigitReadResult($this->send($cmd)));
     }
 
     /**
