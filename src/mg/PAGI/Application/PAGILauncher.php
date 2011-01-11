@@ -23,18 +23,19 @@ require_once 'PAGI/Autoloader/Autoloader.php'; // Include ding autoloader.
 Autoloader::register(); // Call autoloader register for ding autoloader.
 use PAGI\Application\Exception\InvalidApplicationException;
 
+$appName = getenv('PAGIApplication');
+$bootstrap = getenv('PAGIBootstrap');
+$log4php = realpath(getenv('log4php_properties'));
+$myApp = '';
+//\Logger::configure($log4php);
+//$logger = \Logger::getLogger('PAGI.Launcher');
+$neededMethods = array(
+	'init', 'run', 'shutdown', 'errorHandler', 'signalHandler'
+);
 try
 {
-    $appName = getenv('PAGIApplication');
-    $bootstrap = getenv('PAGIBootstrap');
-    $log4php = realpath(getenv('log4php_properties'));
-    \Logger::configure($log4php);
-    $logger = \Logger::getLogger('PAGI.Launcher');
 
     include_once $bootstrap;
-    $neededMethods = array(
-    	'init', 'run', 'shutdown', 'errorHandler', 'signalHandler'
-  	);
     if (!class_exists($appName, true)) {
         throw new InvalidApplicationException($appName . ' is not loaded.');
     }
@@ -47,5 +48,5 @@ try
     $myApp->init();
     $myApp->run();
 } catch (\Exception $e) {
-    $logger->debug($e);
+    $myApp->log($e);
 }

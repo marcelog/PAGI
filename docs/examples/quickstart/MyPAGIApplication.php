@@ -192,6 +192,16 @@ class MyPAGIApplication extends PAGIApplication
         } else {
             $client->log('Timeouted for waitdigit.');
         }
+        $result = $client->record('/tmp/asd', 'wav', '#');
+        if ($result->isInterrupted()) {
+            if ($result->isHangup()) {
+                $this->log('hangup when recording.');
+            } else {
+                $this->log('interrupted with: ' . $result->getDigits());
+            }
+            $this->log('Recorded: ' . $result->getEndPos());
+        }
+        $client->streamFile('/tmp/asd', '');
         //$client->log($client->databaseGet('SIP', 'Registry'));
         //$client->setAutoHangup(10);
         //sleep(20);

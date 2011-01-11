@@ -401,4 +401,21 @@ interface IClient
      * @return void
      */
     public function databasePut($family, $key, $value);
+
+    /**
+     * Record to a file until <escape digits> are received as dtmf.
+     * Uses agi command "RECORD FILE".
+     *
+     * @param string  $file          Target file, without the .wav (or extension
+     * chosen).
+     * @param string  $format        Format (wav, mp3, etc).
+     * @param string  $escapeDigits  Optional sequence of digits that can be used
+     * to skip the sound.
+     * @param integer $maxRecordTime Maximum record time (optional).
+     * @param integer $silence       Maximum time of silence allowed (optional)
+     *
+     * @throws ChannelDownException
+     * @return RecordResult
+     */
+    public function record($file, $format, $escapeDigits, $maxRecordTime = -1, $silence = false);
 }

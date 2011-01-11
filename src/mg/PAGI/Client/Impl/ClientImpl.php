@@ -19,6 +19,7 @@ use PAGI\Client\Result\ExecResult;
 use PAGI\Client\Result\DigitReadResult;
 use PAGI\Client\Result\DataReadResult;
 use PAGI\Client\Result\PlayResult;
+use PAGI\Client\Result\RecordResult;
 use PAGI\Client\ChannelStatus;
 
 use PAGI\Exception\ExecuteCommandException;
@@ -191,6 +192,24 @@ class ClientImpl implements IClient
         	)
         );
         return new PlayResult(new DigitReadResult($this->send($cmd)));
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\Client.IClient::record()
+     */
+    public function record($file, $format, $escapeDigits, $maxRecordTime = -1, $silence = false)
+    {
+        $cmd = implode(
+        	' ',
+        	array(
+        		'RECORD', 'FILE',
+        		'"' . $file . '"', '"' . $format . '"',
+        		'"' . $escapeDigits . '"', '"' . $maxRecordTime . '"',
+        	    $silence ? 's=' . $silence : ''
+        	)
+        );
+        return new RecordResult($this->send($cmd));
     }
 
     /**
