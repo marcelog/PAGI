@@ -183,6 +183,19 @@ interface IClient
     public function sayPhonetic($what, $escapeDigits = '');
 
     /**
+     * Say a given character string, returning early if any of the given DTMF
+     * digits are received on the channel. Uses agi command "SAY PHONETIC".
+     *
+     * @param string $what         What to say.
+     * @param string $escapeDigits Optional sequence of digits that can be used
+     * to skip the sound.
+     *
+     * @throws ChannelDownException
+     * @return PlayResult
+     */
+    public function sayAlpha($what, $escapeDigits = '');
+
+    /**
      * Changes the priority for continuation upon exiting the application.
      * Uses agi command "SET PRIORITY".
      *

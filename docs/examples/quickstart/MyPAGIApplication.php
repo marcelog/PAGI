@@ -144,6 +144,13 @@ class MyPAGIApplication extends PAGIApplication
             $client->log('Timeouted for say phonetic.');
         }
 
+        $result = $client->sayAlpha('marcelog', '123#');
+        if (!$result->isTimeout()) {
+            $client->log('Read: ' . $result->getDigits());
+        } else {
+            $client->log('Timeouted for say phonetic.');
+        }
+
         $result = $client->sayTime(time(), '123#');
         if (!$result->isTimeout()) {
             $client->log('Read: ' . $result->getDigits());

@@ -335,6 +335,21 @@ class ClientImpl implements IClient
 
     /**
      * (non-PHPdoc)
+     * @see PAGI\Client.IClient::sayAlpha()
+     */
+    public function sayAlpha($what, $escapeDigits = '')
+    {
+        $cmd = implode(
+        	' ',
+        	array(
+        		'SAY', 'ALPHA', '"' . $what . '"', '"' . $escapeDigits . '"'
+        	)
+        );
+        return new PlayResult(new DigitReadResult($this->send($cmd)));
+    }
+
+    /**
+     * (non-PHPdoc)
      * @see PAGI\Client.IClient::sayPhonetic()
      */
     public function sayPhonetic($what, $escapeDigits = '')
