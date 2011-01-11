@@ -5,12 +5,13 @@
  *
  * PHP Version 5
  *
- * @category Pagi
- * @package  Client
- * @author   Marcelo Gornstein <marcelog@gmail.com>
- * @license  http://www.noneyet.ar/ Apache License 2.0
- * @version  SVN: $Id$
- * @link     http://www.noneyet.ar/
+ * @category   Pagi
+ * @package    Client
+ * @subpackage Result
+ * @author     Marcelo Gornstein <marcelog@gmail.com>
+ * @license    http://www.noneyet.ar/ Apache License 2.0
+ * @version    SVN: $Id$
+ * @link       http://www.noneyet.ar/
  */
 namespace PAGI\Client\Result;
 
@@ -20,11 +21,12 @@ namespace PAGI\Client\Result;
  *
  * PHP Version 5
  *
- * @category Pagi
- * @package  Client
- * @author   Marcelo Gornstein <marcelog@gmail.com>
- * @license  http://www.noneyet.ar/ Apache License 2.0
- * @link     http://www.noneyet.ar/
+ * @category   Pagi
+ * @package    Client
+ * @subpackage Result
+ * @author     Marcelo Gornstein <marcelog@gmail.com>
+ * @license    http://www.noneyet.ar/ Apache License 2.0
+ * @link       http://www.noneyet.ar/
  */
 class Result implements IResult
 {
