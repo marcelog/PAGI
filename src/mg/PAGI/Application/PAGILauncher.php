@@ -27,7 +27,10 @@ try
 {
     $appName = getenv('PAGIApplication');
     $bootstrap = getenv('PAGIBootstrap');
-    $log4php = getenv('log4php_properties');
+    $log4php = realpath(getenv('log4php_properties'));
+    \Logger::configure($log4php);
+    $logger = \Logger::getLogger('PAGI.Launcher');
+
     include_once $bootstrap;
     $neededMethods = array(
     	'init', 'run', 'shutdown', 'errorHandler', 'signalHandler'
@@ -40,12 +43,9 @@ try
             throw new InvalidApplicationException($appName . ': Missing ' . $method);
         }
     }
-    $myApp = new $appName(
-        array('log4php.properties' => realpath($log4php))
-    );
+    $myApp = new $appName(array('log4php.properties' => $log4php));
     $myApp->init();
     $myApp->run();
 } catch (\Exception $e) {
-    var_dump($e);
-    $myApp->log('Exception caught: ' . $e);
+    $logger->debug($e);
 }

@@ -48,9 +48,14 @@ class MyPAGIApplication extends PAGIApplication
      */
     public function shutdown()
     {
-        $this->log('Shutdown');
-        $client = $this->getAgi();
-        $client->hangup();
+        try
+        {
+            $this->log('Shutdown');
+            $client = $this->getAgi();
+            $client->hangup();
+        } catch(\Exception $e) {
+
+        }
     }
 
     /**
@@ -86,14 +91,18 @@ class MyPAGIApplication extends PAGIApplication
         for ($i = 0; $i < $variables->getTotalArguments(); $i++) {
             $client->log(' -- Argument ' . intval($i) . ': ' . $variables->getArgument($i));
         }
-
-        $digit = $client->sayDigits('12345', '12#');
-        if ($digit !== false) {
-            $client->log('Interrupted with: ' . $digit);
+        $result = $client->sayDigits('12345', '12#');
+        if (!$result->isTimeout()) {
+            $client->log('Read: ' . $result->getDigits());
+        } else {
+            $client->log('Timeouted for say digits.');
         }
-        $digit = $client->sayNumber('12345', '12#');
-        if ($digit !== false) {
-            $client->log('Interrupted with: ' . $digit);
+
+        $result = $client->sayNumber('12345', '12#');
+        if (!$result->isTimeout()) {
+            $client->log('Read: ' . $result->getDigits());
+        } else {
+            $client->log('Timeouted for say number.');
         }
 
         $digit = $client->getData('/var/lib/asterisk/sounds/welcome', 10000, 4, $int);
@@ -118,27 +127,40 @@ class MyPAGIApplication extends PAGIApplication
         $client->log('CallerID: ' . $callerId);
 
         $client->log($client->exec('Dial', array('SIP/sip', 30, 'r')));
-        $digit = $client->sayTime(time(), '123#');
-        if ($digit !== false) {
-            $client->log('Interrupted with: ' . $digit);
+
+        $result = $client->sayTime(time(), '123#');
+        if (!$result->isTimeout()) {
+            $client->log('Read: ' . $result->getDigits());
+        } else {
+            $client->log('Timeouted for say time.');
         }
-        $digit = $client->sayDateTime(time(), 'mdYHMS', '123#');
-        if ($digit !== false) {
-            $client->log('Interrupted with: ' . $digit);
+
+        $result = $client->sayDateTime(time(), 'mdYHMS', '123#');
+        if (!$result->isTimeout()) {
+            $client->log('Read: ' . $result->getDigits());
+        } else {
+            $client->log('Timeouted for say datetime.');
         }
-        $digit = $client->sayDate(time(), '123#');
-        if ($digit !== false) {
-            $client->log('Interrupted with: ' . $digit);
+
+        $result = $client->sayDate(time(), '123#');
+        if (!$result->isTimeout()) {
+            $client->log('Read: ' . $result->getDigits());
+        } else {
+            $client->log('Timeouted for say date.');
         }
+
         $client->setPriority(1000);
         $client->setExtension(1000);
         $client->setContext('foo');
         $client->setMusic(true);
         sleep(10);
         $client->setMusic(false);
-        $digit = $client->waitDigit(20000);
-        if ($digit !== false) {
-            $client->log('Read: ' . $digit);
+
+        $result = $client->waitDigit(10000);
+        if (!$result->isTimeout()) {
+            $client->log('Read: ' . $result->getDigits());
+        } else {
+            $client->log('Timeouted for waitdigit.');
         }
         //$client->log($client->databaseGet('SIP', 'Registry'));
         //$client->setAutoHangup(10);

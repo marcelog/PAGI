@@ -91,10 +91,10 @@ abstract class PAGIApplication
      */
     public function log($msg)
     {
-        $this->_agiClient->log($msg);
         if ($this->_logger->isDebugEnabled()) {
             $this->_logger->debug($msg);
         }
+        $this->_agiClient->log($msg);
     }
 
     /**

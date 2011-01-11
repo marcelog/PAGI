@@ -14,8 +14,9 @@
  */
 namespace PAGI\Client\Impl;
 
-use PAGI\Client\Result;
-
+use PAGI\Client\Result\Result;
+use PAGI\Client\Result\DigitReadResult;
+use PAGI\Client\Result\DataReadResult;
 use PAGI\Client\ChannelStatus;
 
 use PAGI\Exception\ExecuteCommandException;
@@ -223,21 +224,7 @@ class ClientImpl implements IClient
         	' ',
         	array('SAY', 'TIME', '"' . $time . '"','"' . $escapeDigits . '"')
         );
-        $result = $this->send($cmd);
-        $result = $result->getResult();
-        switch($result)
-        {
-        case -1:
-            throw new ChannelDownException('SayTime failed');
-            break;
-        case 0:
-            break;
-        default:
-            $interrupted = true;
-            $digit = chr($result);
-            break;
-        }
-        return $digit;
+        return new DigitReadResult($this->send($cmd));
     }
 
     /**
@@ -253,21 +240,7 @@ class ClientImpl implements IClient
         		'SAY', 'DATE', '"' . $time . '"', '"' . $escapeDigits . '"'
             )
         );
-        $result = $this->send($cmd);
-        $result = $result->getResult();
-        switch($result)
-        {
-        case -1:
-            throw new ChannelDownException('SayDate failed');
-            break;
-        case 0:
-            break;
-        default:
-            $interrupted = true;
-            $digit = chr($result);
-            break;
-        }
-        return $digit;
+        return new DigitReadResult($this->send($cmd));
     }
 
     /**
@@ -344,21 +317,7 @@ class ClientImpl implements IClient
         		'"' . $format . '"'
             )
         );
-        $result = $this->send($cmd);
-        $result = $result->getResult();
-        switch($result)
-        {
-        case -1:
-            throw new ChannelDownException('SayDateTime failed');
-            break;
-        case 0:
-            break;
-        default:
-            $interrupted = true;
-            $digit = chr($result);
-            break;
-        }
-        return $digit;
+        return new DigitReadResult($this->send($cmd));
     }
 
     /**
@@ -371,26 +330,10 @@ class ClientImpl implements IClient
         $cmd = implode(
         	' ',
         	array(
-        		'SAY', 'DIGITS',
-        		'"' . $digits . '"',
-        	    '"' . $escapeDigits . '"'
+        		'SAY', 'DIGITS', '"' . $digits . '"', '"' . $escapeDigits . '"'
         	)
         );
-        $result = $this->send($cmd);
-        $result = $result->getResult();
-        switch($result)
-        {
-        case -1:
-            throw new ChannelDownException('SayDigits failed');
-            break;
-        case 0:
-            break;
-        default:
-            $interrupted = true;
-            $digit = chr($result);
-            break;
-        }
-        return $digit;
+        return new DigitReadResult($this->send($cmd));
     }
 
     /**
@@ -403,25 +346,10 @@ class ClientImpl implements IClient
         $cmd = implode(
         	' ',
         	array(
-        		'SAY', 'NUMBER',
-        		'"' . $digits . '"',
-        	    '"' . $escapeDigits . '"'
+        		'SAY', 'NUMBER', '"' . $digits . '"', '"' . $escapeDigits . '"'
         	)
         );
-        $result = $this->send($cmd);
-        $result = $result->getResult();
-        switch($result)
-        {
-        case -1:
-            throw new ChannelDownException('SayNumber failed');
-            break;
-        case 0:
-            break;
-        default:
-            $digit = chr($result);
-            break;
-        }
-        return $digit;
+        return new DigitReadResult($this->send($cmd));
     }
 
     /**
@@ -430,22 +358,8 @@ class ClientImpl implements IClient
      */
     public function waitDigit($timeout)
     {
-        $digit = false;
         $cmd = implode(' ', array('WAIT', 'FOR', 'DIGIT', '"' . $timeout . '"'));
-        $result = $this->send($cmd);
-        $result = $result->getResult();
-        switch($result)
-        {
-        case -1:
-            throw new ChannelDownException('WaitDigit failed');
-            break;
-        case 0:
-            break;
-        default:
-            $digit = chr($result);
-            break;
-        }
-        return $digit;
+        return new DigitReadResult($this->send($cmd));
     }
 
     /**

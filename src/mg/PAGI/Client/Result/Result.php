@@ -12,7 +12,7 @@
  * @version  SVN: $Id$
  * @link     http://www.noneyet.ar/
  */
-namespace PAGI\Client;
+namespace PAGI\Client\Result;
 
 /**
  * This class parses and encapsulates the result from an agi command. You must
@@ -26,7 +26,7 @@ namespace PAGI\Client;
  * @license  http://www.noneyet.ar/ Apache License 2.0
  * @link     http://www.noneyet.ar/
  */
-class Result
+class Result implements IResult
 {
     /**
      * Result code (3 digits).
@@ -53,9 +53,8 @@ class Result
     private $_line;
 
     /**
-     * Returns original line.
-     *
-     * @return string
+     * (non-PHPdoc)
+     * @see PAGI\Client.IResult::getOriginalLine()
      */
     public function getOriginalLine()
     {
@@ -63,9 +62,8 @@ class Result
     }
 
     /**
-     * Returns the integer value of the code returned by agi.
-     *
-     * @return integer
+     * (non-PHPdoc)
+     * @see PAGI\Client.IResult::getCode()
      */
     public function getCode()
     {
@@ -73,9 +71,8 @@ class Result
     }
 
     /**
-     * Returns result (result=xxx) from the result.
-     *
-     * @return integer
+     * (non-PHPdoc)
+     * @see PAGI\Client.IResult::getResult()
      */
     public function getResult()
     {
@@ -83,11 +80,8 @@ class Result
     }
 
     /**
-     * Compares result to a given value.
-     *
-     * @param string $value Value to match against.
-     *
-     * @return boolean
+     * (non-PHPdoc)
+     * @see PAGI\Client.IResult::isResult()
      */
     public function isResult($value)
     {
@@ -95,9 +89,8 @@ class Result
     }
 
     /**
-     * Returns true if this command returned any data.
-     *
-     * @return boolean
+     * (non-PHPdoc)
+     * @see PAGI\Client.IResult::hasData()
      */
     public function hasData()
     {
@@ -105,9 +98,8 @@ class Result
     }
 
     /**
-     * Returns data, if any. False if none.
-     *
-     * @return string
+     * (non-PHPdoc)
+     * @see PAGI\Client.IResult::getData()
      */
     public function getData()
     {

@@ -82,13 +82,12 @@ interface IClient
 
     /**
      * Waits up to <timeout> milliseconds for channel to receive a DTMF digit.
-     * Returns the digit pressed (false if none). Uses agi command
-     * "WAIT FOR DIGIT".
+     * Returns a read result. Uses agi command "WAIT FOR DIGIT".
      *
      * @param integer $timeout Milliseconds to wait. -1 to block indefinitely.
      *
      * @throws ChannelDownException
-     * @return string
+     * @return ReadResult
      */
     public function waitDigit($timeout);
 
