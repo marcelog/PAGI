@@ -155,7 +155,7 @@ class MyPAGIApplication extends PAGIApplication
         if (!$result->isTimeout()) {
             $client->log('Read: ' . $result->getDigits());
         } else {
-            $client->log('Timeouted for say phonetic.');
+            $client->log('Timeouted for say alpha.');
         }
 
         $result = $client->sayTime(time(), '123#');
