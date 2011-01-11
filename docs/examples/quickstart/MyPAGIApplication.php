@@ -112,6 +112,13 @@ class MyPAGIApplication extends PAGIApplication
             $client->log('Timeouted for get data with: ' . $result->getDigits());
         }
 
+        $result = $client->getOption('/var/lib/asterisk/sounds/welcome', '0123456789*#', 10000);
+        if (!$result->isTimeout()) {
+            $client->log('Read: ' . $result->getDigits());
+        } else {
+            $client->log('Timeouted for get option.');
+        }
+
         $result = $client->streamFile('/var/lib/asterisk/sounds/welcome', '#');
         if (!$result->isTimeout()) {
             $client->log('Read: ' . $result->getDigits());

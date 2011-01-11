@@ -97,13 +97,24 @@ interface IClient
      * @param string  $file         File to play.
      * @param integer $maxTime      Maximum time between digits before timeout.
      * @param string  $maxDigits    Maximum number of digits expected.
-     * @param string  &$timeout     Will become true if the read aborted by
-     * timeout.
      *
      * @throws ChannelDownException
      * @return PlayResult
      */
     public function getData($file, $maxTime, $maxDigits);
+
+    /**
+     * Reads input from user. Uses agi command "GET OPTION".
+     *
+     * @param string  $file         File to play.
+     * @param string  $escapeDigits Optional sequence of digits that can be used
+     * to skip the sound.
+     * @param integer $maxTime      Maximum time between digits before timeout.
+     *
+     * @throws ChannelDownException
+     * @return PlayResult
+     */
+    public function getOption($file, $escapeDigits, $maxTime);
 
     /**
      * Says digits. Uses agi command "SAY DIGITS".

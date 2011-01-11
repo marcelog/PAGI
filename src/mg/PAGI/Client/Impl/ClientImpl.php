@@ -178,6 +178,23 @@ class ClientImpl implements IClient
 
     /**
      * (non-PHPdoc)
+     * @see PAGI\Client.IClient::getOption()
+     */
+    public function getOption($file, $escapeDigits, $maxTime)
+    {
+        $cmd = implode(
+        	' ',
+        	array(
+        		'GET', 'OPTION',
+        		'"' . $file . '"', '"' . $escapeDigits . '"',
+        	    '"' . $maxTime . '"'
+        	)
+        );
+        return new PlayResult(new DigitReadResult($this->send($cmd)));
+    }
+
+    /**
+     * (non-PHPdoc)
      * @see PAGI\Client.IClient::getData()
      */
     public function getData($file, $maxTime, $maxDigits)
