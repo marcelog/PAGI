@@ -18,6 +18,7 @@ Available Facades
 PAGI\Client\CDR: Provided to access cdr variables.
 PAGI\Client\ChannelVariables: Provided to access channel variables.
 PAGI\Client\CallerID: Provided to access caller id variables.
+PAGI\Client\Result: Provided to wrap up the result for agi commands.
 --------------------------------------------------------------------------------
 Debugging, logging
 ==================

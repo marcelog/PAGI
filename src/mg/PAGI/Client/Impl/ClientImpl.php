@@ -14,6 +14,8 @@
  */
 namespace PAGI\Client\Impl;
 
+use PAGI\Client\Result;
+
 use PAGI\Client\ChannelStatus;
 
 use PAGI\Exception\ExecuteCommandException;
@@ -88,7 +90,7 @@ class ClientImpl implements IClient
      * @throws ChannelDownException
      * @throws InvalidCommandException
      *
-     * @return array
+     * @return Result
      */
     protected function send($text)
     {
@@ -104,33 +106,18 @@ class ClientImpl implements IClient
         do {
             $res = $this->read();
         } while(strlen($res) < 2);
-        $response = explode(' ', $res);
-        $code = $response[0];
-        switch($code)
+        $result = new Result($res);
+        switch($result->getCode())
         {
         case 200:
-            break;
+            return $result;
         case 511:
-            throw new ChannelDownException($text . ' - ' . print_r($res, true));
+            throw new ChannelDownException($text . ' - ' . $result);
         case 510:
         case 520:
         default:
-            throw new InvalidCommandException($text . ' - ' . print_r($res, true));
+            throw new InvalidCommandException($text . ' - ' . $result);
         }
-        $result = '';
-        $data = '';
-
-        $result = explode('=', $response[1]);
-        if (isset($result[1])) {
-            $result = $result[1];
-        }
-
-        if (isset($response[2])) {
-            unset($response[0]);
-            unset($response[1]);
-            $data = implode(' ', $response);
-        }
-        return array('code' => $code, 'result' => $result, 'data' => $data);
     }
 
     /**
@@ -146,10 +133,10 @@ class ClientImpl implements IClient
             )
         );
         $result = $this->send($cmd);
-        if ($result['result'] == -2) {
+        if ($result->isResult(-2)) {
             throw new ExecuteCommandException('Failed to execute: ' . $cmd);
         }
-        return $result['result'];
+        return $result->getResult();
     }
 
     /**
@@ -158,10 +145,7 @@ class ClientImpl implements IClient
      */
     public function setAutoHangup($time)
     {
-        $cmd = implode(
-        	' ', array('SET', 'AUTOHANGUP', $time)
-        );
-        $this->send($cmd);
+        $this->send(implode(' ', array('SET', 'AUTOHANGUP', $time)));
     }
 
     /**
@@ -170,16 +154,12 @@ class ClientImpl implements IClient
      */
     public function channelStatus($channel = false)
     {
-        $digit = false;
         $cmd = implode(
         	' ',
-        	array(
-        		'CHANNEL', 'STATUS',
-        		$channel ? '"' . $channel . '"' : ''
-        	)
+            array('CHANNEL', 'STATUS', $channel ? '"' . $channel . '"' : '')
         );
         $result = $this->send($cmd);
-        return intval($result['result']);
+        return intval($result->getResult());
     }
 
     /**
@@ -188,25 +168,22 @@ class ClientImpl implements IClient
      */
     public function streamFile($file, $escapeDigits = '')
     {
-        $digit = false;
         $cmd = implode(
         	' ',
         	array(
-        		'STREAM', 'FILE',
-        		'"' . $file . '"',
-        	    '"' . $escapeDigits . '"'
+        		'STREAM', 'FILE', '"' . $file . '"', '"' . $escapeDigits . '"'
         	)
         );
         $result = $this->send($cmd);
-        if ($result['result'] == -1) {
+        if ($result->isResult(-1)) {
             throw new ChannelDownException('StreamFile failed');
         }
-        $data = explode('=', $result['data']);
+        $data = explode('=', $result->getData());
         if ($data[1] == 0) {
             throw new SoundFileException('Invalid format?');
         }
-        if ($result['result'] > 0) {
-            return chr($result['result']);
+        if ($result->isResult(0)) {
+            return chr($result);
         }
         return false;
     }
@@ -218,7 +195,6 @@ class ClientImpl implements IClient
     public function getData($file, $maxTime, $maxDigits, &$timeout = false)
     {
         $timeout = false;
-        $digits = false;
         $cmd = implode(
         	' ',
         	array(
@@ -229,11 +205,11 @@ class ClientImpl implements IClient
         	)
         );
         $result = $this->send($cmd);
-        if ($result['result'] == -1) {
+        if ($result->isResult(-1)) {
             throw new ChannelDownException('GetData failed');
         }
-        $timeout = (strpos($result['data'], '(timeout)') !== false);
-        return $result['result'];
+        $timeout = (strpos($result->getData(), '(timeout)') !== false);
+        return $result->getResult();
     }
 
     /**
@@ -248,7 +224,8 @@ class ClientImpl implements IClient
         	array('SAY', 'TIME', '"' . $time . '"','"' . $escapeDigits . '"')
         );
         $result = $this->send($cmd);
-        switch($result['result'])
+        $result = $result->getResult();
+        switch($result)
         {
         case -1:
             throw new ChannelDownException('SayTime failed');
@@ -257,7 +234,7 @@ class ClientImpl implements IClient
             break;
         default:
             $interrupted = true;
-            $digit = chr($result['result']);
+            $digit = chr($result);
             break;
         }
         return $digit;
@@ -273,13 +250,12 @@ class ClientImpl implements IClient
         $cmd = implode(
         	' ',
         	array(
-        		'SAY', 'DATE',
-        		'"' . $time . '"',
-        		'"' . $escapeDigits . '"'
+        		'SAY', 'DATE', '"' . $time . '"', '"' . $escapeDigits . '"'
             )
         );
         $result = $this->send($cmd);
-        switch($result['result'])
+        $result = $result->getResult();
+        switch($result)
         {
         case -1:
             throw new ChannelDownException('SayDate failed');
@@ -288,7 +264,7 @@ class ClientImpl implements IClient
             break;
         default:
             $interrupted = true;
-            $digit = chr($result['result']);
+            $digit = chr($result);
             break;
         }
         return $digit;
@@ -369,7 +345,8 @@ class ClientImpl implements IClient
             )
         );
         $result = $this->send($cmd);
-        switch($result['result'])
+        $result = $result->getResult();
+        switch($result)
         {
         case -1:
             throw new ChannelDownException('SayDateTime failed');
@@ -378,7 +355,7 @@ class ClientImpl implements IClient
             break;
         default:
             $interrupted = true;
-            $digit = chr($result['result']);
+            $digit = chr($result);
             break;
         }
         return $digit;
@@ -400,7 +377,8 @@ class ClientImpl implements IClient
         	)
         );
         $result = $this->send($cmd);
-        switch($result['result'])
+        $result = $result->getResult();
+        switch($result)
         {
         case -1:
             throw new ChannelDownException('SayDigits failed');
@@ -409,7 +387,7 @@ class ClientImpl implements IClient
             break;
         default:
             $interrupted = true;
-            $digit = chr($result['result']);
+            $digit = chr($result);
             break;
         }
         return $digit;
@@ -431,7 +409,8 @@ class ClientImpl implements IClient
         	)
         );
         $result = $this->send($cmd);
-        switch($result['result'])
+        $result = $result->getResult();
+        switch($result)
         {
         case -1:
             throw new ChannelDownException('SayNumber failed');
@@ -439,7 +418,7 @@ class ClientImpl implements IClient
         case 0:
             break;
         default:
-            $digit = chr($result['result']);
+            $digit = chr($result);
             break;
         }
         return $digit;
@@ -454,7 +433,8 @@ class ClientImpl implements IClient
         $digit = false;
         $cmd = implode(' ', array('WAIT', 'FOR', 'DIGIT', '"' . $timeout . '"'));
         $result = $this->send($cmd);
-        switch($result['result'])
+        $result = $result->getResult();
+        switch($result)
         {
         case -1:
             throw new ChannelDownException('WaitDigit failed');
@@ -462,7 +442,7 @@ class ClientImpl implements IClient
         case 0:
             break;
         default:
-            $digit = chr($result['result']);
+            $digit = chr($result);
             break;
         }
         return $digit;
@@ -475,7 +455,7 @@ class ClientImpl implements IClient
     public function answer()
     {
         $result = $this->send('ANSWER');
-        if ($result['result'] == -1) {
+        if ($result->isResult(-1)) {
             throw new ChannelDownException('Answer failed');
         }
     }
@@ -488,7 +468,7 @@ class ClientImpl implements IClient
     {
         $cmd = implode(' ', array('HANGUP', $channel ? '"' . $channel . '"' : ''));
         $result = $this->send($cmd);
-        if ($result['result'] == -1) {
+        if ($result->isResult(-1)) {
             throw new ChannelDownException('Hangup failed');
         }
     }
@@ -501,10 +481,10 @@ class ClientImpl implements IClient
     {
         $cmd = implode(' ', array('GET', 'VARIABLE', '"' . $name . '"'));
         $result = $this->send($cmd);
-        if ($result['result'] == 0) {
+        if ($result->isResult(0)) {
             return false;
         }
-        return substr($result['data'], 1, -1);
+        return substr($result->getData(), 1, -1);
     }
 
     /**
@@ -522,10 +502,10 @@ class ClientImpl implements IClient
         	)
         );
         $result = $this->send($cmd);
-        if ($result['result'] == 0) {
+        if ($result->isResult(0)) {
             return false;
         }
-        return substr($result['data'], 1, -1);
+        return substr($result->getData(), 1, -1);
     }
 
 
@@ -535,15 +515,16 @@ class ClientImpl implements IClient
      */
     public function setVariable($name, $value)
     {
-        $cmd = implode(
-        	' ',
-        	array(
-        		'SET', 'VARIABLE',
-        	    '"' . $name . '"',
-        	    '"' . str_replace('"', '\\"', $value) . '"'
-        	)
+        $this->send(
+            implode(
+        		' ',
+        	    array(
+        			'SET', 'VARIABLE',
+        	    	'"' . $name . '"',
+        	    	'"' . str_replace('"', '\\"', $value) . '"'
+        	    )
+            )
         );
-        $result = $this->send($cmd);
     }
 
 
@@ -573,7 +554,7 @@ class ClientImpl implements IClient
         	)
         );
         $result = $this->send($cmd);
-        if ($result['result'] == 0) {
+        if ($result->isResult(0)) {
             throw new DatabaseInvalidEntryException('Invalid family or key.');
         }
     }
@@ -593,7 +574,7 @@ class ClientImpl implements IClient
         	)
         );
         $result = $this->send($cmd);
-        if ($result['result'] == 0) {
+        if ($result->isResult(0)) {
             throw new DatabaseInvalidEntryException('Invalid family or key.');
         }
     }
@@ -608,10 +589,10 @@ class ClientImpl implements IClient
         	' ', array('DATABASE', 'GET', '"' . $family. '"', '"' . $key . '"')
         );
         $result = $this->send($cmd);
-        if ($result['result'] == 0) {
+        if ($result->isResult(0)) {
             throw new DatabaseInvalidEntryException('Invalid family or key.');
         }
-        return substr($result['data'], 1, -1);
+        return substr($result->getData(), 1, -1);
     }
 
     /**
@@ -630,7 +611,7 @@ class ClientImpl implements IClient
         	)
         );
         $result = $this->send($cmd);
-        if ($result['result'] == 0) {
+        if ($result->isResult(0)) {
             throw new DatabaseInvalidEntryException('Invalid family or key.');
         }
     }
@@ -643,7 +624,7 @@ class ClientImpl implements IClient
     {
         $cmd = implode(' ', array('SEND', 'TEXT', '"' . $text . '"'));
         $result = $this->send($cmd);
-        if ($result['result'] == -1) {
+        if ($result->isResult(-1)) {
             throw new PAGIException('Command failed');
         }
     }
@@ -656,7 +637,7 @@ class ClientImpl implements IClient
     {
         $cmd = implode(' ', array('SEND', 'IMAGE', '"' . $filename . '"'));
         $result = $this->send($cmd);
-        if ($result['result'] == -1) {
+        if ($result->isResult(-1)) {
             throw new PAGIException('Command failed');
         }
     }
