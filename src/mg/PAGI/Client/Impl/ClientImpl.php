@@ -324,11 +324,25 @@ class ClientImpl implements IClient
      */
     public function sayNumber($digits, $escapeDigits = '')
     {
-        $digit = false;
         $cmd = implode(
         	' ',
         	array(
         		'SAY', 'NUMBER', '"' . $digits . '"', '"' . $escapeDigits . '"'
+        	)
+        );
+        return new PlayResult(new DigitReadResult($this->send($cmd)));
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\Client.IClient::sayPhonetic()
+     */
+    public function sayPhonetic($what, $escapeDigits = '')
+    {
+        $cmd = implode(
+        	' ',
+        	array(
+        		'SAY', 'PHONETIC', '"' . $what . '"', '"' . $escapeDigits . '"'
         	)
         );
         return new PlayResult(new DigitReadResult($this->send($cmd)));

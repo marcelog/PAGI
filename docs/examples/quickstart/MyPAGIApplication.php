@@ -137,6 +137,13 @@ class MyPAGIApplication extends PAGIApplication
 
         $client->log($client->exec('Dial', array('SIP/sip', 30, 'r')));
 
+        $result = $client->sayPhonetic('marcelog', '123#');
+        if (!$result->isTimeout()) {
+            $client->log('Read: ' . $result->getDigits());
+        } else {
+            $client->log('Timeouted for say phonetic.');
+        }
+
         $result = $client->sayTime(time(), '123#');
         if (!$result->isTimeout()) {
             $client->log('Read: ' . $result->getDigits());

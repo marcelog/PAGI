@@ -67,8 +67,8 @@ interface IClient
     public function channelStatus($channel = false);
 
     /**
-     * Plays a file, can be interrupted by escapeDigits. Returns the digit
-     * pressed (if any). Uses agi command "STREAM FILE"
+     * Plays a file, can be interrupted by escapeDigits.
+     * Uses agi command "STREAM FILE"
      *
      * @param string $file         File to play, without .wav extension.
      * @param string $escapeDigits Optional sequence of digits that can be used
@@ -82,7 +82,7 @@ interface IClient
 
     /**
      * Waits up to <timeout> milliseconds for channel to receive a DTMF digit.
-     * Returns a read result. Uses agi command "WAIT FOR DIGIT".
+     * Uses agi command "WAIT FOR DIGIT".
      *
      * @param integer $timeout Milliseconds to wait. -1 to block indefinitely.
      *
@@ -92,8 +92,7 @@ interface IClient
     public function waitDigit($timeout);
 
     /**
-     * Reads input from user. Uses agi command "GET DATA". Returns the digits
-     * pressed (false if none).
+     * Reads input from user. Uses agi command "GET DATA".
      *
      * @param string  $file         File to play.
      * @param integer $maxTime      Maximum time between digits before timeout.
@@ -107,8 +106,7 @@ interface IClient
     public function getData($file, $maxTime, $maxDigits);
 
     /**
-     * Says digits. Uses agi command "SAY DIGITS". Returns the digit pressed
-     * to skip the sound (false if none).
+     * Says digits. Uses agi command "SAY DIGITS".
      *
      * @param string $digits       Number to say.
      * @param string $escapeDigits Optional sequence of digits that can be used
@@ -120,8 +118,7 @@ interface IClient
     public function sayDigits($digits, $escapeDigits = '');
 
     /**
-     * Says a number. Uses agi command "SAY NUMBER". Returns the digit pressed
-     * to skip the sound (false if none).
+     * Says a number. Uses agi command "SAY NUMBER".
      *
      * @param string $digits       Number to say.
      * @param string $escapeDigits Optional sequence of digits that can be used
@@ -133,8 +130,7 @@ interface IClient
     public function sayNumber($digits, $escapeDigits = '');
 
     /**
-     * Says time. Uses agi command "SAY TIME". Returns the digit pressed
-     * to skip the sound (false if none).
+     * Says time. Uses agi command "SAY TIME".
      *
      * @param integer $time         Unix timestamp.
      * @param string  $escapeDigits Optional sequence of digits that can be used
@@ -148,7 +144,6 @@ interface IClient
     /**
      * Say a given date and time, returning early if any of the given DTMF
      * digits are received on the channel. Uses agi command "SAY DATETIME".
-     * Returns the digit pressed to skip the sound (false if none).
      *
      * @param integer $time         Unix timestamp.
      * @param string  $format       Format the time should be said in.
@@ -163,7 +158,6 @@ interface IClient
     /**
      * Say a given date, returning early if any of the given DTMF
      * digits are received on the channel. Uses agi command "SAY DATE".
-     * Returns the digit pressed to skip the sound (false if none).
      *
      * @param integer $time         Unix timestamp.
      * @param string  $escapeDigits Optional sequence of digits that can be used
@@ -173,6 +167,20 @@ interface IClient
      * @return PlayResult
      */
     public function sayDate($time, $escapeDigits = '');
+
+    /**
+     * Say a given character string with phonetics, returning early if any of
+     * the given DTMF digits are received on the channel.
+     * Uses agi command "SAY PHONETIC".
+     *
+     * @param string $what         What to say.
+     * @param string $escapeDigits Optional sequence of digits that can be used
+     * to skip the sound.
+     *
+     * @throws ChannelDownException
+     * @return PlayResult
+     */
+    public function sayPhonetic($what, $escapeDigits = '');
 
     /**
      * Changes the priority for continuation upon exiting the application.
