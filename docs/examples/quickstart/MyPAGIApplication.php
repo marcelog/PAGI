@@ -15,6 +15,8 @@
  */
 use PAGI\Application\PAGIApplication;
 use PAGI\Client\ChannelStatus;
+use PAGI\CallSpool\CallFile;
+use PAGI\CallSpool\Impl\CallSpoolImpl;
 
 /**
  * PAGI basic use example. Please see run.sh in this same directory for an
@@ -67,6 +69,17 @@ class MyPAGIApplication extends PAGIApplication
         $this->log('Run');
         $client = $this->getAgi();
         $variables = $client->getChannelVariables();
+        $client->log('Config dir: ' . $variables->getDirectoryConfig());
+        $client->log('Config file: ' . $variables->getConfigFile());
+        $client->log('Module dir: ' . $variables->getDirectoryModules());
+        $client->log('Spool dir: ' . $variables->getDirectorySpool());
+        $client->log('Monitor dir: ' . $variables->getDirectoryMonitor());
+        $client->log('Var dir: ' . $variables->getDirectoryVar());
+        $client->log('Data dir: ' . $variables->getDirectoryData());
+        $client->log('Log dir: ' . $variables->getDirectoryLog());
+        $client->log('Agi dir: ' . $variables->getDirectoryAgi());
+        $client->log('Key dir: ' . $variables->getDirectoryKey());
+        $client->log('Run dir: ' . $variables->getDirectoryRun());
         $client->log('Request: '. $variables->getRequest());
         $client->log('Channel: '. $variables->getChannel());
         $client->log('Language: '. $variables->getLanguage());
@@ -91,6 +104,14 @@ class MyPAGIApplication extends PAGIApplication
         for ($i = 0; $i < $variables->getTotalArguments(); $i++) {
             $client->log(' -- Argument ' . intval($i) . ': ' . $variables->getArgument($i));
         }
+
+        $spool = CallSpoolImpl::getInstance(
+        	array(
+        		'tmpDir' => '/tmp/Pagi',
+        		'spoolDir' => $variables->getDirectorySpool()
+            )
+        );
+
         $result = $client->sayDigits('12345', '12#');
         if (!$result->isTimeout()) {
             $client->log('Read: ' . $result->getDigits());
@@ -203,6 +224,30 @@ class MyPAGIApplication extends PAGIApplication
             $this->log('Recorded: ' . $result->getEndPos());
         }
         $client->streamFile('/tmp/asd', '');
+        $callFile = new CallFile();
+        $callFile->setChannel('SIP/01');
+        $callFile->setContext('campaign');
+        $callFile->setExtension('failed');
+        $callFile->setVariable('foo', 'bar');
+        $callFile->setPriority('1');
+        $callFile->setMaxRetries('0');
+        $callFile->setWaitTime(10);
+        $callFile->setCallerId('some<123123>');
+
+        file_put_contents('/tmp/acallfilesample.call', $callFile->serialize());
+        $callFile = new CallFile();
+        $callFile->unserialize(file_get_contents('/tmp/acallfilesample.call'));
+        $callFile = new CallFile();
+        $callFile->setChannel('SIP/01');
+        $callFile->setContext('campaign');
+        $callFile->setExtension('failed');
+        $callFile->setVariable('foo', 'bar');
+        $callFile->setPriority('1');
+        $callFile->setMaxRetries('0');
+        $callFile->setWaitTime(10);
+        $callFile->setCallerId('some<123123>');
+        $spool->spool($callFile, time() + 30);
+        //unlink('/tmp/acallfilesample.call');
         //$client->log($client->databaseGet('SIP', 'Registry'));
         //$client->setAutoHangup(10);
         //sleep(20);

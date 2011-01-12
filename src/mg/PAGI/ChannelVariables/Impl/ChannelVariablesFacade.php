@@ -284,6 +284,7 @@ class ChannelVariablesFacade implements IChannelVariables
         return $ret;
     }
 
+
     /**
      * (non-PHPdoc)
      * @see PAGI\ChannelVariables.IChannelVariables::getDirectoryConfig()

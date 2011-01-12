@@ -13,12 +13,19 @@ something like this in your dialplan:
 exten => 1,1,AGI(/tmp/PAGI/docs/examples/quickstart/run.sh,a,b,c,d)
 exten => 1,n,Hangup
 --------------------------------------------------------------------------------
+AutoDial
+========
+CallFiles are supported. You can also schedule a call in the future.
+--------------------------------------------------------------------------------
 Available Facades
 =================
 PAGI\Client\CDR: Provided to access cdr variables.
-PAGI\Client\ChannelVariables: Provided to access channel variables.
+PAGI\Client\ChannelVariables: Provided to access channel variables and asterisk
+environment variables.
 PAGI\Client\CallerID: Provided to access caller id variables.
 PAGI\Client\Result: Provided to wrap up the result for agi commands.
+PAGI\CallSpool\CallFile: Call file facade.
+PAGI\CallSpool\CallSpool: Call spool facade.
 --------------------------------------------------------------------------------
 Results
 =======
