@@ -285,6 +285,105 @@ class ChannelVariablesFacade implements IChannelVariables
     }
 
     /**
+     * (non-PHPdoc)
+     * @see PAGI\ChannelVariables.IChannelVariables::getDirectoryConfig()
+     */
+    public function getDirectoryConfig()
+    {
+        return getenv('AST_CONFIG_DIR');
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\ChannelVariables.IChannelVariables::getConfigFile()
+     */
+    public function getConfigFile()
+    {
+        return getenv('AST_CONFIG_FILE');
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\ChannelVariables.IChannelVariables::getDirectoryModules()
+     */
+    public function getDirectoryModules()
+    {
+        return getenv('AST_MODULE_DIR');
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\ChannelVariables.IChannelVariables::getDirectorySpool()
+     */
+    public function getDirectorySpool()
+    {
+        return getenv('AST_SPOOL_DIR');
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\ChannelVariables.IChannelVariables::getDirectoryMonitor()
+     */
+    public function getDirectoryMonitor()
+    {
+        return getenv('AST_MONITOR_DIR');
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\ChannelVariables.IChannelVariables::getDirectoryVar()
+     */
+    public function getDirectoryVar()
+    {
+        return getenv('AST_VAR_DIR');
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\ChannelVariables.IChannelVariables::getDirectoryData()
+     */
+    public function getDirectoryData()
+    {
+        return getenv('AST_DATA_DIR');
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\ChannelVariables.IChannelVariables::getDirectoryLog()
+     */
+    public function getDirectoryLog()
+    {
+        return getenv('AST_LOG_DIR');
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\ChannelVariables.IChannelVariables::getDirectoryAgi()
+     */
+    public function getDirectoryAgi()
+    {
+        return getenv('AST_AGI_DIR');
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\ChannelVariables.IChannelVariables::getDirectoryKey()
+     */
+    public function getDirectoryKey()
+    {
+        return getenv('AST_KEY_DIR');
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\ChannelVariables.IChannelVariables::getDirectoryRun()
+     */
+    public function getDirectoryRun()
+    {
+        return getenv('AST_RUN_DIR');
+    }
+
+    /**
      * Constructor.
      *
      * @param string[] $variables Initial channel variables given by asterisk.

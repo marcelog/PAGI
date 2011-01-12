@@ -181,4 +181,92 @@ interface IChannelVariables
      * @return string
      */
     public function getArgument($index);
+
+    /**
+     * Returns the config directory for this running version of asterisk.
+     * Uses environment variable AST_CONFIG_DIR.
+     *
+	 * @return string
+     */
+    public function getDirectoryConfig();
+
+    /**
+     * Returns the config file for this running version of asterisk.
+     * Uses environment variable AST_CONFIG_FILE.
+     *
+	 * @return string
+     */
+    public function getConfigFile();
+
+    /**
+     * Returns the modules directory for this running version of asterisk.
+     * Uses environment variable AST_MODULE_DIR.
+     *
+	 * @return string
+     */
+    public function getDirectoryModules();
+
+    /**
+     * Returns the spool directory for this running version of asterisk.
+     * Uses environment variable AST_SPOOL_DIR.
+     *
+	 * @return string
+     */
+    public function getDirectorySpool();
+
+    /**
+     * Returns the monitor directory for this running version of asterisk.
+     * Uses environment variable AST_MONITOR_DIR.
+     *
+	 * @return string
+     */
+    public function getDirectoryMonitor();
+
+    /**
+     * Returns the var directory for this running version of asterisk.
+     * Uses environment variable AST_VAR_DIR.
+     *
+	 * @return string
+     */
+    public function getDirectoryVar();
+
+    /**
+     * Returns the data directory for this running version of asterisk.
+     * Uses environment variable AST_DATA_DIR.
+     *
+	 * @return string
+     */
+    public function getDirectoryData();
+
+    /**
+     * Returns the log directory for this running version of asterisk.
+     * Uses environment variable AST_LOG_DIR.
+     *
+	 * @return string
+     */
+    public function getDirectoryLog();
+
+    /**
+     * Returns the agi directory for this running version of asterisk.
+     * Uses environment variable AST_AGI_DIR.
+     *
+	 * @return string
+     */
+    public function getDirectoryAgi();
+
+    /**
+     * Returns the key directory for this running version of asterisk.
+     * Uses environment variable AST_KEY_DIR.
+     *
+	 * @return string
+     */
+    public function getDirectoryKey();
+
+    /**
+     * Returns the run directory for this running version of asterisk.
+     * Uses environment variable AST_RUN_DIR.
+     *
+	 * @return string
+     */
+    public function getDirectoryRun();
 }
