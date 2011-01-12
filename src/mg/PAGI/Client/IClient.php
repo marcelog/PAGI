@@ -429,4 +429,22 @@ interface IClient
      * @return DialResult
      */
     public function dial($channel, array $options = array());
+
+    /**
+     * Sends a fax.
+     *
+     * @param string $tiffFile Absolute path to a .tiff file.
+     *
+     * @return FaxResult
+     */
+    public function faxSend($tiffFile);
+
+    /**
+     * Receives a fax.
+     *
+     * @param string $tiffFile Absolute path to a .tiff file.
+     *
+     * @return FaxResult
+     */
+    public function faxReceive($tiffFile);
 }

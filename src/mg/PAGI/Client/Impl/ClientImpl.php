@@ -15,6 +15,7 @@
 namespace PAGI\Client\Impl;
 
 use PAGI\Client\Result\Result;
+use PAGI\Client\Result\FaxResult;
 use PAGI\Client\Result\ExecResult;
 use PAGI\Client\Result\DialResult;
 use PAGI\Client\Result\DigitReadResult;
@@ -123,6 +124,42 @@ class ClientImpl implements IClient
         default:
             throw new InvalidCommandException($text . ' - ' . $result);
         }
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\Client.IClient::faxSend()
+     */
+    public function faxSend($tiffFile)
+    {
+        $result = new FaxResult($this->exec('SendFax', array($tiffFile, 'a')));
+        $result->setResult($this->getFullVariable('FAXSTATUS') === 'SUCCESS');
+        $result->setBitrate($this->getFullVariable('FAXBITRATE'));
+        $result->setResolution($this->getFullVariable('FAXRESOLUTION'));
+        $result->setPages($this->getFullVariable('FAXPAGES'));
+        $result->setError($this->getFullVariable('FAXERROR'));
+        $result->setRemoteStationId($this->getFullVariable('REMOTESTATIONID'));
+        $result->setLocalStationId($this->getFullVariable('LOCALSTATIONID'));
+        $result->setLocalHeaderInfo($this->getFullVariable('LOCALHEADERINFO'));
+        return $result;
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\Client.IClient::faxReceive()
+     */
+    public function faxReceive($tiffFile)
+    {
+        $result = new FaxResult($this->exec('ReceiveFax', array($tiffFile)));
+        $result->setResult($this->getFullVariable('FAXSTATUS') === 'SUCCESS');
+        $result->setBitrate($this->getFullVariable('FAXBITRATE'));
+        $result->setResolution($this->getFullVariable('FAXRESOLUTION'));
+        $result->setPages($this->getFullVariable('FAXPAGES'));
+        $result->setError($this->getFullVariable('FAXERROR'));
+        $result->setRemoteStationId($this->getFullVariable('REMOTESTATIONID'));
+        $result->setLocalStationId($this->getFullVariable('LOCALSTATIONID'));
+        $result->setLocalHeaderInfo($this->getFullVariable('LOCALHEADERINFO'));
+        return $result;
     }
 
     /**

@@ -17,6 +17,11 @@ AutoDial
 ========
 CallFiles are supported. You can also schedule a call in the future.
 --------------------------------------------------------------------------------
+Fax
+===
+Sending and receiving faxes is supported using spandsp (applications SendFax
+and ReceiveFax).
+--------------------------------------------------------------------------------
 Available Facades
 =================
 PAGI\Client\CDR: Provided to access cdr variables.
@@ -37,6 +42,7 @@ in turn, decorated a Result.
 * PAGI\Client\ExecResult
 * PAGI\Client\ReadResult
 * PAGI\Client\PlayResult
+* PAGI\Client\FaxResult
 --------------------------------------------------------------------------------
 Debugging, logging
 ==================

@@ -68,6 +68,8 @@ class MyPAGIApplication extends PAGIApplication
     {
         $this->log('Run');
         $client = $this->getAgi();
+        //$client->log($client->faxReceive('/tmp/a.tiff')->__toString());
+        //$client->log($client->faxSend('/tmp/a.tiff')->__toString());
         $variables = $client->getChannelVariables();
         $client->log('Config dir: ' . $variables->getDirectoryConfig());
         $client->log('Config file: ' . $variables->getConfigFile());
