@@ -26,6 +26,10 @@ For every operation, a Result is provided. Some operations decorate this
 Result to add functionality, like PlayResult, ReadResult, etc. For example,
 a stream file will return a PlayResult, which decorates a ReadResult which 
 in turn, decorated a Result.
+* PAGI\Client\DialResult
+* PAGI\Client\ExecResult
+* PAGI\Client\ReadResult
+* PAGI\Client\PlayResult
 --------------------------------------------------------------------------------
 Debugging, logging
 ==================

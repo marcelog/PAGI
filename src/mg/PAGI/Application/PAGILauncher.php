@@ -19,8 +19,8 @@
  * @version  SVN: $Id$
  * @link     http://www.noneyet.ar/
  */
-require_once 'PAGI/Autoloader/Autoloader.php'; // Include ding autoloader.
-Autoloader::register(); // Call autoloader register for ding autoloader.
+require_once 'PAGI/Autoloader/PAGI_Autoloader.php'; // Include ding autoloader.
+PAGI_Autoloader::register(); // Call autoloader register for ding autoloader.
 use PAGI\Application\Exception\InvalidApplicationException;
 
 $appName = getenv('PAGIApplication');

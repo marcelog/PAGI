@@ -40,7 +40,7 @@ if (!class_exists('Logger')) {
  * @license  http://www.noneyet.ar/ Apache License 2.0
  * @link     http://www.noneyet.ar/
  */
-class Autoloader
+class PAGI_Autoloader
 {
     /**
      * Holds current realpath.
@@ -85,6 +85,6 @@ class Autoloader
             DIRECTORY_SEPARATOR,
             array(realpath(dirname(__FILE__)), '..', '..')
         );
-        return spl_autoload_register('Autoloader::load');
+        return spl_autoload_register('PAGI_Autoloader::load');
     }
 }
