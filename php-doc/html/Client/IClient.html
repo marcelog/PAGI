@@ -1,0 +1,1665 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos  -->
+			<title>Docs For Class IClient</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+						<script src="../media/lib/classTree.js"></script>
+												<script language="javascript" type="text/javascript">
+				var imgPlus = new Image();
+				var imgMinus = new Image();
+				imgPlus.src = "../media/images/plus.png";
+				imgMinus.src = "../media/images/minus.png";
+				
+				function showNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgMinus.src;
+					oTable.style.display = "block";
+				}
+				
+				function hideNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgPlus.src;
+					oTable.style.display = "none";
+				}
+				
+				function nodeIsVisible(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+									break;
+							}
+					return (oTable && oTable.style.display == "block");
+				}
+				
+				function toggleNodeVisibility(Node){
+					if (nodeIsVisible(Node)){
+						hideNode(Node);
+					}else{
+						showNode(Node);
+					}
+				}
+			</script>
+					</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name"><img src="../media/images/Class_logo.png"
+														alt=" Class"
+														title=" Class"
+														style="vertical-align: middle">Interface IClient</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">AGI Client interface.</p>
+<p class="description"><p>PHP Version 5</p></p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Marcelo Gornstein &lt;<a href="mailto:marcelog@gmail.com">marcelog@gmail.com</a>&gt;</li>
+				<li><span class="field">link:</span> <a href="http://www.noneyet.ar/">http://www.noneyet.ar/</a></li>
+				<li><span class="field">license:</span> <a href="http://www.noneyet.ar/">Apache License 2.0</a></li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Client---IClient.php.html">/Client/IClient.php</a> (line <span class="field">27</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																																																																																																																																																																																																																																																															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#answer" title="details" class="method-name">answer</a>
+										()
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">integer</span>
+										<a href="#channelStatus" title="details" class="method-name">channelStatus</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$channel</span> = <span class="var-default">false</span>])
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#databaseDel" title="details" class="method-name">databaseDel</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$family</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>)
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#databaseDeltree" title="details" class="method-name">databaseDeltree</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$family</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span> = <span class="var-default">false</span>])
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">string</span>
+										<a href="#databaseGet" title="details" class="method-name">databaseGet</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$family</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>)
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#databasePut" title="details" class="method-name">databasePut</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$family</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result"><a href="../Client/Result/DialResult.html">DialResult</a></span>
+										<a href="#dial" title="details" class="method-name">dial</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$channel</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$options</span> = <span class="var-default">array()</span>])
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">ExecDecorator</span>
+										<a href="#exec" title="details" class="method-name">exec</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$application</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$options</span> = <span class="var-default">array()</span>])
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result"><a href="../Client/Result/FaxResult.html">FaxResult</a></span>
+										<a href="#faxReceive" title="details" class="method-name">faxReceive</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$tiffFile</span>)
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result"><a href="../Client/Result/FaxResult.html">FaxResult</a></span>
+										<a href="#faxSend" title="details" class="method-name">faxSend</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$tiffFile</span>)
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">ICallerID</span>
+										<a href="#getCallerId" title="details" class="method-name">getCallerId</a>
+										()
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result"><a href="../CDR/ICDR.html">ICDR</a></span>
+										<a href="#getCDR" title="details" class="method-name">getCDR</a>
+										()
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result"><a href="../ChannelVariables/IChannelVariables.html">IChannelVariables</a></span>
+										<a href="#getChannelVariables" title="details" class="method-name">getChannelVariables</a>
+										()
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result"><a href="../Client/Result/PlayResult.html">PlayResult</a></span>
+										<a href="#getData" title="details" class="method-name">getData</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$file</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$maxTime</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$maxDigits</span>)
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">string</span>
+										<a href="#getFullVariable" title="details" class="method-name">getFullVariable</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$channel</span> = <span class="var-default">false</span>])
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result"><a href="../Client/Result/PlayResult.html">PlayResult</a></span>
+										<a href="#getOption" title="details" class="method-name">getOption</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$file</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$escapeDigits</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$maxTime</span>)
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">string</span>
+										<a href="#getVariable" title="details" class="method-name">getVariable</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#hangup" title="details" class="method-name">hangup</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$channel</span>)
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#log" title="details" class="method-name">log</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$msg</span>)
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result"><a href="../Client/Result/RecordResult.html">RecordResult</a></span>
+										<a href="#record" title="details" class="method-name">record</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$file</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$format</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$escapeDigits</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$maxRecordTime</span> = <span class="var-default">-1</span>], [<span class="var-type">integer</span>&nbsp;<span class="var-name">$silence</span> = <span class="var-default">false</span>])
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result"><a href="../Client/Result/PlayResult.html">PlayResult</a></span>
+										<a href="#sayAlpha" title="details" class="method-name">sayAlpha</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$what</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$escapeDigits</span> = <span class="var-default">''</span>])
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result"><a href="../Client/Result/PlayResult.html">PlayResult</a></span>
+										<a href="#sayDate" title="details" class="method-name">sayDate</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$time</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$escapeDigits</span> = <span class="var-default">''</span>])
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result"><a href="../Client/Result/PlayResult.html">PlayResult</a></span>
+										<a href="#sayDateTime" title="details" class="method-name">sayDateTime</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$time</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$format</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$escapeDigits</span> = <span class="var-default">''</span>])
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result"><a href="../Client/Result/PlayResult.html">PlayResult</a></span>
+										<a href="#sayDigits" title="details" class="method-name">sayDigits</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$digits</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$escapeDigits</span> = <span class="var-default">''</span>])
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result"><a href="../Client/Result/PlayResult.html">PlayResult</a></span>
+										<a href="#sayNumber" title="details" class="method-name">sayNumber</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$digits</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$escapeDigits</span> = <span class="var-default">''</span>])
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result"><a href="../Client/Result/PlayResult.html">PlayResult</a></span>
+										<a href="#sayPhonetic" title="details" class="method-name">sayPhonetic</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$what</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$escapeDigits</span> = <span class="var-default">''</span>])
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result"><a href="../Client/Result/PlayResult.html">PlayResult</a></span>
+										<a href="#sayTime" title="details" class="method-name">sayTime</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$time</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$escapeDigits</span> = <span class="var-default">''</span>])
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#sendImage" title="details" class="method-name">sendImage</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$filename</span>)
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#sendText" title="details" class="method-name">sendText</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$text</span>)
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#setAutoHangup" title="details" class="method-name">setAutoHangup</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$time</span>)
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#setCallerId" title="details" class="method-name">setCallerId</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$number</span>)
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#setContext" title="details" class="method-name">setContext</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$context</span>)
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#setExtension" title="details" class="method-name">setExtension</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$extension</span>)
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#setMusic" title="details" class="method-name">setMusic</a>
+											(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$enable</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$class</span> = <span class="var-default">false</span>])
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#setPriority" title="details" class="method-name">setPriority</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$priority</span>)
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#setVariable" title="details" class="method-name">setVariable</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result"><a href="../Client/Result/PlayResult.html">PlayResult</a></span>
+										<a href="#streamFile" title="details" class="method-name">streamFile</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$file</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$escapeDigits</span>)
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result"><a href="../Client/Result/DigitReadResult.html">DigitReadResult</a></span>
+										<a href="#waitDigit" title="details" class="method-name">waitDigit</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$timeout</span>)
+									</div>
+											</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodanswer" id="answer"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">answer</span> (line <span class="line-number">267</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Answers the current channel. Uses agi command &quot;ANSWER&quot;.</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> ChannelDownException</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			answer
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodchannelStatus" id="channelStatus"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">channelStatus</span> (line <span class="line-number">67</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Retrieves channel status. Uses agi command &quot;CHANNEL STATUS&quot;</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> ChannelDownException</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			channelStatus
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$channel</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$channel</span><span class="var-description">: Optional, channel name.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methoddatabaseDel" id="databaseDel"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">databaseDel</span> (line <span class="line-number">366</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Deletes an entry in the Asterisk database for a given family and key.</p>
+<p class="description"><p>Uses agi command &quot;DATABASE DEL&quot;.</p></p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> DatabaseInvalidEntryException</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			databaseDel
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$family</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$family</span><span class="var-description">: Family for key.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: Key name.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methoddatabaseDeltree" id="databaseDeltree"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">databaseDeltree</span> (line <span class="line-number">378</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Deletes a family or specific keytree withing a family in the Asterisk database.</p>
+<p class="description"><p>Uses agi command &quot;DATABASE DELTREE&quot;.</p></p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> DatabaseInvalidEntryException</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			databaseDeltree
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$family</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$family</span><span class="var-description">: Family for key.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: Optional key name.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methoddatabaseGet" id="databaseGet"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">databaseGet</span> (line <span class="line-number">390</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Retrieves an entry in the Asterisk database for a given family and key.</p>
+<p class="description"><p>Uses agi command &quot;DATABASE GET&quot;.</p></p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> DatabaseInvalidEntryException</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			databaseGet
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$family</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$family</span><span class="var-description">: Family for key.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: Key name.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methoddatabasePut" id="databasePut"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">databasePut</span> (line <span class="line-number">403</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Adds or updates an entry in the Asterisk database for a given family, key, and value.</p>
+<p class="description"><p>Uses agi command &quot;DATABASE PUT&quot;.</p></p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> DatabaseInvalidEntryException</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			databasePut
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$family</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$family</span><span class="var-description">: Family for key.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: Key name.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: Value to set.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methoddial" id="dial"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">dial</span> (line <span class="line-number">431</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Tries to dial the given channel.</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> ChannelDownException</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Client/Result/DialResult.html">DialResult</a></span>
+		<span class="method-name">
+			dial
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$channel</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$options</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$channel</span><span class="var-description">: What to dial.</span>			</li>
+					<li>
+				<span class="var-type">string[]</span>
+				<span class="var-name">$options</span><span class="var-description">: Dial app options</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodexec" id="exec"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">exec</span> (line <span class="line-number">322</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Executes an application. Uses agi command &quot;EXEC&quot;.</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> ExecuteCommandException</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">ExecDecorator</span>
+		<span class="method-name">
+			exec
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$application</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$options</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$application</span><span class="var-description">: Application name.</span>			</li>
+					<li>
+				<span class="var-type">string[]</span>
+				<span class="var-name">$options</span><span class="var-description">: Application arguments.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodfaxReceive" id="faxReceive"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">faxReceive</span> (line <span class="line-number">449</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Receives a fax.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Client/Result/FaxResult.html">FaxResult</a></span>
+		<span class="method-name">
+			faxReceive
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$tiffFile</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$tiffFile</span><span class="var-description">: Absolute path to a .tiff file.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodfaxSend" id="faxSend"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">faxSend</span> (line <span class="line-number">440</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sends a fax.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Client/Result/FaxResult.html">FaxResult</a></span>
+		<span class="method-name">
+			faxSend
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$tiffFile</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$tiffFile</span><span class="var-description">: Absolute path to a .tiff file.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetCallerId" id="getCallerId"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getCallerId</span> (line <span class="line-number">48</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns a caller id facade.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">ICallerID</span>
+		<span class="method-name">
+			getCallerId
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetCDR" id="getCDR"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getCDR</span> (line <span class="line-number">41</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns a cdr facade.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../CDR/ICDR.html">ICDR</a></span>
+		<span class="method-name">
+			getCDR
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetChannelVariables" id="getChannelVariables"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getChannelVariables</span> (line <span class="line-number">34</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns an instance of ChannelVariables to access agi variables.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../ChannelVariables/IChannelVariables.html">IChannelVariables</a></span>
+		<span class="method-name">
+			getChannelVariables
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetData" id="getData"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getData</span> (line <span class="line-number">104</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Reads input from user. Uses agi command &quot;GET DATA&quot;.</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> ChannelDownException</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Client/Result/PlayResult.html">PlayResult</a></span>
+		<span class="method-name">
+			getData
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$file</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$maxTime</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$maxDigits</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$file</span><span class="var-description">: File to play.</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$maxTime</span><span class="var-description">: Maximum time between digits before timeout.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$maxDigits</span><span class="var-description">: Maximum number of digits expected.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetFullVariable" id="getFullVariable"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getFullVariable</span> (line <span class="line-number">300</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns a variable value. Uses agi command &quot;GET FULL VARIABLE&quot;. False if  variable is not set.</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> ChannelDownException</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getFullVariable
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$channel</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: Variable name.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$channel</span><span class="var-description">: Optional channel name.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetOption" id="getOption"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getOption</span> (line <span class="line-number">117</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Reads input from user. Uses agi command &quot;GET OPTION&quot;.</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> ChannelDownException</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Client/Result/PlayResult.html">PlayResult</a></span>
+		<span class="method-name">
+			getOption
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$file</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$escapeDigits</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$maxTime</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$file</span><span class="var-description">: File to play.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$escapeDigits</span><span class="var-description">: Optional sequence of digits that can be used  to skip the sound.</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$maxTime</span><span class="var-description">: Maximum time between digits before timeout.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetVariable" id="getVariable"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getVariable</span> (line <span class="line-number">288</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns a variable value. Uses agi command &quot;GET VARIABLE&quot;. False if  variable is not set.</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> ChannelDownException</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getVariable
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: Variable name.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodhangup" id="hangup"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">hangup</span> (line <span class="line-number">277</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Hangups the current channel. Uses agi command &quot;HANGUP&quot;.</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> ChannelDownException</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			hangup
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$channel</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$channel</span><span class="var-description">: Optional channel name.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodlog" id="log"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">log</span> (line <span class="line-number">57</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Logs to asterisk console. Uses agi command &quot;VERBOSE&quot;.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			log
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$msg</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$msg</span><span class="var-description">: Message to log.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodrecord" id="record"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">record</span> (line <span class="line-number">420</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Record to a file until &lt;escape digits&gt; are received as dtmf.</p>
+<p class="description"><p>Uses agi command &quot;RECORD FILE&quot;.</p></p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> ChannelDownException</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Client/Result/RecordResult.html">RecordResult</a></span>
+		<span class="method-name">
+			record
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$file</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$format</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$escapeDigits</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$maxRecordTime</span> = <span class="var-default">-1</span>], [<span class="var-type">integer</span>&nbsp;<span class="var-name">$silence</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$file</span><span class="var-description">: Target file, without the .wav (or extension  chosen).</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$format</span><span class="var-description">: Format (wav, mp3, etc).</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$escapeDigits</span><span class="var-description">: Optional sequence of digits that can be used  to skip the sound.</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$maxRecordTime</span><span class="var-description">: Maximum record time (optional).</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$silence</span><span class="var-description">: Maximum time of silence allowed (optional)</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsayAlpha" id="sayAlpha"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">sayAlpha</span> (line <span class="line-number">207</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Say a given character string, returning early if any of the given DTMF  digits are received on the channel. Uses agi command &quot;SAY PHONETIC&quot;.</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> ChannelDownException</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Client/Result/PlayResult.html">PlayResult</a></span>
+		<span class="method-name">
+			sayAlpha
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$what</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$escapeDigits</span> = <span class="var-default">''</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$what</span><span class="var-description">: What to say.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$escapeDigits</span><span class="var-description">: Optional sequence of digits that can be used  to skip the sound.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsayDate" id="sayDate"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">sayDate</span> (line <span class="line-number">180</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Say a given date, returning early if any of the given DTMF  digits are received on the channel. Uses agi command &quot;SAY DATE&quot;.</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> ChannelDownException</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Client/Result/PlayResult.html">PlayResult</a></span>
+		<span class="method-name">
+			sayDate
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$time</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$escapeDigits</span> = <span class="var-default">''</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$time</span><span class="var-description">: Unix timestamp.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$escapeDigits</span><span class="var-description">: Optional sequence of digits that can be used  to skip the sound.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsayDateTime" id="sayDateTime"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">sayDateTime</span> (line <span class="line-number">167</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Say a given date and time, returning early if any of the given DTMF  digits are received on the channel. Uses agi command &quot;SAY DATETIME&quot;.</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> ChannelDownException</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Client/Result/PlayResult.html">PlayResult</a></span>
+		<span class="method-name">
+			sayDateTime
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$time</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$format</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$escapeDigits</span> = <span class="var-default">''</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$time</span><span class="var-description">: Unix timestamp.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$format</span><span class="var-description">: Format the time should be said in.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$escapeDigits</span><span class="var-description">: Optional sequence of digits that can be used  to skip the sound.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsayDigits" id="sayDigits"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">sayDigits</span> (line <span class="line-number">129</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Says digits. Uses agi command &quot;SAY DIGITS&quot;.</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> ChannelDownException</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Client/Result/PlayResult.html">PlayResult</a></span>
+		<span class="method-name">
+			sayDigits
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$digits</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$escapeDigits</span> = <span class="var-default">''</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$digits</span><span class="var-description">: Number to say.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$escapeDigits</span><span class="var-description">: Optional sequence of digits that can be used  to skip the sound.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsayNumber" id="sayNumber"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">sayNumber</span> (line <span class="line-number">141</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Says a number. Uses agi command &quot;SAY NUMBER&quot;.</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> ChannelDownException</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Client/Result/PlayResult.html">PlayResult</a></span>
+		<span class="method-name">
+			sayNumber
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$digits</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$escapeDigits</span> = <span class="var-default">''</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$digits</span><span class="var-description">: Number to say.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$escapeDigits</span><span class="var-description">: Optional sequence of digits that can be used  to skip the sound.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsayPhonetic" id="sayPhonetic"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">sayPhonetic</span> (line <span class="line-number">194</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Say a given character string with phonetics, returning early if any of  the given DTMF digits are received on the channel.</p>
+<p class="description"><p>Uses agi command &quot;SAY PHONETIC&quot;.</p></p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> ChannelDownException</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Client/Result/PlayResult.html">PlayResult</a></span>
+		<span class="method-name">
+			sayPhonetic
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$what</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$escapeDigits</span> = <span class="var-default">''</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$what</span><span class="var-description">: What to say.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$escapeDigits</span><span class="var-description">: Optional sequence of digits that can be used  to skip the sound.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsayTime" id="sayTime"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">sayTime</span> (line <span class="line-number">153</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Says time. Uses agi command &quot;SAY TIME&quot;.</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> ChannelDownException</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Client/Result/PlayResult.html">PlayResult</a></span>
+		<span class="method-name">
+			sayTime
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$time</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$escapeDigits</span> = <span class="var-default">''</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$time</span><span class="var-description">: Unix timestamp.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$escapeDigits</span><span class="var-description">: Optional sequence of digits that can be used  to skip the sound.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsendImage" id="sendImage"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">sendImage</span> (line <span class="line-number">342</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sends the given image on a channel. Uses agi command &quot;SEND IMAGE&quot;.</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> PAGIException</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			sendImage
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$filename</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$filename</span><span class="var-description">: Image absolute path to send.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsendText" id="sendText"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">sendText</span> (line <span class="line-number">332</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sends the given text on a channel. Uses agi command &quot;SEND TEXT&quot;.</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> PAGIException</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			sendText
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$text</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$text</span><span class="var-description">: Text to send.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetAutoHangup" id="setAutoHangup"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">setAutoHangup</span> (line <span class="line-number">354</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Cause the channel to automatically hangup at &lt;time&gt; seconds in the future.</p>
+<p class="description"><p>Of course it can be hungup before then as well.  Setting to 0 will cause the autohangup feature to be disabled on this channel.  Uses agi command &quot;SET AUTOHANGUP&quot;.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setAutoHangup
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$time</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$time</span><span class="var-description">: Time to hangup channel.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetCallerId" id="setCallerId"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">setCallerId</span> (line <span class="line-number">248</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Changes the callerid of the current channel. Uses agi command  &quot;SET CALLERID&quot;</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setCallerId
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$number</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: CallerId name.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$number</span><span class="var-description">: CallerId number.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetContext" id="setContext"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">setContext</span> (line <span class="line-number">237</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Changes the context for continuation upon exiting the application.</p>
+<p class="description"><p>Uses agi command &quot;SET CONTEXT&quot;.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setContext
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$context</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$context</span><span class="var-description">: New context.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetExtension" id="setExtension"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">setExtension</span> (line <span class="line-number">227</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Changes the extension for continuation upon exiting the application.</p>
+<p class="description"><p>Uses agi command &quot;SET EXTENSION&quot;.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setExtension
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$extension</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$extension</span><span class="var-description">: New extension.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetMusic" id="setMusic"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">setMusic</span> (line <span class="line-number">259</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Enables/Disables the music on hold generator. Uses agi command &quot;SET MUSIC&quot;.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setMusic
+		</span>
+					(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$enable</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$class</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$enable</span><span class="var-description">: True to enable, false to disable.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$class</span><span class="var-description">: If &lt;class&gt; is not specified then the default  music on hold class will be used.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetPriority" id="setPriority"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">setPriority</span> (line <span class="line-number">217</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Changes the priority for continuation upon exiting the application.</p>
+<p class="description"><p>Uses agi command &quot;SET PRIORITY&quot;.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setPriority
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$priority</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$priority</span><span class="var-description">: New priority.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetVariable" id="setVariable"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">setVariable</span> (line <span class="line-number">311</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets a variable. Uses agi command &quot;SET VARIABLE&quot;.</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> ChannelDownException</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setVariable
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: Variable name.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: Variable value.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodstreamFile" id="streamFile"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">streamFile</span> (line <span class="line-number">81</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Plays a file, can be interrupted by escapeDigits.</p>
+<p class="description"><p>Uses agi command &quot;STREAM FILE&quot;</p></p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> ChannelDownException</li>
+				<li><span class="field">throws:</span> SoundFileException</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Client/Result/PlayResult.html">PlayResult</a></span>
+		<span class="method-name">
+			streamFile
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$file</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$escapeDigits</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$file</span><span class="var-description">: File to play, without .wav extension.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$escapeDigits</span><span class="var-description">: Optional sequence of digits that can be used  to skip the sound.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodwaitDigit" id="waitDigit"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">waitDigit</span> (line <span class="line-number">92</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Waits up to &lt;timeout&gt; milliseconds for channel to receive a DTMF digit.</p>
+<p class="description"><p>Uses agi command &quot;WAIT FOR DIGIT&quot;.</p></p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> ChannelDownException</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Client/Result/DigitReadResult.html">DigitReadResult</a></span>
+		<span class="method-name">
+			waitDigit
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$timeout</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$timeout</span><span class="var-description">: Milliseconds to wait. -1 to block indefinitely.</span>			</li>
+				</ul>
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+	
+	<p class="notes" id="credit">
+		Documentation generated on Sat, 15 Jan 2011 21:49:35 -0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>
