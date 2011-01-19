@@ -14,6 +14,8 @@
  */
 namespace PAGI\CallSpool\Exception;
 
+use PAGI\Exception\PAGIException;
+
 /**
  * This exception indicates an error related to the call spool.
  *
