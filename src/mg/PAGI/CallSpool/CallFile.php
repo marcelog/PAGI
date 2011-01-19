@@ -13,6 +13,7 @@
  */
 namespace PAGI\CallSpool;
 
+use \PAGI\DialDescriptor\DialDescriptor;
 /**
  * A call file facade.
  *
@@ -102,18 +103,6 @@ class CallFile
     public function getChannel()
     {
         return $this->getParameter('Channel');
-    }
-
-    /**
-     * Sets the channel to use for the call.
-     *
-     * @param string $value Value to set.
-     *
-     * @return void
-     */
-    public function setChannel($value)
-    {
-        $this->setParameter('Channel', $value);
     }
 
     /**
@@ -453,11 +442,16 @@ class CallFile
     /**
      * Constructor.
      *
+     * @param PAGI\DialDescriptor\DialDescriptor dial descriptor
+     *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct(DialDescriptor $dialDescriptor) {
         $this->_parameters = array();
         $this->_variables = array();
+
+        $this->setParameter(
+            'Channel', $dialDescriptor->getChannelDescriptor()
+        );
     }
 }

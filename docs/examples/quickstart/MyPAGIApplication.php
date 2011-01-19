@@ -107,13 +107,6 @@ class MyPAGIApplication extends PAGIApplication
             $client->log(' -- Argument ' . intval($i) . ': ' . $variables->getArgument($i));
         }
 
-        $spool = CallSpoolImpl::getInstance(
-        	array(
-        		'tmpDir' => '/tmp/Pagi',
-        		'spoolDir' => $variables->getDirectorySpool()
-            )
-        );
-
         $result = $client->sayDigits('12345', '12#');
         if (!$result->isTimeout()) {
             $client->log('Read: ' . $result->getDigits());
@@ -225,31 +218,6 @@ class MyPAGIApplication extends PAGIApplication
             }
             $this->log('Recorded: ' . $result->getEndPos());
         }
-        $client->streamFile('/tmp/asd', '');
-        $callFile = new CallFile();
-        $callFile->setChannel('SIP/01');
-        $callFile->setContext('campaign');
-        $callFile->setExtension('failed');
-        $callFile->setVariable('foo', 'bar');
-        $callFile->setPriority('1');
-        $callFile->setMaxRetries('0');
-        $callFile->setWaitTime(10);
-        $callFile->setCallerId('some<123123>');
-
-        file_put_contents('/tmp/acallfilesample.call', $callFile->serialize());
-        $callFile = new CallFile();
-        $callFile->unserialize(file_get_contents('/tmp/acallfilesample.call'));
-        $callFile = new CallFile();
-        $callFile->setChannel('SIP/01');
-        $callFile->setContext('campaign');
-        $callFile->setExtension('failed');
-        $callFile->setVariable('foo', 'bar');
-        $callFile->setPriority('1');
-        $callFile->setMaxRetries('0');
-        $callFile->setWaitTime(10);
-        $callFile->setCallerId('some<123123>');
-        $spool->spool($callFile, time() + 30);
-        //unlink('/tmp/acallfilesample.call');
         //$client->log($client->databaseGet('SIP', 'Registry'));
         //$client->setAutoHangup(10);
         //sleep(20);
