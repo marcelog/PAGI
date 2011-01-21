@@ -32,7 +32,7 @@ abstract class PAGIApplication
      * log4php logger or our own dummy.
      * @var Logger
      */
-    private $_logger;
+    private $logger;
 
     /**
      * AGI Client.
@@ -91,8 +91,8 @@ abstract class PAGIApplication
      */
     public function log($msg)
     {
-        if ($this->_logger->isDebugEnabled()) {
-            $this->_logger->debug($msg);
+        if ($this->logger->isDebugEnabled()) {
+            $this->logger->debug($msg);
         }
         $this->_agiClient->consoleLog($msg);
     }
@@ -121,7 +121,7 @@ abstract class PAGIApplication
         if (isset($properties['log4php.properties'])) {
             \Logger::configure($properties['log4php.properties']);
         }
-        $this->_logger = \Logger::getLogger('Pagi.PAGIApplication');
+        $this->logger = \Logger::getLogger('Pagi.PAGIApplication');
         $this->_agiClient = ClientImpl::getInstance($properties);
         register_shutdown_function(array($this, 'shutdown'));
         $signalHandler = array($this, 'signalHandler');
