@@ -57,7 +57,7 @@ interface IClient
     public function consoleLog($msg);
 
     /**
-     * Logs to asterisk logger.
+     * Logs to asterisk logger. Uses application LOG.
      *
      * @param string $msg      Message to log.
      * @param string $priority One of ERROR, WARNING, NOTICE, DEBUG, VERBOSE, DTMF
