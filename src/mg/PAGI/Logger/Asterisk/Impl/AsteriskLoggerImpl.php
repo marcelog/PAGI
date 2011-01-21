@@ -104,6 +104,13 @@ class AsteriskLoggerImpl implements IAsteriskLogger
         $this->_agi->log($msg, 'DTMF');
     }
 
+    /**
+     * Obtains an instance for this facade.
+     *
+     * @param IClient $agi Client AGI to use.
+     *
+     * @return void
+     */
     public static function getLogger(IClient $agi)
     {
         if (self::$_instance === false) {
