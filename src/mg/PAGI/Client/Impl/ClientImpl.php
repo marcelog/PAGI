@@ -555,7 +555,7 @@ class ClientImpl implements IClient
         $msg = str_replace("\r", '', $msg);
         $msg = explode("\n", $msg);
         foreach ($msg as $line) {
-            $this->send('VERBOSE "' . str_replace('"', '\\"', $line) . '" 1');
+            $this->send('VERBOSE 1 "' . str_replace('"', '\\"', $line) . '"');
         }
     }
 
