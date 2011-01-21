@@ -54,7 +54,24 @@ interface IClient
      *
      * @return void
      */
-    public function log($msg);
+    public function consoleLog($msg);
+
+    /**
+     * Logs to asterisk logger.
+     *
+     * @param string $msg      Message to log.
+     * @param string $priority One of ERROR, WARNING, NOTICE, DEBUG, VERBOSE, DTMF
+     *
+     * @return void
+     */
+    public function log($msg, $priority = 'NOTICE');
+
+    /**
+     * Returns an asterisk logger facade.
+     *
+     * @return IAsteriskLogger
+     */
+    public function getAsteriskLogger();
 
     /**
      * Retrieves channel status. Uses agi command "CHANNEL STATUS"

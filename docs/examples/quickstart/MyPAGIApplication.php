@@ -68,132 +68,138 @@ class MyPAGIApplication extends PAGIApplication
     {
         $this->log('Run');
         $client = $this->getAgi();
-        //$client->log($client->faxReceive('/tmp/a.tiff')->__toString());
-        //$client->log($client->faxSend('/tmp/a.tiff')->__toString());
+        $loggerFacade = $client->getAsteriskLogger();
+        $loggerFacade->notice('hello notice');
+        $loggerFacade->warn('hello warn');
+        $loggerFacade->debug('hello debug');
+        $loggerFacade->error('hello error');
+        $loggerFacade->dtmf('hello dtmf');
+        //$this->log($client->faxReceive('/tmp/a.tiff')->__toString());
+        //$this->log($client->faxSend('/tmp/a.tiff')->__toString());
         $variables = $client->getChannelVariables();
-        $client->log('Config dir: ' . $variables->getDirectoryConfig());
-        $client->log('Config file: ' . $variables->getConfigFile());
-        $client->log('Module dir: ' . $variables->getDirectoryModules());
-        $client->log('Spool dir: ' . $variables->getDirectorySpool());
-        $client->log('Monitor dir: ' . $variables->getDirectoryMonitor());
-        $client->log('Var dir: ' . $variables->getDirectoryVar());
-        $client->log('Data dir: ' . $variables->getDirectoryData());
-        $client->log('Log dir: ' . $variables->getDirectoryLog());
-        $client->log('Agi dir: ' . $variables->getDirectoryAgi());
-        $client->log('Key dir: ' . $variables->getDirectoryKey());
-        $client->log('Run dir: ' . $variables->getDirectoryRun());
-        $client->log('Request: '. $variables->getRequest());
-        $client->log('Channel: '. $variables->getChannel());
-        $client->log('Language: '. $variables->getLanguage());
-        $client->log('Type: '. $variables->getType());
-        $client->log('UniqueId: ' . $variables->getUniqueId());
-        $client->log('Version: ' . $variables->getVersion());
-        $client->log('CallerId: ' . $variables->getCallerId());
-        $client->log('CallerId name: ' . $variables->getCallerIdName());
-        $client->log('CallerId pres: ' . $variables->getCallingPres());
-        $client->log('CallingAni2: ' . $variables->getCallingAni2());
-        $client->log('CallingTon: ' . $variables->getCallingTon());
-        $client->log('CallingTNS: ' . $variables->getCallingTns());
-        $client->log('DNID: ' . $variables->getDNID());
-        $client->log('RDNIS: ' . $variables->getRDNIS());
-        $client->log('Context: ' . $variables->getContext());
-        $client->log('Extension: ' . $variables->getDNIS());
-        $client->log('Priority: ' . $variables->getPriority());
-        $client->log('Enhanced: ' . $variables->getEnhanced());
-        $client->log('AccountCode: ' . $variables->getAccountCode());
-        $client->log('ThreadId: ' . $variables->getThreadId());
-        $client->log('Arguments: ' . intval($variables->getTotalArguments()));
+        $this->log('Config dir: ' . $variables->getDirectoryConfig());
+        $this->log('Config file: ' . $variables->getConfigFile());
+        $this->log('Module dir: ' . $variables->getDirectoryModules());
+        $this->log('Spool dir: ' . $variables->getDirectorySpool());
+        $this->log('Monitor dir: ' . $variables->getDirectoryMonitor());
+        $this->log('Var dir: ' . $variables->getDirectoryVar());
+        $this->log('Data dir: ' . $variables->getDirectoryData());
+        $this->log('Log dir: ' . $variables->getDirectoryLog());
+        $this->log('Agi dir: ' . $variables->getDirectoryAgi());
+        $this->log('Key dir: ' . $variables->getDirectoryKey());
+        $this->log('Run dir: ' . $variables->getDirectoryRun());
+        $this->log('Request: '. $variables->getRequest());
+        $this->log('Channel: '. $variables->getChannel());
+        $this->log('Language: '. $variables->getLanguage());
+        $this->log('Type: '. $variables->getType());
+        $this->log('UniqueId: ' . $variables->getUniqueId());
+        $this->log('Version: ' . $variables->getVersion());
+        $this->log('CallerId: ' . $variables->getCallerId());
+        $this->log('CallerId name: ' . $variables->getCallerIdName());
+        $this->log('CallerId pres: ' . $variables->getCallingPres());
+        $this->log('CallingAni2: ' . $variables->getCallingAni2());
+        $this->log('CallingTon: ' . $variables->getCallingTon());
+        $this->log('CallingTNS: ' . $variables->getCallingTns());
+        $this->log('DNID: ' . $variables->getDNID());
+        $this->log('RDNIS: ' . $variables->getRDNIS());
+        $this->log('Context: ' . $variables->getContext());
+        $this->log('Extension: ' . $variables->getDNIS());
+        $this->log('Priority: ' . $variables->getPriority());
+        $this->log('Enhanced: ' . $variables->getEnhanced());
+        $this->log('AccountCode: ' . $variables->getAccountCode());
+        $this->log('ThreadId: ' . $variables->getThreadId());
+        $this->log('Arguments: ' . intval($variables->getTotalArguments()));
         for ($i = 0; $i < $variables->getTotalArguments(); $i++) {
-            $client->log(' -- Argument ' . intval($i) . ': ' . $variables->getArgument($i));
+            $this->log(' -- Argument ' . intval($i) . ': ' . $variables->getArgument($i));
         }
 
         $result = $client->sayDigits('12345', '12#');
         if (!$result->isTimeout()) {
-            $client->log('Read: ' . $result->getDigits());
+            $this->log('Read: ' . $result->getDigits());
         } else {
-            $client->log('Timeouted for say digits.');
+            $this->log('Timeouted for say digits.');
         }
 
         $result = $client->sayNumber('12345', '12#');
         if (!$result->isTimeout()) {
-            $client->log('Read: ' . $result->getDigits());
+            $this->log('Read: ' . $result->getDigits());
         } else {
-            $client->log('Timeouted for say number.');
+            $this->log('Timeouted for say number.');
         }
 
         $result = $client->getData('/var/lib/asterisk/sounds/welcome', 10000, 4);
         if (!$result->isTimeout()) {
-            $client->log('Read: ' . $result->getDigits());
+            $this->log('Read: ' . $result->getDigits());
         } else {
-            $client->log('Timeouted for get data with: ' . $result->getDigits());
+            $this->log('Timeouted for get data with: ' . $result->getDigits());
         }
 
         $result = $client->getOption('/var/lib/asterisk/sounds/welcome', '0123456789*#', 10000);
         if (!$result->isTimeout()) {
-            $client->log('Read: ' . $result->getDigits());
+            $this->log('Read: ' . $result->getDigits());
         } else {
-            $client->log('Timeouted for get option.');
+            $this->log('Timeouted for get option.');
         }
 
         $result = $client->streamFile('/var/lib/asterisk/sounds/welcome', '#');
         if (!$result->isTimeout()) {
-            $client->log('Read: ' . $result->getDigits());
+            $this->log('Read: ' . $result->getDigits());
         } else {
-            $client->log('Timeouted for stream file.');
+            $this->log('Timeouted for stream file.');
         }
 
-        $client->log('Channel status: ' . ChannelStatus::toString($client->channelStatus()));
-        $client->log('Channel status: ' . ChannelStatus::toString($client->channelStatus($variables->getChannel())));
-        $client->log('Variable: ' . $client->getVariable('EXTEN'));
-        $client->log('FullVariable: ' . $client->getFullVariable('EXTEN'));
+        $this->log('Channel status: ' . ChannelStatus::toString($client->channelStatus()));
+        $this->log('Channel status: ' . ChannelStatus::toString($client->channelStatus($variables->getChannel())));
+        $this->log('Variable: ' . $client->getVariable('EXTEN'));
+        $this->log('FullVariable: ' . $client->getFullVariable('EXTEN'));
         $cdr = $client->getCDR();
-        $client->log('CDRVariable: ' . $cdr->getSource());
+        $this->log('CDRVariable: ' . $cdr->getSource());
         $cdr->setAccountCode('foo');
-        $client->log('CDRVariable: ' . $cdr->getAccountCode());
+        $this->log('CDRVariable: ' . $cdr->getAccountCode());
 
         $callerId = $client->getCallerId();
-        $client->log('CallerID: ' . $callerId);
+        $this->log('CallerID: ' . $callerId);
         $callerId->setName('pepe');
-        $client->log('CallerID: ' . $callerId);
+        $this->log('CallerID: ' . $callerId);
         $client->setCallerId('foo', '123123');
-        $client->log('CallerID: ' . $callerId);
+        $this->log('CallerID: ' . $callerId);
 
-        $client->log($client->exec('Dial', array('SIP/sip', 30, 'r')));
-        $client->log($client->dial('SIP/01', array(30, 'r')));
+        $this->log($client->exec('Dial', array('SIP/sip', 30, 'r')));
+        $this->log($client->dial('SIP/01', array(30, 'r')));
 
         $result = $client->sayPhonetic('marcelog', '123#');
         if (!$result->isTimeout()) {
-            $client->log('Read: ' . $result->getDigits());
+            $this->log('Read: ' . $result->getDigits());
         } else {
-            $client->log('Timeouted for say phonetic.');
+            $this->log('Timeouted for say phonetic.');
         }
 
         $result = $client->sayAlpha('marcelog', '123#');
         if (!$result->isTimeout()) {
-            $client->log('Read: ' . $result->getDigits());
+            $this->log('Read: ' . $result->getDigits());
         } else {
-            $client->log('Timeouted for say alpha.');
+            $this->log('Timeouted for say alpha.');
         }
 
         $result = $client->sayTime(time(), '123#');
         if (!$result->isTimeout()) {
-            $client->log('Read: ' . $result->getDigits());
+            $this->log('Read: ' . $result->getDigits());
         } else {
-            $client->log('Timeouted for say time.');
+            $this->log('Timeouted for say time.');
         }
 
         $result = $client->sayDateTime(time(), 'mdYHMS', '123#');
         if (!$result->isTimeout()) {
-            $client->log('Read: ' . $result->getDigits());
+            $this->log('Read: ' . $result->getDigits());
         } else {
-            $client->log('Timeouted for say datetime.');
+            $this->log('Timeouted for say datetime.');
         }
 
         $result = $client->sayDate(time(), '123#');
         if (!$result->isTimeout()) {
-            $client->log('Read: ' . $result->getDigits());
+            $this->log('Read: ' . $result->getDigits());
         } else {
-            $client->log('Timeouted for say date.');
+            $this->log('Timeouted for say date.');
         }
 
         $client->setPriority(1000);
@@ -205,9 +211,9 @@ class MyPAGIApplication extends PAGIApplication
 
         $result = $client->waitDigit(10000);
         if (!$result->isTimeout()) {
-            $client->log('Read: ' . $result->getDigits());
+            $this->log('Read: ' . $result->getDigits());
         } else {
-            $client->log('Timeouted for waitdigit.');
+            $this->log('Timeouted for waitdigit.');
         }
         $result = $client->record('/tmp/asd', 'wav', '#');
         if ($result->isInterrupted()) {
@@ -218,7 +224,7 @@ class MyPAGIApplication extends PAGIApplication
             }
             $this->log('Recorded: ' . $result->getEndPos());
         }
-        //$client->log($client->databaseGet('SIP', 'Registry'));
+        //$this->log($client->databaseGet('SIP', 'Registry'));
         //$client->setAutoHangup(10);
         //sleep(20);
     }

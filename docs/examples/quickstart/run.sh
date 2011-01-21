@@ -16,11 +16,11 @@ export PAGIBootstrap=MyPAGIApplication.php
 pagi=/export/users/marcelog/src/sts/PAGI
 
 # Your copy of log4php (optional)
-log4php=/export/users/marcelog
+log4php=/usr/share/php
 
 # PHP to run and options
 php=/usr/php-5.3/bin/php
-phpoptions="-d include_path=${log4php}:${pagi}/src/mg:${pagi}/docs/examples/quickstart"
+phpoptions="-d include_path=${pagi}/src/mg:${log4php}:${pagi}/docs/examples/quickstart"
 
 # Standard.. the idea is to have a common launcher.
 launcher=${pagi}/src/mg/PAGI/Application/PAGILauncher.php

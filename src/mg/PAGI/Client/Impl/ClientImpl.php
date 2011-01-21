@@ -14,6 +14,8 @@
  */
 namespace PAGI\Client\Impl;
 
+use PAGI\Logger\Asterisk\Impl\AsteriskLoggerImpl;
+
 use PAGI\Client\Result\Result;
 use PAGI\Client\Result\FaxResult;
 use PAGI\Client\Result\ExecResult;
@@ -545,18 +547,44 @@ class ClientImpl implements IClient
         );
     }
 
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\Client.IClient::log()
+     */
+    public function log($msg, $priority = 'NOTICE')
+    {
+        $msg = str_replace("\r", '', $msg);
+        $msg = explode("\n", $msg);
+        foreach ($msg as $line) {
+            $this->exec(
+            	'LOG', array($priority, str_replace('"', '\\"', $line))
+            );
+        }
+
+    }
 
     /**
      * (non-PHPdoc)
      * @see PAGI\Client.IClient::log()
      */
-    public function log($msg)
+    public function consoleLog($msg, $level = 1)
     {
         $msg = str_replace("\r", '', $msg);
         $msg = explode("\n", $msg);
         foreach ($msg as $line) {
-            $this->send('VERBOSE 1 "' . str_replace('"', '\\"', $line) . '"');
+            $this->send(
+            	'VERBOSE "' . str_replace('"', '\\"', $line) . '" ' . $level
+            );
         }
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\Client.IClient::getAsteriskLogger()
+     */
+    public function getAsteriskLogger()
+    {
+        return AsteriskLoggerImpl::getLogger($this);
     }
 
     /**

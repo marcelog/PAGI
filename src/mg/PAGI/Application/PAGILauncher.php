@@ -22,6 +22,7 @@
 require_once 'PAGI/Autoloader/PAGI_Autoloader.php'; // Include PAGI autoloader.
 PAGI_Autoloader::register(); // Call autoloader register for PAGI autoloader.
 use PAGI\Application\Exception\InvalidApplicationException;
+use PAGI\Application\PAGIApplication;
 
 $appName = getenv('PAGIApplication');
 $bootstrap = getenv('PAGIBootstrap');
@@ -36,8 +37,8 @@ try
     if (!class_exists($appName, true)) {
         throw new InvalidApplicationException($appName . ' is not loaded');
     }
-
-    if (!($appName instanceof PAGIApplication)) {
+    $rClass = new ReflectionClass($appName);
+    if (!$rClass->isSubclassOf('PAGI\\Application\\PAGIApplication')) {
         throw new InvalidApplicationException($appName . ': Invalid application');
     }
     $myApp = new $appName(array('log4php.properties' => $log4php));

@@ -42,6 +42,8 @@ PAGI\Client\CallerID: Provided to access caller id variables.
 PAGI\Client\Result: Provided to wrap up the result for agi commands.
 PAGI\CallSpool\CallFile: Call file facade.
 PAGI\CallSpool\CallSpool: Call spool facade.
+PAGI\Logger\Asterisk: Provides access to asterisk logger (see logger.conf in your
+asterisk installation).
 --------------------------------------------------------------------------------
 Results
 =======
