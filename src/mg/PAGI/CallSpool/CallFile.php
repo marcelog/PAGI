@@ -397,7 +397,7 @@ class CallFile
             $text[] = $k . ': ' . $v;
         }
         foreach ($this->_variables as $k => $v) {
-            $text[] = 'Set: ' . $k . '="' . $v . '"';
+            $text[] = 'Set: ' . $k . '=' . $v;
         }
         return implode("\n", $text);
     }
