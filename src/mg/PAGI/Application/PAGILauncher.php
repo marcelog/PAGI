@@ -29,20 +29,16 @@ $log4php = realpath(getenv('log4php_properties'));
 $myApp = '';
 //\Logger::configure($log4php);
 //$logger = \Logger::getLogger('PAGI.Launcher');
-$neededMethods = array(
-	'init', 'run', 'shutdown', 'errorHandler', 'signalHandler'
-);
 try
 {
 
     include_once $bootstrap;
     if (!class_exists($appName, true)) {
-        throw new InvalidApplicationException($appName . ' is not loaded.');
+        throw new InvalidApplicationException($appName . ' is not loaded');
     }
-    foreach ($neededMethods as $method) {
-        if (!method_exists($appName, $method)) {
-            throw new InvalidApplicationException($appName . ': Missing ' . $method);
-        }
+
+    if (!($appName instanceof PAGIApplication)) {
+        throw new InvalidApplicationException($appName . ': Invalid application');
     }
     $myApp = new $appName(array('log4php.properties' => $log4php));
     $myApp->init();
