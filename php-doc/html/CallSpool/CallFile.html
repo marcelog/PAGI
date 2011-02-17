@@ -109,7 +109,7 @@
 				<li><span class="field">license:</span> <a href="http://www.noneyet.ar/">Apache License 2.0</a></li>
 			</ul>
 		<p class="notes">
-			Located in <a class="field" href="_CallSpool---CallFile.php.html">/CallSpool/CallFile.php</a> (line <span class="field">27</span>)
+			Located in <a class="field" href="_CallSpool---CallFile.php.html">/CallSpool/CallFile.php</a> (line <span class="field">43</span>)
 		</p>
 		
 				
@@ -158,12 +158,12 @@
 		</div>
 		<div class="info-box-body">			
 			<div class="method-summary">
-																																																																																																																																																																																																																																																																																							
+																																																																																																																																																																																																																																																																															
 				<div class="method-definition">
 					<img src="../media/images/Constructor.png" alt=" "/>
 											<span class="method-result">void</span>
 										<a href="#__construct" title="details" class="method-name">__construct</a>
-										()
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$dialDescriptor</span>)
 									</div>
 															
 				<div class="method-definition">
@@ -323,13 +323,6 @@
 				<div class="method-definition">
 					<img src="../media/images/Method.png" alt=" "/>
 											<span class="method-result">void</span>
-										<a href="#setChannel" title="details" class="method-name">setChannel</a>
-											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
-									</div>
-															
-				<div class="method-definition">
-					<img src="../media/images/Method.png" alt=" "/>
-											<span class="method-result">void</span>
 										<a href="#setContext" title="details" class="method-name">setContext</a>
 											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
 									</div>
@@ -408,14 +401,14 @@
 		<div class="info-box-body">
 			
 <a name="var$_parameters" id="$_parameters"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<img src="../media/images/PrivateVariable.png" />
 		<span class="var-title">
 			<span class="var-type">string[]</span>
 			<span class="var-name">$_parameters</span>
-						(line <span class="line-number">33</span>)
+						(line <span class="line-number">49</span>)
 		</span>
 	</div>
 
@@ -431,14 +424,14 @@
 
 </div>
 <a name="var$_variables" id="$_variables"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="var-header">
 		<img src="../media/images/PrivateVariable.png" />
 		<span class="var-title">
 			<span class="var-type">string[]</span>
 			<span class="var-name">$_variables</span>
-						(line <span class="line-number">39</span>)
+						(line <span class="line-number">55</span>)
 		</span>
 	</div>
 
@@ -469,11 +462,11 @@
 		<div class="info-box-body">
 			<A NAME='method_detail'></A>
 <a name="method__construct" id="__construct"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Constructor.png" />
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">458</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">464</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -487,18 +480,23 @@
 		<span class="method-name">
 			__construct
 		</span>
-				()
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$dialDescriptor</span>)
 			</div>
 	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">PAGI\DialDescriptor\DialDescriptor</span>
+				<span class="var-name">$dialDescriptor</span><span class="var-description">: dial descriptor</span>			</li>
+				</ul>
 		
 			
 	</div>
 <a name="methodgetAccount" id="getAccount"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">getAccount</span> (line <span class="line-number">218</span>)
+		<span class="method-title">getAccount</span> (line <span class="line-number">222</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -519,11 +517,11 @@
 			
 	</div>
 <a name="methodgetAlwaysDelete" id="getAlwaysDelete"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">getAlwaysDelete</span> (line <span class="line-number">357</span>)
+		<span class="method-title">getAlwaysDelete</span> (line <span class="line-number">361</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -544,11 +542,11 @@
 			
 	</div>
 <a name="methodgetApplication" id="getApplication"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">getApplication</span> (line <span class="line-number">307</span>)
+		<span class="method-title">getApplication</span> (line <span class="line-number">311</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -569,11 +567,11 @@
 			
 	</div>
 <a name="methodgetApplicationData" id="getApplicationData"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">getApplicationData</span> (line <span class="line-number">330</span>)
+		<span class="method-title">getApplicationData</span> (line <span class="line-number">334</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -594,11 +592,11 @@
 			
 	</div>
 <a name="methodgetArchive" id="getArchive"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">getArchive</span> (line <span class="line-number">381</span>)
+		<span class="method-title">getArchive</span> (line <span class="line-number">385</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -619,11 +617,11 @@
 			
 	</div>
 <a name="methodgetCallerId" id="getCallerId"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">getCallerId</span> (line <span class="line-number">125</span>)
+		<span class="method-title">getCallerId</span> (line <span class="line-number">129</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -644,11 +642,11 @@
 			
 	</div>
 <a name="methodgetChannel" id="getChannel"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">getChannel</span> (line <span class="line-number">102</span>)
+		<span class="method-title">getChannel</span> (line <span class="line-number">118</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -669,11 +667,11 @@
 			
 	</div>
 <a name="methodgetContext" id="getContext"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">getContext</span> (line <span class="line-number">240</span>)
+		<span class="method-title">getContext</span> (line <span class="line-number">244</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -694,11 +692,11 @@
 			
 	</div>
 <a name="methodgetExtension" id="getExtension"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">getExtension</span> (line <span class="line-number">284</span>)
+		<span class="method-title">getExtension</span> (line <span class="line-number">288</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -719,11 +717,11 @@
 			
 	</div>
 <a name="methodgetMaxRetries" id="getMaxRetries"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">getMaxRetries</span> (line <span class="line-number">171</span>)
+		<span class="method-title">getMaxRetries</span> (line <span class="line-number">175</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -744,11 +742,11 @@
 			
 	</div>
 <a name="methodgetParameter" id="getParameter"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">getParameter</span> (line <span class="line-number">48</span>)
+		<span class="method-title">getParameter</span> (line <span class="line-number">64</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -774,11 +772,11 @@
 			
 	</div>
 <a name="methodgetPriority" id="getPriority"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">getPriority</span> (line <span class="line-number">262</span>)
+		<span class="method-title">getPriority</span> (line <span class="line-number">266</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -799,11 +797,11 @@
 			
 	</div>
 <a name="methodgetRetryTime" id="getRetryTime"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">getRetryTime</span> (line <span class="line-number">195</span>)
+		<span class="method-title">getRetryTime</span> (line <span class="line-number">199</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -825,11 +823,11 @@
 			
 	</div>
 <a name="methodgetVariable" id="getVariable"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">getVariable</span> (line <span class="line-number">76</span>)
+		<span class="method-title">getVariable</span> (line <span class="line-number">92</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -855,11 +853,11 @@
 			
 	</div>
 <a name="methodgetWaitTime" id="getWaitTime"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">getWaitTime</span> (line <span class="line-number">148</span>)
+		<span class="method-title">getWaitTime</span> (line <span class="line-number">152</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -880,11 +878,11 @@
 			
 	</div>
 <a name="methodserialize" id="serialize"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">serialize</span> (line <span class="line-number">404</span>)
+		<span class="method-title">serialize</span> (line <span class="line-number">408</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -905,11 +903,11 @@
 			
 	</div>
 <a name="methodsetAccount" id="setAccount"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">setAccount</span> (line <span class="line-number">230</span>)
+		<span class="method-title">setAccount</span> (line <span class="line-number">234</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -935,11 +933,11 @@
 			
 	</div>
 <a name="methodsetAlwaysDelete" id="setAlwaysDelete"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">setAlwaysDelete</span> (line <span class="line-number">370</span>)
+		<span class="method-title">setAlwaysDelete</span> (line <span class="line-number">374</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -965,11 +963,11 @@
 			
 	</div>
 <a name="methodsetApplication" id="setApplication"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">setApplication</span> (line <span class="line-number">320</span>)
+		<span class="method-title">setApplication</span> (line <span class="line-number">324</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -995,11 +993,11 @@
 			
 	</div>
 <a name="methodsetApplicationData" id="setApplicationData"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">setApplicationData</span> (line <span class="line-number">346</span>)
+		<span class="method-title">setApplicationData</span> (line <span class="line-number">350</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1028,11 +1026,11 @@
 			
 	</div>
 <a name="methodsetArchive" id="setArchive"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">setArchive</span> (line <span class="line-number">394</span>)
+		<span class="method-title">setArchive</span> (line <span class="line-number">398</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1058,11 +1056,11 @@
 			
 	</div>
 <a name="methodsetCallerId" id="setCallerId"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">setCallerId</span> (line <span class="line-number">138</span>)
+		<span class="method-title">setCallerId</span> (line <span class="line-number">142</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1087,42 +1085,12 @@
 		
 			
 	</div>
-<a name="methodsetChannel" id="setChannel"><!-- --></a>
-<div class="evenrow">
-	
-	<div class="method-header">
-		<img src="../media/images/Method.png" />
-		<span class="method-title">setChannel</span> (line <span class="line-number">114</span>)
-	</div> 
-	
-	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Sets the channel to use for the call.</p>
-	<ul class="tags">
-				<li><span class="field">access:</span> public</li>
-			</ul>
-	
-	<div class="method-signature">
-		<span class="method-result">void</span>
-		<span class="method-name">
-			setChannel
-		</span>
-					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
-			</div>
-	
-			<ul class="parameters">
-					<li>
-				<span class="var-type">string</span>
-				<span class="var-name">$value</span><span class="var-description">: Value to set.</span>			</li>
-				</ul>
-		
-			
-	</div>
 <a name="methodsetContext" id="setContext"><!-- --></a>
 <div class="oddrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">setContext</span> (line <span class="line-number">252</span>)
+		<span class="method-title">setContext</span> (line <span class="line-number">256</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1152,7 +1120,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">setExtension</span> (line <span class="line-number">296</span>)
+		<span class="method-title">setExtension</span> (line <span class="line-number">300</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1182,7 +1150,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">setMaxRetries</span> (line <span class="line-number">184</span>)
+		<span class="method-title">setMaxRetries</span> (line <span class="line-number">188</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1212,7 +1180,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">setParameter</span> (line <span class="line-number">64</span>)
+		<span class="method-title">setParameter</span> (line <span class="line-number">80</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1245,7 +1213,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">setPriority</span> (line <span class="line-number">274</span>)
+		<span class="method-title">setPriority</span> (line <span class="line-number">278</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1275,7 +1243,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">setRetryTime</span> (line <span class="line-number">208</span>)
+		<span class="method-title">setRetryTime</span> (line <span class="line-number">212</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1306,7 +1274,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">setVariable</span> (line <span class="line-number">92</span>)
+		<span class="method-title">setVariable</span> (line <span class="line-number">108</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1339,7 +1307,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">setWaitTime</span> (line <span class="line-number">160</span>)
+		<span class="method-title">setWaitTime</span> (line <span class="line-number">164</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1369,7 +1337,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">unserialize</span> (line <span class="line-number">424</span>)
+		<span class="method-title">unserialize</span> (line <span class="line-number">428</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1400,7 +1368,7 @@
 
 	
 	<p class="notes" id="credit">
-		Documentation generated on Sat, 15 Jan 2011 21:49:32 -0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Thu, 17 Feb 2011 17:43:10 -0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>

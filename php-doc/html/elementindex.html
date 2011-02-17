@@ -15,6 +15,7 @@
 	<li><a href="elementindex_Exception.html">Exception</a></li>
 	<li><a href="elementindex_Logger.html">Logger</a></li>
 	<li><a href="elementindex_Callerid.html">Callerid</a></li>
+	<li><a href="elementindex_DialDescriptor.html">DialDescriptor</a></li>
 	<li><a href="elementindex_Autoloader.html">Autoloader</a></li>
 	<li><a href="elementindex_Client.html">Client</a></li>
 	<li><a href="elementindex_ChannelVariables.html">ChannelVariables</a></li>
@@ -32,12 +33,14 @@
 	<a class="index-letter" href="elementindex.html#h">h</a>
 	<a class="index-letter" href="elementindex.html#i">i</a>
 	<a class="index-letter" href="elementindex.html#l">l</a>
+	<a class="index-letter" href="elementindex.html#n">n</a>
 	<a class="index-letter" href="elementindex.html#o">o</a>
 	<a class="index-letter" href="elementindex.html#p">p</a>
 	<a class="index-letter" href="elementindex.html#r">r</a>
 	<a class="index-letter" href="elementindex.html#s">s</a>
 	<a class="index-letter" href="elementindex.html#t">t</a>
 	<a class="index-letter" href="elementindex.html#u">u</a>
+	<a class="index-letter" href="elementindex.html#v">v</a>
 	<a class="index-letter" href="elementindex.html#w">w</a>
 	<a class="index-letter" href="elementindex.html#_">_</a>
 </div>
@@ -64,6 +67,21 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Client/Impl/ClientImpl.html#methodanswer">ClientImpl::answer()</a> in ClientImpl.php</div>
 							<div class="index-item-description">(non-PHPdoc)</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Class.png" alt="Class" title="Class" />
+			AsteriskLoggerImpl
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Logger/Asterisk-Impl/AsteriskLoggerImpl.html">AsteriskLoggerImpl</a> in AsteriskLoggerImpl.php</div>
+							<div class="index-item-description">Facade to access asterisk logger (see logger.conf in your asterisk  installation).</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Page.png" alt="Page" title="Page" />
+			<span class="include-title">AsteriskLoggerImpl.php</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Logger/Asterisk-Impl/_Logger---Asterisk---Impl---AsteriskLoggerImpl.php.html">AsteriskLoggerImpl.php</a> in AsteriskLoggerImpl.php</div>
 					</dd>
 		</dl>
 	<a name="c"></a>
@@ -157,14 +175,6 @@
 							<div class="index-item-description">This exception indicates the channel went down suddenly.</div>
 					</dd>
 			<dt class="field">
-						<img src="media/images/Method.png" alt="Method" title="Method" />
-			<span class="method-title">channelStatus</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Impl/ClientImpl.html#methodchannelStatus">ClientImpl::channelStatus()</a> in ClientImpl.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
-					</dd>
-			<dt class="field">
 						<img src="media/images/Class.png" alt="Class" title="Class" />
 			ChannelStatus
 					</dt>
@@ -179,6 +189,14 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Client/IClient.html#methodchannelStatus">IClient::channelStatus()</a> in IClient.php</div>
 							<div class="index-item-description">Retrieves channel status. Uses agi command &quot;CHANNEL STATUS&quot;</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">channelStatus</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Client/Impl/ClientImpl.html#methodchannelStatus">ClientImpl::channelStatus()</a> in ClientImpl.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Page.png" alt="Page" title="Page" />
@@ -234,6 +252,22 @@
 							<div class="index-item-description">Dummy configuration.</div>
 					</dd>
 			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">consoleLog</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Client/IClient.html#methodconsoleLog">IClient::consoleLog()</a> in IClient.php</div>
+							<div class="index-item-description">Logs to asterisk console. Uses agi command &quot;VERBOSE&quot;.</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">consoleLog</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Client/Impl/ClientImpl.html#methodconsoleLog">ClientImpl::consoleLog()</a> in ClientImpl.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
+					</dd>
+			<dt class="field">
 						<img src="media/images/Page.png" alt="Page" title="Page" />
 			<span class="include-title">ChannelDownException.php</span>
 					</dt>
@@ -268,6 +302,14 @@
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Client/Result/_Client---Result---DigitReadResult.php.html">DigitReadResult.php</a> in DigitReadResult.php</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Class.png" alt="Class" title="Class" />
+			DAHDIDialDescriptor
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="DialDescriptor/DAHDIDialDescriptor.html">DAHDIDialDescriptor</a> in DAHDIDialDescriptor.php</div>
+							<div class="index-item-description">DAHDI Dial Descriptor class.</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -351,6 +393,22 @@
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">debug</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Logger/Asterisk/IAsteriskLogger.html#methoddebug">IAsteriskLogger::debug()</a> in IAsteriskLogger.php</div>
+							<div class="index-item-description">Logs with priority DEBUG.</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">debug</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Logger/Asterisk-Impl/AsteriskLoggerImpl.html#methoddebug">AsteriskLoggerImpl::debug()</a> in AsteriskLoggerImpl.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
 			<span class="method-title">dial</span>
 					</dt>
 		<dd class="index-item-body">
@@ -364,6 +422,28 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Client/IClient.html#methoddial">IClient::dial()</a> in IClient.php</div>
 							<div class="index-item-description">Tries to dial the given channel.</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/AbstractClass.png" alt="Class" title="Class" />
+			DialDescriptor
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="DialDescriptor/DialDescriptor.html">DialDescriptor</a> in DialDescriptor.php</div>
+							<div class="index-item-description">Dial Descriptor abstract class.</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Page.png" alt="Page" title="Page" />
+			<span class="include-title">DAHDIDialDescriptor.php</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="DialDescriptor/_DialDescriptor---DAHDIDialDescriptor.php.html">DAHDIDialDescriptor.php</a> in DAHDIDialDescriptor.php</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Page.png" alt="Page" title="Page" />
+			<span class="include-title">DialDescriptor.php</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="DialDescriptor/_DialDescriptor---DialDescriptor.php.html">DialDescriptor.php</a> in DialDescriptor.php</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Class.png" alt="Class" title="Class" />
@@ -406,6 +486,22 @@
 							<div class="index-item-description">Channel is down, but reserved.</div>
 					</dd>
 			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">dtmf</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Logger/Asterisk-Impl/AsteriskLoggerImpl.html#methoddtmf">AsteriskLoggerImpl::dtmf()</a> in AsteriskLoggerImpl.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">dtmf</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Logger/Asterisk/IAsteriskLogger.html#methoddtmf">IAsteriskLogger::dtmf()</a> in IAsteriskLogger.php</div>
+							<div class="index-item-description">Logs with priority DTMF.</div>
+					</dd>
+			<dt class="field">
 						<img src="media/images/Page.png" alt="Page" title="Page" />
 			<span class="include-title">DatabaseInvalidEntryException.php</span>
 					</dt>
@@ -428,6 +524,22 @@
 			<div class="index-item-details"><a href="Client/Result/_Client---Result---ExecResult.php.html">ExecResult.php</a> in ExecResult.php</div>
 					</dd>
 			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">error</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Logger/Asterisk-Impl/AsteriskLoggerImpl.html#methoderror">AsteriskLoggerImpl::error()</a> in AsteriskLoggerImpl.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">error</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Logger/Asterisk/IAsteriskLogger.html#methoderror">IAsteriskLogger::error()</a> in IAsteriskLogger.php</div>
+							<div class="index-item-description">Logs with priority ERROR.</div>
+					</dd>
+			<dt class="field">
 						<img src="media/images/AbstractMethod.png" alt="Method" title="Method" />
 			<span class="method-title">errorHandler</span>
 					</dt>
@@ -447,16 +559,16 @@
 			<span class="method-title">exec</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/IClient.html#methodexec">IClient::exec()</a> in IClient.php</div>
-							<div class="index-item-description">Executes an application. Uses agi command &quot;EXEC&quot;.</div>
+			<div class="index-item-details"><a href="Client/Impl/ClientImpl.html#methodexec">ClientImpl::exec()</a> in ClientImpl.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
 			<span class="method-title">exec</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Impl/ClientImpl.html#methodexec">ClientImpl::exec()</a> in ClientImpl.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
+			<div class="index-item-details"><a href="Client/IClient.html#methodexec">IClient::exec()</a> in IClient.php</div>
+							<div class="index-item-description">Executes an application. Uses agi command &quot;EXEC&quot;.</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Class.png" alt="Class" title="Class" />
@@ -550,15 +662,15 @@
 			<span class="method-title">getAccountCode</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="ChannelVariables/IChannelVariables.html#methodgetAccountCode">IChannelVariables::getAccountCode()</a> in IChannelVariables.php</div>
-							<div class="index-item-description">Returns account code (agi_accountcode).</div>
+			<div class="index-item-details"><a href="CDR/Impl/CDRFacade.html#methodgetAccountCode">CDRFacade::getAccountCode()</a> in CDRFacade.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
 			<span class="method-title">getAccountCode</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="CDR/Impl/CDRFacade.html#methodgetAccountCode">CDRFacade::getAccountCode()</a> in CDRFacade.php</div>
+			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#methodgetAccountCode">ChannelVariablesFacade::getAccountCode()</a> in ChannelVariablesFacade.php</div>
 							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
@@ -574,8 +686,8 @@
 			<span class="method-title">getAccountCode</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#methodgetAccountCode">ChannelVariablesFacade::getAccountCode()</a> in ChannelVariablesFacade.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
+			<div class="index-item-details"><a href="ChannelVariables/IChannelVariables.html#methodgetAccountCode">IChannelVariables::getAccountCode()</a> in IChannelVariables.php</div>
+							<div class="index-item-description">Returns account code (agi_accountcode).</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -606,15 +718,23 @@
 			<span class="method-title">getAMAFlags</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="CDR/ICDR.html#methodgetAMAFlags">ICDR::getAMAFlags()</a> in ICDR.php</div>
-							<div class="index-item-description">DOCUMENTATION, BILL, IGNORE etc. CDR(amaflags).</div>
+			<div class="index-item-details"><a href="CDR/Impl/CDRFacade.html#methodgetAMAFlags">CDRFacade::getAMAFlags()</a> in CDRFacade.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
 			<span class="method-title">getAMAFlags</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="CDR/Impl/CDRFacade.html#methodgetAMAFlags">CDRFacade::getAMAFlags()</a> in CDRFacade.php</div>
+			<div class="index-item-details"><a href="CDR/ICDR.html#methodgetAMAFlags">ICDR::getAMAFlags()</a> in ICDR.php</div>
+							<div class="index-item-description">DOCUMENTATION, BILL, IGNORE etc. CDR(amaflags).</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">getANI</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Callerid/CallerIdFacade.html#methodgetANI">CallerIdFacade::getANI()</a> in CallerIdFacade.php</div>
 							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
@@ -624,14 +744,6 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Callerid/ICallerId.html#methodgetANI">ICallerId::getANI()</a> in ICallerId.php</div>
 							<div class="index-item-description">Returns caller id ani. CALLERID(ani)</div>
-					</dd>
-			<dt class="field">
-						<img src="media/images/Method.png" alt="Method" title="Method" />
-			<span class="method-title">getANI</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Callerid/CallerIdFacade.html#methodgetANI">CallerIdFacade::getANI()</a> in CallerIdFacade.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -646,16 +758,16 @@
 			<span class="method-title">getAnswerLength</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="CDR/Impl/CDRFacade.html#methodgetAnswerLength">CDRFacade::getAnswerLength()</a> in CDRFacade.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
+			<div class="index-item-details"><a href="CDR/ICDR.html#methodgetAnswerLength">ICDR::getAnswerLength()</a> in ICDR.php</div>
+							<div class="index-item-description">Total answered time for the call in seconds. CDR(billsec).</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
 			<span class="method-title">getAnswerLength</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="CDR/ICDR.html#methodgetAnswerLength">ICDR::getAnswerLength()</a> in ICDR.php</div>
-							<div class="index-item-description">Total answered time for the call in seconds. CDR(billsec).</div>
+			<div class="index-item-details"><a href="CDR/Impl/CDRFacade.html#methodgetAnswerLength">CDRFacade::getAnswerLength()</a> in CDRFacade.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -715,6 +827,22 @@
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">getAsteriskLogger</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Client/Impl/ClientImpl.html#methodgetAsteriskLogger">ClientImpl::getAsteriskLogger()</a> in ClientImpl.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">getAsteriskLogger</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Client/IClient.html#methodgetAsteriskLogger">IClient::getAsteriskLogger()</a> in IClient.php</div>
+							<div class="index-item-description">Returns an asterisk logger facade.</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
 			<span class="method-title">getBitrate</span>
 					</dt>
 		<dd class="index-item-body">
@@ -726,8 +854,16 @@
 			<span class="method-title">getCallerId</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#methodgetCallerId">ChannelVariablesFacade::getCallerId()</a> in ChannelVariablesFacade.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
+			<div class="index-item-details"><a href="ChannelVariables/IChannelVariables.html#methodgetCallerId">IChannelVariables::getCallerId()</a> in IChannelVariables.php</div>
+							<div class="index-item-description">Returns caller id number (agi_callerid).</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">getCallerId</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="CallSpool/CallFile.html#methodgetCallerId">CallFile::getCallerId()</a> in CallFile.php</div>
+							<div class="index-item-description">Returns Caller ID, Please note: It may not work if you do not respect  the format: CallerID: &quot;Some Name&quot; &lt;1234&gt;</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -758,14 +894,6 @@
 			<span class="method-title">getCallerId</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="ChannelVariables/IChannelVariables.html#methodgetCallerId">IChannelVariables::getCallerId()</a> in IChannelVariables.php</div>
-							<div class="index-item-description">Returns caller id number (agi_callerid).</div>
-					</dd>
-			<dt class="field">
-						<img src="media/images/Method.png" alt="Method" title="Method" />
-			<span class="method-title">getCallerId</span>
-					</dt>
-		<dd class="index-item-body">
 			<div class="index-item-details"><a href="CDR/ICDR.html#methodgetCallerId">ICDR::getCallerId()</a> in ICDR.php</div>
 							<div class="index-item-description">Returns caller id. CDR(clid).</div>
 					</dd>
@@ -774,16 +902,8 @@
 			<span class="method-title">getCallerId</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="CallSpool/CallFile.html#methodgetCallerId">CallFile::getCallerId()</a> in CallFile.php</div>
-							<div class="index-item-description">Returns Caller ID, Please note: It may not work if you do not respect  the format: CallerID: &quot;Some Name&quot; &lt;1234&gt;</div>
-					</dd>
-			<dt class="field">
-						<img src="media/images/Method.png" alt="Method" title="Method" />
-			<span class="method-title">getCallerIdName</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="ChannelVariables/IChannelVariables.html#methodgetCallerIdName">IChannelVariables::getCallerIdName()</a> in IChannelVariables.php</div>
-							<div class="index-item-description">Returns caller id name (agi_calleridname).</div>
+			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#methodgetCallerId">ChannelVariablesFacade::getCallerId()</a> in ChannelVariablesFacade.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -792,6 +912,14 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#methodgetCallerIdName">ChannelVariablesFacade::getCallerIdName()</a> in ChannelVariablesFacade.php</div>
 							<div class="index-item-description">(non-PHPdoc)</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">getCallerIdName</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="ChannelVariables/IChannelVariables.html#methodgetCallerIdName">IChannelVariables::getCallerIdName()</a> in IChannelVariables.php</div>
+							<div class="index-item-description">Returns caller id name (agi_calleridname).</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -806,16 +934,16 @@
 			<span class="method-title">getCallingAni2</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="ChannelVariables/IChannelVariables.html#methodgetCallingAni2">IChannelVariables::getCallingAni2()</a> in IChannelVariables.php</div>
-							<div class="index-item-description">Returns CallingAni (agi_callingani2).</div>
+			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#methodgetCallingAni2">ChannelVariablesFacade::getCallingAni2()</a> in ChannelVariablesFacade.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
 			<span class="method-title">getCallingAni2</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#methodgetCallingAni2">ChannelVariablesFacade::getCallingAni2()</a> in ChannelVariablesFacade.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
+			<div class="index-item-details"><a href="ChannelVariables/IChannelVariables.html#methodgetCallingAni2">IChannelVariables::getCallingAni2()</a> in IChannelVariables.php</div>
+							<div class="index-item-description">Returns CallingAni (agi_callingani2).</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -838,16 +966,16 @@
 			<span class="method-title">getCallingTns</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="ChannelVariables/IChannelVariables.html#methodgetCallingTns">IChannelVariables::getCallingTns()</a> in IChannelVariables.php</div>
-							<div class="index-item-description">Returns CallingTns (agi_callingtns).</div>
+			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#methodgetCallingTns">ChannelVariablesFacade::getCallingTns()</a> in ChannelVariablesFacade.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
 			<span class="method-title">getCallingTns</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#methodgetCallingTns">ChannelVariablesFacade::getCallingTns()</a> in ChannelVariablesFacade.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
+			<div class="index-item-details"><a href="ChannelVariables/IChannelVariables.html#methodgetCallingTns">IChannelVariables::getCallingTns()</a> in IChannelVariables.php</div>
+							<div class="index-item-description">Returns CallingTns (agi_callingtns).</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -870,16 +998,16 @@
 			<span class="method-title">getCDR</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/IClient.html#methodgetCDR">IClient::getCDR()</a> in IClient.php</div>
-							<div class="index-item-description">Returns a cdr facade.</div>
+			<div class="index-item-details"><a href="Client/Impl/ClientImpl.html#methodgetCDR">ClientImpl::getCDR()</a> in ClientImpl.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
 			<span class="method-title">getCDR</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Impl/ClientImpl.html#methodgetCDR">ClientImpl::getCDR()</a> in ClientImpl.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
+			<div class="index-item-details"><a href="Client/IClient.html#methodgetCDR">IClient::getCDR()</a> in IClient.php</div>
+							<div class="index-item-description">Returns a cdr facade.</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -888,14 +1016,6 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="CDR/Impl/CDRFacade.html#methodgetCDRVariable">CDRFacade::getCDRVariable()</a> in CDRFacade.php</div>
 							<div class="index-item-description">Access AGI client to get the variables.</div>
-					</dd>
-			<dt class="field">
-						<img src="media/images/Method.png" alt="Method" title="Method" />
-			<span class="method-title">getChannel</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="CDR/ICDR.html#methodgetChannel">ICDR::getChannel()</a> in ICDR.php</div>
-							<div class="index-item-description">Returns origin channel. CDR(channel).</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -931,6 +1051,38 @@
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">getChannel</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="CDR/ICDR.html#methodgetChannel">ICDR::getChannel()</a> in ICDR.php</div>
+							<div class="index-item-description">Returns origin channel. CDR(channel).</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">getChannelDescriptor</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="DialDescriptor/SIPDialDescriptor.html#methodgetChannelDescriptor">SIPDialDescriptor::getChannelDescriptor()</a> in SIPDialDescriptor.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/AbstractMethod.png" alt="Method" title="Method" />
+			<span class="method-title">getChannelDescriptor</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="DialDescriptor/DialDescriptor.html#methodgetChannelDescriptor">DialDescriptor::getChannelDescriptor()</a> in DialDescriptor.php</div>
+							<div class="index-item-description">Get channel descriptor representation</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">getChannelDescriptor</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="DialDescriptor/DAHDIDialDescriptor.html#methodgetChannelDescriptor">DAHDIDialDescriptor::getChannelDescriptor()</a> in DAHDIDialDescriptor.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
 			<span class="method-title">getChannelVariables</span>
 					</dt>
 		<dd class="index-item-body">
@@ -958,7 +1110,7 @@
 			<span class="method-title">getCode</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Result/ReadResultDecorator.html#methodgetCode">ReadResultDecorator::getCode()</a> in ReadResultDecorator.php</div>
+			<div class="index-item-details"><a href="Client/Result/Result.html#methodgetCode">Result::getCode()</a> in Result.php</div>
 							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
@@ -974,7 +1126,15 @@
 			<span class="method-title">getCode</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Result/Result.html#methodgetCode">Result::getCode()</a> in Result.php</div>
+			<div class="index-item-details"><a href="Client/Result/ReadResultDecorator.html#methodgetCode">ReadResultDecorator::getCode()</a> in ReadResultDecorator.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">getConfigFile</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#methodgetConfigFile">ChannelVariablesFacade::getConfigFile()</a> in ChannelVariablesFacade.php</div>
 							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
@@ -987,11 +1147,11 @@
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
-			<span class="method-title">getConfigFile</span>
+			<span class="method-title">getContext</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#methodgetConfigFile">ChannelVariablesFacade::getConfigFile()</a> in ChannelVariablesFacade.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
+			<div class="index-item-details"><a href="ChannelVariables/IChannelVariables.html#methodgetContext">IChannelVariables::getContext()</a> in IChannelVariables.php</div>
+							<div class="index-item-description">Returns context (agi_context).</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -1000,14 +1160,6 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#methodgetContext">ChannelVariablesFacade::getContext()</a> in ChannelVariablesFacade.php</div>
 							<div class="index-item-description">(non-PHPdoc)</div>
-					</dd>
-			<dt class="field">
-						<img src="media/images/Method.png" alt="Method" title="Method" />
-			<span class="method-title">getContext</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="ChannelVariables/IChannelVariables.html#methodgetContext">IChannelVariables::getContext()</a> in IChannelVariables.php</div>
-							<div class="index-item-description">Returns context (agi_context).</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -1038,14 +1190,6 @@
 			<span class="method-title">getData</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Result/IResult.html#methodgetData">IResult::getData()</a> in IResult.php</div>
-							<div class="index-item-description">Returns data, if any. False if none.</div>
-					</dd>
-			<dt class="field">
-						<img src="media/images/Method.png" alt="Method" title="Method" />
-			<span class="method-title">getData</span>
-					</dt>
-		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Client/Result/ReadResultDecorator.html#methodgetData">ReadResultDecorator::getData()</a> in ReadResultDecorator.php</div>
 							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
@@ -1062,7 +1206,7 @@
 			<span class="method-title">getData</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Result/ResultDecorator.html#methodgetData">ResultDecorator::getData()</a> in ResultDecorator.php</div>
+			<div class="index-item-details"><a href="Client/Impl/ClientImpl.html#methodgetData">ClientImpl::getData()</a> in ClientImpl.php</div>
 							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
@@ -1070,7 +1214,15 @@
 			<span class="method-title">getData</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Impl/ClientImpl.html#methodgetData">ClientImpl::getData()</a> in ClientImpl.php</div>
+			<div class="index-item-details"><a href="Client/Result/IResult.html#methodgetData">IResult::getData()</a> in IResult.php</div>
+							<div class="index-item-description">Returns data, if any. False if none.</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">getData</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Client/Result/ResultDecorator.html#methodgetData">ResultDecorator::getData()</a> in ResultDecorator.php</div>
 							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
@@ -1086,16 +1238,16 @@
 			<span class="method-title">getDestination</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="CDR/ICDR.html#methodgetDestination">ICDR::getDestination()</a> in ICDR.php</div>
-							<div class="index-item-description">Returns destination. CDR(dst).</div>
+			<div class="index-item-details"><a href="CDR/Impl/CDRFacade.html#methodgetDestination">CDRFacade::getDestination()</a> in CDRFacade.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
 			<span class="method-title">getDestination</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="CDR/Impl/CDRFacade.html#methodgetDestination">CDRFacade::getDestination()</a> in CDRFacade.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
+			<div class="index-item-details"><a href="CDR/ICDR.html#methodgetDestination">ICDR::getDestination()</a> in ICDR.php</div>
+							<div class="index-item-description">Returns destination. CDR(dst).</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -1150,8 +1302,8 @@
 			<span class="method-title">getDigits</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Result/RecordResult.html#methodgetDigits">RecordResult::getDigits()</a> in RecordResult.php</div>
-							<div class="index-item-description">Returns the digit pressed to stop this recording (false if none).</div>
+			<div class="index-item-details"><a href="Client/Result/DigitReadResult.html#methodgetDigits">DigitReadResult::getDigits()</a> in DigitReadResult.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -1166,24 +1318,16 @@
 			<span class="method-title">getDigits</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Result/IReadResult.html#methodgetDigits">IReadResult::getDigits()</a> in IReadResult.php</div>
-							<div class="index-item-description">Returns digits read. False if none.</div>
+			<div class="index-item-details"><a href="Client/Result/RecordResult.html#methodgetDigits">RecordResult::getDigits()</a> in RecordResult.php</div>
+							<div class="index-item-description">Returns the digit pressed to stop this recording (false if none).</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
 			<span class="method-title">getDigits</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Result/DigitReadResult.html#methodgetDigits">DigitReadResult::getDigits()</a> in DigitReadResult.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
-					</dd>
-			<dt class="field">
-						<img src="media/images/Method.png" alt="Method" title="Method" />
-			<span class="method-title">getDirectoryAgi</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#methodgetDirectoryAgi">ChannelVariablesFacade::getDirectoryAgi()</a> in ChannelVariablesFacade.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
+			<div class="index-item-details"><a href="Client/Result/IReadResult.html#methodgetDigits">IReadResult::getDigits()</a> in IReadResult.php</div>
+							<div class="index-item-description">Returns digits read. False if none.</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -1192,6 +1336,14 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="ChannelVariables/IChannelVariables.html#methodgetDirectoryAgi">IChannelVariables::getDirectoryAgi()</a> in IChannelVariables.php</div>
 							<div class="index-item-description">Returns the agi directory for this running version of asterisk.</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">getDirectoryAgi</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#methodgetDirectoryAgi">ChannelVariablesFacade::getDirectoryAgi()</a> in ChannelVariablesFacade.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -1230,23 +1382,15 @@
 			<span class="method-title">getDirectoryKey</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#methodgetDirectoryKey">ChannelVariablesFacade::getDirectoryKey()</a> in ChannelVariablesFacade.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
+			<div class="index-item-details"><a href="ChannelVariables/IChannelVariables.html#methodgetDirectoryKey">IChannelVariables::getDirectoryKey()</a> in IChannelVariables.php</div>
+							<div class="index-item-description">Returns the key directory for this running version of asterisk.</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
 			<span class="method-title">getDirectoryKey</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="ChannelVariables/IChannelVariables.html#methodgetDirectoryKey">IChannelVariables::getDirectoryKey()</a> in IChannelVariables.php</div>
-							<div class="index-item-description">Returns the key directory for this running version of asterisk.</div>
-					</dd>
-			<dt class="field">
-						<img src="media/images/Method.png" alt="Method" title="Method" />
-			<span class="method-title">getDirectoryLog</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#methodgetDirectoryLog">ChannelVariablesFacade::getDirectoryLog()</a> in ChannelVariablesFacade.php</div>
+			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#methodgetDirectoryKey">ChannelVariablesFacade::getDirectoryKey()</a> in ChannelVariablesFacade.php</div>
 							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
@@ -1259,10 +1403,10 @@
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
-			<span class="method-title">getDirectoryModules</span>
+			<span class="method-title">getDirectoryLog</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#methodgetDirectoryModules">ChannelVariablesFacade::getDirectoryModules()</a> in ChannelVariablesFacade.php</div>
+			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#methodgetDirectoryLog">ChannelVariablesFacade::getDirectoryLog()</a> in ChannelVariablesFacade.php</div>
 							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
@@ -1272,6 +1416,14 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="ChannelVariables/IChannelVariables.html#methodgetDirectoryModules">IChannelVariables::getDirectoryModules()</a> in IChannelVariables.php</div>
 							<div class="index-item-description">Returns the modules directory for this running version of asterisk.</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">getDirectoryModules</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#methodgetDirectoryModules">ChannelVariablesFacade::getDirectoryModules()</a> in ChannelVariablesFacade.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -1294,16 +1446,16 @@
 			<span class="method-title">getDirectoryRun</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="ChannelVariables/IChannelVariables.html#methodgetDirectoryRun">IChannelVariables::getDirectoryRun()</a> in IChannelVariables.php</div>
-							<div class="index-item-description">Returns the run directory for this running version of asterisk.</div>
+			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#methodgetDirectoryRun">ChannelVariablesFacade::getDirectoryRun()</a> in ChannelVariablesFacade.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
 			<span class="method-title">getDirectoryRun</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#methodgetDirectoryRun">ChannelVariablesFacade::getDirectoryRun()</a> in ChannelVariablesFacade.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
+			<div class="index-item-details"><a href="ChannelVariables/IChannelVariables.html#methodgetDirectoryRun">IChannelVariables::getDirectoryRun()</a> in IChannelVariables.php</div>
+							<div class="index-item-description">Returns the run directory for this running version of asterisk.</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -1326,24 +1478,16 @@
 			<span class="method-title">getDirectoryVar</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#methodgetDirectoryVar">ChannelVariablesFacade::getDirectoryVar()</a> in ChannelVariablesFacade.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
+			<div class="index-item-details"><a href="ChannelVariables/IChannelVariables.html#methodgetDirectoryVar">IChannelVariables::getDirectoryVar()</a> in IChannelVariables.php</div>
+							<div class="index-item-description">Returns the var directory for this running version of asterisk.</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
 			<span class="method-title">getDirectoryVar</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="ChannelVariables/IChannelVariables.html#methodgetDirectoryVar">IChannelVariables::getDirectoryVar()</a> in IChannelVariables.php</div>
-							<div class="index-item-description">Returns the var directory for this running version of asterisk.</div>
-					</dd>
-			<dt class="field">
-						<img src="media/images/Method.png" alt="Method" title="Method" />
-			<span class="method-title">getDNID</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="ChannelVariables/IChannelVariables.html#methodgetDNID">IChannelVariables::getDNID()</a> in IChannelVariables.php</div>
-							<div class="index-item-description">Returns DNID (agi_dnid).</div>
+			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#methodgetDirectoryVar">ChannelVariablesFacade::getDirectoryVar()</a> in ChannelVariablesFacade.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -1368,6 +1512,14 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Callerid/ICallerId.html#methodgetDNID">ICallerId::getDNID()</a> in ICallerId.php</div>
 							<div class="index-item-description">Returns caller id dnid. CALLERID(dnid)</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">getDNID</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="ChannelVariables/IChannelVariables.html#methodgetDNID">IChannelVariables::getDNID()</a> in IChannelVariables.php</div>
+							<div class="index-item-description">Returns DNID (agi_dnid).</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -1422,16 +1574,16 @@
 			<span class="method-title">getEnhanced</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="ChannelVariables/IChannelVariables.html#methodgetEnhanced">IChannelVariables::getEnhanced()</a> in IChannelVariables.php</div>
-							<div class="index-item-description">Returns if using enhanced (agi_enhanced).</div>
+			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#methodgetEnhanced">ChannelVariablesFacade::getEnhanced()</a> in ChannelVariablesFacade.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
 			<span class="method-title">getEnhanced</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#methodgetEnhanced">ChannelVariablesFacade::getEnhanced()</a> in ChannelVariablesFacade.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
+			<div class="index-item-details"><a href="ChannelVariables/IChannelVariables.html#methodgetEnhanced">IChannelVariables::getEnhanced()</a> in IChannelVariables.php</div>
+							<div class="index-item-description">Returns if using enhanced (agi_enhanced).</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -1470,14 +1622,6 @@
 			<span class="method-title">getInstance</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Callerid/CallerIdFacade.html#methodgetInstance">CallerIdFacade::getInstance()</a> in CallerIdFacade.php</div>
-							<div class="index-item-description">Returns an instance for this facade.</div>
-					</dd>
-			<dt class="field">
-						<img src="media/images/Method.png" alt="Method" title="Method" />
-			<span class="method-title">getInstance</span>
-					</dt>
-		<dd class="index-item-body">
 			<div class="index-item-details"><a href="CDR/Impl/CDRFacade.html#methodgetInstance">CDRFacade::getInstance()</a> in CDRFacade.php</div>
 							<div class="index-item-description">Returns an instance for this facade.</div>
 					</dd>
@@ -1507,6 +1651,14 @@
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">getInstance</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Callerid/CallerIdFacade.html#methodgetInstance">CallerIdFacade::getInstance()</a> in CallerIdFacade.php</div>
+							<div class="index-item-description">Returns an instance for this facade.</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
 			<span class="method-title">getLanguage</span>
 					</dt>
 		<dd class="index-item-body">
@@ -1526,16 +1678,16 @@
 			<span class="method-title">getLastApp</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="CDR/Impl/CDRFacade.html#methodgetLastApp">CDRFacade::getLastApp()</a> in CDRFacade.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
+			<div class="index-item-details"><a href="CDR/ICDR.html#methodgetLastApp">ICDR::getLastApp()</a> in ICDR.php</div>
+							<div class="index-item-description">Returns Last application. CDR(lastapp).</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
 			<span class="method-title">getLastApp</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="CDR/ICDR.html#methodgetLastApp">ICDR::getLastApp()</a> in ICDR.php</div>
-							<div class="index-item-description">Returns Last application. CDR(lastapp).</div>
+			<div class="index-item-details"><a href="CDR/Impl/CDRFacade.html#methodgetLastApp">CDRFacade::getLastApp()</a> in CDRFacade.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -1574,6 +1726,14 @@
 			<span class="method-title">getLogger</span>
 					</dt>
 		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Logger/Asterisk-Impl/AsteriskLoggerImpl.html#methodgetLogger">AsteriskLoggerImpl::getLogger()</a> in AsteriskLoggerImpl.php</div>
+							<div class="index-item-description">Obtains an instance for this facade.</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">getLogger</span>
+					</dt>
+		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Logger/Logger.html#methodgetLogger">Logger::getLogger()</a> in Logger.php</div>
 							<div class="index-item-description">Returns a logger.</div>
 					</dd>
@@ -1606,23 +1766,15 @@
 			<span class="method-title">getNumber</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Callerid/CallerIdFacade.html#methodgetNumber">CallerIdFacade::getNumber()</a> in CallerIdFacade.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
+			<div class="index-item-details"><a href="Callerid/ICallerId.html#methodgetNumber">ICallerId::getNumber()</a> in ICallerId.php</div>
+							<div class="index-item-description">Returns caller id number. CALLERID(num)</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
 			<span class="method-title">getNumber</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Callerid/ICallerId.html#methodgetNumber">ICallerId::getNumber()</a> in ICallerId.php</div>
-							<div class="index-item-description">Returns caller id number. CALLERID(num)</div>
-					</dd>
-			<dt class="field">
-						<img src="media/images/Method.png" alt="Method" title="Method" />
-			<span class="method-title">getOption</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Impl/ClientImpl.html#methodgetOption">ClientImpl::getOption()</a> in ClientImpl.php</div>
+			<div class="index-item-details"><a href="Callerid/CallerIdFacade.html#methodgetNumber">CallerIdFacade::getNumber()</a> in CallerIdFacade.php</div>
 							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
@@ -1635,18 +1787,10 @@
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
-			<span class="method-title">getOriginalLine</span>
+			<span class="method-title">getOption</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Result/ReadResultDecorator.html#methodgetOriginalLine">ReadResultDecorator::getOriginalLine()</a> in ReadResultDecorator.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
-					</dd>
-			<dt class="field">
-						<img src="media/images/Method.png" alt="Method" title="Method" />
-			<span class="method-title">getOriginalLine</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Result/Result.html#methodgetOriginalLine">Result::getOriginalLine()</a> in Result.php</div>
+			<div class="index-item-details"><a href="Client/Impl/ClientImpl.html#methodgetOption">ClientImpl::getOption()</a> in ClientImpl.php</div>
 							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
@@ -1662,7 +1806,23 @@
 			<span class="method-title">getOriginalLine</span>
 					</dt>
 		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Client/Result/ReadResultDecorator.html#methodgetOriginalLine">ReadResultDecorator::getOriginalLine()</a> in ReadResultDecorator.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">getOriginalLine</span>
+					</dt>
+		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Client/Result/ResultDecorator.html#methodgetOriginalLine">ResultDecorator::getOriginalLine()</a> in ResultDecorator.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">getOriginalLine</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Client/Result/Result.html#methodgetOriginalLine">Result::getOriginalLine()</a> in Result.php</div>
 							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
@@ -1710,32 +1870,16 @@
 			<span class="method-title">getPriority</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="CallSpool/CallFile.html#methodgetPriority">CallFile::getPriority()</a> in CallFile.php</div>
-							<div class="index-item-description">Returns priority to use for this call when answered.</div>
+			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#methodgetPriority">ChannelVariablesFacade::getPriority()</a> in ChannelVariablesFacade.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
 			<span class="method-title">getPriority</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#methodgetPriority">ChannelVariablesFacade::getPriority()</a> in ChannelVariablesFacade.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
-					</dd>
-			<dt class="field">
-						<img src="media/images/Method.png" alt="Method" title="Method" />
-			<span class="method-title">getRDNIS</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#methodgetRDNIS">ChannelVariablesFacade::getRDNIS()</a> in ChannelVariablesFacade.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
-					</dd>
-			<dt class="field">
-						<img src="media/images/Method.png" alt="Method" title="Method" />
-			<span class="method-title">getRDNIS</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Callerid/CallerIdFacade.html#methodgetRDNIS">CallerIdFacade::getRDNIS()</a> in CallerIdFacade.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
+			<div class="index-item-details"><a href="CallSpool/CallFile.html#methodgetPriority">CallFile::getPriority()</a> in CallFile.php</div>
+							<div class="index-item-description">Returns priority to use for this call when answered.</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -1755,6 +1899,22 @@
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">getRDNIS</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Callerid/CallerIdFacade.html#methodgetRDNIS">CallerIdFacade::getRDNIS()</a> in CallerIdFacade.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">getRDNIS</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#methodgetRDNIS">ChannelVariablesFacade::getRDNIS()</a> in ChannelVariablesFacade.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
 			<span class="method-title">getRemoteStationId</span>
 					</dt>
 		<dd class="index-item-body">
@@ -1766,16 +1926,16 @@
 			<span class="method-title">getRequest</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#methodgetRequest">ChannelVariablesFacade::getRequest()</a> in ChannelVariablesFacade.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
+			<div class="index-item-details"><a href="ChannelVariables/IChannelVariables.html#methodgetRequest">IChannelVariables::getRequest()</a> in IChannelVariables.php</div>
+							<div class="index-item-description">Returns agi requested (agi_request).</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
 			<span class="method-title">getRequest</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="ChannelVariables/IChannelVariables.html#methodgetRequest">IChannelVariables::getRequest()</a> in IChannelVariables.php</div>
-							<div class="index-item-description">Returns agi requested (agi_request).</div>
+			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#methodgetRequest">ChannelVariablesFacade::getRequest()</a> in ChannelVariablesFacade.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -1790,7 +1950,7 @@
 			<span class="method-title">getResult</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Result/Result.html#methodgetResult">Result::getResult()</a> in Result.php</div>
+			<div class="index-item-details"><a href="Client/Result/ResultDecorator.html#methodgetResult">ResultDecorator::getResult()</a> in ResultDecorator.php</div>
 							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
@@ -1806,16 +1966,16 @@
 			<span class="method-title">getResult</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Result/ResultDecorator.html#methodgetResult">ResultDecorator::getResult()</a> in ResultDecorator.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
+			<div class="index-item-details"><a href="Client/Result/IResult.html#methodgetResult">IResult::getResult()</a> in IResult.php</div>
+							<div class="index-item-description">Returns result (result=xxx) from the result.</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
 			<span class="method-title">getResult</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Result/IResult.html#methodgetResult">IResult::getResult()</a> in IResult.php</div>
-							<div class="index-item-description">Returns result (result=xxx) from the result.</div>
+			<div class="index-item-details"><a href="Client/Result/Result.html#methodgetResult">Result::getResult()</a> in Result.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -1830,16 +1990,16 @@
 			<span class="method-title">getSource</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="CDR/ICDR.html#methodgetSource">ICDR::getSource()</a> in ICDR.php</div>
-							<div class="index-item-description">Returns origin. CDR(src).</div>
+			<div class="index-item-details"><a href="CDR/Impl/CDRFacade.html#methodgetSource">CDRFacade::getSource()</a> in CDRFacade.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
 			<span class="method-title">getSource</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="CDR/Impl/CDRFacade.html#methodgetSource">CDRFacade::getSource()</a> in CDRFacade.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
+			<div class="index-item-details"><a href="CDR/ICDR.html#methodgetSource">ICDR::getSource()</a> in ICDR.php</div>
+							<div class="index-item-description">Returns origin. CDR(src).</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -1875,10 +2035,26 @@
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
-			<span class="method-title">getThreadId</span>
+			<span class="method-title">getTechnology</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#methodgetThreadId">ChannelVariablesFacade::getThreadId()</a> in ChannelVariablesFacade.php</div>
+			<div class="index-item-details"><a href="DialDescriptor/DAHDIDialDescriptor.html#methodgetTechnology">DAHDIDialDescriptor::getTechnology()</a> in DAHDIDialDescriptor.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/AbstractMethod.png" alt="Method" title="Method" />
+			<span class="method-title">getTechnology</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="DialDescriptor/DialDescriptor.html#methodgetTechnology">DialDescriptor::getTechnology()</a> in DialDescriptor.php</div>
+							<div class="index-item-description">Get channel technology.</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">getTechnology</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="DialDescriptor/SIPDialDescriptor.html#methodgetTechnology">SIPDialDescriptor::getTechnology()</a> in SIPDialDescriptor.php</div>
 							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
@@ -1888,6 +2064,14 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="ChannelVariables/IChannelVariables.html#methodgetThreadId">IChannelVariables::getThreadId()</a> in IChannelVariables.php</div>
 							<div class="index-item-description">Returns thread id (agi_threadid).</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">getThreadId</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#methodgetThreadId">ChannelVariablesFacade::getThreadId()</a> in ChannelVariablesFacade.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -1926,23 +2110,15 @@
 			<span class="method-title">getType</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#methodgetType">ChannelVariablesFacade::getType()</a> in ChannelVariablesFacade.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
+			<div class="index-item-details"><a href="ChannelVariables/IChannelVariables.html#methodgetType">IChannelVariables::getType()</a> in IChannelVariables.php</div>
+							<div class="index-item-description">Returns channel type (agi_type).</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
 			<span class="method-title">getType</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="ChannelVariables/IChannelVariables.html#methodgetType">IChannelVariables::getType()</a> in IChannelVariables.php</div>
-							<div class="index-item-description">Returns channel type (agi_type).</div>
-					</dd>
-			<dt class="field">
-						<img src="media/images/Method.png" alt="Method" title="Method" />
-			<span class="method-title">getUniqueId</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#methodgetUniqueId">ChannelVariablesFacade::getUniqueId()</a> in ChannelVariablesFacade.php</div>
+			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#methodgetType">ChannelVariablesFacade::getType()</a> in ChannelVariablesFacade.php</div>
 							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
@@ -1952,6 +2128,14 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="CDR/ICDR.html#methodgetUniqueId">ICDR::getUniqueId()</a> in ICDR.php</div>
 							<div class="index-item-description">The channel uniqueid. CDR(uniqueid).</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">getUniqueId</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#methodgetUniqueId">ChannelVariablesFacade::getUniqueId()</a> in ChannelVariablesFacade.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -1990,14 +2174,6 @@
 			<span class="method-title">getVariable</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="CallSpool/CallFile.html#methodgetVariable">CallFile::getVariable()</a> in CallFile.php</div>
-							<div class="index-item-description">Returns the value for the given variable.</div>
-					</dd>
-			<dt class="field">
-						<img src="media/images/Method.png" alt="Method" title="Method" />
-			<span class="method-title">getVariable</span>
-					</dt>
-		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Client/IClient.html#methodgetVariable">IClient::getVariable()</a> in IClient.php</div>
 							<div class="index-item-description">Returns a variable value. Uses agi command &quot;GET VARIABLE&quot;. False if  variable is not set.</div>
 					</dd>
@@ -2011,11 +2187,11 @@
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
-			<span class="method-title">getVersion</span>
+			<span class="method-title">getVariable</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="ChannelVariables/IChannelVariables.html#methodgetVersion">IChannelVariables::getVersion()</a> in IChannelVariables.php</div>
-							<div class="index-item-description">Returns asterisk version (agi_version).</div>
+			<div class="index-item-details"><a href="CallSpool/CallFile.html#methodgetVariable">CallFile::getVariable()</a> in CallFile.php</div>
+							<div class="index-item-description">Returns the value for the given variable.</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -2024,6 +2200,14 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#methodgetVersion">ChannelVariablesFacade::getVersion()</a> in ChannelVariablesFacade.php</div>
 							<div class="index-item-description">(non-PHPdoc)</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">getVersion</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="ChannelVariables/IChannelVariables.html#methodgetVersion">IChannelVariables::getVersion()</a> in IChannelVariables.php</div>
+							<div class="index-item-description">Returns asterisk version (agi_version).</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -2098,6 +2282,22 @@
 	</div>
 	<dl>
 			<dt class="field">
+						<img src="media/images/Variable.png" alt="Variable" title="Variable" />
+			<span class="var-title">$identifier</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="DialDescriptor/DAHDIDialDescriptor.html#var$identifier">DAHDIDialDescriptor::$identifier</a> in DAHDIDialDescriptor.php</div>
+							<div class="index-item-description">Channel or group identifier.</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Variable.png" alt="Variable" title="Variable" />
+			<span class="var-title">$isGroup</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="DialDescriptor/DAHDIDialDescriptor.html#var$isGroup">DAHDIDialDescriptor::$isGroup</a> in DAHDIDialDescriptor.php</div>
+							<div class="index-item-description">Is group identifier.</div>
+					</dd>
+			<dt class="field">
 						<img src="media/images/Page.png" alt="Page" title="Page" />
 			<span class="include-title">InvalidApplicationException.php</span>
 					</dt>
@@ -2159,6 +2359,14 @@
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Exception/_Exception---InvalidCommandException.php.html">InvalidCommandException.php</a> in InvalidCommandException.php</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Class.png" alt="Class" title="Class" />
+			IAsteriskLogger
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Logger/Asterisk/IAsteriskLogger.html">IAsteriskLogger</a> in IAsteriskLogger.php</div>
+							<div class="index-item-description">Facade to access asterisk logger (see logger.conf in your asterisk  installation).</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Class.png" alt="Class" title="Class" />
@@ -2277,6 +2485,14 @@
 			<span class="method-title">isResult</span>
 					</dt>
 		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Client/Result/ReadResultDecorator.html#methodisResult">ReadResultDecorator::isResult()</a> in ReadResultDecorator.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">isResult</span>
+					</dt>
+		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Client/Result/Result.html#methodisResult">Result::isResult()</a> in Result.php</div>
 							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
@@ -2295,14 +2511,6 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Client/Result/IResult.html#methodisResult">IResult::isResult()</a> in IResult.php</div>
 							<div class="index-item-description">Compares result to a given value.</div>
-					</dd>
-			<dt class="field">
-						<img src="media/images/Method.png" alt="Method" title="Method" />
-			<span class="method-title">isResult</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Result/ReadResultDecorator.html#methodisResult">ReadResultDecorator::isResult()</a> in ReadResultDecorator.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -2325,16 +2533,16 @@
 			<span class="method-title">isTimeout</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Result/DigitReadResult.html#methodisTimeout">DigitReadResult::isTimeout()</a> in DigitReadResult.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
+			<div class="index-item-details"><a href="Client/Result/IReadResult.html#methodisTimeout">IReadResult::isTimeout()</a> in IReadResult.php</div>
+							<div class="index-item-description">True if the operation completed and no input was received from the user.</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
 			<span class="method-title">isTimeout</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Result/IReadResult.html#methodisTimeout">IReadResult::isTimeout()</a> in IReadResult.php</div>
-							<div class="index-item-description">True if the operation completed and no input was received from the user.</div>
+			<div class="index-item-details"><a href="Client/Result/DigitReadResult.html#methodisTimeout">DigitReadResult::isTimeout()</a> in DigitReadResult.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -2352,6 +2560,13 @@
 			<div class="index-item-details"><a href="Client/Result/RecordResult.html#methodisWriteFile">RecordResult::isWriteFile()</a> in RecordResult.php</div>
 							<div class="index-item-description">Is writefile error present?</div>
 					</dd>
+			<dt class="field">
+						<img src="media/images/Page.png" alt="Page" title="Page" />
+			<span class="include-title">IAsteriskLogger.php</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Logger/Asterisk/_Logger---Asterisk---IAsteriskLogger.php.html">IAsteriskLogger.php</a> in IAsteriskLogger.php</div>
+					</dd>
 		</dl>
 	<a name="l"></a>
 	<div class="index-letter-section">
@@ -2360,6 +2575,14 @@
 		<div style="clear: both"></div>
 	</div>
 	<dl>
+			<dt class="field">
+						<img src="media/images/PrivateVariable.png" alt="Variable" title="Variable" />
+			<span class="var-title">$logger</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Application/PAGIApplication.html#var$logger">PAGIApplication::$logger</a> in PAGIApplication.php</div>
+							<div class="index-item-description">log4php logger or our own dummy.</div>
+					</dd>
 			<dt class="field">
 						<img src="media/images/Class Constant.png" alt="Class Constant" title="Class Constant" />
 			LINE_BUSY
@@ -2406,7 +2629,7 @@
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Client/IClient.html#methodlog">IClient::log()</a> in IClient.php</div>
-							<div class="index-item-description">Logs to asterisk console. Uses agi command &quot;VERBOSE&quot;.</div>
+							<div class="index-item-description">Logs to asterisk logger. Uses application LOG.</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -2430,6 +2653,30 @@
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Logger/_Logger---Logger.php.html">Logger.php</a> in Logger.php</div>
+					</dd>
+		</dl>
+	<a name="n"></a>
+	<div class="index-letter-section">
+		<div style="float: left" class="index-letter-title">n</div>
+		<div style="float: right"><a href="#top">top</a></div>
+		<div style="clear: both"></div>
+	</div>
+	<dl>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">notice</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Logger/Asterisk/IAsteriskLogger.html#methodnotice">IAsteriskLogger::notice()</a> in IAsteriskLogger.php</div>
+							<div class="index-item-description">Logs with priority NOTICE.</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">notice</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Logger/Asterisk-Impl/AsteriskLoggerImpl.html#methodnotice">AsteriskLoggerImpl::notice()</a> in AsteriskLoggerImpl.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 		</dl>
 	<a name="o"></a>
@@ -2463,6 +2710,14 @@
 		<div style="clear: both"></div>
 	</div>
 	<dl>
+			<dt class="field">
+						<img src="media/images/Variable.png" alt="Variable" title="Variable" />
+			<span class="var-title">$provider</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="DialDescriptor/SIPDialDescriptor.html#var$provider">SIPDialDescriptor::$provider</a> in SIPDialDescriptor.php</div>
+							<div class="index-item-description">SIP provider.</div>
+					</dd>
 			<dt class="field">
 						<img src="media/images/Page.png" alt="Page" title="Page" />
 			<span class="include-title">PAGIApplication.php</span>
@@ -2671,18 +2926,17 @@
 	<dl>
 			<dt class="field">
 						<img src="media/images/Page.png" alt="Page" title="Page" />
+			<span class="include-title">SIPDialDescriptor.php</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="DialDescriptor/_DialDescriptor---SIPDialDescriptor.php.html">SIPDialDescriptor.php</a> in SIPDialDescriptor.php</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Page.png" alt="Page" title="Page" />
 			<span class="include-title">SoundFileException.php</span>
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Exception/_Exception---SoundFileException.php.html">SoundFileException.php</a> in SoundFileException.php</div>
-					</dd>
-			<dt class="field">
-						<img src="media/images/Method.png" alt="Method" title="Method" />
-			<span class="method-title">sayAlpha</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Impl/ClientImpl.html#methodsayAlpha">ClientImpl::sayAlpha()</a> in ClientImpl.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -2694,10 +2948,10 @@
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
-			<span class="method-title">sayDate</span>
+			<span class="method-title">sayAlpha</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Impl/ClientImpl.html#methodsayDate">ClientImpl::sayDate()</a> in ClientImpl.php</div>
+			<div class="index-item-details"><a href="Client/Impl/ClientImpl.html#methodsayAlpha">ClientImpl::sayAlpha()</a> in ClientImpl.php</div>
 							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
@@ -2710,11 +2964,11 @@
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
-			<span class="method-title">sayDateTime</span>
+			<span class="method-title">sayDate</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/IClient.html#methodsayDateTime">IClient::sayDateTime()</a> in IClient.php</div>
-							<div class="index-item-description">Say a given date and time, returning early if any of the given DTMF  digits are received on the channel. Uses agi command &quot;SAY DATETIME&quot;.</div>
+			<div class="index-item-details"><a href="Client/Impl/ClientImpl.html#methodsayDate">ClientImpl::sayDate()</a> in ClientImpl.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -2723,6 +2977,14 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Client/Impl/ClientImpl.html#methodsayDateTime">ClientImpl::sayDateTime()</a> in ClientImpl.php</div>
 							<div class="index-item-description">(non-PHPdoc)</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">sayDateTime</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Client/IClient.html#methodsayDateTime">IClient::sayDateTime()</a> in IClient.php</div>
+							<div class="index-item-description">Say a given date and time, returning early if any of the given DTMF  digits are received on the channel. Uses agi command &quot;SAY DATETIME&quot;.</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -2761,16 +3023,16 @@
 			<span class="method-title">sayPhonetic</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Impl/ClientImpl.html#methodsayPhonetic">ClientImpl::sayPhonetic()</a> in ClientImpl.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
+			<div class="index-item-details"><a href="Client/IClient.html#methodsayPhonetic">IClient::sayPhonetic()</a> in IClient.php</div>
+							<div class="index-item-description">Say a given character string with phonetics, returning early if any of  the given DTMF digits are received on the channel.</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
 			<span class="method-title">sayPhonetic</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/IClient.html#methodsayPhonetic">IClient::sayPhonetic()</a> in IClient.php</div>
-							<div class="index-item-description">Say a given character string with phonetics, returning early if any of  the given DTMF digits are received on the channel.</div>
+			<div class="index-item-details"><a href="Client/Impl/ClientImpl.html#methodsayPhonetic">ClientImpl::sayPhonetic()</a> in ClientImpl.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -2801,15 +3063,23 @@
 			<span class="method-title">sendImage</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/IClient.html#methodsendImage">IClient::sendImage()</a> in IClient.php</div>
-							<div class="index-item-description">Sends the given image on a channel. Uses agi command &quot;SEND IMAGE&quot;.</div>
+			<div class="index-item-details"><a href="Client/Impl/ClientImpl.html#methodsendImage">ClientImpl::sendImage()</a> in ClientImpl.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
 			<span class="method-title">sendImage</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Impl/ClientImpl.html#methodsendImage">ClientImpl::sendImage()</a> in ClientImpl.php</div>
+			<div class="index-item-details"><a href="Client/IClient.html#methodsendImage">IClient::sendImage()</a> in IClient.php</div>
+							<div class="index-item-description">Sends the given image on a channel. Uses agi command &quot;SEND IMAGE&quot;.</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">sendText</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Client/Impl/ClientImpl.html#methodsendText">ClientImpl::sendText()</a> in ClientImpl.php</div>
 							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
@@ -2819,14 +3089,6 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Client/IClient.html#methodsendText">IClient::sendText()</a> in IClient.php</div>
 							<div class="index-item-description">Sends the given text on a channel. Uses agi command &quot;SEND TEXT&quot;.</div>
-					</dd>
-			<dt class="field">
-						<img src="media/images/Method.png" alt="Method" title="Method" />
-			<span class="method-title">sendText</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Impl/ClientImpl.html#methodsendText">ClientImpl::sendText()</a> in ClientImpl.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -2849,16 +3111,16 @@
 			<span class="method-title">setAccountCode</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="CDR/Impl/CDRFacade.html#methodsetAccountCode">CDRFacade::setAccountCode()</a> in CDRFacade.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
+			<div class="index-item-details"><a href="CDR/ICDR.html#methodsetAccountCode">ICDR::setAccountCode()</a> in ICDR.php</div>
+							<div class="index-item-description">Sets account code. CDR(accountcode).</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
 			<span class="method-title">setAccountCode</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="CDR/ICDR.html#methodsetAccountCode">ICDR::setAccountCode()</a> in ICDR.php</div>
-							<div class="index-item-description">Sets account code. CDR(accountcode).</div>
+			<div class="index-item-details"><a href="CDR/Impl/CDRFacade.html#methodsetAccountCode">CDRFacade::setAccountCode()</a> in CDRFacade.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -2873,16 +3135,16 @@
 			<span class="method-title">setANI</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Callerid/CallerIdFacade.html#methodsetANI">CallerIdFacade::setANI()</a> in CallerIdFacade.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
+			<div class="index-item-details"><a href="Callerid/ICallerId.html#methodsetANI">ICallerId::setANI()</a> in ICallerId.php</div>
+							<div class="index-item-description">Sets caller id ani. CALLERID(ani).</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
 			<span class="method-title">setANI</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Callerid/ICallerId.html#methodsetANI">ICallerId::setANI()</a> in ICallerId.php</div>
-							<div class="index-item-description">Sets caller id ani. CALLERID(ani).</div>
+			<div class="index-item-details"><a href="Callerid/CallerIdFacade.html#methodsetANI">CallerIdFacade::setANI()</a> in CallerIdFacade.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -2921,16 +3183,16 @@
 			<span class="method-title">setAutoHangup</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Impl/ClientImpl.html#methodsetAutoHangup">ClientImpl::setAutoHangup()</a> in ClientImpl.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
+			<div class="index-item-details"><a href="Client/IClient.html#methodsetAutoHangup">IClient::setAutoHangup()</a> in IClient.php</div>
+							<div class="index-item-description">Cause the channel to automatically hangup at &lt;time&gt; seconds in the future.</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
 			<span class="method-title">setAutoHangup</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/IClient.html#methodsetAutoHangup">IClient::setAutoHangup()</a> in IClient.php</div>
-							<div class="index-item-description">Cause the channel to automatically hangup at &lt;time&gt; seconds in the future.</div>
+			<div class="index-item-details"><a href="Client/Impl/ClientImpl.html#methodsetAutoHangup">ClientImpl::setAutoHangup()</a> in ClientImpl.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -2985,16 +3247,8 @@
 			<span class="method-title">setChannel</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="CallSpool/CallFile.html#methodsetChannel">CallFile::setChannel()</a> in CallFile.php</div>
-							<div class="index-item-description">Sets the channel to use for the call.</div>
-					</dd>
-			<dt class="field">
-						<img src="media/images/Method.png" alt="Method" title="Method" />
-			<span class="method-title">setContext</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Impl/ClientImpl.html#methodsetContext">ClientImpl::setContext()</a> in ClientImpl.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
+			<div class="index-item-details"><a href="DialDescriptor/DAHDIDialDescriptor.html#methodsetChannel">DAHDIDialDescriptor::setChannel()</a> in DAHDIDialDescriptor.php</div>
+							<div class="index-item-description">Set channel to use.</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -3009,6 +3263,14 @@
 			<span class="method-title">setContext</span>
 					</dt>
 		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Client/Impl/ClientImpl.html#methodsetContext">ClientImpl::setContext()</a> in ClientImpl.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">setContext</span>
+					</dt>
+		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Client/IClient.html#methodsetContext">IClient::setContext()</a> in IClient.php</div>
 							<div class="index-item-description">Changes the context for continuation upon exiting the application.</div>
 					</dd>
@@ -3017,16 +3279,16 @@
 			<span class="method-title">setCustom</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="CDR/Impl/CDRFacade.html#methodsetCustom">CDRFacade::setCustom()</a> in CDRFacade.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
+			<div class="index-item-details"><a href="CDR/ICDR.html#methodsetCustom">ICDR::setCustom()</a> in ICDR.php</div>
+							<div class="index-item-description">Sets a custom field in the cdr. CDR(name).</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
 			<span class="method-title">setCustom</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="CDR/ICDR.html#methodsetCustom">ICDR::setCustom()</a> in ICDR.php</div>
-							<div class="index-item-description">Sets a custom field in the cdr. CDR(name).</div>
+			<div class="index-item-details"><a href="CDR/Impl/CDRFacade.html#methodsetCustom">CDRFacade::setCustom()</a> in CDRFacade.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -3081,6 +3343,14 @@
 			<span class="method-title">setExtension</span>
 					</dt>
 		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Client/Impl/ClientImpl.html#methodsetExtension">ClientImpl::setExtension()</a> in ClientImpl.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">setExtension</span>
+					</dt>
+		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Client/IClient.html#methodsetExtension">IClient::setExtension()</a> in IClient.php</div>
 							<div class="index-item-description">Changes the extension for continuation upon exiting the application.</div>
 					</dd>
@@ -3094,11 +3364,11 @@
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
-			<span class="method-title">setExtension</span>
+			<span class="method-title">setGroup</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Impl/ClientImpl.html#methodsetExtension">ClientImpl::setExtension()</a> in ClientImpl.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
+			<div class="index-item-details"><a href="DialDescriptor/DAHDIDialDescriptor.html#methodsetGroup">DAHDIDialDescriptor::setGroup()</a> in DAHDIDialDescriptor.php</div>
+							<div class="index-item-description">Set group to use.</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -3230,6 +3500,14 @@
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">setProvider</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="DialDescriptor/SIPDialDescriptor.html#methodsetProvider">SIPDialDescriptor::setProvider()</a> in SIPDialDescriptor.php</div>
+							<div class="index-item-description">Set SIP provider.</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
 			<span class="method-title">setRDNIS</span>
 					</dt>
 		<dd class="index-item-body">
@@ -3278,11 +3556,11 @@
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
-			<span class="method-title">setUserfield</span>
+			<span class="method-title">setTarget</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="CDR/ICDR.html#methodsetUserfield">ICDR::setUserfield()</a> in ICDR.php</div>
-							<div class="index-item-description">Set userfileds for cdr. CDR(userfield).</div>
+			<div class="index-item-details"><a href="DialDescriptor/DialDescriptor.html#methodsetTarget">DialDescriptor::setTarget()</a> in DialDescriptor.php</div>
+							<div class="index-item-description">Set dial target.</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -3291,6 +3569,22 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="CDR/Impl/CDRFacade.html#methodsetUserfield">CDRFacade::setUserfield()</a> in CDRFacade.php</div>
 							<div class="index-item-description">(non-PHPdoc)</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">setUserfield</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="CDR/ICDR.html#methodsetUserfield">ICDR::setUserfield()</a> in ICDR.php</div>
+							<div class="index-item-description">Set userfileds for cdr. CDR(userfield).</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">setVariable</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="CallSpool/CallFile.html#methodsetVariable">CallFile::setVariable()</a> in CallFile.php</div>
+							<div class="index-item-description">Sets a given variable with the given value.</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -3307,14 +3601,6 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Client/Impl/ClientImpl.html#methodsetVariable">ClientImpl::setVariable()</a> in ClientImpl.php</div>
 							<div class="index-item-description">(non-PHPdoc)</div>
-					</dd>
-			<dt class="field">
-						<img src="media/images/Method.png" alt="Method" title="Method" />
-			<span class="method-title">setVariable</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="CallSpool/CallFile.html#methodsetVariable">CallFile::setVariable()</a> in CallFile.php</div>
-							<div class="index-item-description">Sets a given variable with the given value.</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -3342,6 +3628,14 @@
 					</dd>
 			<dt class="field">
 						<img src="media/images/Class.png" alt="Class" title="Class" />
+			SIPDialDescriptor
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="DialDescriptor/SIPDialDescriptor.html">SIPDialDescriptor</a> in SIPDialDescriptor.php</div>
+							<div class="index-item-description">SIP Dial Descriptor class.</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Class.png" alt="Class" title="Class" />
 			SoundFileException
 					</dt>
 		<dd class="index-item-body">
@@ -3353,24 +3647,16 @@
 			<span class="method-title">spool</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="CallSpool/ICallSpool.html#methodspool">ICallSpool::spool()</a> in ICallSpool.php</div>
-							<div class="index-item-description">Spools the given call.</div>
+			<div class="index-item-details"><a href="CallSpool/Impl/CallSpoolImpl.html#methodspool">CallSpoolImpl::spool()</a> in CallSpoolImpl.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
 			<span class="method-title">spool</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="CallSpool/Impl/CallSpoolImpl.html#methodspool">CallSpoolImpl::spool()</a> in CallSpoolImpl.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
-					</dd>
-			<dt class="field">
-						<img src="media/images/Method.png" alt="Method" title="Method" />
-			<span class="method-title">streamFile</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Impl/ClientImpl.html#methodstreamFile">ClientImpl::streamFile()</a> in ClientImpl.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
+			<div class="index-item-details"><a href="CallSpool/ICallSpool.html#methodspool">ICallSpool::spool()</a> in ICallSpool.php</div>
+							<div class="index-item-description">Spools the given call.</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -3380,6 +3666,14 @@
 			<div class="index-item-details"><a href="Client/IClient.html#methodstreamFile">IClient::streamFile()</a> in IClient.php</div>
 							<div class="index-item-description">Plays a file, can be interrupted by escapeDigits.</div>
 					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">streamFile</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Client/Impl/ClientImpl.html#methodstreamFile">ClientImpl::streamFile()</a> in ClientImpl.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
+					</dd>
 		</dl>
 	<a name="t"></a>
 	<div class="index-letter-section">
@@ -3388,6 +3682,28 @@
 		<div style="clear: both"></div>
 	</div>
 	<dl>
+			<dt class="field">
+						<img src="media/images/Variable.png" alt="Variable" title="Variable" />
+			<span class="var-title">$target</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="DialDescriptor/DialDescriptor.html#var$target">DialDescriptor::$target</a> in DialDescriptor.php</div>
+							<div class="index-item-description">Target to dial.</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Class Constant.png" alt="Class Constant" title="Class Constant" />
+			TECHNOLOGY
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="DialDescriptor/SIPDialDescriptor.html#constTECHNOLOGY">SIPDialDescriptor::TECHNOLOGY</a> in SIPDialDescriptor.php</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Class Constant.png" alt="Class Constant" title="Class Constant" />
+			TECHNOLOGY
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="DialDescriptor/DAHDIDialDescriptor.html#constTECHNOLOGY">DAHDIDialDescriptor::TECHNOLOGY</a> in DAHDIDialDescriptor.php</div>
+					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
 			<span class="method-title">toString</span>
@@ -3413,6 +3729,30 @@
 							<div class="index-item-description">Deconstructs a call file from the given text.</div>
 					</dd>
 		</dl>
+	<a name="v"></a>
+	<div class="index-letter-section">
+		<div style="float: left" class="index-letter-title">v</div>
+		<div style="float: right"><a href="#top">top</a></div>
+		<div style="clear: both"></div>
+	</div>
+	<dl>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">verbose</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Logger/Asterisk/IAsteriskLogger.html#methodverbose">IAsteriskLogger::verbose()</a> in IAsteriskLogger.php</div>
+							<div class="index-item-description">Logs with priority VERBOSE.</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">verbose</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Logger/Asterisk-Impl/AsteriskLoggerImpl.html#methodverbose">AsteriskLoggerImpl::verbose()</a> in AsteriskLoggerImpl.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
+					</dd>
+		</dl>
 	<a name="w"></a>
 	<div class="index-letter-section">
 		<div style="float: left" class="index-letter-title">w</div>
@@ -3436,6 +3776,22 @@
 			<div class="index-item-details"><a href="Client/Impl/ClientImpl.html#methodwaitDigit">ClientImpl::waitDigit()</a> in ClientImpl.php</div>
 							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">warn</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Logger/Asterisk-Impl/AsteriskLoggerImpl.html#methodwarn">AsteriskLoggerImpl::warn()</a> in AsteriskLoggerImpl.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">warn</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Logger/Asterisk/IAsteriskLogger.html#methodwarn">IAsteriskLogger::warn()</a> in IAsteriskLogger.php</div>
+							<div class="index-item-description">Logs with priority WARNING.</div>
+					</dd>
 		</dl>
 	<a name="_"></a>
 	<div class="index-letter-section">
@@ -3444,6 +3800,14 @@
 		<div style="clear: both"></div>
 	</div>
 	<dl>
+			<dt class="field">
+						<img src="media/images/PrivateVariable.png" alt="Variable" title="Variable" />
+			<span class="var-title">$_agi</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Logger/Asterisk-Impl/AsteriskLoggerImpl.html#var$_agi">AsteriskLoggerImpl::$_agi</a> in AsteriskLoggerImpl.php</div>
+							<div class="index-item-description">Holds instance of AGI Client.</div>
+					</dd>
 			<dt class="field">
 						<img src="media/images/PrivateVariable.png" alt="Variable" title="Variable" />
 			<span class="var-title">$_agiClient</span>
@@ -3465,16 +3829,16 @@
 			<span class="var-title">$_arguments</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#var$_arguments">ChannelVariablesFacade::$_arguments</a> in ChannelVariablesFacade.php</div>
-							<div class="index-item-description">AGI Arguments (agi_arg_N).</div>
+			<div class="index-item-details"><a href="Client/Impl/ClientImpl.html#var$_arguments">ClientImpl::$_arguments</a> in ClientImpl.php</div>
+							<div class="index-item-description">Initial arguments given by the user in the dialplan.</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/PrivateVariable.png" alt="Variable" title="Variable" />
 			<span class="var-title">$_arguments</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Impl/ClientImpl.html#var$_arguments">ClientImpl::$_arguments</a> in ClientImpl.php</div>
-							<div class="index-item-description">Initial arguments given by the user in the dialplan.</div>
+			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#var$_arguments">ChannelVariablesFacade::$_arguments</a> in ChannelVariablesFacade.php</div>
+							<div class="index-item-description">AGI Arguments (agi_arg_N).</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/PrivateVariable.png" alt="Variable" title="Variable" />
@@ -3614,6 +3978,14 @@
 					</dd>
 			<dt class="field">
 						<img src="media/images/PrivateVariable.png" alt="Variable" title="Variable" />
+			<span class="var-title">$_ident</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Logger/Asterisk-Impl/AsteriskLoggerImpl.html#var$_ident">AsteriskLoggerImpl::$_ident</a> in AsteriskLoggerImpl.php</div>
+							<div class="index-item-description">Holds identity to prepend.</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/PrivateVariable.png" alt="Variable" title="Variable" />
 			<span class="var-title">$_input</span>
 					</dt>
 		<dd class="index-item-body">
@@ -3633,7 +4005,7 @@
 			<span class="var-title">$_instance</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="CallSpool/Impl/CallSpoolImpl.html#var$_instance">CallSpoolImpl::$_instance</a> in CallSpoolImpl.php</div>
+			<div class="index-item-details"><a href="Callerid/CallerIdFacade.html#var$_instance">CallerIdFacade::$_instance</a> in CallerIdFacade.php</div>
 							<div class="index-item-description">Current instance.</div>
 					</dd>
 			<dt class="field">
@@ -3649,15 +4021,7 @@
 			<span class="var-title">$_instance</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#var$_instance">ChannelVariablesFacade::$_instance</a> in ChannelVariablesFacade.php</div>
-							<div class="index-item-description">Current instance.</div>
-					</dd>
-			<dt class="field">
-						<img src="media/images/PrivateVariable.png" alt="Variable" title="Variable" />
-			<span class="var-title">$_instance</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Callerid/CallerIdFacade.html#var$_instance">CallerIdFacade::$_instance</a> in CallerIdFacade.php</div>
+			<div class="index-item-details"><a href="CallSpool/Impl/CallSpoolImpl.html#var$_instance">CallSpoolImpl::$_instance</a> in CallSpoolImpl.php</div>
 							<div class="index-item-description">Current instance.</div>
 					</dd>
 			<dt class="field">
@@ -3667,6 +4031,22 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Client/Impl/ClientImpl.html#var$_instance">ClientImpl::$_instance</a> in ClientImpl.php</div>
 							<div class="index-item-description">Current instance.</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/PrivateVariable.png" alt="Variable" title="Variable" />
+			<span class="var-title">$_instance</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#var$_instance">ChannelVariablesFacade::$_instance</a> in ChannelVariablesFacade.php</div>
+							<div class="index-item-description">Current instance.</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/PrivateVariable.png" alt="Variable" title="Variable" />
+			<span class="var-title">$_instance</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Logger/Asterisk-Impl/AsteriskLoggerImpl.html#var$_instance">AsteriskLoggerImpl::$_instance</a> in AsteriskLoggerImpl.php</div>
+							<div class="index-item-description">Holds current instance.</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/PrivateVariable.png" alt="Variable" title="Variable" />
@@ -3699,14 +4079,6 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Client/Impl/ClientImpl.html#var$_logger">ClientImpl::$_logger</a> in ClientImpl.php</div>
 							<div class="index-item-description">log4php logger or dummy.</div>
-					</dd>
-			<dt class="field">
-						<img src="media/images/PrivateVariable.png" alt="Variable" title="Variable" />
-			<span class="var-title">$_logger</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Application/PAGIApplication.html#var$_logger">PAGIApplication::$_logger</a> in PAGIApplication.php</div>
-							<div class="index-item-description">log4php logger or our own dummy.</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/PrivateVariable.png" alt="Variable" title="Variable" />
@@ -3761,8 +4133,8 @@
 			<span class="var-title">$_result</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Result/FaxResult.html#var$_result">FaxResult::$_result</a> in FaxResult.php</div>
-							<div class="index-item-description">True if successfull.</div>
+			<div class="index-item-details"><a href="Client/Result/ReadResultDecorator.html#var$_result">ReadResultDecorator::$_result</a> in ReadResultDecorator.php</div>
+							<div class="index-item-description">Our decorated result.</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/PrivateVariable.png" alt="Variable" title="Variable" />
@@ -3777,15 +4149,15 @@
 			<span class="var-title">$_result</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Result/ResultDecorator.html#var$_result">ResultDecorator::$_result</a> in ResultDecorator.php</div>
-							<div class="index-item-description">Our decorated result.</div>
+			<div class="index-item-details"><a href="Client/Result/FaxResult.html#var$_result">FaxResult::$_result</a> in FaxResult.php</div>
+							<div class="index-item-description">True if successfull.</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/PrivateVariable.png" alt="Variable" title="Variable" />
 			<span class="var-title">$_result</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Result/ReadResultDecorator.html#var$_result">ReadResultDecorator::$_result</a> in ReadResultDecorator.php</div>
+			<div class="index-item-details"><a href="Client/Result/ResultDecorator.html#var$_result">ResultDecorator::$_result</a> in ResultDecorator.php</div>
 							<div class="index-item-description">Our decorated result.</div>
 					</dd>
 			<dt class="field">
@@ -3825,16 +4197,16 @@
 			<span class="var-title">$_variables</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="CallSpool/CallFile.html#var$_variables">CallFile::$_variables</a> in CallFile.php</div>
-							<div class="index-item-description">Variables.</div>
+			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#var$_variables">ChannelVariablesFacade::$_variables</a> in ChannelVariablesFacade.php</div>
+							<div class="index-item-description">Channel variables given by asterisk.</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/PrivateVariable.png" alt="Variable" title="Variable" />
 			<span class="var-title">$_variables</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#var$_variables">ChannelVariablesFacade::$_variables</a> in ChannelVariablesFacade.php</div>
-							<div class="index-item-description">Channel variables given by asterisk.</div>
+			<div class="index-item-details"><a href="CallSpool/CallFile.html#var$_variables">CallFile::$_variables</a> in CallFile.php</div>
+							<div class="index-item-description">Variables.</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/PrivateVariable.png" alt="Variable" title="Variable" />
@@ -3857,7 +4229,31 @@
 			<span class="method-title">__construct</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Result/ReadResultDecorator.html#method__construct">ReadResultDecorator::__construct()</a> in ReadResultDecorator.php</div>
+			<div class="index-item-details"><a href="DialDescriptor/SIPDialDescriptor.html#method__construct">SIPDialDescriptor::__construct()</a> in SIPDialDescriptor.php</div>
+							<div class="index-item-description">Class constructor.</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Constructor.png" alt="Method" title="Method" />
+			<span class="method-title">__construct</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="CDR/Impl/CDRFacade.html#method__construct">CDRFacade::__construct()</a> in CDRFacade.php</div>
+							<div class="index-item-description">Constructor.</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Constructor.png" alt="Method" title="Method" />
+			<span class="method-title">__construct</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="CallSpool/Impl/CallSpoolImpl.html#method__construct">CallSpoolImpl::__construct()</a> in CallSpoolImpl.php</div>
+							<div class="index-item-description">Constructor.</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Constructor.png" alt="Method" title="Method" />
+			<span class="method-title">__construct</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#method__construct">ChannelVariablesFacade::__construct()</a> in ChannelVariablesFacade.php</div>
 							<div class="index-item-description">Constructor.</div>
 					</dd>
 			<dt class="field">
@@ -3889,55 +4285,7 @@
 			<span class="method-title">__construct</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Result/DigitReadResult.html#method__construct">DigitReadResult::__construct()</a> in DigitReadResult.php</div>
-							<div class="index-item-description">Constructor.</div>
-					</dd>
-			<dt class="field">
-						<img src="media/images/Constructor.png" alt="Method" title="Method" />
-			<span class="method-title">__construct</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="ChannelVariables/Impl/ChannelVariablesFacade.html#method__construct">ChannelVariablesFacade::__construct()</a> in ChannelVariablesFacade.php</div>
-							<div class="index-item-description">Constructor.</div>
-					</dd>
-			<dt class="field">
-						<img src="media/images/Constructor.png" alt="Method" title="Method" />
-			<span class="method-title">__construct</span>
-					</dt>
-		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Client/Impl/ClientImpl.html#method__construct">ClientImpl::__construct()</a> in ClientImpl.php</div>
-							<div class="index-item-description">Constructor.</div>
-					</dd>
-			<dt class="field">
-						<img src="media/images/Constructor.png" alt="Method" title="Method" />
-			<span class="method-title">__construct</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="CDR/Impl/CDRFacade.html#method__construct">CDRFacade::__construct()</a> in CDRFacade.php</div>
-							<div class="index-item-description">Constructor.</div>
-					</dd>
-			<dt class="field">
-						<img src="media/images/Constructor.png" alt="Method" title="Method" />
-			<span class="method-title">__construct</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="CallSpool/Impl/CallSpoolImpl.html#method__construct">CallSpoolImpl::__construct()</a> in CallSpoolImpl.php</div>
-							<div class="index-item-description">Constructor.</div>
-					</dd>
-			<dt class="field">
-						<img src="media/images/Constructor.png" alt="Method" title="Method" />
-			<span class="method-title">__construct</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Callerid/CallerIdFacade.html#method__construct">CallerIdFacade::__construct()</a> in CallerIdFacade.php</div>
-							<div class="index-item-description">Constructor.</div>
-					</dd>
-			<dt class="field">
-						<img src="media/images/Constructor.png" alt="Method" title="Method" />
-			<span class="method-title">__construct</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="CallSpool/CallFile.html#method__construct">CallFile::__construct()</a> in CallFile.php</div>
 							<div class="index-item-description">Constructor.</div>
 					</dd>
 			<dt class="field">
@@ -3953,7 +4301,7 @@
 			<span class="method-title">__construct</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Result/DataReadResult.html#method__construct">DataReadResult::__construct()</a> in DataReadResult.php</div>
+			<div class="index-item-details"><a href="Client/Result/DialResult.html#method__construct">DialResult::__construct()</a> in DialResult.php</div>
 							<div class="index-item-description">Constructor.</div>
 					</dd>
 			<dt class="field">
@@ -3961,23 +4309,39 @@
 			<span class="method-title">__construct</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Logger/Logger.html#method__construct">Logger::__construct()</a> in Logger.php</div>
-							<div class="index-item-description">Dummy constructor.</div>
+			<div class="index-item-details"><a href="CallSpool/CallFile.html#method__construct">CallFile::__construct()</a> in CallFile.php</div>
+							<div class="index-item-description">Constructor.</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Constructor.png" alt="Method" title="Method" />
 			<span class="method-title">__construct</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Application/PAGIApplication.html#method__construct">PAGIApplication::__construct()</a> in PAGIApplication.php</div>
-							<div class="index-item-description">Constructor. Will call set_error_handler() and pcntl_signal() to setup  your errorHandler() and signalHandler(). Also will call  register_shutdown_function() to register your shutdown() function.</div>
+			<div class="index-item-details"><a href="Callerid/CallerIdFacade.html#method__construct">CallerIdFacade::__construct()</a> in CallerIdFacade.php</div>
+							<div class="index-item-description">Constructor.</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Constructor.png" alt="Method" title="Method" />
 			<span class="method-title">__construct</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Result/DialResult.html#method__construct">DialResult::__construct()</a> in DialResult.php</div>
+			<div class="index-item-details"><a href="Client/Result/ExecResult.html#method__construct">ExecResult::__construct()</a> in ExecResult.php</div>
+							<div class="index-item-description">Constructor.</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Constructor.png" alt="Method" title="Method" />
+			<span class="method-title">__construct</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Client/Result/DigitReadResult.html#method__construct">DigitReadResult::__construct()</a> in DigitReadResult.php</div>
+							<div class="index-item-description">Constructor.</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Constructor.png" alt="Method" title="Method" />
+			<span class="method-title">__construct</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Logger/Asterisk-Impl/AsteriskLoggerImpl.html#method__construct">AsteriskLoggerImpl::__construct()</a> in AsteriskLoggerImpl.php</div>
 							<div class="index-item-description">Constructor.</div>
 					</dd>
 			<dt class="field">
@@ -3993,16 +4357,40 @@
 			<span class="method-title">__construct</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Result/ExecResult.html#method__construct">ExecResult::__construct()</a> in ExecResult.php</div>
+			<div class="index-item-details"><a href="Client/Result/ReadResultDecorator.html#method__construct">ReadResultDecorator::__construct()</a> in ReadResultDecorator.php</div>
 							<div class="index-item-description">Constructor.</div>
 					</dd>
 			<dt class="field">
-						<img src="media/images/Method.png" alt="Method" title="Method" />
-			<span class="method-title">__toString</span>
+						<img src="media/images/Constructor.png" alt="Method" title="Method" />
+			<span class="method-title">__construct</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Result/ResultDecorator.html#method__toString">ResultDecorator::__toString()</a> in ResultDecorator.php</div>
-							<div class="index-item-description">Standard procedure.</div>
+			<div class="index-item-details"><a href="Application/PAGIApplication.html#method__construct">PAGIApplication::__construct()</a> in PAGIApplication.php</div>
+							<div class="index-item-description">Constructor. Will call set_error_handler() and pcntl_signal() to setup  your errorHandler() and signalHandler(). Also will call  register_shutdown_function() to register your shutdown() function.</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Constructor.png" alt="Method" title="Method" />
+			<span class="method-title">__construct</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="DialDescriptor/DAHDIDialDescriptor.html#method__construct">DAHDIDialDescriptor::__construct()</a> in DAHDIDialDescriptor.php</div>
+							<div class="index-item-description">Class constructor.</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Constructor.png" alt="Method" title="Method" />
+			<span class="method-title">__construct</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Logger/Logger.html#method__construct">Logger::__construct()</a> in Logger.php</div>
+							<div class="index-item-description">Dummy constructor.</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Constructor.png" alt="Method" title="Method" />
+			<span class="method-title">__construct</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Client/Result/DataReadResult.html#method__construct">DataReadResult::__construct()</a> in DataReadResult.php</div>
+							<div class="index-item-description">Constructor.</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -4017,8 +4405,8 @@
 			<span class="method-title">__toString</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Client/Result/FaxResult.html#method__toString">FaxResult::__toString()</a> in FaxResult.php</div>
-							<div class="index-item-description">(non-PHPdoc)</div>
+			<div class="index-item-details"><a href="Client/Result/ResultDecorator.html#method__toString">ResultDecorator::__toString()</a> in ResultDecorator.php</div>
+							<div class="index-item-description">Standard procedure.</div>
 					</dd>
 			<dt class="field">
 						<img src="media/images/Method.png" alt="Method" title="Method" />
@@ -4026,6 +4414,14 @@
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Client/Result/DialResult.html#method__toString">DialResult::__toString()</a> in DialResult.php</div>
+							<div class="index-item-description">(non-PHPdoc)</div>
+					</dd>
+			<dt class="field">
+						<img src="media/images/Method.png" alt="Method" title="Method" />
+			<span class="method-title">__toString</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Client/Result/FaxResult.html#method__toString">FaxResult::__toString()</a> in FaxResult.php</div>
 							<div class="index-item-description">(non-PHPdoc)</div>
 					</dd>
 			<dt class="field">
@@ -4048,12 +4444,14 @@
 	<a class="index-letter" href="elementindex.html#h">h</a>
 	<a class="index-letter" href="elementindex.html#i">i</a>
 	<a class="index-letter" href="elementindex.html#l">l</a>
+	<a class="index-letter" href="elementindex.html#n">n</a>
 	<a class="index-letter" href="elementindex.html#o">o</a>
 	<a class="index-letter" href="elementindex.html#p">p</a>
 	<a class="index-letter" href="elementindex.html#r">r</a>
 	<a class="index-letter" href="elementindex.html#s">s</a>
 	<a class="index-letter" href="elementindex.html#t">t</a>
 	<a class="index-letter" href="elementindex.html#u">u</a>
+	<a class="index-letter" href="elementindex.html#v">v</a>
 	<a class="index-letter" href="elementindex.html#w">w</a>
 	<a class="index-letter" href="elementindex.html#_">_</a>
 </div>	</body>

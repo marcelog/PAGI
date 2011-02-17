@@ -114,7 +114,7 @@
 				<li><span class="field">license:</span> <a href="http://www.noneyet.ar/">Apache License 2.0</a></li>
 			</ul>
 		<p class="notes">
-			Located in <a class="field" href="_Client---Impl---ClientImpl.php.html">/Client/Impl/ClientImpl.php</a> (line <span class="field">50</span>)
+			Located in <a class="field" href="_Client---Impl---ClientImpl.php.html">/Client/Impl/ClientImpl.php</a> (line <span class="field">67</span>)
 		</p>
 		
 				
@@ -183,7 +183,7 @@
 		</div>
 		<div class="info-box-body">			
 			<div class="method-summary">
-																																																																																																																																																			
+																																																																																																																																																																			
 				<div class="method-definition">
 					<img src="../../media/images/StaticMethod.png" alt=" "/>
 					static 						<span class="method-result"><a href="../../Client/Impl/ClientImpl.html">ClientImpl</a></span>
@@ -217,6 +217,13 @@
 											<span class="method-result">void</span>
 										<a href="#close" title="details" class="method-name">close</a>
 										()
+									</div>
+															
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#consoleLog" title="details" class="method-name">consoleLog</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$msg</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$level</span> = <span class="var-default">1</span>])
 									</div>
 															
 				<div class="method-definition">
@@ -273,6 +280,13 @@
 											<span class="method-result">void</span>
 										<a href="#faxSend" title="details" class="method-name">faxSend</a>
 											(<span class="var-type"></span>&nbsp;<span class="var-name">$tiffFile</span>)
+									</div>
+															
+				<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#getAsteriskLogger" title="details" class="method-name">getAsteriskLogger</a>
+										()
 									</div>
 															
 				<div class="method-definition">
@@ -335,7 +349,7 @@
 					<img src="../../media/images/Method.png" alt=" "/>
 											<span class="method-result">void</span>
 										<a href="#log" title="details" class="method-name">log</a>
-											(<span class="var-type"></span>&nbsp;<span class="var-name">$msg</span>)
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$msg</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$priority</span> = <span class="var-default">'NOTICE'</span>])
 									</div>
 															
 				<div class="method-definition">
@@ -516,7 +530,7 @@
 		<span class="var-title">
 			static <span class="var-type"><a href="../../Client/Impl/ClientImpl.html">ClientImpl</a></span>
 			<span class="var-name">$_instance</span>
-			 = <span class="var-default"> false</span>			(line <span class="line-number">56</span>)
+			 = <span class="var-default"> false</span>			(line <span class="line-number">73</span>)
 		</span>
 	</div>
 
@@ -540,7 +554,7 @@
 		<span class="var-title">
 			<span class="var-type">string[]</span>
 			<span class="var-name">$_arguments</span>
-						(line <span class="line-number">74</span>)
+						(line <span class="line-number">91</span>)
 		</span>
 	</div>
 
@@ -563,7 +577,7 @@
 		<span class="var-title">
 			<span class="var-type">stream</span>
 			<span class="var-name">$_input</span>
-						(line <span class="line-number">80</span>)
+						(line <span class="line-number">97</span>)
 		</span>
 	</div>
 
@@ -586,7 +600,7 @@
 		<span class="var-title">
 			<span class="var-type"><a href="../../Logger/Logger.html">Logger</a></span>
 			<span class="var-name">$_logger</span>
-						(line <span class="line-number">62</span>)
+						(line <span class="line-number">79</span>)
 		</span>
 	</div>
 
@@ -609,7 +623,7 @@
 		<span class="var-title">
 			<span class="var-type">stream</span>
 			<span class="var-name">$_output</span>
-						(line <span class="line-number">86</span>)
+						(line <span class="line-number">103</span>)
 		</span>
 	</div>
 
@@ -632,7 +646,7 @@
 		<span class="var-title">
 			<span class="var-type">string[]</span>
 			<span class="var-name">$_variables</span>
-						(line <span class="line-number">68</span>)
+						(line <span class="line-number">85</span>)
 		</span>
 	</div>
 
@@ -667,7 +681,7 @@
 	
 	<div class="method-header">
 		<img src="../../media/images/StaticMethod.png" />
-		<span class="method-title">static getInstance</span> (line <span class="line-number">736</span>)
+		<span class="method-title">static getInstance</span> (line <span class="line-number">779</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -697,7 +711,7 @@
 	
 	<div class="method-header">
 		<img src="../../media/images/Constructor.png" />
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">784</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">827</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -727,7 +741,7 @@
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">answer</span> (line <span class="line-number">473</span>)
+		<span class="method-title">answer</span> (line <span class="line-number">490</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -759,7 +773,7 @@
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">channelStatus</span> (line <span class="line-number">212</span>)
+		<span class="method-title">channelStatus</span> (line <span class="line-number">229</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -796,7 +810,7 @@
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">close</span> (line <span class="line-number">699</span>)
+		<span class="method-title">close</span> (line <span class="line-number">742</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -816,12 +830,52 @@
 		
 			
 	</div>
-<a name="methoddatabaseDel" id="databaseDel"><!-- --></a>
+<a name="methodconsoleLog" id="consoleLog"><!-- --></a>
 <div class="oddrow">
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">databaseDel</span> (line <span class="line-number">566</span>)
+		<span class="method-title">consoleLog</span> (line <span class="line-number">585</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">(non-PHPdoc)</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> PAGI\Client.IClient::log()</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			consoleLog
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$msg</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$level</span> = <span class="var-default">1</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$msg</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$level</span>			</li>
+				</ul>
+		
+				<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt><a href="../../Client/IClient.html#methodconsoleLog">IClient::consoleLog()</a></dt>
+						<dd>Logs to asterisk console. Uses agi command &quot;VERBOSE&quot;.</dd>
+					</dl>
+			
+	</div>
+<a name="methoddatabaseDel" id="databaseDel"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">databaseDel</span> (line <span class="line-number">609</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -857,11 +911,11 @@
 			
 	</div>
 <a name="methoddatabaseDeltree" id="databaseDeltree"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">databaseDeltree</span> (line <span class="line-number">584</span>)
+		<span class="method-title">databaseDeltree</span> (line <span class="line-number">627</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -897,11 +951,11 @@
 			
 	</div>
 <a name="methoddatabaseGet" id="databaseGet"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">databaseGet</span> (line <span class="line-number">604</span>)
+		<span class="method-title">databaseGet</span> (line <span class="line-number">647</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -937,11 +991,11 @@
 			
 	</div>
 <a name="methoddatabasePut" id="databasePut"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">databasePut</span> (line <span class="line-number">620</span>)
+		<span class="method-title">databasePut</span> (line <span class="line-number">663</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -980,11 +1034,11 @@
 			
 	</div>
 <a name="methoddial" id="dial"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">dial</span> (line <span class="line-number">169</span>)
+		<span class="method-title">dial</span> (line <span class="line-number">186</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1020,11 +1074,11 @@
 			
 	</div>
 <a name="methodexec" id="exec"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">exec</span> (line <span class="line-number">188</span>)
+		<span class="method-title">exec</span> (line <span class="line-number">205</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1060,11 +1114,11 @@
 			
 	</div>
 <a name="methodfaxReceive" id="faxReceive"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">faxReceive</span> (line <span class="line-number">151</span>)
+		<span class="method-title">faxReceive</span> (line <span class="line-number">168</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1097,11 +1151,11 @@
 			
 	</div>
 <a name="methodfaxSend" id="faxSend"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">faxSend</span> (line <span class="line-number">133</span>)
+		<span class="method-title">faxSend</span> (line <span class="line-number">150</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1133,12 +1187,44 @@
 					</dl>
 			
 	</div>
+<a name="methodgetAsteriskLogger" id="getAsteriskLogger"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">getAsteriskLogger</span> (line <span class="line-number">600</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">(non-PHPdoc)</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> PAGI\Client.IClient::getAsteriskLogger()</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getAsteriskLogger
+		</span>
+				()
+			</div>
+	
+		
+				<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt><a href="../../Client/IClient.html#methodgetAsteriskLogger">IClient::getAsteriskLogger()</a></dt>
+						<dd>Returns an asterisk logger facade.</dd>
+					</dl>
+			
+	</div>
 <a name="methodgetCallerId" id="getCallerId"><!-- --></a>
 <div class="oddrow">
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">getCallerId</span> (line <span class="line-number">772</span>)
+		<span class="method-title">getCallerId</span> (line <span class="line-number">815</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1170,7 +1256,7 @@
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">getCDR</span> (line <span class="line-number">763</span>)
+		<span class="method-title">getCDR</span> (line <span class="line-number">806</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1202,7 +1288,7 @@
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">getChannelVariables</span> (line <span class="line-number">752</span>)
+		<span class="method-title">getChannelVariables</span> (line <span class="line-number">795</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1234,7 +1320,7 @@
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">getData</span> (line <span class="line-number">276</span>)
+		<span class="method-title">getData</span> (line <span class="line-number">293</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1277,7 +1363,7 @@
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">getFullVariable</span> (line <span class="line-number">512</span>)
+		<span class="method-title">getFullVariable</span> (line <span class="line-number">529</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1317,7 +1403,7 @@
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">getOption</span> (line <span class="line-number">241</span>)
+		<span class="method-title">getOption</span> (line <span class="line-number">258</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1360,7 +1446,7 @@
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">getVariable</span> (line <span class="line-number">498</span>)
+		<span class="method-title">getVariable</span> (line <span class="line-number">515</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1397,7 +1483,7 @@
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">hangup</span> (line <span class="line-number">485</span>)
+		<span class="method-title">hangup</span> (line <span class="line-number">502</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1434,7 +1520,7 @@
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">log</span> (line <span class="line-number">553</span>)
+		<span class="method-title">log</span> (line <span class="line-number">569</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1449,20 +1535,23 @@
 		<span class="method-name">
 			log
 		</span>
-					(<span class="var-type"></span>&nbsp;<span class="var-name">$msg</span>)
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$msg</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$priority</span> = <span class="var-default">'NOTICE'</span>])
 			</div>
 	
 			<ul class="parameters">
 					<li>
 				<span class="var-type"></span>
 				<span class="var-name">$msg</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$priority</span>			</li>
 				</ul>
 		
 				<hr class="separator" />
 		<div class="notes">Implementation of:</div>
 			<dl>
 			<dt><a href="../../Client/IClient.html#methodlog">IClient::log()</a></dt>
-						<dd>Logs to asterisk console. Uses agi command &quot;VERBOSE&quot;.</dd>
+						<dd>Logs to asterisk logger. Uses application LOG.</dd>
 					</dl>
 			
 	</div>
@@ -1471,7 +1560,7 @@
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">open</span> (line <span class="line-number">668</span>)
+		<span class="method-title">open</span> (line <span class="line-number">711</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1496,7 +1585,7 @@
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">read</span> (line <span class="line-number">716</span>)
+		<span class="method-title">read</span> (line <span class="line-number">759</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1522,7 +1611,7 @@
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">record</span> (line <span class="line-number">258</span>)
+		<span class="method-title">record</span> (line <span class="line-number">275</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1571,7 +1660,7 @@
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">sayAlpha</span> (line <span class="line-number">433</span>)
+		<span class="method-title">sayAlpha</span> (line <span class="line-number">450</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1611,7 +1700,7 @@
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">sayDate</span> (line <span class="line-number">309</span>)
+		<span class="method-title">sayDate</span> (line <span class="line-number">326</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1651,7 +1740,7 @@
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">sayDateTime</span> (line <span class="line-number">383</span>)
+		<span class="method-title">sayDateTime</span> (line <span class="line-number">400</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1694,7 +1783,7 @@
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">sayDigits</span> (line <span class="line-number">402</span>)
+		<span class="method-title">sayDigits</span> (line <span class="line-number">419</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1734,7 +1823,7 @@
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">sayNumber</span> (line <span class="line-number">418</span>)
+		<span class="method-title">sayNumber</span> (line <span class="line-number">435</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1774,7 +1863,7 @@
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">sayPhonetic</span> (line <span class="line-number">448</span>)
+		<span class="method-title">sayPhonetic</span> (line <span class="line-number">465</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1814,7 +1903,7 @@
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">sayTime</span> (line <span class="line-number">295</span>)
+		<span class="method-title">sayTime</span> (line <span class="line-number">312</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1854,7 +1943,7 @@
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">send</span> (line <span class="line-number">101</span>)
+		<span class="method-title">send</span> (line <span class="line-number">118</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1886,7 +1975,7 @@
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">sendImage</span> (line <span class="line-number">654</span>)
+		<span class="method-title">sendImage</span> (line <span class="line-number">697</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1923,7 +2012,7 @@
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">sendText</span> (line <span class="line-number">641</span>)
+		<span class="method-title">sendText</span> (line <span class="line-number">684</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1960,7 +2049,7 @@
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">setAutoHangup</span> (line <span class="line-number">203</span>)
+		<span class="method-title">setAutoHangup</span> (line <span class="line-number">220</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1997,7 +2086,7 @@
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">setCallerId</span> (line <span class="line-number">355</span>)
+		<span class="method-title">setCallerId</span> (line <span class="line-number">372</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -2037,7 +2126,7 @@
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">setContext</span> (line <span class="line-number">345</span>)
+		<span class="method-title">setContext</span> (line <span class="line-number">362</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -2074,7 +2163,7 @@
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">setExtension</span> (line <span class="line-number">335</span>)
+		<span class="method-title">setExtension</span> (line <span class="line-number">352</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -2111,7 +2200,7 @@
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">setMusic</span> (line <span class="line-number">366</span>)
+		<span class="method-title">setMusic</span> (line <span class="line-number">383</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -2151,7 +2240,7 @@
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">setPriority</span> (line <span class="line-number">325</span>)
+		<span class="method-title">setPriority</span> (line <span class="line-number">342</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -2188,7 +2277,7 @@
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">setVariable</span> (line <span class="line-number">534</span>)
+		<span class="method-title">setVariable</span> (line <span class="line-number">551</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -2228,7 +2317,7 @@
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">streamFile</span> (line <span class="line-number">226</span>)
+		<span class="method-title">streamFile</span> (line <span class="line-number">243</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -2268,7 +2357,7 @@
 	
 	<div class="method-header">
 		<img src="../../media/images/Method.png" />
-		<span class="method-title">waitDigit</span> (line <span class="line-number">463</span>)
+		<span class="method-title">waitDigit</span> (line <span class="line-number">480</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -2306,7 +2395,7 @@
 
 	
 	<p class="notes" id="credit">
-		Documentation generated on Sat, 15 Jan 2011 21:49:34 -0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Thu, 17 Feb 2011 17:43:11 -0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>
