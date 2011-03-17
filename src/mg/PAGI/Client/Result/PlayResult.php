@@ -30,6 +30,8 @@
  */
 namespace PAGI\Client\Result;
 
+use PAGI\Exception\SoundFileException;
+
 /**
  * This class decorates a read result with a play operation like stream file,
  * say digits, etc.
