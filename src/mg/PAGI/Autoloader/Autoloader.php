@@ -26,6 +26,7 @@
  * limitations under the License.
  *
  */
+namespace PAGI\Autoloader;
 foreach (explode(PATH_SEPARATOR, ini_get('include_path')) as $path) {
     $truePath = implode(
         DIRECTORY_SEPARATOR,
@@ -55,7 +56,7 @@ if (!class_exists('Logger')) {
  * @license  http://www.noneyet.ar/ Apache License 2.0
  * @link     http://www.noneyet.ar/
  */
-class PAGI_Autoloader
+class Autoloader
 {
     /**
      * Holds current realpath.
@@ -100,6 +101,6 @@ class PAGI_Autoloader
             DIRECTORY_SEPARATOR,
             array(realpath(dirname(__FILE__)), '..', '..')
         );
-        return spl_autoload_register('PAGI_Autoloader::load');
+        return spl_autoload_register('\PAGI\Autoloader\Autoloader::load');
     }
 }

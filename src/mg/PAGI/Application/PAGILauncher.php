@@ -34,8 +34,8 @@
  * limitations under the License.
  *
  */
-require_once 'PAGI/Autoloader/PAGI_Autoloader.php'; // Include PAGI autoloader.
-PAGI_Autoloader::register(); // Call autoloader register for PAGI autoloader.
+require_once 'PAGI/Autoloader/Autoloader.php'; // Include PAGI autoloader.
+\PAGI\Autoloader\Autoloader::register(); // Call autoloader register for PAGI autoloader.
 use PAGI\Application\Exception\InvalidApplicationException;
 use PAGI\Application\PAGIApplication;
 
