@@ -27,7 +27,66 @@
  * limitations under the License.
  *
  */
+namespace {
+    // This allow us to configure the behavior of the "global mock"
+    $mockFopen = false;
+    $mockFgets = false;
+    $mockFgetsReturn = array(
+        'a:b',
+        ''
+    );
+    $mockFgetsCount = 0;
+    $standardAGIStart = array(
+		'agi_request:anagi.php',
+		'agi_channel:SIP/jondoe-7026f150',
+		'agi_language:ar',
+		'agi_type:SIP',
+		'agi_uniqueid:1306865753.2488',
+		'agi_version:1.6.0.9',
+		'agi_callerid:666',
+		'agi_calleridname:JonDoe',
+		'agi_callingpres:1',
+		'agi_callingani2:0',
+		'agi_callington:0',
+		'agi_callingtns:0',
+		'agi_dnid:66666666',
+		'agi_rdnis:unknown',
+		'agi_context:netlabs',
+		'agi_extension:55555555',
+		'agi_priority:1',
+		'agi_enhanced:0.0',
+		'agi_accountcode:123',
+		'agi_threadid:1105672528',
+        ''
+    );
+}
 
+namespace PAGI\Client\Impl {
+    // And this here, does the trick: it will override the socket_create()
+    // function in your code *just for the namespace* where you are defining it.
+    // This relies on the code above calling the socket_create function without
+    // the leading backslash, so we trick SomeClass into calling our own function
+    // inside that namespace instead of the global socket_create function.
+    function fopen() {
+        global $mockFopen;
+        if (isset($mockFopen) && $mockFopen === true) {
+            return true;
+        } else {
+            return call_user_func_array('\fopen', func_get_args());
+        }
+    }
+    function fgets() {
+        global $mockFgets;
+        global $mockFgetsCount;
+        global $mockFgetsReturn;
+        if (isset($mockFgets) && $mockFgets === true) {
+            $result = $mockFgetsReturn[$mockFgetsCount];
+            $mockFgetsCount++;
+            return $result . "\n";
+        } else {
+            return call_user_func_array('\fopen', func_get_args());
+        }
+    }
 /**
  * This class will test the agi client
  *
@@ -40,19 +99,36 @@
  * @license    http://marcelog.github.com/ Apache License 2.0
  * @link       http://marcelog.github.com/
  */
-class Test_Client extends PHPUnit_Framework_TestCase
+class Test_Client extends \PHPUnit_Framework_TestCase
 {
     private $_properties = array();
 
     public function setUp()
     {
+        $this->_properties = array(
+            'log4php.properties' => RESOURCES_DIR . DIRECTORY_SEPARATOR . 'log4php.properties'
+        );
     }
 
+    private function _setFgetsMock(array $returnValues)
+    {
+        global $mockFgets;
+        global $mockFopen;
+        global $mockFgetsCount;
+        global $mockFgetsReturn;
+        $mockFgets = true;
+        $mockFopen = true;
+        $mockFgetsCount = 0;
+        $mockFgetsReturn = $returnValues;
+    }
     /**
      * @test
      */
     public function can_get_client()
     {
-
+        global $standardAGIStart;
+        $this->_setFgetsMock($standardAGIStart);
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
     }
+}
 }
