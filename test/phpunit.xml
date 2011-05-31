@@ -1,0 +1,22 @@
+<phpunit
+  backupGlobals="false"
+  backupStaticAttributes="false"
+  syntaxCheck="false"
+  convertErrorsToExceptions="true"
+  convertNoticesToExceptions="true"
+  convertWarningsToExceptions="true"
+>
+  <filter>
+    <whitelist>
+      <directory suffix=".php">../src/mg/PAGI</directory>
+      <exclude>
+          <directory suffix="Launcher.php">../src/mg/PAGI/Application</directory>
+      </exclude>
+    </whitelist>
+  </filter>
+  <testsuites>
+    <testsuite name="Client">
+      <directory suffix=".php">client</directory>
+    </testsuite>
+  </testsuites>
+</phpunit>
