@@ -28,14 +28,14 @@
  *
  */
 namespace {
-    // This allow us to configure the behavior of the "global mock"
     $mockFopen = false;
     $mockFgets = false;
-    $mockFgetsReturn = array(
-        'a:b',
-        ''
-    );
     $mockFgetsCount = 0;
+    $errorAGIRead = array(
+		'agi_request:anagi.php',
+		'agi_channel:SIP/jondoe-7026f150',
+        false
+    );
     $standardAGIStart = array(
 		'agi_request:anagi.php',
 		'agi_channel:SIP/jondoe-7026f150',
@@ -62,11 +62,6 @@ namespace {
 }
 
 namespace PAGI\Client\Impl {
-    // And this here, does the trick: it will override the socket_create()
-    // function in your code *just for the namespace* where you are defining it.
-    // This relies on the code above calling the socket_create function without
-    // the leading backslash, so we trick SomeClass into calling our own function
-    // inside that namespace instead of the global socket_create function.
     function fopen() {
         global $mockFopen;
         if (isset($mockFopen) && $mockFopen === true) {
@@ -82,7 +77,7 @@ namespace PAGI\Client\Impl {
         if (isset($mockFgets) && $mockFgets === true) {
             $result = $mockFgetsReturn[$mockFgetsCount];
             $mockFgetsCount++;
-            return $result . "\n";
+            return is_string($result) ? $result . "\n" : $result;
         } else {
             return call_user_func_array('\fopen', func_get_args());
         }
@@ -121,6 +116,18 @@ class Test_Client extends \PHPUnit_Framework_TestCase
         $mockFgetsCount = 0;
         $mockFgetsReturn = $returnValues;
     }
+
+    /**
+     * @test
+     * @expectedException \PAGI\Exception\PAGIException
+     */
+    public function cannot_read()
+    {
+        global $errorAGIRead;
+        $this->_setFgetsMock($errorAGIRead);
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+    }
+
     /**
      * @test
      */
