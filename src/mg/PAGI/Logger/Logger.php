@@ -26,7 +26,7 @@
  * limitations under the License.
  *
  */
-
+if (!class_exists('\Logger')) {
 /**
  * A dummy logger, used when log4php is not available. It's a facade.
  *
@@ -94,4 +94,5 @@ final class Logger
     {
 
     }
+}
 }
