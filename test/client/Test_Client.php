@@ -29,6 +29,7 @@
  */
 namespace {
     $mockFopen = false;
+    $mockFwrite = false;
     $mockFgets = false;
     $mockFgetsCount = 0;
     $errorAGIRead = array(
@@ -70,6 +71,27 @@ namespace PAGI\Client\Impl {
             return call_user_func_array('\fopen', func_get_args());
         }
     }
+    function fwrite() {
+        global $mockFwrite;
+        global $mockFwriteCount;
+        global $mockFwriteReturn;
+        if (isset($mockFwrite) && $mockFwrite === true) {
+            $args = func_get_args();
+            if (isset($mockFwriteReturn[$mockFwriteCount]) && $mockFwriteReturn[$mockFwriteCount] !== false) {
+                $str = $mockFwriteReturn[$mockFwriteCount] . "\n";
+                if ($str !== $args[1]) {
+                    throw new \Exception(
+                    	'Mocked: ' . print_r($mockFwriteReturn[$mockFwriteCount], true) . ' is '
+                    	. ' different from: ' . print_r($args[1], true)
+                    );
+                }
+            }
+            $mockFwriteCount++;
+            return strlen($args[1]);
+        } else {
+            return call_user_func_array('\fwrite', func_get_args());
+        }
+    }
     function fgets() {
         global $mockFgets;
         global $mockFgetsCount;
@@ -105,16 +127,22 @@ class Test_Client extends \PHPUnit_Framework_TestCase
         );
     }
 
-    private function _setFgetsMock(array $returnValues)
+    private function _setFgetsMock(array $readValues, $writeValues)
     {
         global $mockFgets;
         global $mockFopen;
         global $mockFgetsCount;
         global $mockFgetsReturn;
+        global $mockFwrite;
+        global $mockFwriteCount;
+        global $mockFwriteReturn;
         $mockFgets = true;
         $mockFopen = true;
+        $mockFwrite = true;
         $mockFgetsCount = 0;
-        $mockFgetsReturn = $returnValues;
+        $mockFgetsReturn = $readValues;
+        $mockFwriteCount = 0;
+        $mockFwriteReturn = $writeValues;
     }
 
     /**
@@ -124,7 +152,7 @@ class Test_Client extends \PHPUnit_Framework_TestCase
     public function cannot_read()
     {
         global $errorAGIRead;
-        $this->_setFgetsMock($errorAGIRead);
+        $this->_setFgetsMock($errorAGIRead, array());
         $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
     }
 
@@ -134,7 +162,7 @@ class Test_Client extends \PHPUnit_Framework_TestCase
     public function can_get_client()
     {
         global $standardAGIStart;
-        $this->_setFgetsMock($standardAGIStart);
+        $this->_setFgetsMock($standardAGIStart, array());
         $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
     }
 }

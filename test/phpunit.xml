@@ -18,5 +18,8 @@
     <testsuite name="Client">
       <directory suffix=".php">client</directory>
     </testsuite>
+    <testsuite name="CallerID">
+      <directory suffix=".php">callerid</directory>
+    </testsuite>
   </testsuites>
 </phpunit>

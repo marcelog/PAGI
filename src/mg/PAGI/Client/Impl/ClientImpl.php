@@ -529,13 +529,11 @@ class ClientImpl implements IClient
     public function getFullVariable($name, $channel = false)
     {
         $cmd = implode(
-        	' ',
-        	array(
-        		'GET', 'FULL', 'VARIABLE',
-        	    '"${' . $name . '}"',
-        		$channel ? '"' . $channel . '"' : ''
-        	)
+        	' ', array('GET', 'FULL', 'VARIABLE', '"${' . $name . '}"')
         );
+        if ($channel !== false) {
+            $cmd .= ' "' . $channel . '"';
+        }
         $result = $this->send($cmd);
         if ($result->isResult(0)) {
             return false;
