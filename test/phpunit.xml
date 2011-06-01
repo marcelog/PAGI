@@ -30,5 +30,8 @@
     <testsuite name="Autoloader">
       <directory suffix=".php">autoloader</directory>
     </testsuite>
+    <testsuite name="Dialdescriptor">
+      <directory suffix=".php">dialdescriptor</directory>
+    </testsuite>
   </testsuites>
 </phpunit>
