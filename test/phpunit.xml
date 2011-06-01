@@ -24,5 +24,11 @@
     <testsuite name="ChannelVariables">
       <directory suffix=".php">channelvars</directory>
     </testsuite>
+    <testsuite name="CDR">
+      <directory suffix=".php">cdr</directory>
+    </testsuite>
+    <testsuite name="Autoloader">
+      <directory suffix=".php">autoloader</directory>
+    </testsuite>
   </testsuites>
 </phpunit>
