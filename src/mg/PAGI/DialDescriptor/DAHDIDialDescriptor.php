@@ -59,6 +59,13 @@ class DAHDIDialDescriptor extends DialDescriptor
     protected $isGroup;
 
     /**
+     * In case of dialing via a group, this will use g or G so asterisk selects
+     * the outgoing channel in asc or desc order.
+     * @var boolean
+     */
+    protected $descendantOrder;
+
+    /**
      * (non-PHPdoc)
      * @see DialDescriptor::getChannelDescriptor()
      */
@@ -92,11 +99,12 @@ class DAHDIDialDescriptor extends DialDescriptor
      * @param integer $identifier channel/group identifier
      * @param bool    $isGroup    whether identifier refs a group
      */
-    public function __construct($target, $identifier, $isGroup = true)
+    public function __construct($target, $identifier, $isGroup = true, $descendantOrder = true)
     {
         $this->target = $target;
         $this->identifier = $identifier;
         $this->isGroup = $isGroup;
+        $this->descendantOrder = $descendantOrder;
     }
 
     /**
