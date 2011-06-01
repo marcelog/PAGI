@@ -147,7 +147,7 @@ class ChannelVariablesFacade implements IChannelVariables
      */
     public function getCallingPres()
     {
-        return $this->getAGIVariable('calleridpres');
+        return $this->getAGIVariable('callingpres');
     }
 
     /**
