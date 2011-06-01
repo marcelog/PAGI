@@ -501,7 +501,10 @@ class ClientImpl implements IClient
      */
     public function hangup($channel = false)
     {
-        $cmd = implode(' ', array('HANGUP', $channel ? '"' . $channel . '"' : ''));
+        $cmd = 'HANGUP';
+        if ($channel !== false) {
+            $cmd .= ' "' . $channel . '"';
+        }
         $result = $this->send($cmd);
         if ($result->isResult(-1)) {
             throw new ChannelDownException('Hangup failed');
@@ -740,10 +743,10 @@ class ClientImpl implements IClient
     protected function close()
     {
         if ($this->_input !== false) {
-            fclose($input);
+            fclose($this->_input);
         }
         if ($this->_output !== false) {
-            fclose($output);
+            fclose($this->_output);
         }
     }
 

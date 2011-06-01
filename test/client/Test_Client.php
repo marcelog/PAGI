@@ -32,6 +32,7 @@ namespace {
     $mockFwrite = false;
     $mockFgets = false;
     $mockFgetsCount = 0;
+    $mockFclose = false;
     $errorAGIRead = array(
 		'agi_request:anagi.php',
 		'agi_channel:SIP/jondoe-7026f150',
@@ -83,6 +84,14 @@ namespace {
 }
 
 namespace PAGI\Client\Impl {
+    function fclose() {
+        global $mockFclose;
+        if (isset($mockFclose) && $mockFclose === true) {
+            return true;
+        } else {
+            return call_user_func_array('\fclose', func_get_args());
+        }
+    }
     function fopen() {
         global $mockFopen;
         if (isset($mockFopen) && $mockFopen === true) {
@@ -161,11 +170,104 @@ class Test_Client extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function can_answer()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $callerIdW = array(
+        	'ANSWER'
+        );
+        $callerIdR = array(
+            '200 result=1',
+        );
+        setFgetsMock($callerIdR, $callerIdW);
+        $client->answer();
+    }
+
+    /**
+     * @test
+     */
+    public function can_close()
+    {
+        global $standardAGIStart;
+        global $mockFclose;
+        $mockFclose = true;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $refClass = new \ReflectionClass('\PAGI\Client\Impl\ClientImpl');
+        $refMethod = $refClass->getMethod('close');
+        $refMethod->setAccessible(true);
+        $refMethod->invoke($client);
+    }
+
+    /**
+     * @test
+     */
+    public function can_hangup()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $callerIdW = array(
+        	'HANGUP',
+        	'HANGUP "somechannel"'
+	    );
+        $callerIdR = array(
+            '200 result=1',
+        	'200 result=1',
+        );
+        setFgetsMock($callerIdR, $callerIdW);
+        $client->hangup();
+        $client->hangup('somechannel');
+    }
+
+    /**
+     * @test
+     * @expectedException \PAGI\Exception\ChannelDownException
+     */
+    public function cannot_answer()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $callerIdW = array(
+        	'ANSWER'
+        );
+        $callerIdR = array(
+            '200 result=-1',
+        );
+        setFgetsMock($callerIdR, $callerIdW);
+        $client->answer();
+    }
+    /**
+     * @test
+     * @expectedException \PAGI\Exception\ChannelDownException
+     */
+    public function cannot_hangup()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $callerIdW = array(
+        	'HANGUP'
+        );
+        $callerIdR = array(
+            '200 result=-1',
+        );
+        setFgetsMock($callerIdR, $callerIdW);
+        $client->hangup();
+    }
+
+    /**
+     * @test
+     */
     public function can_get_client()
     {
         global $standardAGIStart;
         setFgetsMock($standardAGIStart, array());
         $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties); //should return the same instance
     }
 }
 }
