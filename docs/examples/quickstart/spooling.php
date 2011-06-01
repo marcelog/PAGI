@@ -46,8 +46,7 @@ echo "Call file generated (DAHDI dial descriptor):\n";
 echo $callFile->serialize();
 echo "\n\n";
 
-$dialDescriptor = new SIPDialDescriptor('24');
-$dialDescriptor->setProvider('example.com');
+$dialDescriptor = new SIPDialDescriptor('24', 'example.com');
 
 $callFile = new CallFile($dialDescriptor);
 $callFile->setContext('default');

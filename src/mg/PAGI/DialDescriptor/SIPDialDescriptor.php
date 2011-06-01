@@ -77,9 +77,10 @@ class SIPDialDescriptor extends DialDescriptor
      *
      * @param string $target dial target
      */
-    public function __construct($target)
+    public function __construct($target, $provider)
     {
         $this->target = $target;
+        $this->provider = $provider;
     }
 
     /**
