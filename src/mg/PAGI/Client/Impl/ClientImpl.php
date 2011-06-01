@@ -722,7 +722,7 @@ class ClientImpl implements IClient
             unset($variableName[0]);
             $value = trim(implode('', $variableName));
             if (strncmp($key, 'arg_', 4) === 0) {
-                $this->_arguments[] = $value;
+                $this->_arguments[substr($key, 4)] = $value;
             } else {
                 $this->_variables[$key] = $value;
             }
