@@ -21,5 +21,8 @@
     <testsuite name="CallerID">
       <directory suffix=".php">callerid</directory>
     </testsuite>
+    <testsuite name="ChannelVariables">
+      <directory suffix=".php">channelvars</directory>
+    </testsuite>
   </testsuites>
 </phpunit>

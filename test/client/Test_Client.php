@@ -38,6 +38,8 @@ namespace {
         false
     );
     $standardAGIStart = array(
+        'agi_arg_1:arg1',
+    	'agi_arg_2:arg2',
 		'agi_request:anagi.php',
 		'agi_channel:SIP/jondoe-7026f150',
 		'agi_language:ar',
@@ -60,6 +62,24 @@ namespace {
 		'agi_threadid:1105672528',
         ''
     );
+
+    function setFgetsMock(array $readValues, $writeValues)
+    {
+        global $mockFgets;
+        global $mockFopen;
+        global $mockFgetsCount;
+        global $mockFgetsReturn;
+        global $mockFwrite;
+        global $mockFwriteCount;
+        global $mockFwriteReturn;
+        $mockFgets = true;
+        $mockFopen = true;
+        $mockFwrite = true;
+        $mockFgetsCount = 0;
+        $mockFgetsReturn = $readValues;
+        $mockFwriteCount = 0;
+        $mockFwriteReturn = $writeValues;
+    }
 }
 
 namespace PAGI\Client\Impl {
@@ -127,24 +147,6 @@ class Test_Client extends \PHPUnit_Framework_TestCase
         );
     }
 
-    private function _setFgetsMock(array $readValues, $writeValues)
-    {
-        global $mockFgets;
-        global $mockFopen;
-        global $mockFgetsCount;
-        global $mockFgetsReturn;
-        global $mockFwrite;
-        global $mockFwriteCount;
-        global $mockFwriteReturn;
-        $mockFgets = true;
-        $mockFopen = true;
-        $mockFwrite = true;
-        $mockFgetsCount = 0;
-        $mockFgetsReturn = $readValues;
-        $mockFwriteCount = 0;
-        $mockFwriteReturn = $writeValues;
-    }
-
     /**
      * @test
      * @expectedException \PAGI\Exception\PAGIException
@@ -152,7 +154,7 @@ class Test_Client extends \PHPUnit_Framework_TestCase
     public function cannot_read()
     {
         global $errorAGIRead;
-        $this->_setFgetsMock($errorAGIRead, array());
+        setFgetsMock($errorAGIRead, array());
         $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
     }
 
@@ -162,7 +164,7 @@ class Test_Client extends \PHPUnit_Framework_TestCase
     public function can_get_client()
     {
         global $standardAGIStart;
-        $this->_setFgetsMock($standardAGIStart, array());
+        setFgetsMock($standardAGIStart, array());
         $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
     }
 }

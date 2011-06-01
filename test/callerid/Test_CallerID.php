@@ -52,31 +52,13 @@ class Test_CallerID extends \PHPUnit_Framework_TestCase
         );
     }
 
-    private function _setFgetsMock(array $readValues, $writeValues)
-    {
-        global $mockFgets;
-        global $mockFopen;
-        global $mockFgetsCount;
-        global $mockFgetsReturn;
-        global $mockFwrite;
-        global $mockFwriteCount;
-        global $mockFwriteReturn;
-        $mockFgets = true;
-        $mockFopen = true;
-        $mockFwrite = true;
-        $mockFgetsCount = 0;
-        $mockFgetsReturn = $readValues;
-        $mockFwriteCount = 0;
-        $mockFwriteReturn = $writeValues;
-    }
-
     /**
      * @test
      */
     public function can_get_callerid()
     {
         global $standardAGIStart;
-        $this->_setFgetsMock($standardAGIStart, array());
+        setFgetsMock($standardAGIStart, array());
         $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
         $clid = $client->getCallerId();
         $clid = $client->getCallerId(); // should return the same instance
@@ -94,7 +76,7 @@ class Test_CallerID extends \PHPUnit_Framework_TestCase
             '200 result=1 "555"',
         	'200 result=1 "333"'
         );
-        $this->_setFgetsMock($callerIdR, $callerIdW);
+        setFgetsMock($callerIdR, $callerIdW);
         $text = '[ CallerID:  number: 666 name: pedro zamora dnid: 444 rdnis: 555 ani: 333]';
         $this->assertEquals($text, $clid->__toString());
     }
@@ -104,7 +86,7 @@ class Test_CallerID extends \PHPUnit_Framework_TestCase
     public function can_set_callerid()
     {
         global $standardAGIStart;
-        $this->_setFgetsMock($standardAGIStart, array());
+        setFgetsMock($standardAGIStart, array());
         $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
         $clid = $client->getCallerId();
         $callerIdW = array(
@@ -121,7 +103,7 @@ class Test_CallerID extends \PHPUnit_Framework_TestCase
         	'200 result=1',
         	'200 result=1',
         );
-        $this->_setFgetsMock($callerIdR, $callerIdW);
+        setFgetsMock($callerIdR, $callerIdW);
         $clid->setNumber('666');
         $clid->setName('pepe zamora');
         $clid->setANI('222');
