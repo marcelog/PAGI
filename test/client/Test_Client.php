@@ -175,13 +175,13 @@ class Test_Client extends \PHPUnit_Framework_TestCase
         global $standardAGIStart;
         setFgetsMock($standardAGIStart, array());
         $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
-        $callerIdW = array(
+        $write = array(
         	'ANSWER'
         );
-        $callerIdR = array(
+        $read = array(
             '200 result=1',
         );
-        setFgetsMock($callerIdR, $callerIdW);
+        setFgetsMock($read, $write);
         $client->answer();
     }
 
@@ -209,15 +209,15 @@ class Test_Client extends \PHPUnit_Framework_TestCase
         global $standardAGIStart;
         setFgetsMock($standardAGIStart, array());
         $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
-        $callerIdW = array(
+        $write = array(
         	'HANGUP',
         	'HANGUP "somechannel"'
 	    );
-        $callerIdR = array(
+        $read = array(
             '200 result=1',
         	'200 result=1',
         );
-        setFgetsMock($callerIdR, $callerIdW);
+        setFgetsMock($read, $write);
         $client->hangup();
         $client->hangup('somechannel');
     }
@@ -231,13 +231,13 @@ class Test_Client extends \PHPUnit_Framework_TestCase
         global $standardAGIStart;
         setFgetsMock($standardAGIStart, array());
         $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
-        $callerIdW = array(
+        $write = array(
         	'ANSWER'
         );
-        $callerIdR = array(
+        $read = array(
             '200 result=-1',
         );
-        setFgetsMock($callerIdR, $callerIdW);
+        setFgetsMock($read, $write);
         $client->answer();
     }
     /**
@@ -249,13 +249,13 @@ class Test_Client extends \PHPUnit_Framework_TestCase
         global $standardAGIStart;
         setFgetsMock($standardAGIStart, array());
         $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
-        $callerIdW = array(
+        $write = array(
         	'HANGUP'
         );
-        $callerIdR = array(
+        $read = array(
             '200 result=-1',
         );
-        setFgetsMock($callerIdR, $callerIdW);
+        setFgetsMock($read, $write);
         $client->hangup();
     }
     /**
@@ -266,13 +266,13 @@ class Test_Client extends \PHPUnit_Framework_TestCase
         global $standardAGIStart;
         setFgetsMock($standardAGIStart, array());
         $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
-        $callerIdW = array(
+        $write = array(
         	'SET CONTEXT "context"'
         );
-        $callerIdR = array(
+        $read = array(
             '200 result=1',
         );
-        setFgetsMock($callerIdR, $callerIdW);
+        setFgetsMock($read, $write);
         $client->setContext('context');
     }
     /**
@@ -283,13 +283,13 @@ class Test_Client extends \PHPUnit_Framework_TestCase
         global $standardAGIStart;
         setFgetsMock($standardAGIStart, array());
         $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
-        $callerIdW = array(
+        $write = array(
         	'SET EXTENSION "1313"'
         );
-        $callerIdR = array(
+        $read = array(
             '200 result=1',
         );
-        setFgetsMock($callerIdR, $callerIdW);
+        setFgetsMock($read, $write);
         $client->setExtension('1313');
     }
     /**
@@ -300,13 +300,13 @@ class Test_Client extends \PHPUnit_Framework_TestCase
         global $standardAGIStart;
         setFgetsMock($standardAGIStart, array());
         $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
-        $callerIdW = array(
+        $write = array(
         	'SET PRIORITY "3"'
         );
-        $callerIdR = array(
+        $read = array(
             '200 result=1',
         );
-        setFgetsMock($callerIdR, $callerIdW);
+        setFgetsMock($read, $write);
         $client->setPriority('3');
     }
     /**
@@ -325,6 +325,111 @@ class Test_Client extends \PHPUnit_Framework_TestCase
         );
         setFgetsMock($callerIdR, $callerIdW);
         $client->setCallerId('name', 123);
+    }
+    /**
+     * @test
+     */
+    public function can_send_image()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'SEND IMAGE "file"'
+        );
+        $read = array(
+            '200 result=1',
+        );
+        setFgetsMock($read, $write);
+        $client->sendImage('file');
+    }
+    /**
+     * @test
+     * @expectedException \PAGI\Exception\PAGIException
+     */
+    public function cannot_send_image()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'SEND IMAGE "file"'
+        );
+        $read = array(
+            '200 result=-1',
+        );
+        setFgetsMock($read, $write);
+        $client->sendImage('file');
+    }
+    /**
+     * @test
+     */
+    public function can_send_text()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'SEND TEXT "text"'
+        );
+        $read = array(
+            '200 result=1',
+        );
+        setFgetsMock($read, $write);
+        $client->sendText('text');
+    }
+    /**
+     * @test
+     * @expectedException \PAGI\Exception\PAGIException
+     */
+    public function cannot_send_text()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'SEND TEXT "text"'
+        );
+        $read = array(
+            '200 result=-1',
+        );
+        setFgetsMock($read, $write);
+        $client->sendText('text');
+    }
+    /**
+     * @test
+     */
+    public function can_database_put()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'DATABASE PUT "family" "key" "value"'
+        );
+        $read = array(
+            '200 result=1',
+        );
+        setFgetsMock($read, $write);
+        $client->databasePut('family', 'key', 'value');
+    }
+    /**
+     * @test
+     * @expectedException \PAGI\Exception\DatabaseInvalidEntryException
+     */
+    public function cannot_database_put()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'DATABASE PUT "family" "key" "value"'
+        );
+        $read = array(
+            '200 result=0',
+        );
+        setFgetsMock($read, $write);
+        $client->databasePut('family', 'key', 'value');
     }
 
     /**
