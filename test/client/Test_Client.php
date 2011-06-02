@@ -312,6 +312,23 @@ class Test_Client extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function can_set_autohangup()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'SET AUTOHANGUP 3'
+        );
+        $read = array(
+            '200 result=1',
+        );
+        setFgetsMock($read, $write);
+        $client->setAutoHangup('3');
+    }
+    /**
+     * @test
+     */
     public function can_set_callerid()
     {
         global $standardAGIStart;
@@ -431,7 +448,183 @@ class Test_Client extends \PHPUnit_Framework_TestCase
         setFgetsMock($read, $write);
         $client->databasePut('family', 'key', 'value');
     }
+    /**
+     * @test
+     */
+    public function can_database_deltree()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'DATABASE DELTREE "family" "key"'
+        );
+        $read = array(
+            '200 result=1',
+        );
+        setFgetsMock($read, $write);
+        $client->databaseDeltree('family', 'key');
+    }
+    /**
+     * @test
+     * @expectedException \PAGI\Exception\DatabaseInvalidEntryException
+     */
+    public function cannot_database_deltree()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'DATABASE DELTREE "family" "key"'
+        );
+        $read = array(
+            '200 result=0',
+        );
+        setFgetsMock($read, $write);
+        $client->databaseDeltree('family', 'key');
+    }
+    /**
+     * @test
+     */
+    public function can_database_del()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'DATABASE DELTREE "family" "key"'
+        );
+        $read = array(
+            '200 result=1',
+        );
+        setFgetsMock($read, $write);
+        $client->databaseDel('family', 'key');
+    }
+    /**
+     * @test
+     * @expectedException \PAGI\Exception\DatabaseInvalidEntryException
+     */
+    public function cannot_database_del()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'DATABASE DELTREE "family" "key"'
+        );
+        $read = array(
+            '200 result=0',
+        );
+        setFgetsMock($read, $write);
+        $client->databaseDel('family', 'key');
+    }
+    /**
+     * @test
+     */
+    public function can_database_get()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'DATABASE GET "family" "key"'
+        );
+        $read = array(
+            '200 result=1 (something)',
+        );
+        setFgetsMock($read, $write);
+        $this->assertEquals($client->databaseGet('family', 'key'), 'something');
+    }
+    /**
+     * @test
+     */
+    public function can_console_log()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'VERBOSE "line1" 1',
+        	'VERBOSE "line2" 1'
+        );
+        $read = array(
+            '200 result=1',
+            '200 result=1'
+        );
+        setFgetsMock($read, $write);
+        $client->consoleLog("line1\r\nline2\r\n");
+    }
 
+    /**
+     * @test
+     * @expectedException \PAGI\Exception\DatabaseInvalidEntryException
+     */
+    public function cannot_database_get()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'DATABASE GET "family" "key"'
+        );
+        $read = array(
+            '200 result=0',
+        );
+        setFgetsMock($read, $write);
+        $client->databaseGet('family', 'key');
+    }
+    /**
+     * @test
+     */
+    public function cannot_get_fullvariable()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'GET FULL VARIABLE "${some}" "channel"'
+        );
+        $read = array(
+            '200 result=0',
+        );
+        setFgetsMock($read, $write);
+        $this->assertFalse($client->getFullVariable('some', 'channel'));
+    }
+
+    /**
+     * @test
+     */
+    public function cannot_get_variable()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'GET VARIABLE "some"'
+        );
+        $read = array(
+            '200 result=0',
+        );
+        setFgetsMock($read, $write);
+        $this->assertFalse($client->getVariable('some'));
+    }
+    /**
+     * @test
+     */
+    public function can_get_variable()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'GET VARIABLE "some"'
+        );
+        $read = array(
+            '200 result=1 (value)',
+        );
+        setFgetsMock($read, $write);
+        $this->assertEquals($client->getVariable('some'), 'value');
+    }
     /**
      * @test
      */

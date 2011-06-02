@@ -588,6 +588,9 @@ class ClientImpl implements IClient
         $msg = str_replace("\r", '', $msg);
         $msg = explode("\n", $msg);
         foreach ($msg as $line) {
+            if (strlen($line) < 1) {
+                continue;
+            }
             $this->send(
             	'VERBOSE "' . str_replace('"', '\\"', $line) . '" ' . $level
             );
@@ -627,14 +630,10 @@ class ClientImpl implements IClient
      */
     public function databaseDeltree($family, $key = false)
     {
-        $cmd = implode(
-        	' ',
-        	array(
-        		'DATABASE', 'DELTREE',
-        	    '"' . $family . '"',
-        	    $key ? '"' . $key . '"' : ''
-        	)
-        );
+        $cmd = implode(' ', array('DATABASE', 'DELTREE', '"' . $family . '"'));
+        if ($key !== false) {
+            $cmd .= ' "' . $key . '"';
+        }
         $result = $this->send($cmd);
         if ($result->isResult(0)) {
             throw new DatabaseInvalidEntryException('Invalid family or key.');
