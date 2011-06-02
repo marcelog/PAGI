@@ -39,5 +39,8 @@
     <testsuite name="DummyLogger">
       <directory suffix=".php">logger</directory>
     </testsuite>
+    <testsuite name="Application">
+      <directory suffix=".php">application</directory>
+    </testsuite>
   </testsuites>
 </phpunit>

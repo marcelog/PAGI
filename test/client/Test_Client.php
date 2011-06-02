@@ -258,6 +258,74 @@ class Test_Client extends \PHPUnit_Framework_TestCase
         setFgetsMock($callerIdR, $callerIdW);
         $client->hangup();
     }
+    /**
+     * @test
+     */
+    public function can_set_context()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $callerIdW = array(
+        	'SET CONTEXT "context"'
+        );
+        $callerIdR = array(
+            '200 result=1',
+        );
+        setFgetsMock($callerIdR, $callerIdW);
+        $client->setContext('context');
+    }
+    /**
+     * @test
+     */
+    public function can_set_extension()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $callerIdW = array(
+        	'SET EXTENSION "1313"'
+        );
+        $callerIdR = array(
+            '200 result=1',
+        );
+        setFgetsMock($callerIdR, $callerIdW);
+        $client->setExtension('1313');
+    }
+    /**
+     * @test
+     */
+    public function can_set_priority()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $callerIdW = array(
+        	'SET PRIORITY "3"'
+        );
+        $callerIdR = array(
+            '200 result=1',
+        );
+        setFgetsMock($callerIdR, $callerIdW);
+        $client->setPriority('3');
+    }
+    /**
+     * @test
+     */
+    public function can_set_callerid()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $callerIdW = array(
+        	'SET CALLERID "\"name\"<123>"'
+        );
+        $callerIdR = array(
+            '200 result=1',
+        );
+        setFgetsMock($callerIdR, $callerIdW);
+        $client->setCallerId('name', 123);
+    }
 
     /**
      * @test
