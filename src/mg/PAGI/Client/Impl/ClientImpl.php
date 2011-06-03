@@ -228,10 +228,10 @@ class ClientImpl implements IClient
      */
     public function channelStatus($channel = false)
     {
-        $cmd = implode(
-        	' ',
-            array('CHANNEL', 'STATUS', $channel ? '"' . $channel . '"' : '')
-        );
+        $cmd = implode(' ', array('CHANNEL', 'STATUS'));
+        if ($channel !== false) {
+            $cmd .= ' "' . $channel . '"';
+        }
         $result = $this->send($cmd);
         return intval($result->getResult());
     }
@@ -382,14 +382,10 @@ class ClientImpl implements IClient
      */
     public function setMusic($enable, $class = false)
     {
-        $cmd = implode(
-        	' ',
-        	array(
-        		'SET', 'MUSIC',
-        	    $enable ? 'on' : 'off',
-        	    $class ? '"' . $class . '"' : ''
-            )
-        );
+        $cmd = implode(' ', array('SET', 'MUSIC', $enable ? 'on' : 'off'));
+        if ($class !== false) {
+            $cmd .= ' "' . $class . '"';
+        }
         $this->send($cmd);
     }
 

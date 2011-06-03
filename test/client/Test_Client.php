@@ -628,6 +628,95 @@ class Test_Client extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function can_get_channel_status()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'CHANNEL STATUS "channel"'
+        );
+        $read = array(
+            '200 result=54',
+        );
+        setFgetsMock($read, $write);
+        $this->assertEquals($client->channelStatus('channel'), 54);
+    }
+    /**
+     * @test
+     */
+    public function can_set_music()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'SET MUSIC off "class"'
+        );
+        $read = array(
+            '200 result=1',
+        );
+        setFgetsMock($read, $write);
+        $client->setMusic(false, 'class');
+    }
+    /**
+     * @test
+     */
+    public function can_wait_digit()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'WAIT FOR DIGIT "3"'
+        );
+        $read = array(
+            '200 result=65',
+        );
+        setFgetsMock($read, $write);
+        $result = $client->waitDigit(3);
+        $this->assertEquals($result->getDigits(), 'A');
+        $this->assertFalse($result->isTimeout());
+    }
+    /**
+     * @test
+     */
+    public function can_wait_digit_and_timeout()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'WAIT FOR DIGIT "3"'
+        );
+        $read = array(
+            '200 result=0',
+        );
+        setFgetsMock($read, $write);
+        $result = $client->waitDigit(3);
+        $this->assertTrue($result->isTimeout());
+    }
+    /**
+     * @test
+     * @expectedException \PAGI\Exception\ChannelDownException
+     */
+    public function cannot_wait_digit()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'WAIT FOR DIGIT "3"'
+        );
+        $read = array(
+            '200 result=-1',
+        );
+        setFgetsMock($read, $write);
+        $result = $client->waitDigit(3);
+    }
+    /**
+     * @test
+     */
     public function can_get_client()
     {
         global $standardAGIStart;
