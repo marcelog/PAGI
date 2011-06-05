@@ -30,9 +30,14 @@
 namespace {
     $mockFopen = false;
     $mockFwrite = false;
+    $mockFwriteReturn = false;
+    $mockTime = false;
     $mockFgets = false;
     $mockFgetsCount = 0;
+    $mockTimeCount = 0;
+    $mockTimeResult = 0;
     $mockFclose = false;
+    $mockFreadReturn = false;
     $errorAGIRead = array(
 		'agi_request:anagi.php',
 		'agi_channel:SIP/jondoe-7026f150',
@@ -84,6 +89,21 @@ namespace {
 }
 
 namespace PAGI\Client\Impl {
+    function time() {
+        global $mockTime;
+        global $mockTimeCount;
+        global $mockTimeReturn;
+        if (isset($mockTime) && $mockTime === true) {
+            if (!isset($mockTimeReturn[$mockTimeCount])) {
+                return call_user_func_array('\time', func_get_args());
+            }
+            $result = $mockTimeReturn[$mockTimeCount];
+            $mockTimeCount++;
+            return $result;
+        } else {
+            return call_user_func_array('\time', func_get_args());
+        }
+    }
     function fclose() {
         global $mockFclose;
         if (isset($mockFclose) && $mockFclose === true) {
@@ -989,6 +1009,62 @@ class Test_Client extends \PHPUnit_Framework_TestCase
         );
         setFgetsMock($read, $write);
         $result = $client->streamFile('file', '#');
+    }
+    /**
+     * @test
+     * @expectedException \PAGI\Exception\ExecuteCommandException
+     */
+    public function cannot_execute()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'EXEC "a" "b"',
+        );
+        $read = array(
+            '200 result=-2 endpos=0',
+        );
+        setFgetsMock($read, $write);
+        $result = $client->exec('a', array('b'));
+    }
+    /**
+     * @test
+     */
+    public function can_dial()
+    {
+        global $standardAGIStart;
+        global $mockTime;
+        global $mockTimeReturn;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'EXEC "Dial" "channel,a,b,c"',
+            false,
+            false,
+            false,
+            false
+        );
+        $read = array(
+            '200 result=0 endpos=0',
+            '200 result=1 (DIALEDPEERNAME)',
+        	'200 result=1 (DIALEDPEERNUMBER)',
+        	'200 result=1 (ANSWEREDTIME)',
+        	'200 result=1 (DIALSTATUS)',
+        	'200 result=1 (DYNAMIC_FEATURES)',
+        );
+        setFgetsMock($read, $write);
+        $mockTime = true;
+        $mockTimeReturn = array(time() - 10, time());
+        $result = $client->dial('channel', array('a', 'b', 'c'));
+        $mockTime = false;
+        $this->assertEquals($result->getDynamicFeatures(), 'DYNAMIC_FEATURES');
+        $this->assertEquals($result->getDialStatus(), 'DIALSTATUS');
+        $this->assertEquals($result->getAnsweredTime(), 'ANSWEREDTIME');
+        $this->assertEquals($result->getPeerNumber(), 'DIALEDPEERNUMBER');
+        $this->assertEquals($result->getPeerName(), 'DIALEDPEERNAME');
+        $this->assertEquals($result->getDialedTime(), 10);
+        $this->assertEquals($result->__toString(), '[ Dial:  PeerName: DIALEDPEERNAME PeerNumber: DIALEDPEERNUMBER DialedTime: 10 AnsweredTime: ANSWEREDTIME DialStatus: DIALSTATUS Features: DYNAMIC_FEATURES ]');
     }
     /**
      * @test

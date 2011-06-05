@@ -30,6 +30,7 @@
 namespace PAGI\Client\Result;
 
 use PAGI\Exception\ChannelDownException;
+use PAGI\Exception\ExecuteCommandException;
 
 /**
  * This decorated result adds the functionality to check for a dial result.
@@ -132,7 +133,7 @@ class DialResult extends ExecResult
      */
     public function getDialedTime()
     {
-        $this->_dialedTime;
+        return $this->_dialedTime;
     }
 
     /**
@@ -241,8 +242,5 @@ class DialResult extends ExecResult
     public function __construct(IResult $result)
     {
         parent::__construct($result);
-        if ($result->isResult(-2)) {
-            throw new ExecuteCommandException('Failed to execute');
-        }
     }
 }

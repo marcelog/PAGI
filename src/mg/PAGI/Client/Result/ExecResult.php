@@ -30,6 +30,7 @@
 namespace PAGI\Client\Result;
 
 use PAGI\Exception\ChannelDownException;
+use PAGI\Exception\ExecuteCommandException;
 
 /**
  * This decorated result adds the functionality to check for an exec result.
