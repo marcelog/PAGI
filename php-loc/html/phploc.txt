@@ -1,0 +1,32 @@
+phploc 1.5.1 by Sebastian Bergmann.
+
+Directories:                                         19
+Files:                                               42
+
+Lines of Code (LOC):                               6750
+  Cyclomatic Complexity / Lines of Code:           0.04
+Comment Lines of Code (CLOC):                      4196
+Non-Comment Lines of Code (NCLOC):                 2554
+
+Namespaces:                                          19
+Interfaces:                                           8
+Classes:                                             33
+  Abstract:                                           4 (12.12%)
+  Concrete:                                          29 (87.88%)
+  Average Class Length (NCLOC):                      83
+Methods:                                            389
+  Scope:
+    Non-Static:                                     367 (94.34%)
+    Static:                                          22 (5.66%)
+  Visibility:
+    Public:                                         345 (88.69%)
+    Non-Public:                                      44 (11.31%)
+  Average Method Length (NCLOC):                      7
+  Cyclomatic Complexity / Number of Methods:       1.24
+
+Anonymous Functions:                                  0
+Functions:                                            0
+
+Constants:                                           10
+  Global constants:                                   0
+  Class constants:                                   10
