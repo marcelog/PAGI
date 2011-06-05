@@ -122,6 +122,13 @@ abstract class ReadResultDecorator implements IReadResult
     }
 
     /**
+     * Standard drill.
+     */
+    public function __toString()
+    {
+        return $this->_result->__toString();
+    }
+    /**
      * Constructor.
      *
      * @param IReadResult $result Result to decorate.

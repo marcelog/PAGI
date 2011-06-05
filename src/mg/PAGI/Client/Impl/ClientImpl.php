@@ -124,12 +124,13 @@ class ClientImpl implements IClient
         $len = strlen($text);
         $res = fwrite($this->_output, $text) === $len;
         if ($res != true) {
-            return false;
+            throw new PAGIException('Could not send command, fwrite failed');
         }
         do {
             $res = $this->read();
         } while(strlen($res) < 2);
         $result = new Result($res);
+        $res = true;
         switch($result->getCode())
         {
         case 200:
@@ -139,8 +140,9 @@ class ClientImpl implements IClient
         case 510:
         case 520:
         default:
-            throw new InvalidCommandException($text . ' - ' . $result);
+            break;
         }
+        throw new InvalidCommandException($text . ' - ' . $result);
     }
 
     /**

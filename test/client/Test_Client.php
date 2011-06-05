@@ -127,6 +127,10 @@ namespace PAGI\Client\Impl {
         if (isset($mockFwrite) && $mockFwrite === true) {
             $args = func_get_args();
             if (isset($mockFwriteReturn[$mockFwriteCount]) && $mockFwriteReturn[$mockFwriteCount] !== false) {
+                if ($mockFwriteReturn[$mockFwriteCount] === 'fwrite error') {
+                    $mockFwriteCount++;
+                    return 0;
+                }
                 $str = $mockFwriteReturn[$mockFwriteCount] . "\n";
                 if ($str !== $args[1]) {
                     throw new \Exception(
@@ -185,6 +189,32 @@ class Test_Client extends \PHPUnit_Framework_TestCase
         global $errorAGIRead;
         setFgetsMock($errorAGIRead, array());
         $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+    }
+
+    /**
+     * @test
+     */
+    public function can_send()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'ANSWER'
+        );
+        $read = array(
+            '200 result=result data',
+        );
+        setFgetsMock($read, $write);
+        $refObject = new \ReflectionObject($client);
+        $refMethod = $refObject->getMethod('send');
+        $refMethod->setAccessible(true);
+        $result = $refMethod->invoke($client, 'ANSWER');
+        $this->assertEquals($result->getCode(), '200');
+        $this->assertEquals($result->getResult(), 'result');
+        $this->assertTrue($result->hasData());
+        $this->assertEquals($result->getOriginalLine(), '200 result=result data');
+        $this->assertEquals($result->getData(), 'data');
     }
 
     /**
@@ -896,6 +926,13 @@ class Test_Client extends \PHPUnit_Framework_TestCase
         $result = $client->getData('file', 'maxtime', 'maxdigits');
         $this->assertTrue($result->isTimeout());
         $this->assertEquals($result->getDigits(), 123);
+        $this->assertEquals($result->getCode(), 200);
+        $this->assertEquals($result->getResult(), '123');
+        $this->assertTrue($result->isResult(123));
+        $this->assertTrue($result->hasData());
+        $this->assertEquals($result->getData(), '(timeout)');
+        $this->assertEquals($result->getOriginalLine(), '200 result=123 (timeout)');
+        $this->assertEquals($result->__toString(), '[ Result for |200 result=123 (timeout)| code: |200| result: |123| data: |(timeout)|]');
     }
     /**
      * @test
@@ -1012,6 +1049,60 @@ class Test_Client extends \PHPUnit_Framework_TestCase
     }
     /**
      * @test
+     * @expectedException \PAGI\Exception\PAGIException
+     */
+    public function cannot_fwrite()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'fwrite error'
+        );
+        $read = array(
+            '200 result=0 endpos=0'
+        );
+        setFgetsMock($read, $write);
+        $result = $client->streamFile('file', '#');
+    }
+    /**
+     * @test
+     * @expectedException \PAGI\Exception\ChannelDownException
+     */
+    public function cannot_do_anything_on_channel_down()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'STREAM FILE "file" "#"'
+        );
+        $read = array(
+            '511 result=0 endpos=0'
+        );
+        setFgetsMock($read, $write);
+        $result = $client->streamFile('file', '#');
+    }
+    /**
+     * @test
+     * @expectedException \PAGI\Exception\InvalidCommandException
+     */
+    public function cannot_do_anything_on_invalid_command()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'STREAM FILE "file" "#"'
+        );
+        $read = array(
+            '510 result=0 endpos=0'
+        );
+        setFgetsMock($read, $write);
+        $result = $client->streamFile('file', '#');
+    }
+    /**
+     * @test
      * @expectedException \PAGI\Exception\ExecuteCommandException
      */
     public function cannot_execute()
@@ -1065,6 +1156,94 @@ class Test_Client extends \PHPUnit_Framework_TestCase
         $this->assertEquals($result->getPeerName(), 'DIALEDPEERNAME');
         $this->assertEquals($result->getDialedTime(), 10);
         $this->assertEquals($result->__toString(), '[ Dial:  PeerName: DIALEDPEERNAME PeerNumber: DIALEDPEERNUMBER DialedTime: 10 AnsweredTime: ANSWEREDTIME DialStatus: DIALSTATUS Features: DYNAMIC_FEATURES ]');
+    }
+    /**
+     * @test
+     */
+    public function can_receive_fax()
+    {
+        global $standardAGIStart;
+        global $mockTime;
+        global $mockTimeReturn;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'EXEC "ReceiveFax" "file.tiff"',
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        );
+        $read = array(
+            '200 result=1',
+            '200 result=1 (SUCCESS)',
+        	'200 result=1 (FAXBITRATE)',
+        	'200 result=1 (FAXRESOLUTION)',
+        	'200 result=1 (FAXPAGES)',
+        	'200 result=1 (FAXERROR)',
+        	'200 result=1 (REMOTESTATIONID)',
+        	'200 result=1 (LOCALSTATIONID)',
+        	'200 result=1 (LOCALHEADERINFO)',
+        );
+        setFgetsMock($read, $write);
+        $result = $client->faxReceive('file.tiff');
+        $this->assertTrue($result->isSuccess());
+        $this->assertEquals($result->getBitrate(), 'FAXBITRATE');
+        $this->assertEquals($result->getResolution(), 'FAXRESOLUTION');
+        $this->assertEquals($result->getPages(), 'FAXPAGES');
+        $this->assertEquals($result->getError(), 'FAXERROR');
+        $this->assertEquals($result->getRemoteStationId(), 'REMOTESTATIONID');
+        $this->assertEquals($result->getLocalStationId(), 'LOCALSTATIONID');
+        $this->assertEquals($result->getLocalHeaderInfo(), 'LOCALHEADERINFO');
+        $this->assertEquals($result->__toString(), '[ FaxResult:  Resolution: FAXRESOLUTION Bitrate: 0 Pages: 0 LocalId: LOCALSTATIONID LocalHeader: LOCALHEADERINFO RemoteId: REMOTESTATIONID Error: FAXERROR Result: Success]');
+    }
+    /**
+     * @test
+     */
+    public function can_send_fax()
+    {
+        global $standardAGIStart;
+        global $mockTime;
+        global $mockTimeReturn;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'EXEC "SendFax" "file.tiff,a"',
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        );
+        $read = array(
+            '200 result=1',
+            '200 result=1 (SUCCESS)',
+        	'200 result=1 (FAXBITRATE)',
+        	'200 result=1 (FAXRESOLUTION)',
+        	'200 result=1 (FAXPAGES)',
+        	'200 result=1 (FAXERROR)',
+        	'200 result=1 (REMOTESTATIONID)',
+        	'200 result=1 (LOCALSTATIONID)',
+        	'200 result=1 (LOCALHEADERINFO)',
+        );
+        setFgetsMock($read, $write);
+        $result = $client->faxSend('file.tiff');
+        $this->assertTrue($result->isSuccess());
+        $this->assertEquals($result->getBitrate(), 'FAXBITRATE');
+        $this->assertEquals($result->getResolution(), 'FAXRESOLUTION');
+        $this->assertEquals($result->getPages(), 'FAXPAGES');
+        $this->assertEquals($result->getError(), 'FAXERROR');
+        $this->assertEquals($result->getRemoteStationId(), 'REMOTESTATIONID');
+        $this->assertEquals($result->getLocalStationId(), 'LOCALSTATIONID');
+        $this->assertEquals($result->getLocalHeaderInfo(), 'LOCALHEADERINFO');
+        $this->assertEquals($result->__toString(), '[ FaxResult:  Resolution: FAXRESOLUTION Bitrate: 0 Pages: 0 LocalId: LOCALSTATIONID LocalHeader: LOCALHEADERINFO RemoteId: REMOTESTATIONID Error: FAXERROR Result: Success]');
     }
     /**
      * @test

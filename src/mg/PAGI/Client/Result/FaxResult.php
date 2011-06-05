@@ -298,9 +298,6 @@ class FaxResult extends ExecResult
     public function __construct(IResult $result)
     {
         parent::__construct($result);
-        if ($result->isResult(-2)) {
-            throw new ExecuteCommandException('Failed to execute');
-        }
         $this->_resolution = false;
         $this->_bitrate = false;
         $this->_pages = false;
