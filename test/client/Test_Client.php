@@ -717,6 +717,282 @@ class Test_Client extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function can_stream_file()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'STREAM FILE "file" "#"'
+        );
+        $read = array(
+            '200 result=0 endpos=123',
+        );
+        setFgetsMock($read, $write);
+        $result = $client->streamFile('file', '#');
+        $this->assertTrue($result->isTimeout());
+    }
+    /**
+     * @test
+     */
+    public function can_say_datetime()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'SAY DATETIME "time" "escape" "format"'
+        );
+        $read = array(
+            '200 result=0',
+        );
+        setFgetsMock($read, $write);
+        $result = $client->sayDateTime('time', 'format', 'escape');
+        $this->assertTrue($result->isTimeout());
+    }
+    /**
+     * @test
+     */
+    public function can_say_digits()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'SAY DIGITS "digits" "escape"'
+        );
+        $read = array(
+            '200 result=0',
+        );
+        setFgetsMock($read, $write);
+        $result = $client->sayDigits('digits', 'escape');
+        $this->assertTrue($result->isTimeout());
+    }
+    /**
+     * @test
+     */
+    public function can_say_number()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'SAY NUMBER "number" "escape"'
+        );
+        $read = array(
+            '200 result=0',
+        );
+        setFgetsMock($read, $write);
+        $result = $client->sayNumber('number', 'escape');
+        $this->assertTrue($result->isTimeout());
+    }
+    /**
+     * @test
+     */
+    public function can_say_phonetic()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'SAY PHONETIC "blah" "escape"'
+        );
+        $read = array(
+            '200 result=0',
+        );
+        setFgetsMock($read, $write);
+        $result = $client->sayPhonetic('blah', 'escape');
+        $this->assertTrue($result->isTimeout());
+    }
+    /**
+     * @test
+     */
+    public function can_say_alpha()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'SAY ALPHA "blah" "escape"'
+        );
+        $read = array(
+            '200 result=0',
+        );
+        setFgetsMock($read, $write);
+        $result = $client->sayAlpha('blah', 'escape');
+        $this->assertTrue($result->isTimeout());
+    }
+    /**
+     * @test
+     */
+    public function can_say_date()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'SAY DATE "date" "escape"'
+        );
+        $read = array(
+            '200 result=0',
+        );
+        setFgetsMock($read, $write);
+        $result = $client->sayDate('date', 'escape');
+        $this->assertTrue($result->isTimeout());
+    }
+    /**
+     * @test
+     */
+    public function can_say_time()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'SAY TIME "time" "escape"'
+        );
+        $read = array(
+            '200 result=0',
+        );
+        setFgetsMock($read, $write);
+        $result = $client->sayTime('time', 'escape');
+        $this->assertTrue($result->isTimeout());
+    }
+    /**
+     * @test
+     */
+    public function can_get_data()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'GET DATA "file" "maxtime" "maxdigits"'
+        );
+        $read = array(
+            '200 result=123 (timeout)',
+        );
+        setFgetsMock($read, $write);
+        $result = $client->getData('file', 'maxtime', 'maxdigits');
+        $this->assertTrue($result->isTimeout());
+        $this->assertEquals($result->getDigits(), 123);
+    }
+    /**
+     * @test
+     */
+    public function can_get_option()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'GET OPTION "file" "escape" "maxdigits"'
+        );
+        $read = array(
+            '200 result=0',
+        );
+        setFgetsMock($read, $write);
+        $result = $client->getOption('file', 'escape', 'maxdigits');
+        $this->assertTrue($result->isTimeout());
+    }
+    /**
+     * @test
+     */
+    public function can_record()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'RECORD FILE "file" "format" "escape" "maxtime" "s=123"'
+        );
+        $read = array(
+            '200 result=65 (dtmf) endpos=666',
+        );
+        setFgetsMock($read, $write);
+        $result = $client->record('file', 'format', 'escape', 'maxtime', 123);
+        $this->assertTrue($result->isInterrupted());
+        $this->assertEquals($result->getDigits(), 'A');
+        $this->assertEquals($result->getEndPos(), 666);
+        $this->assertFalse($result->isHangup());
+    }
+    /**
+     * @test
+     */
+    public function can_record_and_detect_hangup()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'RECORD FILE "file" "format" "escape" "maxtime" "s=123"'
+        );
+        $read = array(
+            '200 result=0 (hangup) endpos=666',
+        );
+        setFgetsMock($read, $write);
+        $result = $client->record('file', 'format', 'escape', 'maxtime', 123);
+        $this->assertTrue($result->isInterrupted());
+        $this->assertEquals($result->getEndPos(), 666);
+        $this->assertTrue($result->isHangup());
+    }
+    /**
+     * @test
+     * @expectedException \PAGI\Exception\RecordException
+     */
+    public function cannot_record_writefile()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'RECORD FILE "file" "format" "escape" "maxtime" "s=123"'
+        );
+        $read = array(
+            '200 result=65 (dtmf) (writefile) endpos=666',
+        );
+        setFgetsMock($read, $write);
+        $result = $client->record('file', 'format', 'escape', 'maxtime', 123);
+    }
+    /**
+     * @test
+     * @expectedException \PAGI\Exception\RecordException
+     */
+    public function cannot_record_waitfor()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'RECORD FILE "file" "format" "escape" "maxtime" "s=123"'
+        );
+        $read = array(
+            '200 result=65 (dtmf) (waitfor) endpos=666',
+        );
+        setFgetsMock($read, $write);
+        $result = $client->record('file', 'format', 'escape', 'maxtime', 123);
+    }
+    /**
+     * @test
+     * @expectedException \PAGI\Exception\SoundFileException
+     */
+    public function cannot_stream_file()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'STREAM FILE "file" "#"'
+        );
+        $read = array(
+            '200 result=0 endpos=0',
+        );
+        setFgetsMock($read, $write);
+        $result = $client->streamFile('file', '#');
+    }
+    /**
+     * @test
+     */
     public function can_get_client()
     {
         global $standardAGIStart;

@@ -88,17 +88,6 @@ class RecordResult extends ResultDecorator
     private $_digits;
 
     /**
-     * Use this to find out if this record was successfull or not. A record is
-     * failed only when an error writefile or waitfor is present.
-     *
-     * @return boolean
-     */
-    public function isFailed()
-    {
-        return $this->_waitfor || $this->_writefile;
-    }
-
-    /**
      * Returns true if this recording was interrupted by either a hangup or a
      * dtmf press.
      *
@@ -117,26 +106,6 @@ class RecordResult extends ResultDecorator
     public function isHangup()
     {
         return $this->_hangup;
-    }
-
-    /**
-     * Is writefile error present?
-     *
-     * @return boolean
-     */
-    public function isWriteFile()
-    {
-        return $this->_writefile;
-    }
-
-    /**
-     * Is waitfor error present?
-     *
-     * @return boolean
-     */
-    public function isWaitFor()
-    {
-        return $this->_waitfor;
     }
 
     /**

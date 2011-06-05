@@ -253,23 +253,6 @@ class ClientImpl implements IClient
 
     /**
      * (non-PHPdoc)
-     * @see PAGI\Client.IClient::getOption()
-     */
-    public function getOption($file, $escapeDigits, $maxTime)
-    {
-        $cmd = implode(
-        	' ',
-        	array(
-        		'GET', 'OPTION',
-        		'"' . $file . '"', '"' . $escapeDigits . '"',
-        	    '"' . $maxTime . '"'
-        	)
-        );
-        return new PlayResult(new DigitReadResult($this->send($cmd)));
-    }
-
-    /**
-     * (non-PHPdoc)
      * @see PAGI\Client.IClient::record()
      */
     public function record($file, $format, $escapeDigits, $maxRecordTime = -1, $silence = false)
@@ -279,60 +262,13 @@ class ClientImpl implements IClient
         	array(
         		'RECORD', 'FILE',
         		'"' . $file . '"', '"' . $format . '"',
-        		'"' . $escapeDigits . '"', '"' . $maxRecordTime . '"',
-        	    $silence ? 's=' . $silence : ''
+        		'"' . $escapeDigits . '"', '"' . $maxRecordTime . '"'
         	)
         );
+        if ($silence !== false) {
+            $cmd .= ' "s=' . $silence . '"';
+        }
         return new RecordResult($this->send($cmd));
-    }
-
-    /**
-     * (non-PHPdoc)
-     * @see PAGI\Client.IClient::getData()
-     */
-    public function getData($file, $maxTime, $maxDigits)
-    {
-        $timeout = false;
-        $cmd = implode(
-        	' ',
-        	array(
-        		'GET', 'DATA',
-        		'"' . $file . '"',
-        	    '"' . $maxTime . '"',
-        	    '"' . $maxDigits . '"'
-        	)
-        );
-        return new PlayResult(new DataReadResult($this->send($cmd)));
-    }
-
-    /**
-     * (non-PHPdoc)
-     * @see PAGI\Client.IClient::sayTime()
-     */
-    public function sayTime($time, $escapeDigits = '')
-    {
-        $digit = false;
-        $cmd = implode(
-        	' ',
-        	array('SAY', 'TIME', '"' . $time . '"','"' . $escapeDigits . '"')
-        );
-        return new PlayResult(new DigitReadResult($this->send($cmd)));
-    }
-
-    /**
-     * (non-PHPdoc)
-     * @see PAGI\Client.IClient::sayDate()
-     */
-    public function sayDate($time, $escapeDigits = '')
-    {
-        $digit = false;
-        $cmd = implode(
-        	' ',
-        	array(
-        		'SAY', 'DATE', '"' . $time . '"', '"' . $escapeDigits . '"'
-            )
-        );
-        return new PlayResult(new DigitReadResult($this->send($cmd)));
     }
 
     /**
@@ -388,6 +324,59 @@ class ClientImpl implements IClient
         }
         $this->send($cmd);
     }
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\Client.IClient::getData()
+     */
+    public function getData($file, $maxTime, $maxDigits)
+    {
+        $timeout = false;
+        $cmd = implode(
+        	' ',
+        	array(
+        		'GET', 'DATA',
+        		'"' . $file . '"',
+        	    '"' . $maxTime . '"',
+        	    '"' . $maxDigits . '"'
+        	)
+        );
+        return new PlayResult(new DataReadResult($this->send($cmd)));
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\Client.IClient::getOption()
+     */
+    public function getOption($file, $escapeDigits, $maxTime)
+    {
+        return $this->_playAndRead(implode(' ', array(
+       		'GET', 'OPTION',
+       		'"' . $file . '"', '"' . $escapeDigits . '"',
+       	    '"' . $maxTime . '"'
+        )));
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\Client.IClient::sayTime()
+     */
+    public function sayTime($time, $escapeDigits = '')
+    {
+        return $this->_playAndRead(implode(' ', array(
+        	'SAY', 'TIME', '"' . $time . '"','"' . $escapeDigits . '"'
+        )));
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\Client.IClient::sayDate()
+     */
+    public function sayDate($time, $escapeDigits = '')
+    {
+        return $this->_playAndRead(implode(' ', array(
+        	'SAY', 'DATE', '"' . $time . '"', '"' . $escapeDigits . '"'
+        )));
+    }
 
     /**
      * (non-PHPdoc)
@@ -395,17 +384,9 @@ class ClientImpl implements IClient
      */
     public function sayDateTime($time, $format, $escapeDigits = '')
     {
-        $digit = false;
-        $cmd = implode(
-        	' ',
-        	array(
-        		'SAY', 'DATETIME',
-        		'"' . $time . '"',
-        		'"' . $escapeDigits . '"',
-        		'"' . $format . '"'
-            )
-        );
-        return new PlayResult(new DigitReadResult($this->send($cmd)));
+        return $this->_playAndRead(implode(' ', array(
+        	'SAY', 'DATETIME', '"' . $time . '"', '"' . $escapeDigits . '"', '"' . $format . '"'
+        )));
     }
 
     /**
@@ -414,14 +395,9 @@ class ClientImpl implements IClient
      */
     public function sayDigits($digits, $escapeDigits = '')
     {
-        $digit = false;
-        $cmd = implode(
-        	' ',
-        	array(
-        		'SAY', 'DIGITS', '"' . $digits . '"', '"' . $escapeDigits . '"'
-        	)
-        );
-        return new PlayResult(new DigitReadResult($this->send($cmd)));
+        return $this->_playAndRead(implode(' ', array(
+        	'SAY', 'DIGITS', '"' . $digits . '"', '"' . $escapeDigits . '"'
+        )));
     }
 
     /**
@@ -430,13 +406,9 @@ class ClientImpl implements IClient
      */
     public function sayNumber($digits, $escapeDigits = '')
     {
-        $cmd = implode(
-        	' ',
-        	array(
-        		'SAY', 'NUMBER', '"' . $digits . '"', '"' . $escapeDigits . '"'
-        	)
-        );
-        return new PlayResult(new DigitReadResult($this->send($cmd)));
+        return $this->_playAndRead(implode(' ', array(
+        	'SAY', 'NUMBER', '"' . $digits . '"', '"' . $escapeDigits . '"'
+        )));
     }
 
     /**
@@ -445,13 +417,9 @@ class ClientImpl implements IClient
      */
     public function sayAlpha($what, $escapeDigits = '')
     {
-        $cmd = implode(
-        	' ',
-        	array(
-        		'SAY', 'ALPHA', '"' . $what . '"', '"' . $escapeDigits . '"'
-        	)
-        );
-        return new PlayResult(new DigitReadResult($this->send($cmd)));
+        return $this->_playAndRead(implode(' ', array(
+        	'SAY', 'ALPHA', '"' . $what . '"', '"' . $escapeDigits . '"'
+        )));
     }
 
     /**
@@ -460,12 +428,13 @@ class ClientImpl implements IClient
      */
     public function sayPhonetic($what, $escapeDigits = '')
     {
-        $cmd = implode(
-        	' ',
-        	array(
-        		'SAY', 'PHONETIC', '"' . $what . '"', '"' . $escapeDigits . '"'
-        	)
-        );
+        return $this->_playAndRead(implode(' ', array(
+       		'SAY', 'PHONETIC', '"' . $what . '"', '"' . $escapeDigits . '"'
+        )));
+    }
+
+    private function _playAndRead($cmd)
+    {
         return new PlayResult(new DigitReadResult($this->send($cmd)));
     }
 
