@@ -434,15 +434,15 @@ class CallFile
                 continue;
             }
             $key = trim($data[0]);
-            if (isset($data[1])) {
+            if (isset($data[1]) && (strlen($data[1]) > 0)) {
                 $value = trim($data[1]);
             } else {
                 $value = '?';
             }
-            if ($key == 'set') {
+            if (strcasecmp($key, 'set') === 0) {
                 $data = explode('=', $value);
                 $key = trim($data[0]);
-                if (isset($data[1])) {
+                if (isset($data[1]) && (strlen($data[1]) > 0)) {
                     $value = trim($data[1]);
                 } else {
                     $value = '?';
