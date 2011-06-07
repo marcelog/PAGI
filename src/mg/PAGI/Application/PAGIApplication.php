@@ -47,7 +47,7 @@ abstract class PAGIApplication
      * log4php logger or our own dummy.
      * @var Logger
      */
-    private $logger;
+    protected $logger;
 
     /**
      * AGI Client.
