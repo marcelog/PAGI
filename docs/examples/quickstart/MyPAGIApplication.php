@@ -67,10 +67,11 @@ class MyPAGIApplication extends PAGIApplication
      */
     public function log($msg)
     {
+        $agi = $this->getAgi();
         if ($this->logger->isDebugEnabled()) {
             $this->logger->debug($msg);
         }
-        $this->_agiClient->consoleLog($msg);
+        $agi->consoleLog($msg);
     }
 
     /**
