@@ -111,6 +111,7 @@ class CallSpoolImpl implements ICallSpool
             @unlink($filename);
             throw new CallSpoolException('Error spooling: ' . $newFilename);
         }
+        return $newFilename;
     }
 
     /**

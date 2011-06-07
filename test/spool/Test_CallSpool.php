@@ -27,8 +27,47 @@
  * limitations under the License.
  *
  */
+namespace {
+    $mockFopen = false;
+    $mockTouch = false;
+    $mockRename = false;
+    $mockPutContents = false;
+}
 
-namespace PAGI\Client\Impl {
+namespace PAGI\CallSpool\Impl {
+    function tempnam() {
+        global $mockTempnam;
+        if (isset($mockTempnam) && $mockTempnam === true) {
+            return false;
+        } else {
+            return call_user_func_array('\tempnam', func_get_args());
+        }
+    }
+    function rename() {
+        global $mockRename;
+        if (isset($mockRename) && $mockRename === true) {
+            return false;
+        } else {
+            return call_user_func_array('\rename', func_get_args());
+        }
+    }
+    function touch() {
+        global $mockTouch;
+        if (isset($mockTouch) && $mockTouch === true) {
+            return false;
+        } else {
+            return call_user_func_array('\touch', func_get_args());
+        }
+    }
+    function file_put_contents() {
+        global $mockPutContents;
+        if (isset($mockPutContents) && $mockPutContents === true) {
+            return false;
+        } else {
+            return call_user_func_array('\file_put_contents', func_get_args());
+        }
+    }
+
 /**
  * This class will test the call spool.
  *
@@ -47,6 +86,14 @@ class Test_CallSpool extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
+        global $mockTempnam;
+        global $mockPutContents;
+        global $mockTouch;
+        global $mockRename;
+        $mockTouch = false;
+        $mockRename = false;
+        $mockTempnam = false;
+        $mockPutContents = false;
         $this->_properties = array(
             'log4php.properties' => RESOURCES_DIR . DIRECTORY_SEPARATOR . 'log4php.properties'
         );
@@ -157,6 +204,157 @@ TEXT
         );
         $spool = \PAGI\CallSpool\Impl\CallSpoolImpl::getInstance($props);
         $spool = \PAGI\CallSpool\Impl\CallSpoolImpl::getInstance($props); // should return the same instance.
+    }
+    /**
+     * @test
+     * @expectedException \PAGI\CallSpool\Exception\CallSpoolException
+     */
+    public function cannot_create_temp_file()
+    {
+        global $mockTempnam;
+        $mockTempnam = true;
+        $tmpDir = sys_get_temp_dir() . DIRECTORY_SEPARATOR . microtime(true);
+        $spoolDir = $tmpDir . DIRECTORY_SEPARATOR . 'spool';
+        $props = array('tmpDir' => $tmpDir, 'spoolDir' => $spoolDir);
+        $call = new \PAGI\CallSpool\CallFile(new \PAGI\DialDescriptor\SIPDialDescriptor('target', 'provider'));
+        $spool = \PAGI\CallSpool\Impl\CallSpoolImpl::getInstance($props);
+        $spool->spool($call);
+    }
+    /**
+     * @test
+     * @expectedException \PAGI\CallSpool\Exception\CallSpoolException
+     */
+    public function cannot_write_temp_file()
+    {
+        global $mockPutContents;
+        global $mockTempnam;
+        $mockTempnam = false;
+        $mockPutContents = true;
+        $tmpDir = sys_get_temp_dir() . DIRECTORY_SEPARATOR . microtime(true);
+        $spoolDir = $tmpDir . DIRECTORY_SEPARATOR . 'spool';
+        if (@mkdir($tmpDir, 0755, true) === false) {
+            $this->fail('Could not create temporary directory');
+        }
+        if (@mkdir($spoolDir . DIRECTORY_SEPARATOR . 'outgoing', 0755, true) === false) {
+            $this->fail('Could not create temporary spool directory');
+        }
+        $props = array('tmpDir' => $tmpDir, 'spoolDir' => $spoolDir);
+        $call = new \PAGI\CallSpool\CallFile(new \PAGI\DialDescriptor\SIPDialDescriptor('target', 'provider'));
+        $spool = \PAGI\CallSpool\Impl\CallSpoolImpl::getInstance($props);
+        $spool->spool($call);
+    }
+    /**
+     * @test
+     * @expectedException \PAGI\CallSpool\Exception\CallSpoolException
+     */
+    public function cannot_touch_temp_file()
+    {
+        global $mockTouch;
+        $mockTouch = true;
+        $tmpDir = sys_get_temp_dir() . DIRECTORY_SEPARATOR . microtime(true);
+        $spoolDir = $tmpDir . DIRECTORY_SEPARATOR . 'spool';
+        if (@mkdir($tmpDir, 0755, true) === false) {
+            $this->fail('Could not create temporary directory');
+        }
+        if (@mkdir($spoolDir . DIRECTORY_SEPARATOR . 'outgoing', 0755, true) === false) {
+            $this->fail('Could not create temporary spool directory');
+        }
+        $props = array('tmpDir' => $tmpDir, 'spoolDir' => $spoolDir);
+        $call = new \PAGI\CallSpool\CallFile(new \PAGI\DialDescriptor\SIPDialDescriptor('target', 'provider'));
+        $spool = \PAGI\CallSpool\Impl\CallSpoolImpl::getInstance($props);
+        $spool->spool($call, 12);
+    }
+    /**
+     * @test
+     * @expectedException \PAGI\CallSpool\Exception\CallSpoolException
+     */
+    public function cannot_move_file_to_spool()
+    {
+        global $mockRename;
+        $mockRename = true;
+        $tmpDir = sys_get_temp_dir() . DIRECTORY_SEPARATOR . microtime(true);
+        $spoolDir = $tmpDir . DIRECTORY_SEPARATOR . 'spool';
+        if (@mkdir($tmpDir, 0755, true) === false) {
+            $this->fail('Could not create temporary directory');
+        }
+        if (@mkdir($spoolDir . DIRECTORY_SEPARATOR . 'outgoing', 0755, true) === false) {
+            $this->fail('Could not create temporary spool directory');
+        }
+        $props = array('tmpDir' => $tmpDir, 'spoolDir' => $spoolDir);
+        $call = new \PAGI\CallSpool\CallFile(new \PAGI\DialDescriptor\SIPDialDescriptor('target', 'provider'));
+        $spool = \PAGI\CallSpool\Impl\CallSpoolImpl::getInstance($props);
+        $spool->spool($call, 12);
+    }
+    /**
+     * @test
+     */
+    public function can_spool_and_schedule()
+    {
+        $tmpDir = sys_get_temp_dir() . DIRECTORY_SEPARATOR . microtime(true);
+        $spoolDir = $tmpDir . DIRECTORY_SEPARATOR . 'spool';
+        if (@mkdir($tmpDir, 0755, true) === false) {
+            $this->fail('Could not create temporary directory');
+        }
+        if (@mkdir($spoolDir . DIRECTORY_SEPARATOR . 'outgoing', 0755, true) === false) {
+            $this->fail('Could not create temporary spool directory');
+        }
+        $props = array('tmpDir' => $tmpDir, 'spoolDir' => $spoolDir);
+        $spool = \PAGI\CallSpool\Impl\CallSpoolImpl::getInstance($props);
+        $call = new \PAGI\CallSpool\CallFile(new \PAGI\DialDescriptor\SIPDialDescriptor('target', 'provider'));
+        $call->unserialize(<<<TEXT
+Channel: SIP/target@provider
+Archive: Yes
+Context: context
+Priority: priority
+Extension: extension
+Application: application
+AlwaysDelete: Yes
+CallerID: callerId
+MaxRetries: 33
+RetryTime: 44
+WaitTime: 22
+Account: account
+Data: a,b,c
+aaaa:
+Set: var=value
+Set: var2=
+TEXT
+);
+
+        $file = $spool->spool($call, 12);
+        $content = <<<TEXT
+Channel: SIP/target@provider
+Archive: Yes
+Context: context
+Priority: priority
+Extension: extension
+Application: application
+AlwaysDelete: Yes
+CallerID: callerId
+MaxRetries: 33
+RetryTime: 44
+WaitTime: 22
+Account: account
+Data: a,b,c
+aaaa: ?
+Set: var=value
+Set: var2=?
+TEXT
+;
+        $this->assertEquals(file_get_contents($file), $content);
+        $this->assertEquals(filemtime($file), 12);
+        if (@unlink($file) === false) {
+            $this->fail('could not remove call file: ' . $file);
+        }
+        if (@rmdir($spoolDir . DIRECTORY_SEPARATOR . 'outgoing') === false) {
+            $this->fail('could not remove temporary spool outgoing directory');
+        }
+        if (@rmdir($spoolDir) === false) {
+            $this->fail('could not remove temporary spool directory');
+        }
+        if (@rmdir($tmpDir) === false) {
+            $this->fail('could not remove temporary directory');
+        }
     }
 }
 }
