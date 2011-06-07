@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="1.3.0RC2">
- <file name="/export/users/marcelog/src/sts/PAGI/src/mg/PAGI/Application/Exception/InvalidApplicationException.php">
- </file>
  <file name="/export/users/marcelog/src/sts/PAGI/src/mg/PAGI/Application/PAGIApplication.php">
   <error line="50" column="13" severity="error" message="Private member variable &quot;logger&quot; must be prefixed with an underscore" source="PEAR.NamingConventions.ValidVariableName.PrivateNoUnderscore"/>
  </file>

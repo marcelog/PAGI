@@ -1,26 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PDepend>
   <Packages>
-    <Package name="PAGI\Application\Exception">
-      <Stats>
-        <TotalClasses>1</TotalClasses>
-        <ConcreteClasses>1</ConcreteClasses>
-        <AbstractClasses>0</AbstractClasses>
-        <Ca>0</Ca>
-        <Ce>1</Ce>
-        <A>0</A>
-        <I>1</I>
-        <D>0</D>
-      </Stats>
-      <ConcreteClasses>
-        <Class sourceFile="/export/users/marcelog/src/sts/PAGI/src/mg/PAGI/Application/Exception/InvalidApplicationException.php">InvalidApplicationException</Class>
-      </ConcreteClasses>
-      <AbstractClasses/>
-      <DependsUpon>
-        <Package>PAGI\Exception</Package>
-      </DependsUpon>
-      <UsedBy/>
-    </Package>
     <Package name="PAGI\Application">
       <Stats>
         <TotalClasses>2</TotalClasses>
@@ -346,11 +326,11 @@
         <TotalClasses>7</TotalClasses>
         <ConcreteClasses>7</ConcreteClasses>
         <AbstractClasses>0</AbstractClasses>
-        <Ca>4</Ca>
+        <Ca>3</Ca>
         <Ce>1</Ce>
         <A>0</A>
-        <I>0.2</I>
-        <D>0.8</D>
+        <I>0.25</I>
+        <D>0.75</D>
       </Stats>
       <ConcreteClasses>
         <Class sourceFile="/export/users/marcelog/src/sts/PAGI/src/mg/PAGI/Exception/ChannelDownException.php">ChannelDownException</Class>
@@ -366,7 +346,6 @@
         <Package></Package>
       </DependsUpon>
       <UsedBy>
-        <Package>PAGI\Application\Exception</Package>
         <Package>PAGI\CallSpool\Exception</Package>
         <Package>PAGI\Client\Impl</Package>
         <Package>PAGI\Client\Result</Package>
