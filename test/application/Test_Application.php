@@ -54,11 +54,16 @@ class Test_Application extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function can_answer()
+    public function can_app()
     {
         global $standardAGIStart;
         setFgetsMock($standardAGIStart, array());
-        $application = new MyPAGIApplication();
+        $application = new MyPAGIApplication($this->_properties);
+        $refObject = new \ReflectionObject($application);
+        $refMethod = $refObject->getMethod('getAgi');
+        $refMethod->setAccessible(true);
+        $agi = $refMethod->invoke($application);
+        $this->assertTrue($agi instanceof \PAGI\Client\Impl\ClientImpl);
     }
 }
 

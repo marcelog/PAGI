@@ -58,6 +58,20 @@ class MyPAGIApplication extends PAGIApplication
         $client = $this->getAgi();
         $client->answer();
     }
+    /**
+     * Logs to asterisk console.
+     *
+     * @param string $msg Message to log.
+     *
+     * @return void
+     */
+    public function log($msg)
+    {
+        if ($this->logger->isDebugEnabled()) {
+            $this->logger->debug($msg);
+        }
+        $this->_agiClient->consoleLog($msg);
+    }
 
     /**
      * (non-PHPdoc)

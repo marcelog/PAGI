@@ -50,11 +50,11 @@ try
 
     include_once $bootstrap;
     if (!class_exists($appName, true)) {
-        throw new InvalidApplicationException($appName . ' is not loaded');
+        throw new \Exception($appName . ' is not loaded');
     }
     $rClass = new ReflectionClass($appName);
     if (!$rClass->isSubclassOf('PAGI\\Application\\PAGIApplication')) {
-        throw new InvalidApplicationException($appName . ': Invalid application');
+        throw new \Exception($appName . ': Invalid application');
     }
     $myApp = new $appName(array('log4php.properties' => $log4php));
     $myApp->init();
