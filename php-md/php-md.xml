@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<pmd version="0.2.8RC1" timestamp="2011-06-07T12:50:59-03:00">
+<pmd version="0.2.8RC1" timestamp="2011-07-28T21:47:55-03:00">
   <file name="/export/users/marcelog/src/sts/PAGI/src/mg/PAGI/CallSpool/CallFile.php">
     <violation beginline="361" endline="364" rule="BooleanGetMethodName" ruleset="Naming Rules" package="PAGI\CallSpool" externalInfoUrl="http://phpmd.org/rules/naming.html#booleangetmethodname" class="CallFile" method="getAlwaysDelete" priority="4">
       The 'getAlwaysDelete()' method which returns a boolean should be named 'is...()' or 'has...()'
@@ -22,32 +22,6 @@
   <file name="/export/users/marcelog/src/sts/PAGI/src/mg/PAGI/Client/Result/RecordResult.php">
     <violation beginline="76" endline="76" rule="UnusedPrivateField" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedprivatefield" priority="3">
       Avoid unused private fields such as '$_failed'.
-    </violation>
-  </file>
-  <file name="/export/users/marcelog/src/sts/PAGI/src/mg/PAGI/Logger/Logger.php">
-    <violation beginline="56" endline="56" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
-      Avoid unused parameters such as '$options'.
-    </violation>
-    <violation beginline="74" endline="74" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
-      Avoid unused parameters such as '$options'.
-    </violation>
-    <violation beginline="85" endline="85" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
-      Avoid unused parameters such as '$msg'.
-    </violation>
-    <violation beginline="97" endline="97" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
-      Avoid unused parameters such as '$msg'.
-    </violation>
-    <violation beginline="109" endline="109" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
-      Avoid unused parameters such as '$msg'.
-    </violation>
-    <violation beginline="121" endline="121" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
-      Avoid unused parameters such as '$msg'.
-    </violation>
-    <violation beginline="133" endline="133" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
-      Avoid unused parameters such as '$msg'.
-    </violation>
-    <violation beginline="145" endline="145" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
-      Avoid unused parameters such as '$msg'.
     </violation>
   </file>
 </pmd>
