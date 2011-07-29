@@ -42,9 +42,6 @@
     <testsuite name="AsteriskLogger">
       <directory suffix=".php">asterisklogger</directory>
     </testsuite>
-    <testsuite name="DummyLogger">
-      <directory suffix=".php">logger</directory>
-    </testsuite>
     <testsuite name="Application">
       <directory suffix=".php">application</directory>
     </testsuite>
