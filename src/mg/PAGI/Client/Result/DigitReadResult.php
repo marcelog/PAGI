@@ -82,6 +82,14 @@ class DigitReadResult extends ResultDecorator implements IReadResult
     }
 
     /**
+     * (non-PHPdoc)
+     * @see PAGI\Client\Result.IReadResult::getDigitsCount()
+     */
+    public function getDigitsCount()
+    {
+        return strlen($this->_digits);
+    }
+    /**
      * Constructor.
      *
      * @param IResult $result Result to decorate.

@@ -726,6 +726,7 @@ class Test_Client extends \PHPUnit_Framework_TestCase
         setFgetsMock($read, $write);
         $result = $client->waitDigit(3);
         $this->assertEquals($result->getDigits(), 'A');
+        $this->assertEquals($result->getDigitsCount(), 1);
         $this->assertFalse($result->isTimeout());
     }
     /**
@@ -924,6 +925,7 @@ class Test_Client extends \PHPUnit_Framework_TestCase
         );
         setFgetsMock($read, $write);
         $result = $client->getData('file', 'maxtime', 'maxdigits');
+        $this->assertEquals($result->getDigitsCount(), 3);
         $this->assertTrue($result->isTimeout());
         $this->assertEquals($result->getDigits(), 123);
         $this->assertEquals($result->getCode(), 200);

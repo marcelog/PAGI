@@ -56,4 +56,10 @@ interface IReadResult extends IResult
      * @return string
      */
     public function getDigits();
+    /**
+     * Returns the number of digits read.
+     *
+	 * @return integer
+     */
+    public function getDigitsCount();
 }

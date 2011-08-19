@@ -122,6 +122,14 @@ abstract class ReadResultDecorator implements IReadResult
     }
 
     /**
+     * (non-PHPdoc)
+     * @see PAGI\Client\Result.IReadResult::getDigitsCount()
+     */
+    public function getDigitsCount()
+    {
+        return strlen($this->_result->getDigits());
+    }
+    /**
      * Standard drill.
      */
     public function __toString()
