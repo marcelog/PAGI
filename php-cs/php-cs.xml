@@ -584,7 +584,9 @@
   <error line="31" column="23" severity="error" message="Constants must be uppercase; expected RESULT but found Result" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
   <error line="33" column="10" severity="error" message="Constants must be uppercase; expected EXCEPTION but found Exception" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
   <error line="33" column="20" severity="error" message="Constants must be uppercase; expected CHANNELDOWNEXCEPTION but found ChannelDownException" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="60" column="83" severity="warning" message="Line exceeds 80 characters; contains 82 characters" source="PEAR.Files.LineLengthSniff"/>
+  <error line="59" column="9" severity="warning" message="Line exceeds 80 characters; contains 82 characters" source="PEAR.Files.LineLengthSniff"/>
+  <error line="61" column="9" severity="warning" message="Line exceeds 80 characters; contains 81 characters" source="PEAR.Files.LineLengthSniff"/>
+  <error line="65" column="83" severity="warning" message="Line exceeds 80 characters; contains 82 characters" source="PEAR.Files.LineLengthSniff"/>
  </file>
  <file name="/export/users/marcelog/src/sts/PAGI/src/mg/PAGI/Client/Result/DialResult.php">
   <error line="30" column="16" severity="error" message="Constants must be uppercase; expected CLIENT but found Client" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
@@ -607,6 +609,8 @@
   <error line="69" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
   <error line="77" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
   <error line="78" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="86" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="87" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
  </file>
  <file name="/export/users/marcelog/src/sts/PAGI/src/mg/PAGI/Client/Result/ExecResult.php">
   <error line="30" column="16" severity="error" message="Constants must be uppercase; expected CLIENT but found Client" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
@@ -629,6 +633,7 @@
  <file name="/export/users/marcelog/src/sts/PAGI/src/mg/PAGI/Client/Result/IReadResult.php">
   <error line="30" column="16" severity="error" message="Constants must be uppercase; expected CLIENT but found Client" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
   <error line="30" column="23" severity="error" message="Constants must be uppercase; expected RESULT but found Result" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
+  <error line="62" column="1" severity="error" message="Line indented incorrectly; expected at least 4 spaces, found 2" source="PEAR.WhiteSpace.ScopeIndentSniff"/>
  </file>
  <file name="/export/users/marcelog/src/sts/PAGI/src/mg/PAGI/Client/Result/IResult.php">
   <error line="30" column="16" severity="error" message="Constants must be uppercase; expected CLIENT but found Client" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
@@ -662,7 +667,9 @@
   <error line="109" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
   <error line="117" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
   <error line="118" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="126" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="126" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="127" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="134" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
  </file>
  <file name="/export/users/marcelog/src/sts/PAGI/src/mg/PAGI/Client/Result/RecordResult.php">
   <error line="30" column="16" severity="error" message="Constants must be uppercase; expected CLIENT but found Client" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>

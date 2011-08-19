@@ -72,7 +72,7 @@
             </table>
           </td>
           <td class="coverPerHi">100.00%</td>
-          <td class="coverNumHi">3 / 3</td>
+          <td class="coverNumHi">4 / 4</td>
           <td class="crap"><acronym title="Change Risk Anti-Patterns (CRAP) Index">CRAP</acronym></td>
           <td class="coverBar" align="center" width="100">
             <table border="0" cellspacing="0" cellpadding="1">
@@ -82,7 +82,7 @@
             </table>
           </td>
           <td class="coverPerHi">100.00%</td>
-          <td class="coverNumHi">18 / 18</td>
+          <td class="coverNumHi">19 / 19</td>
         </tr>
 
         <tr>
@@ -107,7 +107,7 @@
             </table>
           </td>
           <td class="coverPerHi">100.00%</td>
-          <td class="coverNumHi">3 / 3</td>
+          <td class="coverNumHi">4 / 4</td>
           <td class="crap"></td>
           <td class="coverBar" align="center" width="100">
             <table border="0" cellspacing="0" cellpadding="1">
@@ -117,7 +117,7 @@
             </table>
           </td>
           <td class="coverPerHi">100.00%</td>
-          <td class="coverNumHi">18 / 18</td>
+          <td class="coverNumHi">19 / 19</td>
         </tr>
 
         <tr>
@@ -167,7 +167,30 @@
         </tr>
 
         <tr>
-          <td class="coverFile" colspan="4">&nbsp;<a href="#91">__construct(IResult $result)</a></td>
+          <td class="coverFile" colspan="4">&nbsp;<a href="#88">getDigitsCount()</a></td>
+          <td class="coverBar" align="center" width="100">
+            <table border="0" cellspacing="0" cellpadding="1">
+              <tr>
+                <td class="coverBarOutline"><img src="chameleon.png" width="100" height="10" alt="100.00%"><img src="snow.png" width="0" height="10" alt="100.00%"></td>
+              </tr>
+            </table>
+          </td>
+          <td class="coverPerHi">100.00%</td>
+          <td class="coverNumHi">1 / 1</td>
+          <td class="crap">1</td>
+          <td class="coverBar" align="center" width="100">
+            <table border="0" cellspacing="0" cellpadding="1">
+              <tr>
+                <td class="coverBarOutline"><img src="chameleon.png" width="100" height="10" alt="100.00%"><img src="snow.png" width="0" height="10" alt="100.00%"></td>
+              </tr>
+            </table>
+          </td>
+          <td class="coverPerHi">100.00%</td>
+          <td class="coverNumHi">1 / 1</td>
+        </tr>
+
+        <tr>
+          <td class="coverFile" colspan="4">&nbsp;<a href="#99">__construct(IResult $result)</a></td>
           <td class="coverBar" align="center" width="100">
             <table border="0" cellspacing="0" cellpadding="1">
               <tr>
@@ -286,32 +309,40 @@
 <span class="lineNum" id="container82"><a name="82"></a><a href="#82" id="line82">      82</a> </span><span class="lineDeadCode">                :     }                                                                         </span>
 <span class="lineNum" id="container83"><a name="83"></a><a href="#83" id="line83">      83</a> </span>                :                                                                               
 <span class="lineNum" id="container84"><a name="84"></a><a href="#84" id="line84">      84</a> </span>                :     /**                                                                       
-<span class="lineNum" id="container85"><a name="85"></a><a href="#85" id="line85">      85</a> </span>                :      * Constructor.                                                           
-<span class="lineNum" id="container86"><a name="86"></a><a href="#86" id="line86">      86</a> </span>                :      *                                                                        
-<span class="lineNum" id="container87"><a name="87"></a><a href="#87" id="line87">      87</a> </span>                :      * @param IResult $result Result to decorate.                             
-<span class="lineNum" id="container88"><a name="88"></a><a href="#88" id="line88">      88</a> </span>                :      *                                                                        
-<span class="lineNum" id="container89"><a name="89"></a><a href="#89" id="line89">      89</a> </span>                :      * @return void                                                           
-<span class="lineNum" id="container90"><a name="90"></a><a href="#90" id="line90">      90</a> </span>                :      */                                                                       
-<span class="lineNum" id="container91"><a name="91"></a><a href="#91" id="line91">      91</a> </span>                :     public function __construct(IResult $result)                              
-<span class="lineNum" id="container92"><a name="92"></a><a href="#92" id="line92">      92</a> </span>                :     {                                                                         
-<span class="lineNum" id="container93"><a name="93"></a><a href="#93" id="line93">      93</a> </span><span class="lineCov">             14 :         parent::__construct($result);                                         </span>
-<span class="lineNum" id="container94"><a name="94"></a><a href="#94" id="line94">      94</a> </span><span class="lineCov">             14 :         $this-&gt;_digit = false;                                                </span>
-<span class="lineNum" id="container95"><a name="95"></a><a href="#95" id="line95">      95</a> </span><span class="lineCov">             14 :         $this-&gt;_interrupted = false;                                          </span>
-<span class="lineNum" id="container96"><a name="96"></a><a href="#96" id="line96">      96</a> </span><span class="lineCov">             14 :         $this-&gt;_timeout = false;                                              </span>
-<span class="lineNum" id="container97"><a name="97"></a><a href="#97" id="line97">      97</a> </span><span class="lineCov">             14 :         $result = $result-&gt;getResult();                                       </span>
-<span class="lineNum" id="container98"><a name="98"></a><a href="#98" id="line98">      98</a> </span>                :         switch($result)                                                       
-<span class="lineNum" id="container99"><a name="99"></a><a href="#99" id="line99">      99</a> </span>                :         {                                                                     
-<span class="lineNum" id="container100"><a name="100"></a><a href="#100" id="line100">     100</a> </span><span class="lineCov">             14 :         case -1:                                                              </span>
-<span class="lineNum" id="container101"><a name="101"></a><a href="#101" id="line101">     101</a> </span><span class="lineCov">              1 :             throw new ChannelDownException();                                 </span>
-<span class="lineNum" id="container102"><a name="102"></a><a href="#102" id="line102">     102</a> </span><span class="lineDeadCode">                :             break;                                                            </span>
-<span class="lineNum" id="container103"><a name="103"></a><a href="#103" id="line103">     103</a> </span><span class="lineCov">             13 :         case 0:                                                               </span>
-<span class="lineNum" id="container104"><a name="104"></a><a href="#104" id="line104">     104</a> </span><span class="lineCov">             11 :             $this-&gt;_timeout = true;                                           </span>
-<span class="lineNum" id="container105"><a name="105"></a><a href="#105" id="line105">     105</a> </span><span class="lineCov">             11 :             break;                                                            </span>
-<span class="lineNum" id="container106"><a name="106"></a><a href="#106" id="line106">     106</a> </span><span class="lineCov">              2 :         default:                                                              </span>
-<span class="lineNum" id="container107"><a name="107"></a><a href="#107" id="line107">     107</a> </span><span class="lineCov">              2 :             $this-&gt;_digits = chr($result);                                    </span>
-<span class="lineNum" id="container108"><a name="108"></a><a href="#108" id="line108">     108</a> </span><span class="lineCov">              2 :             break;                                                            </span>
-<span class="lineNum" id="container109"><a name="109"></a><a href="#109" id="line109">     109</a> </span><span class="lineCov">              2 :         }                                                                     </span>
-<span class="lineNum" id="container110"><a name="110"></a><a href="#110" id="line110">     110</a> </span><span class="lineCov">             13 :     }                                                                         </span>
+<span class="lineNum" id="container85"><a name="85"></a><a href="#85" id="line85">      85</a> </span>                :      * (non-PHPdoc)                                                           
+<span class="lineNum" id="container86"><a name="86"></a><a href="#86" id="line86">      86</a> </span>                :      * @see PAGI\Client\Result.IReadResult::getDigitsCount()                  
+<span class="lineNum" id="container87"><a name="87"></a><a href="#87" id="line87">      87</a> </span>                :      */                                                                       
+<span class="lineNum" id="container88"><a name="88"></a><a href="#88" id="line88">      88</a> </span>                :     public function getDigitsCount()                                          
+<span class="lineNum" id="container89"><a name="89"></a><a href="#89" id="line89">      89</a> </span>                :     {                                                                         
+<span class="lineNum" id="container90"><a name="90"></a><a href="#90" id="line90">      90</a> </span><span class="lineCov">              1 :         return strlen($this-&gt;_digits);                                        </span>
+<span class="lineNum" id="container91"><a name="91"></a><a href="#91" id="line91">      91</a> </span><span class="lineDeadCode">                :     }                                                                         </span>
+<span class="lineNum" id="container92"><a name="92"></a><a href="#92" id="line92">      92</a> </span>                :     /**                                                                       
+<span class="lineNum" id="container93"><a name="93"></a><a href="#93" id="line93">      93</a> </span>                :      * Constructor.                                                           
+<span class="lineNum" id="container94"><a name="94"></a><a href="#94" id="line94">      94</a> </span>                :      *                                                                        
+<span class="lineNum" id="container95"><a name="95"></a><a href="#95" id="line95">      95</a> </span>                :      * @param IResult $result Result to decorate.                             
+<span class="lineNum" id="container96"><a name="96"></a><a href="#96" id="line96">      96</a> </span>                :      *                                                                        
+<span class="lineNum" id="container97"><a name="97"></a><a href="#97" id="line97">      97</a> </span>                :      * @return void                                                           
+<span class="lineNum" id="container98"><a name="98"></a><a href="#98" id="line98">      98</a> </span>                :      */                                                                       
+<span class="lineNum" id="container99"><a name="99"></a><a href="#99" id="line99">      99</a> </span>                :     public function __construct(IResult $result)                              
+<span class="lineNum" id="container100"><a name="100"></a><a href="#100" id="line100">     100</a> </span>                :     {                                                                         
+<span class="lineNum" id="container101"><a name="101"></a><a href="#101" id="line101">     101</a> </span><span class="lineCov">             14 :         parent::__construct($result);                                         </span>
+<span class="lineNum" id="container102"><a name="102"></a><a href="#102" id="line102">     102</a> </span><span class="lineCov">             14 :         $this-&gt;_digit = false;                                                </span>
+<span class="lineNum" id="container103"><a name="103"></a><a href="#103" id="line103">     103</a> </span><span class="lineCov">             14 :         $this-&gt;_interrupted = false;                                          </span>
+<span class="lineNum" id="container104"><a name="104"></a><a href="#104" id="line104">     104</a> </span><span class="lineCov">             14 :         $this-&gt;_timeout = false;                                              </span>
+<span class="lineNum" id="container105"><a name="105"></a><a href="#105" id="line105">     105</a> </span><span class="lineCov">             14 :         $result = $result-&gt;getResult();                                       </span>
+<span class="lineNum" id="container106"><a name="106"></a><a href="#106" id="line106">     106</a> </span>                :         switch($result)                                                       
+<span class="lineNum" id="container107"><a name="107"></a><a href="#107" id="line107">     107</a> </span>                :         {                                                                     
+<span class="lineNum" id="container108"><a name="108"></a><a href="#108" id="line108">     108</a> </span><span class="lineCov">             14 :         case -1:                                                              </span>
+<span class="lineNum" id="container109"><a name="109"></a><a href="#109" id="line109">     109</a> </span><span class="lineCov">              1 :             throw new ChannelDownException();                                 </span>
+<span class="lineNum" id="container110"><a name="110"></a><a href="#110" id="line110">     110</a> </span><span class="lineDeadCode">                :             break;                                                            </span>
+<span class="lineNum" id="container111"><a name="111"></a><a href="#111" id="line111">     111</a> </span><span class="lineCov">             13 :         case 0:                                                               </span>
+<span class="lineNum" id="container112"><a name="112"></a><a href="#112" id="line112">     112</a> </span><span class="lineCov">             11 :             $this-&gt;_timeout = true;                                           </span>
+<span class="lineNum" id="container113"><a name="113"></a><a href="#113" id="line113">     113</a> </span><span class="lineCov">             11 :             break;                                                            </span>
+<span class="lineNum" id="container114"><a name="114"></a><a href="#114" id="line114">     114</a> </span><span class="lineCov">              2 :         default:                                                              </span>
+<span class="lineNum" id="container115"><a name="115"></a><a href="#115" id="line115">     115</a> </span><span class="lineCov">              2 :             $this-&gt;_digits = chr($result);                                    </span>
+<span class="lineNum" id="container116"><a name="116"></a><a href="#116" id="line116">     116</a> </span><span class="lineCov">              2 :             break;                                                            </span>
+<span class="lineNum" id="container117"><a name="117"></a><a href="#117" id="line117">     117</a> </span><span class="lineCov">              2 :         }                                                                     </span>
+<span class="lineNum" id="container118"><a name="118"></a><a href="#118" id="line118">     118</a> </span><span class="lineCov">             13 :     }                                                                         </span>
 
 </pre>
         </td>
@@ -320,7 +351,7 @@
 
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr><td class="ruler"><img src="glass.png" width="3" height="3" alt=""></td></tr>
-      <tr><td class="versionInfo">Generated by <a href="http://github.com/sebastianbergmann/php-code-coverage" target="_top">PHP_CodeCoverage 1.0.4</a> using <a href="http://www.php.net/" target="_top">PHP 5.3.3</a> and PHPUnit 3.5.13 at Thu Jul 28 21:47:19 ART 2011.</td></tr>
+      <tr><td class="versionInfo">Generated by <a href="http://github.com/sebastianbergmann/php-code-coverage" target="_top">PHP_CodeCoverage 1.0.4</a> using <a href="http://www.php.net/" target="_top">PHP 5.3.3</a> and PHPUnit 3.5.13 at Fri Aug 19 11:31:13 ART 2011.</td></tr>
     </table>
 
     <br />
@@ -345,78 +376,83 @@
           "body": "<ul><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_data</li></ul>",
           "footer": ""
         },
-        "panel93": {
-          "header": "14 tests cover line 93",
-          "body": "<ul><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit_and_timeout</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::cannot_wait_digit</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_stream_file</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_datetime</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_digits</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_number</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_phonetic</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_alpha</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_date</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_time</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_data</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_option</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::cannot_stream_file</li></ul>",
-          "footer": ""
-        },
-        "panel94": {
-          "header": "14 tests cover line 94",
-          "body": "<ul><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit_and_timeout</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::cannot_wait_digit</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_stream_file</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_datetime</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_digits</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_number</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_phonetic</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_alpha</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_date</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_time</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_data</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_option</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::cannot_stream_file</li></ul>",
-          "footer": ""
-        },
-        "panel95": {
-          "header": "14 tests cover line 95",
-          "body": "<ul><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit_and_timeout</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::cannot_wait_digit</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_stream_file</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_datetime</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_digits</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_number</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_phonetic</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_alpha</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_date</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_time</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_data</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_option</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::cannot_stream_file</li></ul>",
-          "footer": ""
-        },
-        "panel96": {
-          "header": "14 tests cover line 96",
-          "body": "<ul><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit_and_timeout</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::cannot_wait_digit</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_stream_file</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_datetime</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_digits</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_number</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_phonetic</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_alpha</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_date</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_time</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_data</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_option</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::cannot_stream_file</li></ul>",
-          "footer": ""
-        },
-        "panel97": {
-          "header": "14 tests cover line 97",
-          "body": "<ul><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit_and_timeout</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::cannot_wait_digit</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_stream_file</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_datetime</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_digits</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_number</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_phonetic</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_alpha</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_date</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_time</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_data</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_option</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::cannot_stream_file</li></ul>",
-          "footer": ""
-        },
-        "panel100": {
-          "header": "14 tests cover line 100",
-          "body": "<ul><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit_and_timeout</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::cannot_wait_digit</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_stream_file</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_datetime</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_digits</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_number</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_phonetic</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_alpha</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_date</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_time</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_data</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_option</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::cannot_stream_file</li></ul>",
+        "panel90": {
+          "header": "1 test covers line 90",
+          "body": "<ul><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit</li></ul>",
           "footer": ""
         },
         "panel101": {
-          "header": "1 test covers line 101",
-          "body": "<ul><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::cannot_wait_digit</li></ul>",
+          "header": "14 tests cover line 101",
+          "body": "<ul><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit_and_timeout</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::cannot_wait_digit</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_stream_file</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_datetime</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_digits</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_number</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_phonetic</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_alpha</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_date</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_time</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_data</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_option</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::cannot_stream_file</li></ul>",
+          "footer": ""
+        },
+        "panel102": {
+          "header": "14 tests cover line 102",
+          "body": "<ul><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit_and_timeout</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::cannot_wait_digit</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_stream_file</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_datetime</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_digits</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_number</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_phonetic</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_alpha</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_date</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_time</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_data</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_option</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::cannot_stream_file</li></ul>",
           "footer": ""
         },
         "panel103": {
-          "header": "13 tests cover line 103",
-          "body": "<ul><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit_and_timeout</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_stream_file</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_datetime</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_digits</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_number</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_phonetic</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_alpha</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_date</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_time</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_data</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_option</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::cannot_stream_file</li></ul>",
+          "header": "14 tests cover line 103",
+          "body": "<ul><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit_and_timeout</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::cannot_wait_digit</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_stream_file</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_datetime</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_digits</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_number</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_phonetic</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_alpha</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_date</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_time</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_data</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_option</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::cannot_stream_file</li></ul>",
           "footer": ""
         },
         "panel104": {
-          "header": "11 tests cover line 104",
-          "body": "<ul><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit_and_timeout</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_stream_file</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_datetime</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_digits</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_number</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_phonetic</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_alpha</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_date</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_time</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_option</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::cannot_stream_file</li></ul>",
+          "header": "14 tests cover line 104",
+          "body": "<ul><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit_and_timeout</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::cannot_wait_digit</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_stream_file</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_datetime</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_digits</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_number</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_phonetic</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_alpha</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_date</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_time</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_data</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_option</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::cannot_stream_file</li></ul>",
           "footer": ""
         },
         "panel105": {
-          "header": "11 tests cover line 105",
-          "body": "<ul><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit_and_timeout</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_stream_file</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_datetime</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_digits</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_number</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_phonetic</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_alpha</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_date</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_time</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_option</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::cannot_stream_file</li></ul>",
-          "footer": ""
-        },
-        "panel106": {
-          "header": "2 tests cover line 106",
-          "body": "<ul><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_data</li></ul>",
-          "footer": ""
-        },
-        "panel107": {
-          "header": "2 tests cover line 107",
-          "body": "<ul><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_data</li></ul>",
+          "header": "14 tests cover line 105",
+          "body": "<ul><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit_and_timeout</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::cannot_wait_digit</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_stream_file</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_datetime</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_digits</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_number</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_phonetic</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_alpha</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_date</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_time</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_data</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_option</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::cannot_stream_file</li></ul>",
           "footer": ""
         },
         "panel108": {
-          "header": "2 tests cover line 108",
-          "body": "<ul><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_data</li></ul>",
+          "header": "14 tests cover line 108",
+          "body": "<ul><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit_and_timeout</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::cannot_wait_digit</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_stream_file</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_datetime</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_digits</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_number</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_phonetic</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_alpha</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_date</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_time</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_data</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_option</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::cannot_stream_file</li></ul>",
           "footer": ""
         },
         "panel109": {
-          "header": "2 tests cover line 109",
+          "header": "1 test covers line 109",
+          "body": "<ul><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::cannot_wait_digit</li></ul>",
+          "footer": ""
+        },
+        "panel111": {
+          "header": "13 tests cover line 111",
+          "body": "<ul><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit_and_timeout</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_stream_file</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_datetime</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_digits</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_number</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_phonetic</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_alpha</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_date</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_time</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_data</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_option</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::cannot_stream_file</li></ul>",
+          "footer": ""
+        },
+        "panel112": {
+          "header": "11 tests cover line 112",
+          "body": "<ul><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit_and_timeout</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_stream_file</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_datetime</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_digits</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_number</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_phonetic</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_alpha</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_date</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_time</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_option</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::cannot_stream_file</li></ul>",
+          "footer": ""
+        },
+        "panel113": {
+          "header": "11 tests cover line 113",
+          "body": "<ul><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit_and_timeout</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_stream_file</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_datetime</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_digits</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_number</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_phonetic</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_alpha</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_date</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_time</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_option</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::cannot_stream_file</li></ul>",
+          "footer": ""
+        },
+        "panel114": {
+          "header": "2 tests cover line 114",
           "body": "<ul><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_data</li></ul>",
           "footer": ""
         },
-        "panel110": {
-          "header": "13 tests cover line 110",
+        "panel115": {
+          "header": "2 tests cover line 115",
+          "body": "<ul><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_data</li></ul>",
+          "footer": ""
+        },
+        "panel116": {
+          "header": "2 tests cover line 116",
+          "body": "<ul><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_data</li></ul>",
+          "footer": ""
+        },
+        "panel117": {
+          "header": "2 tests cover line 117",
+          "body": "<ul><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_data</li></ul>",
+          "footer": ""
+        },
+        "panel118": {
+          "header": "13 tests cover line 118",
           "body": "<ul><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_wait_digit_and_timeout</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_stream_file</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_datetime</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_digits</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_number</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_phonetic</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_alpha</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_date</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_say_time</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_data</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::can_get_option</li><li class=\"testPassed\">PAGI\\Client\\Impl\\Test_Client::cannot_stream_file</li></ul>",
           "footer": ""
         },
