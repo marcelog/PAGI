@@ -3,6 +3,19 @@
  * PAGI basic use example. Please see run.sh in this same directory for an
  * example of how to actually run this from your dialplan.
  *
+ * Note: The client accepts an array with options. The available options are
+ *
+ * log4php.properties => Optional. If set, should contain the absolute
+ * path to the log4php.properties file.
+ *
+ * stdin => Optional. If set, should contain an already open stream from
+ * where the client will read data (useful to make it interact with fastagi
+ * servers or even text files to mock stuff when testing). If not set, stdin
+ * will be used by the client.
+ *
+ * stdout => Optional. Same as stdin but for the output of the client.
+ *
+ *
  * PHP Version 5
  *
  * @category   Pagi
@@ -36,6 +49,18 @@ use PAGI\CallSpool\Impl\CallSpoolImpl;
 /**
  * PAGI basic use example. Please see run.sh in this same directory for an
  * example of how to actually run this from your dialplan.
+ *
+ * Note: The client accepts an array with options. The available options are
+ *
+ * log4php.properties => Optional. If set, should contain the absolute
+ * path to the log4php.properties file.
+ *
+ * stdin => Optional. If set, should contain an already open stream from
+ * where the client will read data (useful to make it interact with fastagi
+ * servers or even text files to mock stuff when testing). If not set, stdin
+ * will be used by the client.
+ *
+ * stdout => Optional. Same as stdin but for the output of the client.
  *
  * PHP Version 5
  *

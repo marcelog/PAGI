@@ -73,6 +73,12 @@ class ClientImpl implements IClient
     private static $_instance = false;
 
     /**
+     * Options passed to client when instantiating.
+     * @var string[]
+     */
+    private $_options;
+
+    /**
      * log4php logger or dummy.
      * @var Logger
      */
@@ -677,8 +683,16 @@ class ClientImpl implements IClient
      */
     protected function open()
     {
-        $this->_input = fopen('php://stdin', 'r');
-        $this->_output = fopen('php://stdout', 'w');
+        if (isset($this->_options['stdin'])) {
+            $this->_input = $this->_options['stdin'];
+        } else {
+            $this->_input = fopen('php://stdin', 'r');
+        }
+        if (isset($this->_options['stdout'])) {
+            $this->_output = $this->_options['stdout'];
+        } else {
+            $this->_output = fopen('php://stdout', 'w');
+        }
         $this->_variables = array();
         $this->_arguments = $this->_variables; // Just reusing an empty array.
         while(true) {
@@ -787,15 +801,28 @@ class ClientImpl implements IClient
     /**
      * Constructor.
      *
+     * Note: The client accepts an array with options. The available options are
+     *
+     * log4php.properties => Optional. If set, should contain the absolute
+     * path to the log4php.properties file.
+     *
+     * stdin => Optional. If set, should contain an already open stream from
+     * where the client will read data (useful to make it interact with fastagi
+     * servers or even text files to mock stuff when testing). If not set, stdin
+     * will be used by the client.
+     *
+     * stdout => Optional. Same as stdin but for the output of the client.
+     *
      * @param array $options Optional properties.
      *
      * @return void
      */
-    protected function __construct(array $options)
+    protected function __construct(array $options = array())
     {
         $this->_variables = false;
         $this->_input = false;
         $this->_output = false;
+        $this->_options = $options;
         if (isset($options['log4php.properties'])) {
             \Logger::configure($options['log4php.properties']);
         }

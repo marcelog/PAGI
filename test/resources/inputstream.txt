@@ -1,0 +1,24 @@
+agi_arg_1:arg1
+agi_arg_2:arg2
+agi_request:anagi.php
+agi_channel:SIP/jondoe-7026f150
+agi_language:ar
+agi_type:SIP
+agi_uniqueid:1306865753.2488
+agi_version:1.6.0.9
+agi_callerid:666
+agi_calleridname:JonDoe
+agi_callingpres:1
+agi_callingani2:0
+agi_callington:0
+agi_callingtns:0
+agi_dnid:66666666
+agi_rdnis:unknown
+agi_context:netlabs
+agi_extension:55555555
+agi_priority:1
+agi_enhanced:0.0
+agi_accountcode:123
+agi_threadid:1105672528
+
+200 result=0

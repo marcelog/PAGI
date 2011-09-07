@@ -154,7 +154,7 @@ namespace PAGI\Client\Impl {
             $mockFgetsCount++;
             return is_string($result) ? $result . "\n" : $result;
         } else {
-            return call_user_func_array('\fopen', func_get_args());
+            return call_user_func_array('\fgets', func_get_args());
         }
     }
 /**
@@ -233,6 +233,23 @@ class Test_Client extends \PHPUnit_Framework_TestCase
         );
         setFgetsMock($read, $write);
         $client->answer();
+    }
+
+    /**
+     * @test
+     */
+    public function can_use_custom_stream()
+    {
+        $in = fopen(RESOURCES_DIR . DIRECTORY_SEPARATOR . 'inputstream.txt', 'r');
+        $out = fopen('/tmp/output.txt', 'w+');
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance(array(
+            'stdin' => $in,
+        	'stdout' => $out,
+        	'log4php.properties' => RESOURCES_DIR . DIRECTORY_SEPARATOR . 'log4php.properties'
+        ));
+        $client->answer();
+        fclose($in);
+        fclose($out);
     }
 
     /**
