@@ -16,7 +16,7 @@ export PAGIBootstrap=MyPAGIApplication.php
 pagi=/export/users/marcelog/src/sts/PAGI
 
 # Your copy of log4php (optional)
-log4php=/usr/share/php
+log4php=/usr/share/php/log4php
 
 # PHP to run and options
 php=/usr/php-5.3/bin/php
