@@ -15,6 +15,11 @@ Checkout the api (phpdoc) at: http://marcelog.github.com/PAGI/php-doc/html/index
 exten => 1,1,AGI(/tmp/PAGI/docs/examples/quickstart/run.sh,a,b,c,d)
 exten => 1,n,Hangup
 
+FastAGI
+-------
+You can use FastPAGI if you want to launch your applications using 
+FastAGI: https://github.com/marcelog/FastPAGI
+
 Currently there is no manual or comprehensive documentation, so please refer
 to the examples, it's really all there (I will write the documentation as
 soon as possible). Please contact me if you have any comments, doubts, or
