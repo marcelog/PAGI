@@ -41,10 +41,14 @@ stdout => Optional. Same as stdin but for the output of the client.
 Available via PEAR
 ------------------
 You can now easily install PAGI by issuing:
-# pear channel-discover pearhub.org
-# pear install pearhub/PAGI-1.6.1
-just replace 1.6.1 by the release version you'd like to install :)
-See: http://www.pearhub.com/projects/PAGI
+# pear channel-discover pear.marcelog.name
+# pear install marcelog/PAGI
+
+or
+
+# pear install marcelog/PAGI-1.7.2
+just replace 1.7.2 by the release version you'd like to install :)
+See: http://pear.marcelog.name/
 --------------------------------------------------------------------------------
 AutoDial
 ========
