@@ -181,6 +181,64 @@ class DialResult extends ExecResult
     }
 
     /**
+     * Returns true if the result was BUSY.
+     *
+     * @return boolean
+     */
+    public function isBusy()
+    {
+        return $this->_dialStatus == 'BUSY';
+    }
+
+    /**
+     * Returns true if the result was CONGESTION.
+     *
+     * @return boolean
+     */
+    public function isCongestion()
+    {
+        return $this->_dialStatus == 'CONGESTION';
+    }
+
+    /**
+     * Returns true if the result was CANCEL.
+     *
+     * @return boolean
+     */
+    public function isCancel()
+    {
+        return $this->_dialStatus == 'CANCEL';
+    }
+    /**
+     * Returns true if the result was ANSWER.
+     *
+     * @return boolean
+     */
+    public function isAnswer()
+    {
+        return $this->_dialStatus == 'ANSWER';
+    }
+
+    /**
+     * Returns true if the result was NOANSWER.
+     *
+     * @return boolean
+     */
+    public function isNoAnswer()
+    {
+        return $this->_dialStatus == 'NOANSWER';
+    }
+
+    /**
+     * Returns true if the result was CHANUNAVAIL.
+     *
+     * @return boolean
+     */
+    public function isChanUnavailable()
+    {
+        return $this->_dialStatus == 'CHANUNAVAIL';
+    }
+    /**
      * Set dial status.
      *
      * @param string $status Dial status.

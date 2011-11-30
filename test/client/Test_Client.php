@@ -1141,6 +1141,198 @@ class Test_Client extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function can_dial_and_return_busy()
+    {
+        global $standardAGIStart;
+        global $mockTime;
+        global $mockTimeReturn;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'EXEC "Dial" "channel,a,b,c"',
+            false,
+            false,
+            false,
+            false
+        );
+        $read = array(
+            '200 result=0 endpos=0',
+            '200 result=1 (DIALEDPEERNAME)',
+        	'200 result=1 (DIALEDPEERNUMBER)',
+        	'200 result=1 (ANSWEREDTIME)',
+        	'200 result=1 (BUSY)',
+        	'200 result=1 (DYNAMIC_FEATURES)',
+        );
+        setFgetsMock($read, $write);
+        $mockTime = true;
+        $mockTimeReturn = array(time() - 10, time());
+        $result = $client->dial('channel', array('a', 'b', 'c'));
+        $mockTime = false;
+        $this->assertTrue($result->isBusy());
+    }
+    /**
+     * @test
+     */
+    public function can_dial_and_return_answer()
+    {
+        global $standardAGIStart;
+        global $mockTime;
+        global $mockTimeReturn;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'EXEC "Dial" "channel,a,b,c"',
+            false,
+            false,
+            false,
+            false
+        );
+        $read = array(
+            '200 result=0 endpos=0',
+            '200 result=1 (DIALEDPEERNAME)',
+        	'200 result=1 (DIALEDPEERNUMBER)',
+        	'200 result=1 (ANSWEREDTIME)',
+        	'200 result=1 (ANSWER)',
+        	'200 result=1 (DYNAMIC_FEATURES)',
+        );
+        setFgetsMock($read, $write);
+        $mockTime = true;
+        $mockTimeReturn = array(time() - 10, time());
+        $result = $client->dial('channel', array('a', 'b', 'c'));
+        $mockTime = false;
+        $this->assertTrue($result->isAnswer());
+    }
+    /**
+     * @test
+     */
+    public function can_dial_and_return_congestion()
+    {
+        global $standardAGIStart;
+        global $mockTime;
+        global $mockTimeReturn;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'EXEC "Dial" "channel,a,b,c"',
+            false,
+            false,
+            false,
+            false
+        );
+        $read = array(
+            '200 result=0 endpos=0',
+            '200 result=1 (DIALEDPEERNAME)',
+        	'200 result=1 (DIALEDPEERNUMBER)',
+        	'200 result=1 (ANSWEREDTIME)',
+        	'200 result=1 (CONGESTION)',
+        	'200 result=1 (DYNAMIC_FEATURES)',
+        );
+        setFgetsMock($read, $write);
+        $mockTime = true;
+        $mockTimeReturn = array(time() - 10, time());
+        $result = $client->dial('channel', array('a', 'b', 'c'));
+        $mockTime = false;
+        $this->assertTrue($result->isCongestion());
+    }
+    /**
+     * @test
+     */
+    public function can_dial_and_return_cancel()
+    {
+        global $standardAGIStart;
+        global $mockTime;
+        global $mockTimeReturn;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'EXEC "Dial" "channel,a,b,c"',
+            false,
+            false,
+            false,
+            false
+        );
+        $read = array(
+            '200 result=0 endpos=0',
+            '200 result=1 (DIALEDPEERNAME)',
+        	'200 result=1 (DIALEDPEERNUMBER)',
+        	'200 result=1 (ANSWEREDTIME)',
+        	'200 result=1 (CANCEL)',
+        	'200 result=1 (DYNAMIC_FEATURES)',
+        );
+        setFgetsMock($read, $write);
+        $mockTime = true;
+        $mockTimeReturn = array(time() - 10, time());
+        $result = $client->dial('channel', array('a', 'b', 'c'));
+        $mockTime = false;
+        $this->assertTrue($result->isCancel());
+    }
+    /**
+     * @test
+     */
+    public function can_dial_and_return_noanswer()
+    {
+        global $standardAGIStart;
+        global $mockTime;
+        global $mockTimeReturn;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'EXEC "Dial" "channel,a,b,c"',
+            false,
+            false,
+            false,
+            false
+        );
+        $read = array(
+            '200 result=0 endpos=0',
+            '200 result=1 (DIALEDPEERNAME)',
+        	'200 result=1 (DIALEDPEERNUMBER)',
+        	'200 result=1 (ANSWEREDTIME)',
+        	'200 result=1 (NOANSWER)',
+        	'200 result=1 (DYNAMIC_FEATURES)',
+        );
+        setFgetsMock($read, $write);
+        $mockTime = true;
+        $mockTimeReturn = array(time() - 10, time());
+        $result = $client->dial('channel', array('a', 'b', 'c'));
+        $mockTime = false;
+        $this->assertTrue($result->isNoAnswer());
+    }
+    /**
+     * @test
+     */
+    public function can_dial_and_return_chanunavail()
+    {
+        global $standardAGIStart;
+        global $mockTime;
+        global $mockTimeReturn;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'EXEC "Dial" "channel,a,b,c"',
+            false,
+            false,
+            false,
+            false
+        );
+        $read = array(
+            '200 result=0 endpos=0',
+            '200 result=1 (DIALEDPEERNAME)',
+        	'200 result=1 (DIALEDPEERNUMBER)',
+        	'200 result=1 (ANSWEREDTIME)',
+        	'200 result=1 (CHANUNAVAIL)',
+        	'200 result=1 (DYNAMIC_FEATURES)',
+        );
+        setFgetsMock($read, $write);
+        $mockTime = true;
+        $mockTimeReturn = array(time() - 10, time());
+        $result = $client->dial('channel', array('a', 'b', 'c'));
+        $mockTime = false;
+        $this->assertTrue($result->isChanUnavailable());
+    }
+    /**
+     * @test
+     */
     public function can_dial()
     {
         global $standardAGIStart;
