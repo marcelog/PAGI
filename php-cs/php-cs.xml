@@ -595,8 +595,8 @@
   <error line="32" column="20" severity="error" message="Constants must be uppercase; expected CHANNELDOWNEXCEPTION but found ChannelDownException" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
   <error line="33" column="10" severity="error" message="Constants must be uppercase; expected EXCEPTION but found Exception" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
   <error line="33" column="20" severity="error" message="Constants must be uppercase; expected EXECUTECOMMANDEXCEPTION but found ExecuteCommandException" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="219" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="220" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="277" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="278" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
  </file>
  <file name="/export/users/marcelog/src/sts/PAGI/src/mg/PAGI/Client/Result/DigitReadResult.php">
   <error line="33" column="16" severity="error" message="Constants must be uppercase; expected CLIENT but found Client" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>

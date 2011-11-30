@@ -1,123 +1,129 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="" tests="79" assertions="181" failures="0" errors="0" time="5.594086">
-    <testsuite name="CallSpool" tests="7" assertions="25" failures="0" errors="0" time="0.057099">
-      <testsuite name="PAGI\CallSpool\Impl\Test_CallSpool" file="/export/users/marcelog/src/sts/PAGI/test/spool/Test_CallSpool.php" namespace="PAGI\CallSpool\Impl" fullPackage="Test.Spool" category="Pagi" package="Test" subpackage="Spool" tests="7" assertions="25" failures="0" errors="0" time="0.057099">
-        <testcase name="can_create_callfile" class="PAGI\CallSpool\Impl\Test_CallSpool" file="/export/users/marcelog/src/sts/PAGI/test/spool/Test_CallSpool.php" line="105" assertions="19" time="0.018259"/>
-        <testcase name="can_get_instance" class="PAGI\CallSpool\Impl\Test_CallSpool" file="/export/users/marcelog/src/sts/PAGI/test/spool/Test_CallSpool.php" line="199" assertions="0" time="0.002763"/>
-        <testcase name="cannot_create_temp_file" class="PAGI\CallSpool\Impl\Test_CallSpool" file="/export/users/marcelog/src/sts/PAGI/test/spool/Test_CallSpool.php" line="212" assertions="1" time="0.005845"/>
-        <testcase name="cannot_write_temp_file" class="PAGI\CallSpool\Impl\Test_CallSpool" file="/export/users/marcelog/src/sts/PAGI/test/spool/Test_CallSpool.php" line="227" assertions="1" time="0.006043"/>
-        <testcase name="cannot_touch_temp_file" class="PAGI\CallSpool\Impl\Test_CallSpool" file="/export/users/marcelog/src/sts/PAGI/test/spool/Test_CallSpool.php" line="250" assertions="1" time="0.006501"/>
-        <testcase name="cannot_move_file_to_spool" class="PAGI\CallSpool\Impl\Test_CallSpool" file="/export/users/marcelog/src/sts/PAGI/test/spool/Test_CallSpool.php" line="271" assertions="1" time="0.006840"/>
-        <testcase name="can_spool_and_schedule" class="PAGI\CallSpool\Impl\Test_CallSpool" file="/export/users/marcelog/src/sts/PAGI/test/spool/Test_CallSpool.php" line="291" assertions="2" time="0.010848"/>
+  <testsuite name="" tests="85" assertions="187" failures="0" errors="0" time="6.073831">
+    <testsuite name="CallSpool" tests="7" assertions="25" failures="0" errors="0" time="0.055743">
+      <testsuite name="PAGI\CallSpool\Impl\Test_CallSpool" file="/export/users/marcelog/src/sts/PAGI/test/spool/Test_CallSpool.php" namespace="PAGI\CallSpool\Impl" fullPackage="Test.Spool" category="Pagi" package="Test" subpackage="Spool" tests="7" assertions="25" failures="0" errors="0" time="0.055743">
+        <testcase name="can_create_callfile" class="PAGI\CallSpool\Impl\Test_CallSpool" file="/export/users/marcelog/src/sts/PAGI/test/spool/Test_CallSpool.php" line="105" assertions="19" time="0.017401"/>
+        <testcase name="can_get_instance" class="PAGI\CallSpool\Impl\Test_CallSpool" file="/export/users/marcelog/src/sts/PAGI/test/spool/Test_CallSpool.php" line="199" assertions="0" time="0.002687"/>
+        <testcase name="cannot_create_temp_file" class="PAGI\CallSpool\Impl\Test_CallSpool" file="/export/users/marcelog/src/sts/PAGI/test/spool/Test_CallSpool.php" line="212" assertions="1" time="0.005743"/>
+        <testcase name="cannot_write_temp_file" class="PAGI\CallSpool\Impl\Test_CallSpool" file="/export/users/marcelog/src/sts/PAGI/test/spool/Test_CallSpool.php" line="227" assertions="1" time="0.006010"/>
+        <testcase name="cannot_touch_temp_file" class="PAGI\CallSpool\Impl\Test_CallSpool" file="/export/users/marcelog/src/sts/PAGI/test/spool/Test_CallSpool.php" line="250" assertions="1" time="0.006277"/>
+        <testcase name="cannot_move_file_to_spool" class="PAGI\CallSpool\Impl\Test_CallSpool" file="/export/users/marcelog/src/sts/PAGI/test/spool/Test_CallSpool.php" line="271" assertions="1" time="0.006301"/>
+        <testcase name="can_spool_and_schedule" class="PAGI\CallSpool\Impl\Test_CallSpool" file="/export/users/marcelog/src/sts/PAGI/test/spool/Test_CallSpool.php" line="291" assertions="2" time="0.011324"/>
       </testsuite>
     </testsuite>
-    <testsuite name="ChannelStatus" tests="1" assertions="9" failures="0" errors="0" time="0.007712">
-      <testsuite name="PAGI\Client\Impl\Test_ChannelStatus" file="/export/users/marcelog/src/sts/PAGI/test/status/Test_ChannelStatus.php" namespace="PAGI\Client\Impl" fullPackage="Test.Status" category="Pagi" package="Test" subpackage="Status" tests="1" assertions="9" failures="0" errors="0" time="0.007712">
-        <testcase name="can_correct_status" class="PAGI\Client\Impl\Test_ChannelStatus" file="/export/users/marcelog/src/sts/PAGI/test/status/Test_ChannelStatus.php" line="51" assertions="9" time="0.007712"/>
+    <testsuite name="ChannelStatus" tests="1" assertions="9" failures="0" errors="0" time="0.008309">
+      <testsuite name="PAGI\Client\Impl\Test_ChannelStatus" file="/export/users/marcelog/src/sts/PAGI/test/status/Test_ChannelStatus.php" namespace="PAGI\Client\Impl" fullPackage="Test.Status" category="Pagi" package="Test" subpackage="Status" tests="1" assertions="9" failures="0" errors="0" time="0.008309">
+        <testcase name="can_correct_status" class="PAGI\Client\Impl\Test_ChannelStatus" file="/export/users/marcelog/src/sts/PAGI/test/status/Test_ChannelStatus.php" line="51" assertions="9" time="0.008309"/>
       </testsuite>
     </testsuite>
-    <testsuite name="Client" tests="57" assertions="82" failures="0" errors="0" time="4.521706">
-      <testsuite name="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" namespace="PAGI\Client\Impl" fullPackage="Test.Client" category="Pagi" package="Test" subpackage="Client" tests="57" assertions="82" failures="0" errors="0" time="4.521706">
-        <testcase name="cannot_read" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="187" assertions="1" time="0.031481"/>
-        <testcase name="can_send" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="197" assertions="5" time="0.078903"/>
-        <testcase name="can_answer" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="223" assertions="0" time="0.074387"/>
-        <testcase name="can_use_custom_stream" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="241" assertions="0" time="0.075030"/>
-        <testcase name="can_close" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="258" assertions="0" time="0.070819"/>
-        <testcase name="can_hangup" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="274" assertions="0" time="0.078315"/>
-        <testcase name="cannot_answer" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="296" assertions="1" time="0.076138"/>
-        <testcase name="cannot_hangup" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="314" assertions="1" time="0.083171"/>
-        <testcase name="can_set_context" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="331" assertions="0" time="0.075275"/>
-        <testcase name="can_set_extension" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="348" assertions="0" time="0.074668"/>
-        <testcase name="can_set_priority" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="365" assertions="0" time="0.075939"/>
-        <testcase name="can_set_autohangup" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="382" assertions="0" time="0.075019"/>
-        <testcase name="can_set_callerid" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="399" assertions="0" time="0.074174"/>
-        <testcase name="can_send_image" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="416" assertions="0" time="0.075436"/>
-        <testcase name="cannot_send_image" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="434" assertions="1" time="0.081154"/>
-        <testcase name="can_send_text" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="451" assertions="0" time="0.074396"/>
-        <testcase name="cannot_send_text" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="469" assertions="1" time="0.075882"/>
-        <testcase name="can_database_put" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="486" assertions="0" time="0.073832"/>
-        <testcase name="cannot_database_put" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="504" assertions="1" time="0.076694"/>
-        <testcase name="can_database_deltree" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="521" assertions="0" time="0.074855"/>
-        <testcase name="cannot_database_deltree" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="539" assertions="1" time="0.075115"/>
-        <testcase name="can_database_del" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="556" assertions="0" time="0.075025"/>
-        <testcase name="cannot_database_del" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="574" assertions="1" time="0.075138"/>
-        <testcase name="can_database_get" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="591" assertions="1" time="0.079643"/>
-        <testcase name="can_console_log" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="608" assertions="0" time="0.086823"/>
-        <testcase name="cannot_database_get" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="629" assertions="1" time="0.076514"/>
-        <testcase name="cannot_get_fullvariable" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="646" assertions="1" time="0.076528"/>
-        <testcase name="cannot_get_variable" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="664" assertions="1" time="0.082438"/>
-        <testcase name="can_get_variable" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="681" assertions="1" time="0.078102"/>
-        <testcase name="can_get_channel_status" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="698" assertions="1" time="0.077541"/>
-        <testcase name="can_set_music" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="715" assertions="0" time="0.081832"/>
-        <testcase name="can_wait_digit" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="732" assertions="3" time="0.078812"/>
-        <testcase name="can_wait_digit_and_timeout" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="752" assertions="1" time="0.078424"/>
-        <testcase name="cannot_wait_digit" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="771" assertions="1" time="0.078603"/>
-        <testcase name="can_stream_file" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="788" assertions="1" time="0.078109"/>
-        <testcase name="can_say_datetime" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="806" assertions="1" time="0.078580"/>
-        <testcase name="can_say_digits" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="824" assertions="1" time="0.080413"/>
-        <testcase name="can_say_number" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="842" assertions="1" time="0.086005"/>
-        <testcase name="can_say_phonetic" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="860" assertions="1" time="0.078591"/>
-        <testcase name="can_say_alpha" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="878" assertions="1" time="0.079917"/>
-        <testcase name="can_say_date" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="896" assertions="1" time="0.079242"/>
-        <testcase name="can_say_time" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="914" assertions="1" time="0.078227"/>
-        <testcase name="can_get_data" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="932" assertions="10" time="0.094837"/>
-        <testcase name="can_get_option" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="959" assertions="1" time="0.083683"/>
-        <testcase name="can_record" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="977" assertions="4" time="0.080926"/>
-        <testcase name="can_record_and_detect_hangup" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="998" assertions="3" time="0.080526"/>
-        <testcase name="cannot_record_writefile" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="1019" assertions="1" time="0.077492"/>
-        <testcase name="cannot_record_waitfor" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="1037" assertions="1" time="0.077618"/>
-        <testcase name="cannot_stream_file" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="1055" assertions="1" time="0.085298"/>
-        <testcase name="cannot_fwrite" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="1073" assertions="1" time="0.075474"/>
-        <testcase name="cannot_do_anything_on_channel_down" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="1091" assertions="1" time="0.083226"/>
-        <testcase name="cannot_do_anything_on_invalid_command" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="1109" assertions="1" time="0.079389"/>
-        <testcase name="cannot_execute" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="1127" assertions="1" time="0.076926"/>
-        <testcase name="can_dial" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="1144" assertions="7" time="0.110404"/>
-        <testcase name="can_receive_fax" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="1182" assertions="9" time="0.115387"/>
-        <testcase name="can_send_fax" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="1226" assertions="9" time="0.114455"/>
-        <testcase name="can_get_client" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="1270" assertions="0" time="0.070876"/>
+    <testsuite name="Client" tests="63" assertions="88" failures="0" errors="0" time="5.009393">
+      <testsuite name="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" namespace="PAGI\Client\Impl" fullPackage="Test.Client" category="Pagi" package="Test" subpackage="Client" tests="63" assertions="88" failures="0" errors="0" time="5.009393">
+        <testcase name="cannot_read" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="187" assertions="1" time="0.030680"/>
+        <testcase name="can_send" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="197" assertions="5" time="0.084685"/>
+        <testcase name="can_answer" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="223" assertions="0" time="0.073789"/>
+        <testcase name="can_use_custom_stream" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="241" assertions="0" time="0.074008"/>
+        <testcase name="can_close" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="258" assertions="0" time="0.069252"/>
+        <testcase name="can_hangup" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="274" assertions="0" time="0.076985"/>
+        <testcase name="cannot_answer" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="296" assertions="1" time="0.074861"/>
+        <testcase name="cannot_hangup" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="314" assertions="1" time="0.073998"/>
+        <testcase name="can_set_context" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="331" assertions="0" time="0.073345"/>
+        <testcase name="can_set_extension" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="348" assertions="0" time="0.074121"/>
+        <testcase name="can_set_priority" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="365" assertions="0" time="0.073288"/>
+        <testcase name="can_set_autohangup" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="382" assertions="0" time="0.073001"/>
+        <testcase name="can_set_callerid" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="399" assertions="0" time="0.074591"/>
+        <testcase name="can_send_image" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="416" assertions="0" time="0.073254"/>
+        <testcase name="cannot_send_image" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="434" assertions="1" time="0.074528"/>
+        <testcase name="can_send_text" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="451" assertions="0" time="0.074208"/>
+        <testcase name="cannot_send_text" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="469" assertions="1" time="0.073636"/>
+        <testcase name="can_database_put" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="486" assertions="0" time="0.074050"/>
+        <testcase name="cannot_database_put" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="504" assertions="1" time="0.074105"/>
+        <testcase name="can_database_deltree" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="521" assertions="0" time="0.074083"/>
+        <testcase name="cannot_database_deltree" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="539" assertions="1" time="0.073912"/>
+        <testcase name="can_database_del" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="556" assertions="0" time="0.073453"/>
+        <testcase name="cannot_database_del" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="574" assertions="1" time="0.078514"/>
+        <testcase name="can_database_get" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="591" assertions="1" time="0.075397"/>
+        <testcase name="can_console_log" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="608" assertions="0" time="0.076977"/>
+        <testcase name="cannot_database_get" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="629" assertions="1" time="0.074029"/>
+        <testcase name="cannot_get_fullvariable" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="646" assertions="1" time="0.074878"/>
+        <testcase name="cannot_get_variable" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="664" assertions="1" time="0.119199"/>
+        <testcase name="can_get_variable" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="681" assertions="1" time="0.075306"/>
+        <testcase name="can_get_channel_status" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="698" assertions="1" time="0.075340"/>
+        <testcase name="can_set_music" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="715" assertions="0" time="0.073202"/>
+        <testcase name="can_wait_digit" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="732" assertions="3" time="0.080330"/>
+        <testcase name="can_wait_digit_and_timeout" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="752" assertions="1" time="0.076181"/>
+        <testcase name="cannot_wait_digit" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="771" assertions="1" time="0.076012"/>
+        <testcase name="can_stream_file" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="788" assertions="1" time="0.077055"/>
+        <testcase name="can_say_datetime" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="806" assertions="1" time="0.077694"/>
+        <testcase name="can_say_digits" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="824" assertions="1" time="0.076969"/>
+        <testcase name="can_say_number" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="842" assertions="1" time="0.076814"/>
+        <testcase name="can_say_phonetic" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="860" assertions="1" time="0.084349"/>
+        <testcase name="can_say_alpha" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="878" assertions="1" time="0.077350"/>
+        <testcase name="can_say_date" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="896" assertions="1" time="0.076660"/>
+        <testcase name="can_say_time" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="914" assertions="1" time="0.076938"/>
+        <testcase name="can_get_data" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="932" assertions="10" time="0.084804"/>
+        <testcase name="can_get_option" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="959" assertions="1" time="0.077052"/>
+        <testcase name="can_record" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="977" assertions="4" time="0.085480"/>
+        <testcase name="can_record_and_detect_hangup" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="998" assertions="3" time="0.079070"/>
+        <testcase name="cannot_record_writefile" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="1019" assertions="1" time="0.075064"/>
+        <testcase name="cannot_record_waitfor" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="1037" assertions="1" time="0.075120"/>
+        <testcase name="cannot_stream_file" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="1055" assertions="1" time="0.076899"/>
+        <testcase name="cannot_fwrite" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="1073" assertions="1" time="0.073128"/>
+        <testcase name="cannot_do_anything_on_channel_down" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="1091" assertions="1" time="0.076043"/>
+        <testcase name="cannot_do_anything_on_invalid_command" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="1109" assertions="1" time="0.076183"/>
+        <testcase name="cannot_execute" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="1127" assertions="1" time="0.075007"/>
+        <testcase name="can_dial_and_return_busy" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="1144" assertions="1" time="0.095423"/>
+        <testcase name="can_dial_and_return_answer" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="1176" assertions="1" time="0.095630"/>
+        <testcase name="can_dial_and_return_congestion" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="1208" assertions="1" time="0.097466"/>
+        <testcase name="can_dial_and_return_cancel" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="1240" assertions="1" time="0.095758"/>
+        <testcase name="can_dial_and_return_noanswer" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="1272" assertions="1" time="0.095190"/>
+        <testcase name="can_dial_and_return_chanunavail" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="1304" assertions="1" time="0.103548"/>
+        <testcase name="can_dial" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="1336" assertions="7" time="0.101166"/>
+        <testcase name="can_receive_fax" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="1374" assertions="9" time="0.110982"/>
+        <testcase name="can_send_fax" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="1418" assertions="9" time="0.120284"/>
+        <testcase name="can_get_client" class="PAGI\Client\Impl\Test_Client" file="/export/users/marcelog/src/sts/PAGI/test/client/Test_Client.php" line="1462" assertions="0" time="0.069070"/>
       </testsuite>
     </testsuite>
-    <testsuite name="CallerID" tests="2" assertions="1" failures="0" errors="0" time="0.195080">
-      <testsuite name="PAGI\Client\Impl\Test_CallerID" file="/export/users/marcelog/src/sts/PAGI/test/callerid/Test_CallerID.php" namespace="PAGI\Client\Impl" fullPackage="Test.Callerid" category="Pagi" package="Test" subpackage="Callerid" tests="2" assertions="1" failures="0" errors="0" time="0.195080">
-        <testcase name="can_get_callerid" class="PAGI\Client\Impl\Test_CallerID" file="/export/users/marcelog/src/sts/PAGI/test/callerid/Test_CallerID.php" line="58" assertions="1" time="0.095015"/>
-        <testcase name="can_set_callerid" class="PAGI\Client\Impl\Test_CallerID" file="/export/users/marcelog/src/sts/PAGI/test/callerid/Test_CallerID.php" line="86" assertions="0" time="0.100065"/>
+    <testsuite name="CallerID" tests="2" assertions="1" failures="0" errors="0" time="0.181348">
+      <testsuite name="PAGI\Client\Impl\Test_CallerID" file="/export/users/marcelog/src/sts/PAGI/test/callerid/Test_CallerID.php" namespace="PAGI\Client\Impl" fullPackage="Test.Callerid" category="Pagi" package="Test" subpackage="Callerid" tests="2" assertions="1" failures="0" errors="0" time="0.181348">
+        <testcase name="can_get_callerid" class="PAGI\Client\Impl\Test_CallerID" file="/export/users/marcelog/src/sts/PAGI/test/callerid/Test_CallerID.php" line="58" assertions="1" time="0.091981"/>
+        <testcase name="can_set_callerid" class="PAGI\Client\Impl\Test_CallerID" file="/export/users/marcelog/src/sts/PAGI/test/callerid/Test_CallerID.php" line="86" assertions="0" time="0.089367"/>
       </testsuite>
     </testsuite>
-    <testsuite name="ChannelVariables" tests="3" assertions="36" failures="0" errors="0" time="0.245980">
-      <testsuite name="PAGI\Client\Impl\Test_ChannelVariables" file="/export/users/marcelog/src/sts/PAGI/test/channelvars/Test_ChannelVariables.php" namespace="PAGI\Client\Impl" fullPackage="Test.Channelvars" category="Pagi" package="Test" subpackage="Channelvars" tests="3" assertions="36" failures="0" errors="0" time="0.245980">
-        <testcase name="can_get_channel_variables" class="PAGI\Client\Impl\Test_ChannelVariables" file="/export/users/marcelog/src/sts/PAGI/test/channelvars/Test_ChannelVariables.php" line="58" assertions="0" time="0.080323"/>
-        <testcase name="can_get_agi_variables" class="PAGI\Client\Impl\Test_ChannelVariables" file="/export/users/marcelog/src/sts/PAGI/test/channelvars/Test_ChannelVariables.php" line="70" assertions="25" time="0.085553"/>
-        <testcase name="can_get_environment_variables" class="PAGI\Client\Impl\Test_ChannelVariables" file="/export/users/marcelog/src/sts/PAGI/test/channelvars/Test_ChannelVariables.php" line="108" assertions="11" time="0.080104"/>
+    <testsuite name="ChannelVariables" tests="3" assertions="36" failures="0" errors="0" time="0.266774">
+      <testsuite name="PAGI\Client\Impl\Test_ChannelVariables" file="/export/users/marcelog/src/sts/PAGI/test/channelvars/Test_ChannelVariables.php" namespace="PAGI\Client\Impl" fullPackage="Test.Channelvars" category="Pagi" package="Test" subpackage="Channelvars" tests="3" assertions="36" failures="0" errors="0" time="0.266774">
+        <testcase name="can_get_channel_variables" class="PAGI\Client\Impl\Test_ChannelVariables" file="/export/users/marcelog/src/sts/PAGI/test/channelvars/Test_ChannelVariables.php" line="58" assertions="0" time="0.106847"/>
+        <testcase name="can_get_agi_variables" class="PAGI\Client\Impl\Test_ChannelVariables" file="/export/users/marcelog/src/sts/PAGI/test/channelvars/Test_ChannelVariables.php" line="70" assertions="25" time="0.082421"/>
+        <testcase name="can_get_environment_variables" class="PAGI\Client\Impl\Test_ChannelVariables" file="/export/users/marcelog/src/sts/PAGI/test/channelvars/Test_ChannelVariables.php" line="108" assertions="11" time="0.077506"/>
       </testsuite>
     </testsuite>
-    <testsuite name="CDR" tests="3" assertions="18" failures="0" errors="0" time="0.307653">
-      <testsuite name="PAGI\Client\Impl\Test_CDR" file="/export/users/marcelog/src/sts/PAGI/test/cdr/Test_CDR.php" namespace="PAGI\Client\Impl" fullPackage="Test.Cdr" category="Pagi" package="Test" subpackage="Cdr" tests="3" assertions="18" failures="0" errors="0" time="0.307653">
-        <testcase name="can_get_cdr" class="PAGI\Client\Impl\Test_CDR" file="/export/users/marcelog/src/sts/PAGI/test/cdr/Test_CDR.php" line="58" assertions="0" time="0.071185"/>
-        <testcase name="can_set_cdr_variables" class="PAGI\Client\Impl\Test_CDR" file="/export/users/marcelog/src/sts/PAGI/test/cdr/Test_CDR.php" line="69" assertions="0" time="0.082300"/>
-        <testcase name="can_get_cdr_variables" class="PAGI\Client\Impl\Test_CDR" file="/export/users/marcelog/src/sts/PAGI/test/cdr/Test_CDR.php" line="90" assertions="18" time="0.154168"/>
+    <testsuite name="CDR" tests="3" assertions="18" failures="0" errors="0" time="0.296200">
+      <testsuite name="PAGI\Client\Impl\Test_CDR" file="/export/users/marcelog/src/sts/PAGI/test/cdr/Test_CDR.php" namespace="PAGI\Client\Impl" fullPackage="Test.Cdr" category="Pagi" package="Test" subpackage="Cdr" tests="3" assertions="18" failures="0" errors="0" time="0.296200">
+        <testcase name="can_get_cdr" class="PAGI\Client\Impl\Test_CDR" file="/export/users/marcelog/src/sts/PAGI/test/cdr/Test_CDR.php" line="58" assertions="0" time="0.069872"/>
+        <testcase name="can_set_cdr_variables" class="PAGI\Client\Impl\Test_CDR" file="/export/users/marcelog/src/sts/PAGI/test/cdr/Test_CDR.php" line="69" assertions="0" time="0.078223"/>
+        <testcase name="can_get_cdr_variables" class="PAGI\Client\Impl\Test_CDR" file="/export/users/marcelog/src/sts/PAGI/test/cdr/Test_CDR.php" line="90" assertions="18" time="0.148105"/>
       </testsuite>
     </testsuite>
-    <testsuite name="Autoloader" tests="1" assertions="1" failures="0" errors="0" time="0.003041">
-      <testsuite name="PAGI\Client\Impl\Test_Autoloader" file="/export/users/marcelog/src/sts/PAGI/test/autoloader/Test_Autoloader.php" namespace="PAGI\Client\Impl" fullPackage="Test.Autoloader" category="Pagi" package="Test" subpackage="Autoloader" tests="1" assertions="1" failures="0" errors="0" time="0.003041">
-        <testcase name="can_register_autoloader" class="PAGI\Client\Impl\Test_Autoloader" file="/export/users/marcelog/src/sts/PAGI/test/autoloader/Test_Autoloader.php" line="63" assertions="1" time="0.003041"/>
+    <testsuite name="Autoloader" tests="1" assertions="1" failures="0" errors="0" time="0.003031">
+      <testsuite name="PAGI\Client\Impl\Test_Autoloader" file="/export/users/marcelog/src/sts/PAGI/test/autoloader/Test_Autoloader.php" namespace="PAGI\Client\Impl" fullPackage="Test.Autoloader" category="Pagi" package="Test" subpackage="Autoloader" tests="1" assertions="1" failures="0" errors="0" time="0.003031">
+        <testcase name="can_register_autoloader" class="PAGI\Client\Impl\Test_Autoloader" file="/export/users/marcelog/src/sts/PAGI/test/autoloader/Test_Autoloader.php" line="63" assertions="1" time="0.003031"/>
       </testsuite>
     </testsuite>
-    <testsuite name="Dialdescriptor" tests="2" assertions="8" failures="0" errors="0" time="0.012195">
-      <testsuite name="PAGI\Client\Impl\Test_DialDescriptor" file="/export/users/marcelog/src/sts/PAGI/test/dialdescriptor/Test_DialDescriptor.php" namespace="PAGI\Client\Impl" fullPackage="Test.Descriptor" category="Pagi" package="Test" subpackage="Descriptor" tests="2" assertions="8" failures="0" errors="0" time="0.012195">
-        <testcase name="can_use_sip_descriptor" class="PAGI\Client\Impl\Test_DialDescriptor" file="/export/users/marcelog/src/sts/PAGI/test/dialdescriptor/Test_DialDescriptor.php" line="58" assertions="3" time="0.005681"/>
-        <testcase name="can_use_dahdi_descriptor" class="PAGI\Client\Impl\Test_DialDescriptor" file="/export/users/marcelog/src/sts/PAGI/test/dialdescriptor/Test_DialDescriptor.php" line="69" assertions="5" time="0.006514"/>
+    <testsuite name="Dialdescriptor" tests="2" assertions="8" failures="0" errors="0" time="0.011781">
+      <testsuite name="PAGI\Client\Impl\Test_DialDescriptor" file="/export/users/marcelog/src/sts/PAGI/test/dialdescriptor/Test_DialDescriptor.php" namespace="PAGI\Client\Impl" fullPackage="Test.Descriptor" category="Pagi" package="Test" subpackage="Descriptor" tests="2" assertions="8" failures="0" errors="0" time="0.011781">
+        <testcase name="can_use_sip_descriptor" class="PAGI\Client\Impl\Test_DialDescriptor" file="/export/users/marcelog/src/sts/PAGI/test/dialdescriptor/Test_DialDescriptor.php" line="58" assertions="3" time="0.005351"/>
+        <testcase name="can_use_dahdi_descriptor" class="PAGI\Client\Impl\Test_DialDescriptor" file="/export/users/marcelog/src/sts/PAGI/test/dialdescriptor/Test_DialDescriptor.php" line="69" assertions="5" time="0.006430"/>
       </testsuite>
     </testsuite>
-    <testsuite name="AsteriskLogger" tests="2" assertions="0" failures="0" errors="0" time="0.171439">
-      <testsuite name="PAGI\Client\Impl\Test_AsteriskLogger" file="/export/users/marcelog/src/sts/PAGI/test/asterisklogger/Test_AsteriskLogger.php" namespace="PAGI\Client\Impl" fullPackage="Test.Logger" category="Pagi" package="Test" subpackage="Logger" tests="2" assertions="0" failures="0" errors="0" time="0.171439">
-        <testcase name="can_log" class="PAGI\Client\Impl\Test_AsteriskLogger" file="/export/users/marcelog/src/sts/PAGI/test/asterisklogger/Test_AsteriskLogger.php" line="58" assertions="0" time="0.099037"/>
-        <testcase name="can_get_logger" class="PAGI\Client\Impl\Test_AsteriskLogger" file="/export/users/marcelog/src/sts/PAGI/test/asterisklogger/Test_AsteriskLogger.php" line="91" assertions="0" time="0.072402"/>
+    <testsuite name="AsteriskLogger" tests="2" assertions="0" failures="0" errors="0" time="0.165275">
+      <testsuite name="PAGI\Client\Impl\Test_AsteriskLogger" file="/export/users/marcelog/src/sts/PAGI/test/asterisklogger/Test_AsteriskLogger.php" namespace="PAGI\Client\Impl" fullPackage="Test.Logger" category="Pagi" package="Test" subpackage="Logger" tests="2" assertions="0" failures="0" errors="0" time="0.165275">
+        <testcase name="can_log" class="PAGI\Client\Impl\Test_AsteriskLogger" file="/export/users/marcelog/src/sts/PAGI/test/asterisklogger/Test_AsteriskLogger.php" line="58" assertions="0" time="0.095299"/>
+        <testcase name="can_get_logger" class="PAGI\Client\Impl\Test_AsteriskLogger" file="/export/users/marcelog/src/sts/PAGI/test/asterisklogger/Test_AsteriskLogger.php" line="91" assertions="0" time="0.069976"/>
       </testsuite>
     </testsuite>
-    <testsuite name="Application" tests="1" assertions="1" failures="0" errors="0" time="0.072181">
-      <testsuite name="PAGI\Client\Impl\Test_Application" file="/export/users/marcelog/src/sts/PAGI/test/application/Test_Application.php" namespace="PAGI\Client\Impl" fullPackage="Test.Application" category="Pagi" package="Test" subpackage="Application" tests="1" assertions="1" failures="0" errors="0" time="0.072181">
-        <testcase name="can_app" class="PAGI\Client\Impl\Test_Application" file="/export/users/marcelog/src/sts/PAGI/test/application/Test_Application.php" line="57" assertions="1" time="0.072181"/>
+    <testsuite name="Application" tests="1" assertions="1" failures="0" errors="0" time="0.075977">
+      <testsuite name="PAGI\Client\Impl\Test_Application" file="/export/users/marcelog/src/sts/PAGI/test/application/Test_Application.php" namespace="PAGI\Client\Impl" fullPackage="Test.Application" category="Pagi" package="Test" subpackage="Application" tests="1" assertions="1" failures="0" errors="0" time="0.075977">
+        <testcase name="can_app" class="PAGI\Client\Impl\Test_Application" file="/export/users/marcelog/src/sts/PAGI/test/application/Test_Application.php" line="57" assertions="1" time="0.075977"/>
       </testsuite>
     </testsuite>
   </testsuite>
