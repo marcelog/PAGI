@@ -29,27 +29,8 @@
  */
 namespace PAGI\Client\Impl;
 
-use PAGI\Logger\Asterisk\Impl\AsteriskLoggerImpl;
 use PAGI\Client\AbstractClient;
-use PAGI\Client\Result\Result;
-use PAGI\Client\Result\FaxResult;
-use PAGI\Client\Result\ExecResult;
-use PAGI\Client\Result\DialResult;
-use PAGI\Client\Result\DigitReadResult;
-use PAGI\Client\Result\DataReadResult;
-use PAGI\Client\Result\PlayResult;
-use PAGI\Client\Result\RecordResult;
-use PAGI\Client\ChannelStatus;
-use PAGI\Exception\ExecuteCommandException;
-use PAGI\Exception\DatabaseInvalidEntryException;
 use PAGI\Exception\PAGIException;
-use PAGI\Exception\ChannelDownException;
-use PAGI\Exception\SoundFileException;
-use PAGI\Exception\InvalidCommandException;
-use PAGI\Client\IClient;
-use PAGI\ChannelVariables\Impl\ChannelVariablesFacade;
-use PAGI\CDR\Impl\CDRFacade;
-use PAGI\CallerId\Impl\CallerIdFacade;
 
 /**
  * An AGI client implementation.

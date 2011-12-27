@@ -112,15 +112,6 @@ abstract class AbstractClient implements IClient
     protected abstract function close();
 
     /**
-     * Reads input from asterisk.
-     *
-     * @throws PAGIException
-     *
-     * @return string
-     */
-    protected abstract function read();
-
-    /**
      * Returns a result object given a string (the agi result after executing
      * a command).
      *
