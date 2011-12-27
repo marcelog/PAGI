@@ -298,261 +298,261 @@
   <error line="70" column="15" severity="error" message="Protected member variable &quot;_logger&quot; must not be prefixed with an underscore" source="PEAR.NamingConventions.ValidVariableNameSniff"/>
   <error line="76" column="15" severity="error" message="Protected member variable &quot;_variables&quot; must not be prefixed with an underscore" source="PEAR.NamingConventions.ValidVariableNameSniff"/>
   <error line="82" column="15" severity="error" message="Protected member variable &quot;_arguments&quot; must not be prefixed with an underscore" source="PEAR.NamingConventions.ValidVariableNameSniff"/>
-  <error line="127" column="1" severity="error" message="Last parameter comment requires a blank newline after it" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="127" column="1" severity="error" message="Missing comment for param &quot;$text&quot; at position 1" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="150" column="5" severity="error" message="Doc comment for &quot;$tiffFile&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="152" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="153" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="168" column="5" severity="error" message="Doc comment for &quot;$tiffFile&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="170" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="171" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="186" column="5" severity="error" message="Doc comment for &quot;$channel&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="186" column="5" severity="error" message="Doc comment for &quot;$options&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="188" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="189" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="205" column="5" severity="error" message="Doc comment for &quot;$application&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="205" column="5" severity="error" message="Doc comment for &quot;$options&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="207" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="208" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="212" column="1" severity="error" message="Multi-line function call not indented correctly; expected 12 spaces but found 9" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="212" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="213" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="214" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="220" column="5" severity="error" message="Doc comment for &quot;$time&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="118" column="1" severity="error" message="Last parameter comment requires a blank newline after it" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="118" column="1" severity="error" message="Missing comment for param &quot;$text&quot; at position 1" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="141" column="5" severity="error" message="Doc comment for &quot;$tiffFile&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="143" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="144" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="159" column="5" severity="error" message="Doc comment for &quot;$tiffFile&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="161" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="162" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="177" column="5" severity="error" message="Doc comment for &quot;$channel&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="177" column="5" severity="error" message="Doc comment for &quot;$options&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="179" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="180" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="196" column="5" severity="error" message="Doc comment for &quot;$application&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="196" column="5" severity="error" message="Doc comment for &quot;$options&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="198" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="199" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="203" column="1" severity="error" message="Multi-line function call not indented correctly; expected 12 spaces but found 9" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="203" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="204" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="205" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="211" column="5" severity="error" message="Doc comment for &quot;$time&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="213" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="214" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="220" column="5" severity="error" message="Doc comment for &quot;$channel&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
   <error line="222" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
   <error line="223" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="229" column="5" severity="error" message="Doc comment for &quot;$channel&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="231" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="232" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="243" column="5" severity="error" message="Doc comment for &quot;$file&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="243" column="5" severity="error" message="Doc comment for &quot;$escapeDigits&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="245" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="246" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="250" column="1" severity="error" message="Multi-line function call not indented correctly; expected 12 spaces but found 9" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="250" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="251" column="1" severity="error" message="Multi-line function call not indented correctly; expected 12 spaces but found 9" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="251" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="252" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="253" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="258" column="5" severity="error" message="Doc comment for &quot;$file&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="258" column="5" severity="error" message="Doc comment for &quot;$format&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="258" column="5" severity="error" message="Doc comment for &quot;$escapeDigits&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="258" column="5" severity="error" message="Doc comment for &quot;$maxRecordTime&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="258" column="5" severity="error" message="Doc comment for &quot;$silence&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="260" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="261" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="262" column="97" severity="warning" message="Line exceeds 80 characters; contains 96 characters" source="PEAR.Files.LineLengthSniff"/>
-  <error line="265" column="1" severity="error" message="Multi-line function call not indented correctly; expected 12 spaces but found 9" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="265" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="266" column="1" severity="error" message="Multi-line function call not indented correctly; expected 12 spaces but found 9" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="266" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="267" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="268" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="269" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="270" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="278" column="5" severity="error" message="Doc comment for &quot;$priority&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="280" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="281" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="288" column="5" severity="error" message="Doc comment for &quot;$extension&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="290" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="291" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="298" column="5" severity="error" message="Doc comment for &quot;$context&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="300" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="301" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="308" column="5" severity="error" message="Doc comment for &quot;$name&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="308" column="5" severity="error" message="Doc comment for &quot;$number&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="310" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="311" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="319" column="5" severity="error" message="Doc comment for &quot;$enable&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="319" column="5" severity="error" message="Doc comment for &quot;$class&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="321" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="322" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="331" column="5" severity="error" message="Doc comment for &quot;$file&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="331" column="5" severity="error" message="Doc comment for &quot;$maxTime&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="331" column="5" severity="error" message="Doc comment for &quot;$maxDigits&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="333" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="334" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="339" column="1" severity="error" message="Multi-line function call not indented correctly; expected 12 spaces but found 9" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="339" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="340" column="1" severity="error" message="Multi-line function call not indented correctly; expected 12 spaces but found 9" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="340" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="341" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="342" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="343" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="344" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="345" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="350" column="5" severity="error" message="Doc comment for &quot;$file&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="350" column="5" severity="error" message="Doc comment for &quot;$escapeDigits&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="350" column="5" severity="error" message="Doc comment for &quot;$maxTime&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="352" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="353" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="356" column="23" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="356" column="36" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="357" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="358" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="359" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="360" column="11" severity="error" message="Closing parenthesis of a multi-line function call must be on a line by itself" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="360" column="10" severity="error" message="Closing parenthesis of a multi-line function call must be on a line by itself" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="363" column="5" severity="error" message="Doc comment for &quot;$time&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="363" column="5" severity="error" message="Doc comment for &quot;$escapeDigits&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="365" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="366" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="369" column="23" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="369" column="36" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="370" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="371" column="11" severity="error" message="Closing parenthesis of a multi-line function call must be on a line by itself" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="371" column="10" severity="error" message="Closing parenthesis of a multi-line function call must be on a line by itself" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="374" column="5" severity="error" message="Doc comment for &quot;$time&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="374" column="5" severity="error" message="Doc comment for &quot;$escapeDigits&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="376" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="377" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="380" column="23" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="380" column="36" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="381" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="382" column="11" severity="error" message="Closing parenthesis of a multi-line function call must be on a line by itself" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="382" column="10" severity="error" message="Closing parenthesis of a multi-line function call must be on a line by itself" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="385" column="5" severity="error" message="Doc comment for &quot;$time&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="385" column="5" severity="error" message="Doc comment for &quot;$format&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="385" column="5" severity="error" message="Doc comment for &quot;$escapeDigits&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="387" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="388" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="391" column="23" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="391" column="36" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="392" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="392" column="94" severity="warning" message="Line exceeds 80 characters; contains 93 characters" source="PEAR.Files.LineLengthSniff"/>
-  <error line="393" column="11" severity="error" message="Closing parenthesis of a multi-line function call must be on a line by itself" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="393" column="10" severity="error" message="Closing parenthesis of a multi-line function call must be on a line by itself" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="396" column="5" severity="error" message="Doc comment for &quot;$digits&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="396" column="5" severity="error" message="Doc comment for &quot;$escapeDigits&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="398" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="399" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="402" column="23" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="402" column="36" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="403" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="404" column="11" severity="error" message="Closing parenthesis of a multi-line function call must be on a line by itself" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="404" column="10" severity="error" message="Closing parenthesis of a multi-line function call must be on a line by itself" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="407" column="5" severity="error" message="Doc comment for &quot;$digits&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="407" column="5" severity="error" message="Doc comment for &quot;$escapeDigits&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="409" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="410" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="413" column="23" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="413" column="36" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="414" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="415" column="11" severity="error" message="Closing parenthesis of a multi-line function call must be on a line by itself" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="415" column="10" severity="error" message="Closing parenthesis of a multi-line function call must be on a line by itself" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="418" column="5" severity="error" message="Doc comment for &quot;$what&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="418" column="5" severity="error" message="Doc comment for &quot;$escapeDigits&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="420" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="421" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="424" column="23" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="424" column="36" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="425" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="426" column="11" severity="error" message="Closing parenthesis of a multi-line function call must be on a line by itself" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="426" column="10" severity="error" message="Closing parenthesis of a multi-line function call must be on a line by itself" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="429" column="5" severity="error" message="Doc comment for &quot;$what&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="429" column="5" severity="error" message="Doc comment for &quot;$escapeDigits&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="431" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="432" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="435" column="23" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="435" column="36" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="436" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="437" column="11" severity="error" message="Closing parenthesis of a multi-line function call must be on a line by itself" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="437" column="10" severity="error" message="Closing parenthesis of a multi-line function call must be on a line by itself" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="440" column="13" severity="error" message="Missing function doc comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="445" column="5" severity="error" message="Doc comment for &quot;$timeout&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="447" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="448" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="451" column="82" severity="warning" message="Line exceeds 80 characters; contains 81 characters" source="PEAR.Files.LineLengthSniff"/>
-  <error line="457" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="458" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="467" column="5" severity="error" message="Doc comment for &quot;$channel&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="469" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="470" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="483" column="5" severity="error" message="Doc comment for &quot;$name&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="485" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="486" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="497" column="5" severity="error" message="Doc comment for &quot;$name&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="497" column="5" severity="error" message="Doc comment for &quot;$channel&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="499" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="500" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="504" column="1" severity="error" message="Multi-line function call not indented correctly; expected 12 spaces but found 9" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="504" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="517" column="5" severity="error" message="Doc comment for &quot;$name&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="517" column="5" severity="error" message="Doc comment for &quot;$value&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="519" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="520" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="525" column="1" severity="error" message="Multi-line function call not indented correctly; expected 16 spaces but found 10" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="525" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="526" column="1" severity="error" message="Multi-line function call not indented correctly; expected 16 spaces but found 13" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="526" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="527" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="528" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="529" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="530" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="535" column="5" severity="error" message="Doc comment for &quot;$msg&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="535" column="5" severity="error" message="Doc comment for &quot;$priority&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="537" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="538" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="545" column="1" severity="error" message="Multi-line function call not indented correctly; expected 16 spaces but found 13" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="545" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="551" column="5" severity="error" message="Doc comment for &quot;$msg&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="551" column="5" severity="error" message="Doc comment for &quot;$level&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="553" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="554" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="564" column="1" severity="error" message="Multi-line function call not indented correctly; expected 16 spaces but found 13" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="564" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="234" column="5" severity="error" message="Doc comment for &quot;$file&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="234" column="5" severity="error" message="Doc comment for &quot;$escapeDigits&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="236" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="237" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="241" column="1" severity="error" message="Multi-line function call not indented correctly; expected 12 spaces but found 9" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="241" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="242" column="1" severity="error" message="Multi-line function call not indented correctly; expected 12 spaces but found 9" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="242" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="243" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="244" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="249" column="5" severity="error" message="Doc comment for &quot;$file&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="249" column="5" severity="error" message="Doc comment for &quot;$format&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="249" column="5" severity="error" message="Doc comment for &quot;$escapeDigits&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="249" column="5" severity="error" message="Doc comment for &quot;$maxRecordTime&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="249" column="5" severity="error" message="Doc comment for &quot;$silence&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="251" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="252" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="253" column="97" severity="warning" message="Line exceeds 80 characters; contains 96 characters" source="PEAR.Files.LineLengthSniff"/>
+  <error line="256" column="1" severity="error" message="Multi-line function call not indented correctly; expected 12 spaces but found 9" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="256" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="257" column="1" severity="error" message="Multi-line function call not indented correctly; expected 12 spaces but found 9" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="257" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="258" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="259" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="260" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="261" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="269" column="5" severity="error" message="Doc comment for &quot;$priority&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="271" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="272" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="279" column="5" severity="error" message="Doc comment for &quot;$extension&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="281" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="282" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="289" column="5" severity="error" message="Doc comment for &quot;$context&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="291" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="292" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="299" column="5" severity="error" message="Doc comment for &quot;$name&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="299" column="5" severity="error" message="Doc comment for &quot;$number&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="301" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="302" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="310" column="5" severity="error" message="Doc comment for &quot;$enable&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="310" column="5" severity="error" message="Doc comment for &quot;$class&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="312" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="313" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="322" column="5" severity="error" message="Doc comment for &quot;$file&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="322" column="5" severity="error" message="Doc comment for &quot;$maxTime&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="322" column="5" severity="error" message="Doc comment for &quot;$maxDigits&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="324" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="325" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="330" column="1" severity="error" message="Multi-line function call not indented correctly; expected 12 spaces but found 9" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="330" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="331" column="1" severity="error" message="Multi-line function call not indented correctly; expected 12 spaces but found 9" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="331" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="332" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="333" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="334" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="335" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="336" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="341" column="5" severity="error" message="Doc comment for &quot;$file&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="341" column="5" severity="error" message="Doc comment for &quot;$escapeDigits&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="341" column="5" severity="error" message="Doc comment for &quot;$maxTime&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="343" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="344" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="347" column="23" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="347" column="36" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="348" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="349" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="350" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="351" column="11" severity="error" message="Closing parenthesis of a multi-line function call must be on a line by itself" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="351" column="10" severity="error" message="Closing parenthesis of a multi-line function call must be on a line by itself" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="354" column="5" severity="error" message="Doc comment for &quot;$time&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="354" column="5" severity="error" message="Doc comment for &quot;$escapeDigits&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="356" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="357" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="360" column="23" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="360" column="36" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="361" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="362" column="11" severity="error" message="Closing parenthesis of a multi-line function call must be on a line by itself" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="362" column="10" severity="error" message="Closing parenthesis of a multi-line function call must be on a line by itself" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="365" column="5" severity="error" message="Doc comment for &quot;$time&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="365" column="5" severity="error" message="Doc comment for &quot;$escapeDigits&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="367" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="368" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="371" column="23" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="371" column="36" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="372" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="373" column="11" severity="error" message="Closing parenthesis of a multi-line function call must be on a line by itself" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="373" column="10" severity="error" message="Closing parenthesis of a multi-line function call must be on a line by itself" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="376" column="5" severity="error" message="Doc comment for &quot;$time&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="376" column="5" severity="error" message="Doc comment for &quot;$format&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="376" column="5" severity="error" message="Doc comment for &quot;$escapeDigits&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="378" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="379" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="382" column="23" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="382" column="36" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="383" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="383" column="94" severity="warning" message="Line exceeds 80 characters; contains 93 characters" source="PEAR.Files.LineLengthSniff"/>
+  <error line="384" column="11" severity="error" message="Closing parenthesis of a multi-line function call must be on a line by itself" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="384" column="10" severity="error" message="Closing parenthesis of a multi-line function call must be on a line by itself" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="387" column="5" severity="error" message="Doc comment for &quot;$digits&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="387" column="5" severity="error" message="Doc comment for &quot;$escapeDigits&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="389" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="390" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="393" column="23" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="393" column="36" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="394" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="395" column="11" severity="error" message="Closing parenthesis of a multi-line function call must be on a line by itself" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="395" column="10" severity="error" message="Closing parenthesis of a multi-line function call must be on a line by itself" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="398" column="5" severity="error" message="Doc comment for &quot;$digits&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="398" column="5" severity="error" message="Doc comment for &quot;$escapeDigits&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="400" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="401" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="404" column="23" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="404" column="36" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="405" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="406" column="11" severity="error" message="Closing parenthesis of a multi-line function call must be on a line by itself" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="406" column="10" severity="error" message="Closing parenthesis of a multi-line function call must be on a line by itself" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="409" column="5" severity="error" message="Doc comment for &quot;$what&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="409" column="5" severity="error" message="Doc comment for &quot;$escapeDigits&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="411" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="412" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="415" column="23" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="415" column="36" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="416" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="417" column="11" severity="error" message="Closing parenthesis of a multi-line function call must be on a line by itself" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="417" column="10" severity="error" message="Closing parenthesis of a multi-line function call must be on a line by itself" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="420" column="5" severity="error" message="Doc comment for &quot;$what&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="420" column="5" severity="error" message="Doc comment for &quot;$escapeDigits&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="422" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="423" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="426" column="23" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="426" column="36" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="427" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="428" column="11" severity="error" message="Closing parenthesis of a multi-line function call must be on a line by itself" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="428" column="10" severity="error" message="Closing parenthesis of a multi-line function call must be on a line by itself" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="431" column="13" severity="error" message="Missing function doc comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="436" column="5" severity="error" message="Doc comment for &quot;$timeout&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="438" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="439" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="442" column="82" severity="warning" message="Line exceeds 80 characters; contains 81 characters" source="PEAR.Files.LineLengthSniff"/>
+  <error line="448" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="449" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="458" column="5" severity="error" message="Doc comment for &quot;$channel&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="460" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="461" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="474" column="5" severity="error" message="Doc comment for &quot;$name&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="476" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="477" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="488" column="5" severity="error" message="Doc comment for &quot;$name&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="488" column="5" severity="error" message="Doc comment for &quot;$channel&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="490" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="491" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="495" column="1" severity="error" message="Multi-line function call not indented correctly; expected 12 spaces but found 9" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="495" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="508" column="5" severity="error" message="Doc comment for &quot;$name&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="508" column="5" severity="error" message="Doc comment for &quot;$value&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="510" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="511" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="516" column="1" severity="error" message="Multi-line function call not indented correctly; expected 16 spaces but found 10" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="516" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="517" column="1" severity="error" message="Multi-line function call not indented correctly; expected 16 spaces but found 13" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="517" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="518" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="519" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="520" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="521" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="526" column="5" severity="error" message="Doc comment for &quot;$msg&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="526" column="5" severity="error" message="Doc comment for &quot;$priority&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="528" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="529" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="536" column="1" severity="error" message="Multi-line function call not indented correctly; expected 16 spaces but found 13" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="536" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="542" column="5" severity="error" message="Doc comment for &quot;$msg&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="542" column="5" severity="error" message="Doc comment for &quot;$level&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="544" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="545" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="555" column="1" severity="error" message="Multi-line function call not indented correctly; expected 16 spaces but found 13" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="555" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="562" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="563" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="569" column="5" severity="error" message="Doc comment for &quot;$family&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="569" column="5" severity="error" message="Doc comment for &quot;$key&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
   <error line="571" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
   <error line="572" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="578" column="5" severity="error" message="Doc comment for &quot;$family&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="578" column="5" severity="error" message="Doc comment for &quot;$key&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="580" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="581" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="585" column="1" severity="error" message="Multi-line function call not indented correctly; expected 12 spaces but found 9" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="585" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="586" column="1" severity="error" message="Multi-line function call not indented correctly; expected 12 spaces but found 9" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="586" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="587" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="588" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="596" column="5" severity="error" message="Doc comment for &quot;$family&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="596" column="5" severity="error" message="Doc comment for &quot;$key&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="598" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="599" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="612" column="5" severity="error" message="Doc comment for &quot;$family&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="612" column="5" severity="error" message="Doc comment for &quot;$key&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="614" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="615" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="619" column="1" severity="error" message="Multi-line function call not indented correctly; expected 12 spaces but found 9" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="619" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="628" column="5" severity="error" message="Doc comment for &quot;$family&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="628" column="5" severity="error" message="Doc comment for &quot;$key&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="628" column="5" severity="error" message="Doc comment for &quot;$value&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="630" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="631" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="635" column="1" severity="error" message="Multi-line function call not indented correctly; expected 12 spaces but found 9" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="635" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="636" column="1" severity="error" message="Multi-line function call not indented correctly; expected 12 spaces but found 9" source="PEAR.Functions.FunctionCallSignatureSniff"/>
-  <error line="636" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="637" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="638" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="639" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="640" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="641" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
-  <error line="649" column="5" severity="error" message="Doc comment for &quot;$text&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="651" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="652" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="662" column="5" severity="error" message="Doc comment for &quot;$filename&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="664" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="665" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="675" column="1" severity="warning" message="Line exceeds 80 characters; contains 83 characters" source="PEAR.Files.LineLengthSniff"/>
-  <error line="677" column="1" severity="error" message="Missing comment for param &quot;$line&quot; at position 1" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="687" column="1" severity="warning" message="Line exceeds 80 characters; contains 86 characters" source="PEAR.Files.LineLengthSniff"/>
-  <error line="689" column="1" severity="error" message="Missing comment for param &quot;$line&quot; at position 1" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="708" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="709" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="576" column="1" severity="error" message="Multi-line function call not indented correctly; expected 12 spaces but found 9" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="576" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="577" column="1" severity="error" message="Multi-line function call not indented correctly; expected 12 spaces but found 9" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="577" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="578" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="579" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="587" column="5" severity="error" message="Doc comment for &quot;$family&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="587" column="5" severity="error" message="Doc comment for &quot;$key&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="589" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="590" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="603" column="5" severity="error" message="Doc comment for &quot;$family&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="603" column="5" severity="error" message="Doc comment for &quot;$key&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="605" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="606" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="610" column="1" severity="error" message="Multi-line function call not indented correctly; expected 12 spaces but found 9" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="610" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="619" column="5" severity="error" message="Doc comment for &quot;$family&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="619" column="5" severity="error" message="Doc comment for &quot;$key&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="619" column="5" severity="error" message="Doc comment for &quot;$value&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="621" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="622" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="626" column="1" severity="error" message="Multi-line function call not indented correctly; expected 12 spaces but found 9" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="626" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="627" column="1" severity="error" message="Multi-line function call not indented correctly; expected 12 spaces but found 9" source="PEAR.Functions.FunctionCallSignatureSniff"/>
+  <error line="627" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="628" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="629" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="630" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="631" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="632" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndentSniff"/>
+  <error line="640" column="5" severity="error" message="Doc comment for &quot;$text&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="642" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="643" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="653" column="5" severity="error" message="Doc comment for &quot;$filename&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="655" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="656" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="666" column="1" severity="warning" message="Line exceeds 80 characters; contains 83 characters" source="PEAR.Files.LineLengthSniff"/>
+  <error line="668" column="1" severity="error" message="Missing comment for param &quot;$line&quot; at position 1" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="678" column="1" severity="warning" message="Line exceeds 80 characters; contains 86 characters" source="PEAR.Files.LineLengthSniff"/>
+  <error line="680" column="1" severity="error" message="Missing comment for param &quot;$line&quot; at position 1" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="699" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="700" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="710" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="711" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
   <error line="719" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
   <error line="720" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="728" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
-  <error line="729" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
  </file>
  <file name="/export/users/marcelog/src/sts/PAGI/src/mg/PAGI/Client/ChannelStatus.php">
   <error line="3" column="1" severity="warning" message="Line exceeds 80 characters; contains 81 characters" source="PEAR.Files.LineLengthSniff"/>
@@ -588,62 +588,12 @@
  <file name="/export/users/marcelog/src/sts/PAGI/src/mg/PAGI/Client/Impl/ClientImpl.php">
   <error line="30" column="16" severity="error" message="Constants must be uppercase; expected CLIENT but found Client" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
   <error line="30" column="23" severity="error" message="Constants must be uppercase; expected IMPL but found Impl" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="32" column="10" severity="error" message="Constants must be uppercase; expected LOGGER but found Logger" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="32" column="17" severity="error" message="Constants must be uppercase; expected ASTERISK but found Asterisk" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="32" column="26" severity="error" message="Constants must be uppercase; expected IMPL but found Impl" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="32" column="31" severity="error" message="Constants must be uppercase; expected ASTERISKLOGGERIMPL but found AsteriskLoggerImpl" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="33" column="10" severity="error" message="Constants must be uppercase; expected CLIENT but found Client" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="33" column="17" severity="error" message="Constants must be uppercase; expected ABSTRACTCLIENT but found AbstractClient" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="34" column="10" severity="error" message="Constants must be uppercase; expected CLIENT but found Client" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="34" column="17" severity="error" message="Constants must be uppercase; expected RESULT but found Result" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="34" column="24" severity="error" message="Constants must be uppercase; expected RESULT but found Result" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="35" column="10" severity="error" message="Constants must be uppercase; expected CLIENT but found Client" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="35" column="17" severity="error" message="Constants must be uppercase; expected RESULT but found Result" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="35" column="24" severity="error" message="Constants must be uppercase; expected FAXRESULT but found FaxResult" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="36" column="10" severity="error" message="Constants must be uppercase; expected CLIENT but found Client" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="36" column="17" severity="error" message="Constants must be uppercase; expected RESULT but found Result" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="36" column="24" severity="error" message="Constants must be uppercase; expected EXECRESULT but found ExecResult" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="37" column="10" severity="error" message="Constants must be uppercase; expected CLIENT but found Client" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="37" column="17" severity="error" message="Constants must be uppercase; expected RESULT but found Result" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="37" column="24" severity="error" message="Constants must be uppercase; expected DIALRESULT but found DialResult" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="38" column="10" severity="error" message="Constants must be uppercase; expected CLIENT but found Client" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="38" column="17" severity="error" message="Constants must be uppercase; expected RESULT but found Result" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="38" column="24" severity="error" message="Constants must be uppercase; expected DIGITREADRESULT but found DigitReadResult" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="39" column="10" severity="error" message="Constants must be uppercase; expected CLIENT but found Client" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="39" column="17" severity="error" message="Constants must be uppercase; expected RESULT but found Result" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="39" column="24" severity="error" message="Constants must be uppercase; expected DATAREADRESULT but found DataReadResult" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="40" column="10" severity="error" message="Constants must be uppercase; expected CLIENT but found Client" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="40" column="17" severity="error" message="Constants must be uppercase; expected RESULT but found Result" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="40" column="24" severity="error" message="Constants must be uppercase; expected PLAYRESULT but found PlayResult" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="41" column="10" severity="error" message="Constants must be uppercase; expected CLIENT but found Client" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="41" column="17" severity="error" message="Constants must be uppercase; expected RESULT but found Result" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="41" column="24" severity="error" message="Constants must be uppercase; expected RECORDRESULT but found RecordResult" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="42" column="10" severity="error" message="Constants must be uppercase; expected CLIENT but found Client" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="42" column="17" severity="error" message="Constants must be uppercase; expected CHANNELSTATUS but found ChannelStatus" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="43" column="10" severity="error" message="Constants must be uppercase; expected EXCEPTION but found Exception" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="43" column="20" severity="error" message="Constants must be uppercase; expected EXECUTECOMMANDEXCEPTION but found ExecuteCommandException" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="44" column="10" severity="error" message="Constants must be uppercase; expected EXCEPTION but found Exception" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="44" column="20" severity="error" message="Constants must be uppercase; expected DATABASEINVALIDENTRYEXCEPTION but found DatabaseInvalidEntryException" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="45" column="10" severity="error" message="Constants must be uppercase; expected EXCEPTION but found Exception" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="45" column="20" severity="error" message="Constants must be uppercase; expected PAGIEXCEPTION but found PAGIException" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="46" column="10" severity="error" message="Constants must be uppercase; expected EXCEPTION but found Exception" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="46" column="20" severity="error" message="Constants must be uppercase; expected CHANNELDOWNEXCEPTION but found ChannelDownException" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="47" column="10" severity="error" message="Constants must be uppercase; expected EXCEPTION but found Exception" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="47" column="20" severity="error" message="Constants must be uppercase; expected SOUNDFILEEXCEPTION but found SoundFileException" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="48" column="10" severity="error" message="Constants must be uppercase; expected EXCEPTION but found Exception" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="48" column="20" severity="error" message="Constants must be uppercase; expected INVALIDCOMMANDEXCEPTION but found InvalidCommandException" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="49" column="10" severity="error" message="Constants must be uppercase; expected CLIENT but found Client" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="49" column="17" severity="error" message="Constants must be uppercase; expected ICLIENT but found IClient" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="50" column="10" severity="error" message="Constants must be uppercase; expected CHANNELVARIABLES but found ChannelVariables" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="50" column="27" severity="error" message="Constants must be uppercase; expected IMPL but found Impl" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="50" column="32" severity="error" message="Constants must be uppercase; expected CHANNELVARIABLESFACADE but found ChannelVariablesFacade" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="51" column="14" severity="error" message="Constants must be uppercase; expected IMPL but found Impl" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="51" column="19" severity="error" message="Constants must be uppercase; expected CDRFACADE but found CDRFacade" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="52" column="10" severity="error" message="Constants must be uppercase; expected CALLERID but found CallerId" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="52" column="19" severity="error" message="Constants must be uppercase; expected IMPL but found Impl" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="52" column="24" severity="error" message="Constants must be uppercase; expected CALLERIDFACADE but found CallerIdFacade" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
-  <error line="110" column="9" severity="error" message="Expected &quot;do {\n...} while (...);\n&quot;; found &quot;do {\n...} while(...);\n&quot;" source="PEAR.ControlStructures.ControlSignatureSniff"/>
-  <error line="136" column="9" severity="error" message="Expected &quot;while (...) {\n&quot;; found &quot;while(...) {\n&quot;" source="PEAR.ControlStructures.ControlSignatureSniff"/>
+  <error line="32" column="10" severity="error" message="Constants must be uppercase; expected CLIENT but found Client" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
+  <error line="32" column="17" severity="error" message="Constants must be uppercase; expected ABSTRACTCLIENT but found AbstractClient" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
+  <error line="33" column="10" severity="error" message="Constants must be uppercase; expected EXCEPTION but found Exception" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
+  <error line="33" column="20" severity="error" message="Constants must be uppercase; expected PAGIEXCEPTION but found PAGIException" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>
+  <error line="91" column="9" severity="error" message="Expected &quot;do {\n...} while (...);\n&quot;; found &quot;do {\n...} while(...);\n&quot;" source="PEAR.ControlStructures.ControlSignatureSniff"/>
+  <error line="117" column="9" severity="error" message="Expected &quot;while (...) {\n&quot;; found &quot;while(...) {\n&quot;" source="PEAR.ControlStructures.ControlSignatureSniff"/>
  </file>
  <file name="/export/users/marcelog/src/sts/PAGI/src/mg/PAGI/Client/Result/DataReadResult.php">
   <error line="31" column="16" severity="error" message="Constants must be uppercase; expected CLIENT but found Client" source="Generic.NamingConventions.UpperCaseConstantNameSniff"/>

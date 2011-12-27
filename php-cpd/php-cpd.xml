@@ -1,17 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd-cpd version="phpcpd 1.3.1">
-  <duplication lines="9" tokens="68">
-    <file path="/export/users/marcelog/src/sts/PAGI/src/mg/PAGI/Client/AbstractClient.php" line="32"/>
-    <file path="/export/users/marcelog/src/sts/PAGI/src/mg/PAGI/Client/Impl/ClientImpl.php" line="34"/>
-    <codefragment>use PAGI\Client\Result\Result;
-use PAGI\Client\Result\FaxResult;
-use PAGI\Client\Result\ExecResult;
-use PAGI\Client\Result\DialResult;
-use PAGI\Client\Result\DigitReadResult;
-use PAGI\Client\Result\DataReadResult;
-use PAGI\Client\Result\PlayResult;
-use PAGI\Client\Result\RecordResult;
-use PAGI\Client\ChannelStatus;
-</codefragment>
-  </duplication>
-</pmd-cpd>
+<pmd-cpd version="phpcpd 1.3.1"/>
