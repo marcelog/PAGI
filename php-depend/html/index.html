@@ -202,22 +202,22 @@
 </tr>
 <tr>
 <td align="left"><a href="#PKPAGI%5CClient">PAGI\Client</a></td>
+<td align="right">17</td>
 <td align="right">2</td>
+<td align="right">15</td>
 <td align="right">1</td>
-<td align="right">1</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="right">0.5</td>
-<td align="right">0</td>
-<td align="right">0.5</td>
+<td align="right">2</td>
+<td align="right">0.117647058824</td>
+<td align="right">0.666666666667</td>
+<td align="right">0.21568627451</td>
 </tr>
 <tr>
 <td align="left"><a href="#PKPAGI%5CClient%5CImpl">PAGI\Client\Impl</a></td>
-<td align="right">15</td>
+<td align="right">2</td>
 <td align="right">0</td>
-<td align="right">15</td>
+<td align="right">2</td>
 <td align="right">0</td>
-<td align="right">4</td>
+<td align="right">3</td>
 <td align="right">0</td>
 <td align="right">1</td>
 <td align="right">0</td>
@@ -249,11 +249,11 @@
 <td align="right">7</td>
 <td align="right">0</td>
 <td align="right">7</td>
-<td align="right">3</td>
+<td align="right">4</td>
 <td align="right">1</td>
 <td align="right">0</td>
-<td align="right">0.25</td>
-<td align="right">0.75</td>
+<td align="right">0.2</td>
+<td align="right">0.8</td>
 </tr>
 <tr>
 <td align="left"><a href="#PKPAGI%5CLogger%5CAsterisk">PAGI\Logger\Asterisk</a></td>
@@ -621,13 +621,13 @@
 <td>
 <a href="#EXafferent">Afferent Couplings</a>: 1</td>
 <td>
-<a href="#EXefferent">Efferent Couplings</a>: 0</td>
+<a href="#EXefferent">Efferent Couplings</a>: 2</td>
 <td>
-<a href="#EXabstractness">Abstractness</a>: 0.5</td>
+<a href="#EXabstractness">Abstractness</a>: 0.117647058824</td>
 <td>
-<a href="#EXinstability">Instability</a>: 0</td>
+<a href="#EXinstability">Instability</a>: 0.666666666667</td>
 <td>
-<a href="#EXdistance">Distance</a>: 0.5</td>
+<a href="#EXdistance">Distance</a>: 0.21568627451</td>
 </tr></table>
 <table width="100%" class="details">
 <tr>
@@ -637,14 +637,16 @@
 <th>Uses Packages</th>
 </tr>
 <tr>
-<td valign="top" width="25%">IClient<br>
+<td valign="top" width="25%">AbstractClient<br>IClient<br>
 </td>
 <td valign="top" width="25%">ChannelStatus<br>
 </td>
 <td valign="top" width="25%">
 <a href="#PKPAGI%5CClient%5CImpl">PAGI\Client\Impl</a><br>
 </td>
-<td valign="top" width="25%"><i>None</i></td>
+<td valign="top" width="25%">
+<a href="#PKPAGI%5CClient%5CResult">PAGI\Client\Result</a><br><a href="#PKPAGI%5CException">PAGI\Exception</a><br>
+</td>
 </tr>
 </table>
 <h3><a name="PKPAGI%5CClient%5CImpl">PAGI\Client\Impl</a></h3>
@@ -652,7 +654,7 @@
 <td>
 <a href="#EXafferent">Afferent Couplings</a>: 0</td>
 <td>
-<a href="#EXefferent">Efferent Couplings</a>: 4</td>
+<a href="#EXefferent">Efferent Couplings</a>: 3</td>
 <td>
 <a href="#EXabstractness">Abstractness</a>: 0</td>
 <td>
@@ -673,7 +675,7 @@
 </td>
 <td valign="top" width="25%"><i>None</i></td>
 <td valign="top" width="25%">
-<a href="#PK"></a><br><a href="#PKPAGI%5CClient">PAGI\Client</a><br><a href="#PKPAGI%5CClient%5CResult">PAGI\Client\Result</a><br><a href="#PKPAGI%5CException">PAGI\Exception</a><br>
+<a href="#PK"></a><br><a href="#PKPAGI%5CClient">PAGI\Client</a><br><a href="#PKPAGI%5CException">PAGI\Exception</a><br>
 </td>
 </tr>
 </table>
@@ -703,7 +705,7 @@
 <td valign="top" width="25%">DataReadResult<br>DialResult<br>DigitReadResult<br>ExecResult<br>FaxResult<br>PlayResult<br>RecordResult<br>Result<br>
 </td>
 <td valign="top" width="25%">
-<a href="#PKPAGI%5CClient%5CImpl">PAGI\Client\Impl</a><br>
+<a href="#PKPAGI%5CClient">PAGI\Client</a><br>
 </td>
 <td valign="top" width="25%">
 <a href="#PKPAGI%5CException">PAGI\Exception</a><br>
@@ -742,15 +744,15 @@
 <h3><a name="PKPAGI%5CException">PAGI\Exception</a></h3>
 <table width="100%"><tr>
 <td>
-<a href="#EXafferent">Afferent Couplings</a>: 3</td>
+<a href="#EXafferent">Afferent Couplings</a>: 4</td>
 <td>
 <a href="#EXefferent">Efferent Couplings</a>: 1</td>
 <td>
 <a href="#EXabstractness">Abstractness</a>: 0</td>
 <td>
-<a href="#EXinstability">Instability</a>: 0.25</td>
+<a href="#EXinstability">Instability</a>: 0.2</td>
 <td>
-<a href="#EXdistance">Distance</a>: 0.75</td>
+<a href="#EXdistance">Distance</a>: 0.8</td>
 </tr></table>
 <table width="100%" class="details">
 <tr>
@@ -764,7 +766,7 @@
 <td valign="top" width="25%">ChannelDownException<br>DatabaseInvalidEntryException<br>ExecuteCommandException<br>InvalidCommandException<br>PAGIException<br>RecordException<br>SoundFileException<br>
 </td>
 <td valign="top" width="25%">
-<a href="#PKPAGI%5CCallSpool%5CException">PAGI\CallSpool\Exception</a><br><a href="#PKPAGI%5CClient%5CImpl">PAGI\Client\Impl</a><br><a href="#PKPAGI%5CClient%5CResult">PAGI\Client\Result</a><br>
+<a href="#PKPAGI%5CCallSpool%5CException">PAGI\CallSpool\Exception</a><br><a href="#PKPAGI%5CClient">PAGI\Client</a><br><a href="#PKPAGI%5CClient%5CImpl">PAGI\Client\Impl</a><br><a href="#PKPAGI%5CClient%5CResult">PAGI\Client\Result</a><br>
 </td>
 <td valign="top" width="25%">
 <a href="#PK"></a><br>

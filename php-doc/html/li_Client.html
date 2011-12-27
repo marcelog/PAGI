@@ -116,7 +116,7 @@ if (document.getElementById) {
 			tree_classe.openIcon = 'media/images/class_folder.png';
 			tree_classe.icon = 'media/images/class_folder.png';
 			
-						    						    				var classe = new WebFXTreeItem('IClient', 'Client/IClient.html');
+						    						    						    				var classe = new WebFXTreeItem('IClient', 'Client/IClient.html');
 				classe.openIcon = 'media/images/Interface.png';
 				classe.icon = 'media/images/Interface.png';
 				tree_classe.add(classe);
@@ -127,7 +127,11 @@ if (document.getElementById) {
 			tree_classe.openIcon = 'media/images/class_folder.png';
 			tree_classe.icon = 'media/images/class_folder.png';
 			
-						    				var classe = new WebFXTreeItem('ChannelStatus', 'Client/ChannelStatus.html');
+						    				var classe = new WebFXTreeItem('AbstractClient', 'Client/AbstractClient.html');
+				classe.openIcon = 'media/images/AbstractClass.png';
+				classe.icon = 'media/images/AbstractClass.png';
+				tree_classe.add(classe);
+										    				var classe = new WebFXTreeItem('ChannelStatus', 'Client/ChannelStatus.html');
 				classe.openIcon = 'media/images/Class.png';
 				classe.icon = 'media/images/Class.png';
 				tree_classe.add(classe);
@@ -139,6 +143,10 @@ if (document.getElementById) {
 			tree_file.openIcon = 'media/images/folder.png';
 			tree_file.icon = 'media/images/folder.png';
 	
+							var file = new WebFXTreeItem('AbstractClient.php', 'Client/_Client---AbstractClient.php.html');
+				file.openIcon = 'media/images/Page.png';
+				file.icon = 'media/images/Page.png';
+				tree_file.add(file);
 							var file = new WebFXTreeItem('ChannelStatus.php', 'Client/_Client---ChannelStatus.php.html');
 				file.openIcon = 'media/images/Page.png';
 				file.icon = 'media/images/Page.png';
