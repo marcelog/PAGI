@@ -88,7 +88,7 @@ namespace {
     }
 }
 
-namespace PAGI\Client\Impl {
+namespace PAGI\Client {
     function time() {
         global $mockTime;
         global $mockTimeCount;
@@ -104,6 +104,8 @@ namespace PAGI\Client\Impl {
             return call_user_func_array('\time', func_get_args());
         }
     }
+}
+namespace PAGI\Client\Impl {
     function fclose() {
         global $mockFclose;
         if (isset($mockFclose) && $mockFclose === true) {
