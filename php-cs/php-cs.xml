@@ -553,6 +553,28 @@
   <error line="711" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
   <error line="719" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
   <error line="720" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="728" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="729" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="735" column="5" severity="error" message="Doc comment for &quot;$timeout&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="737" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="738" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="744" column="5" severity="error" message="Doc comment for &quot;$timeout&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="746" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="747" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="754" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="755" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="763" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="764" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="772" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="773" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="779" column="5" severity="error" message="Doc comment for &quot;$tone&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="781" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="782" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="787" column="5" severity="error" message="Doc comment for &quot;$frequencies&quot; missing" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="789" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="790" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="797" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
+  <error line="798" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionCommentSniff"/>
  </file>
  <file name="/export/users/marcelog/src/sts/PAGI/src/mg/PAGI/Client/ChannelStatus.php">
   <error line="3" column="1" severity="warning" message="Line exceeds 80 characters; contains 81 characters" source="PEAR.Files.LineLengthSniff"/>

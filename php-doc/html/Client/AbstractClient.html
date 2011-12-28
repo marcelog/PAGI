@@ -203,7 +203,7 @@
 		</div>
 		<div class="info-box-body">			
 			<div class="method-summary">
-																																																																																																																																																																																																																																																																																																																																																																																																							
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																															
 				<div class="method-definition">
 					<img src="../media/images/Method.png" alt=" "/>
 											<span class="method-result">void</span>
@@ -360,6 +360,27 @@
 															
 				<div class="method-definition">
 					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#indicateBusy" title="details" class="method-name">indicateBusy</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$timeout</span>)
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#indicateCongestion" title="details" class="method-name">indicateCongestion</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$timeout</span>)
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#indicateProgress" title="details" class="method-name">indicateProgress</a>
+										()
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
 											<span class="method-result">boolean</span>
 										<a href="#isEndOfEnvironmentVariables" title="details" class="method-name">isEndOfEnvironmentVariables</a>
 											(<span class="var-type">string</span>&nbsp;<span class="var-name">$line</span>)
@@ -377,6 +398,41 @@
 											<span class="method-result">void</span>
 										<a href="#open" title="details" class="method-name">open</a>
 										()
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#playBusyTone" title="details" class="method-name">playBusyTone</a>
+										()
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#playCongestionTone" title="details" class="method-name">playCongestionTone</a>
+										()
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#playCustomTones" title="details" class="method-name">playCustomTones</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$frequencies</span>)
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#playDialTone" title="details" class="method-name">playDialTone</a>
+										()
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#playTone" title="details" class="method-name">playTone</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$tone</span>)
 									</div>
 															
 				<div class="method-definition">
@@ -510,6 +566,13 @@
 											<span class="method-result">void</span>
 										<a href="#setVariable" title="details" class="method-name">setVariable</a>
 											(<span class="var-type"></span>&nbsp;<span class="var-name">$name</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+															
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#stopPlayingTones" title="details" class="method-name">stopPlayingTones</a>
+										()
 									</div>
 															
 				<div class="method-definition">
@@ -1456,8 +1519,114 @@
 					</dl>
 			
 	</div>
-<a name="methodisEndOfEnvironmentVariables" id="isEndOfEnvironmentVariables"><!-- --></a>
+<a name="methodindicateBusy" id="indicateBusy"><!-- --></a>
 <div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">indicateBusy</span> (line <span class="line-number">739</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">(non-PHPdoc)</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="../Client/IClient.html#methodindicateBusy">IClient::indicateBusy()</a></li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			indicateBusy
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$timeout</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$timeout</span>			</li>
+				</ul>
+		
+				<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt><a href="../Client/IClient.html#methodindicateBusy">IClient::indicateBusy()</a></dt>
+						<dd>Indicates busy and waits for hangup. Does not play a busy tone.</dd>
+					</dl>
+			
+	</div>
+<a name="methodindicateCongestion" id="indicateCongestion"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">indicateCongestion</span> (line <span class="line-number">748</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">(non-PHPdoc)</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="../Client/IClient.html#methodindicateCongestion">IClient::indicateCongestion()</a></li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			indicateCongestion
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$timeout</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$timeout</span>			</li>
+				</ul>
+		
+				<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt><a href="../Client/IClient.html#methodindicateCongestion">IClient::indicateCongestion()</a></dt>
+						<dd>Indicates congestion and waits for hangup. Does not play a busy tone.</dd>
+					</dl>
+			
+	</div>
+<a name="methodindicateProgress" id="indicateProgress"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">indicateProgress</span> (line <span class="line-number">730</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">(non-PHPdoc)</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="../Client/IClient.html#methodindicateProgress">IClient::indicateProgress()</a></li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			indicateProgress
+		</span>
+				()
+			</div>
+	
+		
+				<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt><a href="../Client/IClient.html#methodindicateProgress">IClient::indicateProgress()</a></dt>
+						<dd>Indicates progress of a call, starting early audio.</dd>
+					</dl>
+			
+	</div>
+<a name="methodisEndOfEnvironmentVariables" id="isEndOfEnvironmentVariables"><!-- --></a>
+<div class="evenrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
@@ -1487,7 +1656,7 @@
 			
 	</div>
 <a name="methodlog" id="log"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
@@ -1527,7 +1696,7 @@
 			
 	</div>
 <a name="methodopen" id="open"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<img src="../media/images/AbstractMethod.png" />
@@ -1559,6 +1728,176 @@
 								: Opens connection to agi. Will also read initial channel variables given  by asterisk when launching the agi.
 							</li>
 				</ul>
+	</div>
+<a name="methodplayBusyTone" id="playBusyTone"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">playBusyTone</span> (line <span class="line-number">765</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">(non-PHPdoc)</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="../Client/IClient.html#methodplayBusyTone">IClient::playBusyTone()</a></li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			playBusyTone
+		</span>
+				()
+			</div>
+	
+		
+				<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt><a href="../Client/IClient.html#methodplayBusyTone">IClient::playBusyTone()</a></dt>
+						<dd>Plays &quot;Busy&quot; tone, defined in indications.conf</dd>
+					</dl>
+			
+	</div>
+<a name="methodplayCongestionTone" id="playCongestionTone"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">playCongestionTone</span> (line <span class="line-number">774</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">(non-PHPdoc)</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="../Client/IClient.html#methodplayCongestionTone">IClient::playCongestionTone()</a></li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			playCongestionTone
+		</span>
+				()
+			</div>
+	
+		
+				<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt><a href="../Client/IClient.html#methodplayCongestionTone">IClient::playCongestionTone()</a></dt>
+						<dd>Plays &quot;Congestion&quot; tone, defined in indications.conf</dd>
+					</dl>
+			
+	</div>
+<a name="methodplayCustomTones" id="playCustomTones"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">playCustomTones</span> (line <span class="line-number">791</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">(non-PHPdoc)</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="../Client/IClient.html#methodplayCustomTones">IClient::playCustomTones()</a></li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			playCustomTones
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$frequencies</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$frequencies</span>			</li>
+				</ul>
+		
+				<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt><a href="../Client/IClient.html#methodplayCustomTones">IClient::playCustomTones()</a></dt>
+						<dd>Plays a customized frequency tone.</dd>
+					</dl>
+			
+	</div>
+<a name="methodplayDialTone" id="playDialTone"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">playDialTone</span> (line <span class="line-number">756</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">(non-PHPdoc)</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="../Client/IClient.html#methodplayDialTone">IClient::playDialTone()</a></li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			playDialTone
+		</span>
+				()
+			</div>
+	
+		
+				<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt><a href="../Client/IClient.html#methodplayDialTone">IClient::playDialTone()</a></dt>
+						<dd>Plays &quot;Dial&quot; tone, defined in indications.conf</dd>
+					</dl>
+			
+	</div>
+<a name="methodplayTone" id="playTone"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">playTone</span> (line <span class="line-number">783</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">(non-PHPdoc)</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="../Client/IClient.html#methodplayTone">IClient::playTone()</a></li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			playTone
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$tone</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$tone</span>			</li>
+				</ul>
+		
+				<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt><a href="../Client/IClient.html#methodplayTone">IClient::playTone()</a></dt>
+						<dd>Plays a tone defined in indications.conf.</dd>
+					</dl>
+			
 	</div>
 <a name="methodreadEnvironmentVariable" id="readEnvironmentVariable"><!-- --></a>
 <div class="evenrow">
@@ -2305,8 +2644,40 @@
 					</dl>
 			
 	</div>
-<a name="methodstreamFile" id="streamFile"><!-- --></a>
+<a name="methodstopPlayingTones" id="stopPlayingTones"><!-- --></a>
 <div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">stopPlayingTones</span> (line <span class="line-number">799</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">(non-PHPdoc)</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="../Client/IClient.html#methodstopPlayingTones">IClient::stopPlayingTones()</a></li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			stopPlayingTones
+		</span>
+				()
+			</div>
+	
+		
+				<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt><a href="../Client/IClient.html#methodstopPlayingTones">IClient::stopPlayingTones()</a></dt>
+						<dd>Stop playing current played tones.</dd>
+					</dl>
+			
+	</div>
+<a name="methodstreamFile" id="streamFile"><!-- --></a>
+<div class="evenrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
@@ -2346,7 +2717,7 @@
 			
 	</div>
 <a name="methodwaitDigit" id="waitDigit"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
@@ -2383,7 +2754,7 @@
 			
 	</div>
 <a name="method_playAndRead" id="_playAndRead"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<img src="../media/images/PrivateMethod.png" />
@@ -2417,7 +2788,7 @@
 
 	
 	<p class="notes" id="credit">
-		Documentation generated on Tue, 27 Dec 2011 16:31:06 -0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Wed, 28 Dec 2011 12:23:49 -0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>
