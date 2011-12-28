@@ -1417,6 +1417,159 @@ class Test_Client extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function can_stop_playing_tones()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'EXEC "StopPlayTones" ""'
+        );
+        $read = array(
+            '200 result=0',
+        );
+        setFgetsMock($read, $write);
+        $result = $client->stopPlayingTones();
+    }
+    /**
+     * @test
+     */
+    public function can_play_tone()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'EXEC "PlayTones" "busy"'
+        );
+        $read = array(
+            '200 result=0',
+        );
+        setFgetsMock($read, $write);
+        $result = $client->playTone('busy');
+    }
+    /**
+     * @test
+     */
+    public function can_play_busy_tone()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'EXEC "PlayTones" "busy"'
+        );
+        $read = array(
+            '200 result=0',
+        );
+        setFgetsMock($read, $write);
+        $result = $client->playBusyTone();
+    }
+    /**
+     * @test
+     */
+    public function can_play_dial_tone()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'EXEC "PlayTones" "dial"'
+        );
+        $read = array(
+            '200 result=0',
+        );
+        setFgetsMock($read, $write);
+        $result = $client->playDialTone();
+    }
+    /**
+     * @test
+     */
+    public function can_play_congestion_tone()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'EXEC "PlayTones" "congestion"'
+        );
+        $read = array(
+            '200 result=0',
+        );
+        setFgetsMock($read, $write);
+        $result = $client->playCongestionTone();
+    }
+    /**
+     * @test
+     */
+    public function can_play_custom_tones()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'EXEC "PlayTones" "425/50,0/50"'
+        );
+        $read = array(
+            '200 result=0',
+        );
+        setFgetsMock($read, $write);
+        $result = $client->playCustomTones(array("425/50","0/50"));
+    }
+    /**
+     * @test
+     */
+    public function can_indicate_progress()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'EXEC "Progress" ""'
+        );
+        $read = array(
+            '200 result=0',
+        );
+        setFgetsMock($read, $write);
+        $result = $client->indicateProgress();
+    }
+    /**
+     * @test
+     */
+    public function can_indicate_busy()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'EXEC "Busy" "10"'
+        );
+        $read = array(
+            '200 result=0',
+        );
+        setFgetsMock($read, $write);
+        $result = $client->indicateBusy(10);
+    }
+    /**
+     * @test
+     */
+    public function can_indicate_congestion()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'EXEC "Congestion" "10"'
+        );
+        $read = array(
+            '200 result=0',
+        );
+        setFgetsMock($read, $write);
+        $result = $client->indicateCongestion(10);
+    }
+    /**
+     * @test
+     */
     public function can_send_fax()
     {
         global $standardAGIStart;

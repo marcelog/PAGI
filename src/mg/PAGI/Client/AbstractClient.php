@@ -722,4 +722,82 @@ abstract class AbstractClient implements IClient
     {
         return CallerIdFacade::getInstance($this);
     }
+
+    /**
+     * (non-PHPdoc)
+     * @see IClient::indicateProgress()
+     */
+    public function indicateProgress()
+    {
+        return $this->exec('Progress', array());
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see IClient::indicateBusy()
+     */
+    public function indicateBusy($timeout)
+    {
+        return $this->exec('Busy', array($timeout));
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see IClient::indicateCongestion()
+     */
+    public function indicateCongestion($timeout)
+    {
+        return $this->exec('Congestion', array($timeout));
+    }
+    /**
+     * (non-PHPdoc)
+     * @see IClient::playDialTone()
+     */
+    public function playDialTone()
+    {
+        return $this->playTone('dial');
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see IClient::playBusyTone()
+     */
+    public function playBusyTone()
+    {
+        return $this->playTone('busy');
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see IClient::playCongestionTone()
+     */
+    public function playCongestionTone()
+    {
+        return $this->playTone('congestion');
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see IClient::playTone()
+     */
+    public function playTone($tone)
+    {
+        return $this->exec('PlayTones', array($tone));
+    }
+    /**
+     * (non-PHPdoc)
+     * @see IClient::playCustomTones()
+     */
+    public function playCustomTones(array $frequencies)
+    {
+        return $this->exec('PlayTones', $frequencies);
+    }
+    /**
+     * (non-PHPdoc)
+     * @see IClient::stopPlayingTones()
+     */
+    public function stopPlayingTones()
+    {
+        return $this->exec('StopPlayTones', array());
+    }
 }

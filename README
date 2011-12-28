@@ -46,8 +46,8 @@ You can now easily install PAGI by issuing:
 
 or
 
-# pear install marcelog/PAGI-1.7.2
-just replace 1.7.2 by the release version you'd like to install :)
+# pear install marcelog/PAGI-1.8.2
+just replace 1.8.2 by the release version you'd like to install :)
 See: http://pear.marcelog.name/
 --------------------------------------------------------------------------------
 AutoDial

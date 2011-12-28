@@ -479,4 +479,70 @@ interface IClient
      * @return FaxResult
      */
     public function faxReceive($tiffFile);
+
+    /**
+     * Indicates progress of a call, starting early audio.
+     *
+     * @return ExecDecorator
+     */
+    public function indicateProgress();
+    /**
+     * Indicates busy and waits for hangup. Does not play a busy tone.
+     *
+     * @param integer $timeout Time in seconds to wait for hangup
+     *
+     * @return ExecDecorator
+     */
+    public function indicateBusy($timeout);
+    /**
+     * Indicates congestion and waits for hangup. Does not play a busy tone.
+     *
+     * @param integer $timeout Time in seconds to wait for hangup
+     *
+     * @return ExecDecorator
+     */
+    public function indicateCongestion($timeout);
+    /**
+     * Plays a tone defined in indications.conf.
+     *
+     * @param string $tone Tone to play
+     *
+     * @return ExecDecorator
+     */
+    public function playTone($tone);
+    /**
+     * Plays a customized frequency tone.
+     *
+     * @param string[] $frequencies Frequencies for the tone: 425/50,0/50 or
+     * !950/330,!1400/330,!1800/330,0 etc.
+     *
+     * @return ExecDecorator
+     */
+    public function playCustomTones(array $frequencies);
+    /**
+     * Stop playing current played tones.
+     *
+     * @return ExecDecorator
+     */
+    public function stopPlayingTones();
+
+    /**
+     * Plays "Dial" tone, defined in indications.conf
+     *
+     * @return ExecDecorator
+     */
+    public function playDialTone();
+    /**
+     * Plays "Busy" tone, defined in indications.conf
+     *
+     * @return ExecDecorator
+     */
+    public function playBusyTone();
+
+    /**
+     * Plays "Congestion" tone, defined in indications.conf
+     *
+     * @return ExecDecorator
+     */
+    public function playCongestionTone();
 }
