@@ -58,6 +58,7 @@ class Test_Application extends \PHPUnit_Framework_TestCase
     {
         global $standardAGIStart;
         setFgetsMock($standardAGIStart, array());
+        $this->_properties['pagiClient'] = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
         $application = new MyPAGIApplication($this->_properties);
         $refObject = new \ReflectionObject($application);
         $refMethod = $refObject->getMethod('getAgi');

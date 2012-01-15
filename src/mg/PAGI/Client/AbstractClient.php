@@ -7,8 +7,8 @@
  * @category Pagi
  * @package  Client
  * @author   Marcelo Gornstein <marcelog@gmail.com>
- * @license  http://www.noneyet.ar/ Apache License 2.0
- * @link     http://www.noneyet.ar/
+ * @license  http://marcelog.github.com/PAGI/ Apache License 2.0
+ * @link     http://marcelog.github.com/PAGI/
  *
  * Copyright 2011 Marcelo Gornstein <marcelog@gmail.com>
  *
@@ -58,8 +58,8 @@ use PAGI\CallerId\Impl\CallerIdFacade;
  * @category Pagi
  * @package  Client
  * @author   Marcelo Gornstein <marcelog@gmail.com>
- * @license  http://www.noneyet.ar/ Apache License 2.0
- * @link     http://www.noneyet.ar/
+ * @license  http://marcelog.github.com/PAGI/ Apache License 2.0
+ * @link     http://marcelog.github.com/PAGI/
  */
 abstract class AbstractClient implements IClient
 {

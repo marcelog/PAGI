@@ -15,9 +15,9 @@
  * @category Pagi
  * @package  Application
  * @author   Marcelo Gornstein <marcelog@gmail.com>
- * @license  http://www.noneyet.ar/ Apache License 2.0
+ * @license  http://marcelog.github.com/PAGI/ Apache License 2.0
  * @version  SVN: $Id$
- * @link     http://www.noneyet.ar/
+ * @link     http://marcelog.github.com/PAGI/
  *
  * Copyright 2011 Marcelo Gornstein <marcelog@gmail.com>
  *
@@ -56,7 +56,8 @@ try
     if (!$rClass->isSubclassOf('PAGI\\Application\\PAGIApplication')) {
         throw new \Exception($appName . ': Invalid application');
     }
-    $myApp = new $appName(array('log4php.properties' => $log4php));
+    $agi = PAGI\Client\Impl\ClientImpl::getInstance(array('log4php.properties' => $log4php));
+    $myApp = new $appName(array('pagiClient' => $agi));
     $myApp->init();
     $myApp->run();
 } catch (\Exception $e) {

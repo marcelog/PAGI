@@ -7,9 +7,9 @@
  * @category Pagi
  * @package  Application
  * @author   Marcelo Gornstein <marcelog@gmail.com>
- * @license  http://www.noneyet.ar/ Apache License 2.0
+ * @license  http://marcelog.github.com/PAGI/ Apache License 2.0
  * @version  SVN: $Id$
- * @link     http://www.noneyet.ar/
+ * @link     http://marcelog.github.com/PAGI/
  *
  * Copyright 2011 Marcelo Gornstein <marcelog@gmail.com>
  *
@@ -38,8 +38,8 @@ use PAGI\Client\Impl\ClientImpl;
  * @category Pagi
  * @package  Application
  * @author   Marcelo Gornstein <marcelog@gmail.com>
- * @license  http://www.noneyet.ar/ Apache License 2.0
- * @link     http://www.noneyet.ar/
+ * @license  http://marcelog.github.com/PAGI/ Apache License 2.0
+ * @link     http://marcelog.github.com/PAGI/
  */
 abstract class PAGIApplication
 {
@@ -122,7 +122,7 @@ abstract class PAGIApplication
             \Logger::configure($properties['log4php.properties']);
         }
         $this->logger = \Logger::getLogger('Pagi.PAGIApplication');
-        $this->_agiClient = ClientImpl::getInstance($properties);
+        $this->_agiClient = $properties['pagiClient'];
         register_shutdown_function(array($this, 'shutdown'));
         $signalHandler = array($this, 'signalHandler');
         pcntl_signal(SIGINT, $signalHandler);

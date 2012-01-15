@@ -46,8 +46,8 @@ You can now easily install PAGI by issuing:
 
 or
 
-# pear install marcelog/PAGI-1.8.2
-just replace 1.8.2 by the release version you'd like to install :)
+# pear install marcelog/PAGI-1.9.0
+just replace 1.9.0 by the release version you'd like to install :)
 See: http://pear.marcelog.name/
 --------------------------------------------------------------------------------
 AutoDial
@@ -96,6 +96,11 @@ Developers
 * It's very possible that you may need to edit build.properties.
 * Available main targets: all, build, test, report.
 * Tools run: phpdoc, phploc, phpcs, phpmd, phpcpd, phpdepend, phpunit.
+* Setup your installation by editing pear and php paths in build.properties
+* Run phing install-dependencies this will install pear and everything needed
+to run ding tests and metrics.
+* Run phing all
+* Check the API at http://marcelog.github.com/PAGI/api.html
 --------------------------------------------------------------------------------
 LICENSE
 =======

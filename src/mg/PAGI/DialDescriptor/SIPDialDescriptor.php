@@ -7,9 +7,9 @@
  * @category PAGI
  * @package  DialDescriptor
  * @author   Agustín Gutiérrez <agu.gutierrez@gmail.com>
- * @license  http://www.noneyet.ar/ Apache License 2.0
+ * @license  http://marcelog.github.com/PAGI/ Apache License 2.0
  * @version  SVN: $Id$
- * @link     http://www.noneyet.ar/
+ * @link     http://marcelog.github.com/PAGI/
  *
  * Copyright 2011 Marcelo Gornstein <marcelog@gmail.com>
  *
@@ -34,8 +34,8 @@ namespace PAGI\DialDescriptor;
  * @category PAGI
  * @package  DialDescriptor
  * @author   Agustín Gutiérrez <agu.gutierrez@gmail.com>
- * @license  http://www.noneyet.ar/ Apache License 2.0
- * @link     http://www.noneyet.ar/
+ * @license  http://marcelog.github.com/PAGI/ Apache License 2.0
+ * @link     http://marcelog.github.com/PAGI/
 **/
 class SIPDialDescriptor extends DialDescriptor
 {

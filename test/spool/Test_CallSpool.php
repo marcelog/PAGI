@@ -106,12 +106,12 @@ class Test_CallSpool extends \PHPUnit_Framework_TestCase
     {
         $call = new \PAGI\CallSpool\CallFile(new \PAGI\DialDescriptor\SIPDialDescriptor('target', 'provider'));
         $this->assertFalse($call->getArchive());
-        $call->setArchive('archive');
+        $call->setArchive(true);
         $call->setContext('context');
         $call->setPriority('priority');
         $call->setExtension('extension');
         $call->setApplication('application');
-        $call->setAlwaysDelete('alwaysDelete');
+        $call->setAlwaysDelete(true);
         $call->setCallerId('callerId');
         $call->setMaxRetries(33);
         $call->setRetryTime(44);
@@ -120,7 +120,7 @@ class Test_CallSpool extends \PHPUnit_Framework_TestCase
         $call->setAccount('account');
         $this->assertFalse($call->getApplicationData());
         $call->setApplicationData(array('a', 'b', 'c'));
-        $this->assertEquals($call->getArchive(), 'archive');
+        $this->assertTrue($call->getArchive());
         $this->assertEquals($call->getContext(), 'context');
         $this->assertEquals($call->getPriority(), 'priority');
         $this->assertEquals($call->getApplication(), 'application');
@@ -128,7 +128,7 @@ class Test_CallSpool extends \PHPUnit_Framework_TestCase
         $this->assertEquals($call->getMaxRetries(), 33);
         $this->assertEquals($call->getRetryTime(), 44);
         $this->assertEquals($call->getWaitTime(), 22);
-        $this->assertEquals($call->getAlwaysDelete(), 'alwaysDelete');
+        $this->assertTrue($call->getAlwaysDelete());
         $this->assertEquals($call->getCallerId(), 'callerId');
         $this->assertEquals($call->getAccount(), 'account');
         $this->assertEquals($call->getChannel(), 'SIP/target@provider');
