@@ -171,10 +171,6 @@
       passthru="true"
     />
     <exec
-      command="${pear.exec} install --alldeps zend.googlecode.com/svn/zend"
-      passthru="true"
-    />
-    <exec
       command="${pear.exec} install --alldeps pear.phpunit.de/PHPUnit"
       passthru="true"
     />
@@ -203,15 +199,7 @@
       passthru="true"
     />
     <exec
-      command="${pear.exec} install --alldeps pear.twig-project.org/twig"
-      passthru="true"
-    />
-    <exec
       command="${pear.exec} install --alldeps https://svn.apache.org/repos/asf/logging/log4php/releases/pear/Apache_log4php-2.1.0-pear.tgz"
-      passthru="true"
-    />
-    <exec
-      command="${pear.exec} install --alldeps pear-smarty.googlecode.com/svn/smarty"
       passthru="true"
     />
   </target>
