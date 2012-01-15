@@ -3,14 +3,14 @@
   <Packages>
     <Package name="PAGI\Application">
       <Stats>
-        <TotalClasses>2</TotalClasses>
-        <ConcreteClasses>1</ConcreteClasses>
+        <TotalClasses>1</TotalClasses>
+        <ConcreteClasses>0</ConcreteClasses>
         <AbstractClasses>1</AbstractClasses>
         <Ca>0</Ca>
         <Ce>1</Ce>
-        <A>0.5</A>
+        <A>1</A>
         <I>1</I>
-        <D>0.5</D>
+        <D>1</D>
       </Stats>
       <ConcreteClasses/>
       <AbstractClasses>
@@ -61,14 +61,14 @@
     </Package>
     <Package name="PAGI\CDR\Impl">
       <Stats>
-        <TotalClasses>2</TotalClasses>
-        <ConcreteClasses>2</ConcreteClasses>
+        <TotalClasses>1</TotalClasses>
+        <ConcreteClasses>1</ConcreteClasses>
         <AbstractClasses>0</AbstractClasses>
-        <Ca>0</Ca>
-        <Ce>1</Ce>
+        <Ca>1</Ca>
+        <Ce>2</Ce>
         <A>0</A>
-        <I>1</I>
-        <D>0</D>
+        <I>0.66666666666667</I>
+        <D>0.33333333333333</D>
       </Stats>
       <ConcreteClasses>
         <Class sourceFile="/export/users/marcelog/src/sts/PAGI/src/mg/PAGI/CDR/Impl/CDRFacade.php">CDRFacade</Class>
@@ -76,19 +76,22 @@
       <AbstractClasses/>
       <DependsUpon>
         <Package>PAGI\CDR</Package>
+        <Package>PAGI\Client</Package>
       </DependsUpon>
-      <UsedBy/>
+      <UsedBy>
+        <Package>PAGI\Client</Package>
+      </UsedBy>
     </Package>
     <Package name="PAGI\CallSpool">
       <Stats>
-        <TotalClasses>3</TotalClasses>
-        <ConcreteClasses>2</ConcreteClasses>
+        <TotalClasses>2</TotalClasses>
+        <ConcreteClasses>1</ConcreteClasses>
         <AbstractClasses>1</AbstractClasses>
         <Ca>1</Ca>
-        <Ce>0</Ce>
-        <A>0.333333333333</A>
-        <I>0</I>
-        <D>0.666666666667</D>
+        <Ce>1</Ce>
+        <A>0.5</A>
+        <I>0.5</I>
+        <D>0</D>
       </Stats>
       <ConcreteClasses>
         <Class sourceFile="/export/users/marcelog/src/sts/PAGI/src/mg/PAGI/CallSpool/CallFile.php">CallFile</Class>
@@ -96,7 +99,9 @@
       <AbstractClasses>
         <Class sourceFile="/export/users/marcelog/src/sts/PAGI/src/mg/PAGI/CallSpool/ICallSpool.php">ICallSpool</Class>
       </AbstractClasses>
-      <DependsUpon/>
+      <DependsUpon>
+        <Package>PAGI\DialDescriptor</Package>
+      </DependsUpon>
       <UsedBy>
         <Package>PAGI\CallSpool\Impl</Package>
       </UsedBy>
@@ -106,11 +111,11 @@
         <TotalClasses>1</TotalClasses>
         <ConcreteClasses>1</ConcreteClasses>
         <AbstractClasses>0</AbstractClasses>
-        <Ca>0</Ca>
+        <Ca>1</Ca>
         <Ce>1</Ce>
         <A>0</A>
-        <I>1</I>
-        <D>0</D>
+        <I>0.5</I>
+        <D>0.5</D>
       </Stats>
       <ConcreteClasses>
         <Class sourceFile="/export/users/marcelog/src/sts/PAGI/src/mg/PAGI/CallSpool/Exception/CallSpoolException.php">CallSpoolException</Class>
@@ -119,15 +124,17 @@
       <DependsUpon>
         <Package>PAGI\Exception</Package>
       </DependsUpon>
-      <UsedBy/>
+      <UsedBy>
+        <Package>PAGI\CallSpool\Impl</Package>
+      </UsedBy>
     </Package>
     <Package name="PAGI\CallSpool\Impl">
       <Stats>
-        <TotalClasses>3</TotalClasses>
-        <ConcreteClasses>3</ConcreteClasses>
+        <TotalClasses>1</TotalClasses>
+        <ConcreteClasses>1</ConcreteClasses>
         <AbstractClasses>0</AbstractClasses>
         <Ca>0</Ca>
-        <Ce>1</Ce>
+        <Ce>2</Ce>
         <A>0</A>
         <I>1</I>
         <D>0</D>
@@ -138,6 +145,7 @@
       <AbstractClasses/>
       <DependsUpon>
         <Package>PAGI\CallSpool</Package>
+        <Package>PAGI\CallSpool\Exception</Package>
       </DependsUpon>
       <UsedBy/>
     </Package>
@@ -163,14 +171,14 @@
     </Package>
     <Package name="PAGI\CallerId\Impl">
       <Stats>
-        <TotalClasses>2</TotalClasses>
-        <ConcreteClasses>2</ConcreteClasses>
+        <TotalClasses>1</TotalClasses>
+        <ConcreteClasses>1</ConcreteClasses>
         <AbstractClasses>0</AbstractClasses>
-        <Ca>0</Ca>
-        <Ce>1</Ce>
+        <Ca>1</Ca>
+        <Ce>2</Ce>
         <A>0</A>
-        <I>1</I>
-        <D>0</D>
+        <I>0.66666666666667</I>
+        <D>0.33333333333333</D>
       </Stats>
       <ConcreteClasses>
         <Class sourceFile="/export/users/marcelog/src/sts/PAGI/src/mg/PAGI/CallerId/Impl/CallerIdFacade.php">CallerIdFacade</Class>
@@ -178,8 +186,11 @@
       <AbstractClasses/>
       <DependsUpon>
         <Package>PAGI\CallerId</Package>
+        <Package>PAGI\Client</Package>
       </DependsUpon>
-      <UsedBy/>
+      <UsedBy>
+        <Package>PAGI\Client</Package>
+      </UsedBy>
     </Package>
     <Package name="PAGI\ChannelVariables">
       <Stats>
@@ -206,11 +217,11 @@
         <TotalClasses>1</TotalClasses>
         <ConcreteClasses>1</ConcreteClasses>
         <AbstractClasses>0</AbstractClasses>
-        <Ca>0</Ca>
+        <Ca>1</Ca>
         <Ce>1</Ce>
         <A>0</A>
-        <I>1</I>
-        <D>0</D>
+        <I>0.5</I>
+        <D>0.5</D>
       </Stats>
       <ConcreteClasses>
         <Class sourceFile="/export/users/marcelog/src/sts/PAGI/src/mg/PAGI/ChannelVariables/Impl/ChannelVariablesFacade.php">ChannelVariablesFacade</Class>
@@ -219,18 +230,20 @@
       <DependsUpon>
         <Package>PAGI\ChannelVariables</Package>
       </DependsUpon>
-      <UsedBy/>
+      <UsedBy>
+        <Package>PAGI\Client</Package>
+      </UsedBy>
     </Package>
     <Package name="PAGI\Client">
       <Stats>
-        <TotalClasses>17</TotalClasses>
-        <ConcreteClasses>15</ConcreteClasses>
+        <TotalClasses>3</TotalClasses>
+        <ConcreteClasses>1</ConcreteClasses>
         <AbstractClasses>2</AbstractClasses>
-        <Ca>1</Ca>
-        <Ce>2</Ce>
-        <A>0.117647058824</A>
-        <I>0.666666666667</I>
-        <D>0.21568627451</D>
+        <Ca>4</Ca>
+        <Ce>6</Ce>
+        <A>0.66666666666667</A>
+        <I>0.6</I>
+        <D>0.26666666666667</D>
       </Stats>
       <ConcreteClasses>
         <Class sourceFile="/export/users/marcelog/src/sts/PAGI/src/mg/PAGI/Client/ChannelStatus.php">ChannelStatus</Class>
@@ -240,17 +253,24 @@
         <Class sourceFile="/export/users/marcelog/src/sts/PAGI/src/mg/PAGI/Client/IClient.php">IClient</Class>
       </AbstractClasses>
       <DependsUpon>
+        <Package>PAGI\CDR\Impl</Package>
+        <Package>PAGI\CallerId\Impl</Package>
+        <Package>PAGI\ChannelVariables\Impl</Package>
         <Package>PAGI\Client\Result</Package>
         <Package>PAGI\Exception</Package>
+        <Package>PAGI\Logger\Asterisk\Impl</Package>
       </DependsUpon>
       <UsedBy>
+        <Package>PAGI\CDR\Impl</Package>
+        <Package>PAGI\CallerId\Impl</Package>
         <Package>PAGI\Client\Impl</Package>
+        <Package>PAGI\Logger\Asterisk\Impl</Package>
       </UsedBy>
     </Package>
     <Package name="PAGI\Client\Impl">
       <Stats>
-        <TotalClasses>2</TotalClasses>
-        <ConcreteClasses>2</ConcreteClasses>
+        <TotalClasses>1</TotalClasses>
+        <ConcreteClasses>1</ConcreteClasses>
         <AbstractClasses>0</AbstractClasses>
         <Ca>0</Ca>
         <Ce>3</Ce>
@@ -271,14 +291,14 @@
     </Package>
     <Package name="PAGI\Client\Result">
       <Stats>
-        <TotalClasses>14</TotalClasses>
-        <ConcreteClasses>10</ConcreteClasses>
+        <TotalClasses>12</TotalClasses>
+        <ConcreteClasses>8</ConcreteClasses>
         <AbstractClasses>4</AbstractClasses>
         <Ca>1</Ca>
         <Ce>1</Ce>
-        <A>0.285714285714</A>
+        <A>0.33333333333333</A>
         <I>0.5</I>
-        <D>0.214285714286</D>
+        <D>0.16666666666667</D>
       </Stats>
       <ConcreteClasses>
         <Class sourceFile="/export/users/marcelog/src/sts/PAGI/src/mg/PAGI/Client/Result/DataReadResult.php">DataReadResult</Class>
@@ -308,11 +328,11 @@
         <TotalClasses>3</TotalClasses>
         <ConcreteClasses>2</ConcreteClasses>
         <AbstractClasses>1</AbstractClasses>
-        <Ca>0</Ca>
+        <Ca>1</Ca>
         <Ce>0</Ce>
-        <A>0.333333333333</A>
+        <A>0.33333333333333</A>
         <I>0</I>
-        <D>0.666666666667</D>
+        <D>0.66666666666667</D>
       </Stats>
       <ConcreteClasses>
         <Class sourceFile="/export/users/marcelog/src/sts/PAGI/src/mg/PAGI/DialDescriptor/DAHDIDialDescriptor.php">DAHDIDialDescriptor</Class>
@@ -322,7 +342,9 @@
         <Class sourceFile="/export/users/marcelog/src/sts/PAGI/src/mg/PAGI/DialDescriptor/DialDescriptor.php">DialDescriptor</Class>
       </AbstractClasses>
       <DependsUpon/>
-      <UsedBy/>
+      <UsedBy>
+        <Package>PAGI\CallSpool</Package>
+      </UsedBy>
     </Package>
     <Package name="PAGI\Exception">
       <Stats>
@@ -377,24 +399,56 @@
     </Package>
     <Package name="PAGI\Logger\Asterisk\Impl">
       <Stats>
-        <TotalClasses>2</TotalClasses>
-        <ConcreteClasses>2</ConcreteClasses>
+        <TotalClasses>1</TotalClasses>
+        <ConcreteClasses>1</ConcreteClasses>
         <AbstractClasses>0</AbstractClasses>
-        <Ca>0</Ca>
-        <Ce>1</Ce>
+        <Ca>1</Ca>
+        <Ce>2</Ce>
         <A>0</A>
-        <I>1</I>
-        <D>0</D>
+        <I>0.66666666666667</I>
+        <D>0.33333333333333</D>
       </Stats>
       <ConcreteClasses>
         <Class sourceFile="/export/users/marcelog/src/sts/PAGI/src/mg/PAGI/Logger/Asterisk/Impl/AsteriskLoggerImpl.php">AsteriskLoggerImpl</Class>
       </ConcreteClasses>
       <AbstractClasses/>
       <DependsUpon>
+        <Package>PAGI\Client</Package>
         <Package>PAGI\Logger\Asterisk</Package>
       </DependsUpon>
-      <UsedBy/>
+      <UsedBy>
+        <Package>PAGI\Client</Package>
+      </UsedBy>
     </Package>
   </Packages>
-  <Cycles/>
+  <Cycles>
+    <Package Name="PAGI\CDR\Impl">
+      <Package>PAGI\CDR\Impl</Package>
+      <Package>PAGI\Client</Package>
+      <Package>PAGI\CDR\Impl</Package>
+    </Package>
+    <Package Name="PAGI\CallerId\Impl">
+      <Package>PAGI\CallerId\Impl</Package>
+      <Package>PAGI\Client</Package>
+      <Package>PAGI\CDR\Impl</Package>
+      <Package>PAGI\Client</Package>
+    </Package>
+    <Package Name="PAGI\Client">
+      <Package>PAGI\Client</Package>
+      <Package>PAGI\CDR\Impl</Package>
+      <Package>PAGI\Client</Package>
+    </Package>
+    <Package Name="PAGI\Client\Impl">
+      <Package>PAGI\Client\Impl</Package>
+      <Package>PAGI\Client</Package>
+      <Package>PAGI\CDR\Impl</Package>
+      <Package>PAGI\Client</Package>
+    </Package>
+    <Package Name="PAGI\Logger\Asterisk\Impl">
+      <Package>PAGI\Logger\Asterisk\Impl</Package>
+      <Package>PAGI\Client</Package>
+      <Package>PAGI\CDR\Impl</Package>
+      <Package>PAGI\Client</Package>
+    </Package>
+  </Cycles>
 </PDepend>

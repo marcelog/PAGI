@@ -1,0 +1,348 @@
+<html>
+    <head>
+        <script
+            type="text/javascript"
+            src="../../../js/jquery-1.4.2.min.js">
+        </script>
+        <script
+            type="text/javascript"
+            src="../../../syntax_highlighter/scripts/shCore.js">
+        </script>
+        <script
+            type="text/javascript"
+            src="../../../syntax_highlighter/scripts/shBrushJScript.js">
+        </script>
+        <script
+            type="text/javascript"
+            src="../../../syntax_highlighter/scripts/shBrushPhp.js">
+        </script>
+        <script
+            type="text/javascript"
+            src="../../../syntax_highlighter/scripts/shBrushXml.js">
+        </script>
+        <link
+            href="../../../syntax_highlighter/styles/shCore.css" rel="stylesheet"
+            type="text/css"
+        />
+        <link
+            href="../../../syntax_highlighter/styles/shCoreEclipse.css"
+            rel="stylesheet" type="text/css"
+        />
+        <link
+            href="../../../syntax_highlighter/styles/shThemeWordpress.css"
+            rel="stylesheet" type="text/css"
+        />
+    </head>
+    <body>
+        <pre class="brush: php">&lt;?php
+/**
+ * This decorated result adds the functionality to check for a dial result.
+ *
+ * PHP Version 5
+ *
+ * @category   Pagi
+ * @package    Client
+ * @subpackage Result
+ * @author     Marcelo Gornstein &lt;marcelog@gmail.com&gt;
+ * @license    http://marcelog.github.com/PAGI/ Apache License 2.0
+ * @version    SVN: $Id$
+ * @link       http://marcelog.github.com/PAGI/
+ *
+ * Copyright 2011 Marcelo Gornstein &lt;marcelog@gmail.com&gt;
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+namespace PAGI\Client\Result;
+
+use PAGI\Exception\ChannelDownException;
+use PAGI\Exception\ExecuteCommandException;
+
+/**
+ * This decorated result adds the functionality to check for a dial result.
+ *
+ * PHP Version 5
+ *
+ * @category   Pagi
+ * @package    Client
+ * @subpackage Result
+ * @author     Marcelo Gornstein &lt;marcelog@gmail.com&gt;
+ * @license    http://marcelog.github.com/PAGI/ Apache License 2.0
+ * @link       http://marcelog.github.com/PAGI/
+ */
+class DialResult extends ExecResult
+{
+    /**
+     * Dialed peer number.
+     * @var string
+     */
+    private $_dialedPeerNumber;
+
+    /**
+     * Dialed peer name.
+     * @var string
+     */
+    private $_dialedPeerName;
+
+    /**
+     * Total call length in seconds.
+     * @var integer
+     */
+    private $_dialedTime;
+
+    /**
+     * Total answered length in seconds.
+     * @var integer
+     */
+    private $_answeredTime;
+
+    /**
+     * Dial status.
+     * @var string
+     */
+    private $_dialStatus;
+
+    /**
+     * Features available for the call.
+     * @var string
+     */
+    private $_dynamicFeatures;
+
+    /**
+     * Returns Peer number.
+     *
+     * @return string
+     */
+    public function getPeerNumber()
+    {
+        return $this-&gt;_dialedPeerNumber;
+    }
+
+    /**
+     * Set peer number.
+     *
+     * @param string $number Peer number.
+     *
+     * @return void
+     */
+    public function setPeerNumber($number)
+    {
+        $this-&gt;_dialedPeerNumber = $number;
+    }
+
+    /**
+     * Returns Peer name.
+     *
+     * @return string
+     */
+    public function getPeerName()
+    {
+        return $this-&gt;_dialedPeerName;
+    }
+
+    /**
+     * Set peer name.
+     *
+     * @param string $name Peer name.
+     *
+     * @return void
+     */
+    public function setPeerName($name)
+    {
+        $this-&gt;_dialedPeerName = $name;
+    }
+
+    /**
+     * Returns total time for the call in seconds.
+     *
+     * @return integer
+     */
+    public function getDialedTime()
+    {
+        return $this-&gt;_dialedTime;
+    }
+
+    /**
+     * Set dialed time.
+     *
+     * @param integer $time Dialed time.
+     *
+     * @return void
+     */
+    public function setDialedTime($time)
+    {
+        $this-&gt;_dialedTime = $time;
+    }
+
+    /**
+     * Returns answered time.
+     *
+     * @return integer
+     */
+    public function getAnsweredTime()
+    {
+        return $this-&gt;_answeredTime;
+    }
+
+    /**
+     * Set answered time.
+     *
+     * @param integer $time Answered time.
+     *
+     * @return void
+     */
+    public function setAnsweredTime($time)
+    {
+        $this-&gt;_answeredTime = $time;
+    }
+
+    /**
+     * Returns dial status.
+     *
+     * @return string
+     */
+    public function getDialStatus()
+    {
+        return $this-&gt;_dialStatus;
+    }
+
+    /**
+     * Returns true if the result was BUSY.
+     *
+     * @return boolean
+     */
+    public function isBusy()
+    {
+        return $this-&gt;_dialStatus == 'BUSY';
+    }
+
+    /**
+     * Returns true if the result was CONGESTION.
+     *
+     * @return boolean
+     */
+    public function isCongestion()
+    {
+        return $this-&gt;_dialStatus == 'CONGESTION';
+    }
+
+    /**
+     * Returns true if the result was CANCEL.
+     *
+     * @return boolean
+     */
+    public function isCancel()
+    {
+        return $this-&gt;_dialStatus == 'CANCEL';
+    }
+    /**
+     * Returns true if the result was ANSWER.
+     *
+     * @return boolean
+     */
+    public function isAnswer()
+    {
+        return $this-&gt;_dialStatus == 'ANSWER';
+    }
+
+    /**
+     * Returns true if the result was NOANSWER.
+     *
+     * @return boolean
+     */
+    public function isNoAnswer()
+    {
+        return $this-&gt;_dialStatus == 'NOANSWER';
+    }
+
+    /**
+     * Returns true if the result was CHANUNAVAIL.
+     *
+     * @return boolean
+     */
+    public function isChanUnavailable()
+    {
+        return $this-&gt;_dialStatus == 'CHANUNAVAIL';
+    }
+    /**
+     * Set dial status.
+     *
+     * @param string $status Dial status.
+     *
+     * @return void
+     */
+    public function setDialStatus($status)
+    {
+        $this-&gt;_dialStatus = $status;
+    }
+
+    /**
+     * Returns features available for the call.
+     *
+     * @return string
+     */
+    public function getDynamicFeatures()
+    {
+        return $this-&gt;_dynamicFeatures;
+    }
+
+    /**
+     * Set features.
+     *
+     * @param string $features Features.
+     *
+     * @return void
+     */
+    public function setDynamicFeatures($features)
+    {
+        $this-&gt;_dynamicFeatures = $features;
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\Client\Result.ResultDecorator::__toString()
+     */
+    public function __toString()
+    {
+        return
+            '[ Dial: '
+            . ' PeerName: ' . $this-&gt;getPeerName()
+            . ' PeerNumber: ' . $this-&gt;getPeerNumber()
+            . ' DialedTime: ' . $this-&gt;getDialedTime()
+            . ' AnsweredTime: ' . $this-&gt;getAnsweredTime()
+            . ' DialStatus: ' . $this-&gt;getDialStatus()
+            . ' Features: ' . $this-&gt;getDynamicFeatures()
+            . ' ]'
+            ;
+    }
+
+    /**
+     * Constructor.
+     *
+     * @param IResult $result Result to decorate.
+     *
+     * @return void
+     */
+    public function __construct(IResult $result)
+    {
+        parent::__construct($result);
+    }
+}</pre>
+        <script type="text/javascript">
+             SyntaxHighlighter.all()
+             jQuery('.gutter div').each(function(key, data){
+                jQuery(data).prepend('<a name="L'+jQuery(data).text()+'"/>');
+             });
+        </script>
+    </body>
+</html>

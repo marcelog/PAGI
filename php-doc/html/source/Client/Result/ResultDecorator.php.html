@@ -1,0 +1,170 @@
+<html>
+    <head>
+        <script
+            type="text/javascript"
+            src="../../../js/jquery-1.4.2.min.js">
+        </script>
+        <script
+            type="text/javascript"
+            src="../../../syntax_highlighter/scripts/shCore.js">
+        </script>
+        <script
+            type="text/javascript"
+            src="../../../syntax_highlighter/scripts/shBrushJScript.js">
+        </script>
+        <script
+            type="text/javascript"
+            src="../../../syntax_highlighter/scripts/shBrushPhp.js">
+        </script>
+        <script
+            type="text/javascript"
+            src="../../../syntax_highlighter/scripts/shBrushXml.js">
+        </script>
+        <link
+            href="../../../syntax_highlighter/styles/shCore.css" rel="stylesheet"
+            type="text/css"
+        />
+        <link
+            href="../../../syntax_highlighter/styles/shCoreEclipse.css"
+            rel="stylesheet" type="text/css"
+        />
+        <link
+            href="../../../syntax_highlighter/styles/shThemeWordpress.css"
+            rel="stylesheet" type="text/css"
+        />
+    </head>
+    <body>
+        <pre class="brush: php">&lt;?php
+/**
+ * A result decorator.
+ *
+ * PHP Version 5
+ *
+ * @category   Pagi
+ * @package    Client
+ * @subpackage Result
+ * @author     Marcelo Gornstein &lt;marcelog@gmail.com&gt;
+ * @license    http://marcelog.github.com/PAGI/ Apache License 2.0
+ * @version    SVN: $Id$
+ * @link       http://marcelog.github.com/PAGI/
+ *
+ * Copyright 2011 Marcelo Gornstein &lt;marcelog@gmail.com&gt;
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+namespace PAGI\Client\Result;
+
+/**
+ * A result decorator.
+ *
+ * PHP Version 5
+ *
+ * @category   Pagi
+ * @package    Client
+ * @subpackage Result
+ * @author     Marcelo Gornstein &lt;marcelog@gmail.com&gt;
+ * @license    http://marcelog.github.com/PAGI/ Apache License 2.0
+ * @link       http://marcelog.github.com/PAGI/
+ */
+abstract class ResultDecorator implements IResult
+{
+    /**
+     * Our decorated result.
+     * @var IResult
+     */
+    private $_result;
+
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\Client\Result.IResult::getOriginalLine()
+     */
+    public function getOriginalLine()
+    {
+        return $this-&gt;_result-&gt;getOriginalLine();
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\Client\Result.IResult::getCode()
+     */
+    public function getCode()
+    {
+        return $this-&gt;_result-&gt;getCode();
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\Client\Result.IResult::getResult()
+     */
+    public function getResult()
+    {
+        return $this-&gt;_result-&gt;getResult();
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\Client\Result.IResult::isResult()
+     */
+    public function isResult($value)
+    {
+        return $this-&gt;_result-&gt;isResult($value);
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\Client\Result.IResult::hasData()
+     */
+    public function hasData()
+    {
+        return $this-&gt;_result-&gt;hasData();
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\Client\Result.IResult::getData()
+     */
+    public function getData()
+    {
+        return $this-&gt;_result-&gt;getData();
+    }
+
+    /**
+     * Standard procedure.
+	 *
+	 * @return string
+     */
+    public function __toString()
+    {
+        return $this-&gt;_result-&gt;__toString();
+    }
+    /**
+     * Constructor.
+     *
+     * @param IResult $result Result to decorate.
+     *
+     * @return void
+     */
+    public function __construct(IResult $result)
+    {
+        $this-&gt;_result = $result;
+    }
+}</pre>
+        <script type="text/javascript">
+             SyntaxHighlighter.all()
+             jQuery('.gutter div').each(function(key, data){
+                jQuery(data).prepend('<a name="L'+jQuery(data).text()+'"/>');
+             });
+        </script>
+    </body>
+</html>

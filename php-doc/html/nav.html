@@ -1,0 +1,388 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>PAGI Asterisk Gateway Interface PHP Client</title><link rel="stylesheet" href="css/jquery-ui.css" type="text/css"></link><link rel="stylesheet" href="css/docblox/jquery-ui-1.8.16.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.tools.min.js"></script><script type="text/javascript" src="js/jquery.cookie.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><script type="text/javascript">
+            $(document).ready(function() {
+                $(".filetree").treeview({
+                    collapsed: true,
+                    persist: "cookie"
+                });
+
+                $("#accordion").accordion({
+                    collapsible: true,
+                    autoHeight:  false,
+                    fillSpace:   true
+                });
+
+                $(".tabs").tabs();
+            });
+        </script></head><body><script xmlns="" type="text/javascript" src="js/sidebar.js"></script><div xmlns="" id="sidebar">
+<div id="sidebar-header">
+<h1>PAGI Asterisk Gateway Interface PHP Client</h1>
+<div style="clear: both"></div>
+</div>
+<div id="sidebar-nav">
+<h3 id="sidebar-dashboard">
+<img class="icon" src="css/docblox/images/icons/dashboard.png" alt="Dashboard"><a href="content.html" class="link" target="content">Dashboard</a>
+</h3>
+<div style="display: none"></div>
+<h3 id="sidebar-files">
+<img src="css/docblox/images/icons/files.png" alt="Files"><a href="#files">Files</a>
+</h3>
+<div class="sidebar-section">
+<div class="search-bar">
+<a href="#" onclick="$(this).parent().next().find('.collapsable-hitarea').click(); return false;"><img src="images/collapse_all.png" title="Collapse all" alt="Collapse all"></a><a href="#" onclick="$(this).parent().next().find('.expandable-hitarea').click(); return false;"><img src="images/expand_all.png" title="Expand all" alt="Expand all"></a><div><input type="text" onkeyup="tree_search(this);"></div>
+</div>
+<ul class="sidebar-nav-tree">
+<li class="closed">
+<span class="file"><a href="db_Application_PAGIApplication.html" target="content">Application/PAGIApplication.php</a></span><ul id="files_b05c88a19494fb6b2d3ebc1d4caafdde" class="filetree"><li><span class="class"><a href="db_Application_PAGIApplication.html#%5CPAGI%5CApplication%5CPAGIApplication" target="content">PAGIApplication<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_Application_PAGILauncher.html" target="content">Application/PAGILauncher.php</a></span><ul id="files_480b5db0cd51e9b061260690c9f3001c" class="filetree"></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_Autoloader_Autoloader.html" target="content">Autoloader/Autoloader.php</a></span><ul id="files_dc4ee400735587a732d74c73cc11aa76" class="filetree"><li><span class="class"><a href="db_Autoloader_Autoloader.html#%5CPAGI%5CAutoloader%5CAutoloader" target="content">Autoloader<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_CDR_ICDR.html" target="content">CDR/ICDR.php</a></span><ul id="files_1fa6fea759be11004a2721abe04d8192" class="filetree"><li><span class="interface"><a href="db_CDR_ICDR.html#%5CPAGI%5CCDR%5CICDR" target="content">ICDR<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_CDR_Impl_CDRFacade.html" target="content">CDR/Impl/CDRFacade.php</a></span><ul id="files_38c72ae43a5bc686684f5663f3f2ec1a" class="filetree"><li><span class="class"><a href="db_CDR_Impl_CDRFacade.html#%5CPAGI%5CCDR%5CImpl%5CCDRFacade" target="content">CDRFacade<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_CallSpool_CallFile.html" target="content">CallSpool/CallFile.php</a></span><ul id="files_8c43735c1865e22c8099533144c696f5" class="filetree"><li><span class="class"><a href="db_CallSpool_CallFile.html#%5CPAGI%5CCallSpool%5CCallFile" target="content">CallFile<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_CallSpool_Exception_CallSpoolException.html" target="content">CallSpool/Exception/CallSpoolException.php</a></span><ul id="files_3636271c9cd05c37cefe43af0e569a9a" class="filetree"><li><span class="class"><a href="db_CallSpool_Exception_CallSpoolException.html#%5CPAGI%5CCallSpool%5CException%5CCallSpoolException" target="content">CallSpoolException<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_CallSpool_ICallSpool.html" target="content">CallSpool/ICallSpool.php</a></span><ul id="files_749edb69c4ebf32c869de562925665ae" class="filetree"><li><span class="interface"><a href="db_CallSpool_ICallSpool.html#%5CPAGI%5CCallSpool%5CICallSpool" target="content">ICallSpool<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_CallSpool_Impl_CallSpoolImpl.html" target="content">CallSpool/Impl/CallSpoolImpl.php</a></span><ul id="files_5dc03015ffab137847bd8419c237c83b" class="filetree"><li><span class="class"><a href="db_CallSpool_Impl_CallSpoolImpl.html#%5CPAGI%5CCallSpool%5CImpl%5CCallSpoolImpl" target="content">CallSpoolImpl<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_CallerId_ICallerId.html" target="content">CallerId/ICallerId.php</a></span><ul id="files_6f442c8bd168b8c4fdb5df1b53f776ff" class="filetree"><li><span class="interface"><a href="db_CallerId_ICallerId.html#%5CPAGI%5CCallerId%5CICallerId" target="content">ICallerId<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_CallerId_Impl_CallerIdFacade.html" target="content">CallerId/Impl/CallerIdFacade.php</a></span><ul id="files_8c75ea7eb0e56ca4ec3f586512a4cec4" class="filetree"><li><span class="class"><a href="db_CallerId_Impl_CallerIdFacade.html#%5CPAGI%5CCallerId%5CImpl%5CCallerIdFacade" target="content">CallerIdFacade<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_ChannelVariables_IChannelVariables.html" target="content">ChannelVariables/IChannelVariables.php</a></span><ul id="files_7d93ec290305eb37d60f3c3457327ac4" class="filetree"><li><span class="interface"><a href="db_ChannelVariables_IChannelVariables.html#%5CPAGI%5CChannelVariables%5CIChannelVariables" target="content">IChannelVariables<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_ChannelVariables_Impl_ChannelVariablesFacade.html" target="content">ChannelVariables/Impl/ChannelVariablesFacade.php</a></span><ul id="files_4595f116bd3073a93a0fba6dd1987353" class="filetree"><li><span class="class"><a href="db_ChannelVariables_Impl_ChannelVariablesFacade.html#%5CPAGI%5CChannelVariables%5CImpl%5CChannelVariablesFacade" target="content">ChannelVariablesFacade<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_Client_AbstractClient.html" target="content">Client/AbstractClient.php</a></span><ul id="files_431109b0202eb2a8d8ae61b403eb2e9c" class="filetree"><li><span class="class"><a href="db_Client_AbstractClient.html#%5CPAGI%5CClient%5CAbstractClient" target="content">AbstractClient<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_Client_ChannelStatus.html" target="content">Client/ChannelStatus.php</a></span><ul id="files_8e2ba10f51ad26f4719020058283c5ec" class="filetree"><li><span class="class"><a href="db_Client_ChannelStatus.html#%5CPAGI%5CClient%5CChannelStatus" target="content">ChannelStatus<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_Client_IClient.html" target="content">Client/IClient.php</a></span><ul id="files_601f525736fd08b292f8fb046f817c46" class="filetree"><li><span class="interface"><a href="db_Client_IClient.html#%5CPAGI%5CClient%5CIClient" target="content">IClient<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_Client_Impl_ClientImpl.html" target="content">Client/Impl/ClientImpl.php</a></span><ul id="files_a4cc4ca405d81f7e3815c1bb50505ad7" class="filetree"><li><span class="class"><a href="db_Client_Impl_ClientImpl.html#%5CPAGI%5CClient%5CImpl%5CClientImpl" target="content">ClientImpl<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_Client_Result_DataReadResult.html" target="content">Client/Result/DataReadResult.php</a></span><ul id="files_84541d3eb2df0530310769c1c0ba35fc" class="filetree"><li><span class="class"><a href="db_Client_Result_DataReadResult.html#%5CPAGI%5CClient%5CResult%5CDataReadResult" target="content">DataReadResult<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_Client_Result_DialResult.html" target="content">Client/Result/DialResult.php</a></span><ul id="files_85e70a532a72faabf700010ab840b399" class="filetree"><li><span class="class"><a href="db_Client_Result_DialResult.html#%5CPAGI%5CClient%5CResult%5CDialResult" target="content">DialResult<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_Client_Result_DigitReadResult.html" target="content">Client/Result/DigitReadResult.php</a></span><ul id="files_b5076c0c5e233503b8523d62b7aa08eb" class="filetree"><li><span class="class"><a href="db_Client_Result_DigitReadResult.html#%5CPAGI%5CClient%5CResult%5CDigitReadResult" target="content">DigitReadResult<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_Client_Result_ExecResult.html" target="content">Client/Result/ExecResult.php</a></span><ul id="files_3c545c84c609f3c94e2bab1fba9d70ac" class="filetree"><li><span class="class"><a href="db_Client_Result_ExecResult.html#%5CPAGI%5CClient%5CResult%5CExecResult" target="content">ExecResult<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_Client_Result_FaxResult.html" target="content">Client/Result/FaxResult.php</a></span><ul id="files_288b4859951b32c83be81e7f918782c2" class="filetree"><li><span class="class"><a href="db_Client_Result_FaxResult.html#%5CPAGI%5CClient%5CResult%5CFaxResult" target="content">FaxResult<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_Client_Result_IReadResult.html" target="content">Client/Result/IReadResult.php</a></span><ul id="files_d27981844017b392233cb2cc1fdad220" class="filetree"><li><span class="interface"><a href="db_Client_Result_IReadResult.html#%5CPAGI%5CClient%5CResult%5CIReadResult" target="content">IReadResult<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_Client_Result_IResult.html" target="content">Client/Result/IResult.php</a></span><ul id="files_e11cc2a26cccf9176c62ab17544c70bd" class="filetree"><li><span class="interface"><a href="db_Client_Result_IResult.html#%5CPAGI%5CClient%5CResult%5CIResult" target="content">IResult<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_Client_Result_PlayResult.html" target="content">Client/Result/PlayResult.php</a></span><ul id="files_e7fcdf5e9efe700ea4ce22abbb8977e5" class="filetree"><li><span class="class"><a href="db_Client_Result_PlayResult.html#%5CPAGI%5CClient%5CResult%5CPlayResult" target="content">PlayResult<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_Client_Result_ReadResultDecorator.html" target="content">Client/Result/ReadResultDecorator.php</a></span><ul id="files_c7907dab26b77e2f6a79e715823a39a7" class="filetree"><li><span class="class"><a href="db_Client_Result_ReadResultDecorator.html#%5CPAGI%5CClient%5CResult%5CReadResultDecorator" target="content">ReadResultDecorator<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_Client_Result_RecordResult.html" target="content">Client/Result/RecordResult.php</a></span><ul id="files_b278aa12c153ec2fc489cd4dacb540b5" class="filetree"><li><span class="class"><a href="db_Client_Result_RecordResult.html#%5CPAGI%5CClient%5CResult%5CRecordResult" target="content">RecordResult<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_Client_Result_Result.html" target="content">Client/Result/Result.php</a></span><ul id="files_132a98640ef70ddab8a20e5f48a848f9" class="filetree"><li><span class="class"><a href="db_Client_Result_Result.html#%5CPAGI%5CClient%5CResult%5CResult" target="content">Result<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_Client_Result_ResultDecorator.html" target="content">Client/Result/ResultDecorator.php</a></span><ul id="files_2e60006ae3a104902165e16d92bfba46" class="filetree"><li><span class="class"><a href="db_Client_Result_ResultDecorator.html#%5CPAGI%5CClient%5CResult%5CResultDecorator" target="content">ResultDecorator<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_DialDescriptor_DAHDIDialDescriptor.html" target="content">DialDescriptor/DAHDIDialDescriptor.php</a></span><ul id="files_8e2bc80e08e2f42c2f29f75f80ac949e" class="filetree"><li><span class="class"><a href="db_DialDescriptor_DAHDIDialDescriptor.html#%5CPAGI%5CDialDescriptor%5CDAHDIDialDescriptor" target="content">DAHDIDialDescriptor<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_DialDescriptor_DialDescriptor.html" target="content">DialDescriptor/DialDescriptor.php</a></span><ul id="files_1cb3e6df14dd1217592eabc985705747" class="filetree"><li><span class="class"><a href="db_DialDescriptor_DialDescriptor.html#%5CPAGI%5CDialDescriptor%5CDialDescriptor" target="content">DialDescriptor<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_DialDescriptor_SIPDialDescriptor.html" target="content">DialDescriptor/SIPDialDescriptor.php</a></span><ul id="files_b588c7d162b7b5442d500810859c4ae6" class="filetree"><li><span class="class"><a href="db_DialDescriptor_SIPDialDescriptor.html#%5CPAGI%5CDialDescriptor%5CSIPDialDescriptor" target="content">SIPDialDescriptor<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_Exception_ChannelDownException.html" target="content">Exception/ChannelDownException.php</a></span><ul id="files_2abed0cd3e7cf6581780317e5fe44eb8" class="filetree"><li><span class="class"><a href="db_Exception_ChannelDownException.html#%5CPAGI%5CException%5CChannelDownException" target="content">ChannelDownException<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_Exception_DatabaseInvalidEntryException.html" target="content">Exception/DatabaseInvalidEntryException.php</a></span><ul id="files_1860469b9b99cb93b3de4f07891b0f65" class="filetree"><li><span class="class"><a href="db_Exception_DatabaseInvalidEntryException.html#%5CPAGI%5CException%5CDatabaseInvalidEntryException" target="content">DatabaseInvalidEntryException<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_Exception_ExecuteCommandException.html" target="content">Exception/ExecuteCommandException.php</a></span><ul id="files_503222a60780448a85decac61b9064e0" class="filetree"><li><span class="class"><a href="db_Exception_ExecuteCommandException.html#%5CPAGI%5CException%5CExecuteCommandException" target="content">ExecuteCommandException<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_Exception_InvalidCommandException.html" target="content">Exception/InvalidCommandException.php</a></span><ul id="files_b621e1db31203d3954a4b4de4132c06a" class="filetree"><li><span class="class"><a href="db_Exception_InvalidCommandException.html#%5CPAGI%5CException%5CInvalidCommandException" target="content">InvalidCommandException<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_Exception_PAGIException.html" target="content">Exception/PAGIException.php</a></span><ul id="files_47e7d8f6b39ce01fe3f1d6dbeff06dca" class="filetree"><li><span class="class"><a href="db_Exception_PAGIException.html#%5CPAGI%5CException%5CPAGIException" target="content">PAGIException<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_Exception_RecordException.html" target="content">Exception/RecordException.php</a></span><ul id="files_345b86e61bded7ae796807456c3d1323" class="filetree"><li><span class="class"><a href="db_Exception_RecordException.html#%5CPAGI%5CException%5CRecordException" target="content">RecordException<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_Exception_SoundFileException.html" target="content">Exception/SoundFileException.php</a></span><ul id="files_a4db346297d33e1e8b33d221aa894bf4" class="filetree"><li><span class="class"><a href="db_Exception_SoundFileException.html#%5CPAGI%5CException%5CSoundFileException" target="content">SoundFileException<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_Logger_Asterisk_IAsteriskLogger.html" target="content">Logger/Asterisk/IAsteriskLogger.php</a></span><ul id="files_94fdabb42d5d37f9dbb608d8c089aded" class="filetree"><li><span class="interface"><a href="db_Logger_Asterisk_IAsteriskLogger.html#%5CPAGI%5CLogger%5CAsterisk%5CIAsteriskLogger" target="content">IAsteriskLogger<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_Logger_Asterisk_Impl_AsteriskLoggerImpl.html" target="content">Logger/Asterisk/Impl/AsteriskLoggerImpl.php</a></span><ul id="files_9136f6e201cfd8de08942191aba08527" class="filetree"><li><span class="class"><a href="db_Logger_Asterisk_Impl_AsteriskLoggerImpl.html#%5CPAGI%5CLogger%5CAsterisk%5CImpl%5CAsteriskLoggerImpl" target="content">AsteriskLoggerImpl<br></a></span></li></ul>
+</li>
+</ul>
+</div>
+<h3 id="sidebar-packages">
+<img src="css/docblox/images/icons/packages.png" alt="Packages"><a href="#packages">Packages</a>
+</h3>
+<div class="sidebar-section sidebar-tree">
+<div class="search-bar">
+<a href="#" onclick="$(this).parent().next().find('.collapsable-hitarea').click(); return false;"><img src="images/collapse_all.png" title="Collapse all" alt="Collapse all"></a><a href="#" onclick="$(this).parent().next().find('.expandable-hitarea').click(); return false;"><img src="images/expand_all.png" title="Expand all" alt="Expand all"></a><div><input type="text" onkeyup="tree_search(this);"></div>
+</div>
+<ul class="sidebar-nav-tree">
+<li class="closed">
+<span class="folder">Application</span><ul><li><span class="class"><a href="db_Application_PAGIApplication.html#%5CPAGI%5CApplication%5CPAGIApplication" target="content">PAGIApplication</a></span></li></ul>
+</li>
+<li class="closed">
+<span class="folder">Autoloader</span><ul><li><span class="class"><a href="db_Autoloader_Autoloader.html#%5CPAGI%5CAutoloader%5CAutoloader" target="content">Autoloader</a></span></li></ul>
+</li>
+<li class="closed">
+<span class="folder">CDR</span><ul>
+<li class="closed">
+<span class="folder">Impl</span><ul><li><span class="class"><a href="db_CDR_Impl_CDRFacade.html#%5CPAGI%5CCDR%5CImpl%5CCDRFacade" target="content">CDRFacade</a></span></li></ul>
+</li>
+<li><span class="interface"><a href="db_CDR_ICDR.html#%5CPAGI%5CCDR%5CICDR" target="content">ICDR</a></span></li>
+</ul>
+</li>
+<li class="closed">
+<span class="folder">CallSpool</span><ul>
+<li class="closed">
+<span class="folder">Exception</span><ul><li><span class="class"><a href="db_CallSpool_Exception_CallSpoolException.html#%5CPAGI%5CCallSpool%5CException%5CCallSpoolException" target="content">CallSpoolException</a></span></li></ul>
+</li>
+<li class="closed">
+<span class="folder">Impl</span><ul><li><span class="class"><a href="db_CallSpool_Impl_CallSpoolImpl.html#%5CPAGI%5CCallSpool%5CImpl%5CCallSpoolImpl" target="content">CallSpoolImpl</a></span></li></ul>
+</li>
+<li><span class="class"><a href="db_CallSpool_CallFile.html#%5CPAGI%5CCallSpool%5CCallFile" target="content">CallFile</a></span></li>
+<li><span class="interface"><a href="db_CallSpool_ICallSpool.html#%5CPAGI%5CCallSpool%5CICallSpool" target="content">ICallSpool</a></span></li>
+</ul>
+</li>
+<li class="closed">
+<span class="folder">Callerid</span><ul>
+<li><span class="class"><a href="db_CallerId_Impl_CallerIdFacade.html#%5CPAGI%5CCallerId%5CImpl%5CCallerIdFacade" target="content">CallerIdFacade</a></span></li>
+<li><span class="interface"><a href="db_CallerId_ICallerId.html#%5CPAGI%5CCallerId%5CICallerId" target="content">ICallerId</a></span></li>
+</ul>
+</li>
+<li class="closed">
+<span class="folder">ChannelVariables</span><ul>
+<li class="closed">
+<span class="folder">Impl</span><ul><li><span class="class"><a href="db_ChannelVariables_Impl_ChannelVariablesFacade.html#%5CPAGI%5CChannelVariables%5CImpl%5CChannelVariablesFacade" target="content">ChannelVariablesFacade</a></span></li></ul>
+</li>
+<li><span class="interface"><a href="db_ChannelVariables_IChannelVariables.html#%5CPAGI%5CChannelVariables%5CIChannelVariables" target="content">IChannelVariables</a></span></li>
+</ul>
+</li>
+<li class="closed">
+<span class="folder">Client</span><ul>
+<li class="closed">
+<span class="folder">Impl</span><ul><li><span class="class"><a href="db_Client_Impl_ClientImpl.html#%5CPAGI%5CClient%5CImpl%5CClientImpl" target="content">ClientImpl</a></span></li></ul>
+</li>
+<li class="closed">
+<span class="folder">Result</span><ul>
+<li><span class="class"><a href="db_Client_Result_DataReadResult.html#%5CPAGI%5CClient%5CResult%5CDataReadResult" target="content">DataReadResult</a></span></li>
+<li><span class="class"><a href="db_Client_Result_DialResult.html#%5CPAGI%5CClient%5CResult%5CDialResult" target="content">DialResult</a></span></li>
+<li><span class="class"><a href="db_Client_Result_DigitReadResult.html#%5CPAGI%5CClient%5CResult%5CDigitReadResult" target="content">DigitReadResult</a></span></li>
+<li><span class="class"><a href="db_Client_Result_ExecResult.html#%5CPAGI%5CClient%5CResult%5CExecResult" target="content">ExecResult</a></span></li>
+<li><span class="class"><a href="db_Client_Result_FaxResult.html#%5CPAGI%5CClient%5CResult%5CFaxResult" target="content">FaxResult</a></span></li>
+<li><span class="interface"><a href="db_Client_Result_IReadResult.html#%5CPAGI%5CClient%5CResult%5CIReadResult" target="content">IReadResult</a></span></li>
+<li><span class="interface"><a href="db_Client_Result_IResult.html#%5CPAGI%5CClient%5CResult%5CIResult" target="content">IResult</a></span></li>
+<li><span class="class"><a href="db_Client_Result_PlayResult.html#%5CPAGI%5CClient%5CResult%5CPlayResult" target="content">PlayResult</a></span></li>
+<li><span class="class"><a href="db_Client_Result_ReadResultDecorator.html#%5CPAGI%5CClient%5CResult%5CReadResultDecorator" target="content">ReadResultDecorator</a></span></li>
+<li><span class="class"><a href="db_Client_Result_RecordResult.html#%5CPAGI%5CClient%5CResult%5CRecordResult" target="content">RecordResult</a></span></li>
+<li><span class="class"><a href="db_Client_Result_Result.html#%5CPAGI%5CClient%5CResult%5CResult" target="content">Result</a></span></li>
+<li><span class="class"><a href="db_Client_Result_ResultDecorator.html#%5CPAGI%5CClient%5CResult%5CResultDecorator" target="content">ResultDecorator</a></span></li>
+</ul>
+</li>
+<li><span class="class"><a href="db_Client_AbstractClient.html#%5CPAGI%5CClient%5CAbstractClient" target="content">AbstractClient</a></span></li>
+<li><span class="class"><a href="db_Client_ChannelStatus.html#%5CPAGI%5CClient%5CChannelStatus" target="content">ChannelStatus</a></span></li>
+<li><span class="interface"><a href="db_Client_IClient.html#%5CPAGI%5CClient%5CIClient" target="content">IClient</a></span></li>
+</ul>
+</li>
+<li class="closed">
+<span class="folder">DialDescriptor</span><ul>
+<li><span class="class"><a href="db_DialDescriptor_DAHDIDialDescriptor.html#%5CPAGI%5CDialDescriptor%5CDAHDIDialDescriptor" target="content">DAHDIDialDescriptor</a></span></li>
+<li><span class="class"><a href="db_DialDescriptor_DialDescriptor.html#%5CPAGI%5CDialDescriptor%5CDialDescriptor" target="content">DialDescriptor</a></span></li>
+<li><span class="class"><a href="db_DialDescriptor_SIPDialDescriptor.html#%5CPAGI%5CDialDescriptor%5CSIPDialDescriptor" target="content">SIPDialDescriptor</a></span></li>
+</ul>
+</li>
+<li class="closed">
+<span class="folder">Exception</span><ul>
+<li><span class="class"><a href="db_Exception_ChannelDownException.html#%5CPAGI%5CException%5CChannelDownException" target="content">ChannelDownException</a></span></li>
+<li><span class="class"><a href="db_Exception_DatabaseInvalidEntryException.html#%5CPAGI%5CException%5CDatabaseInvalidEntryException" target="content">DatabaseInvalidEntryException</a></span></li>
+<li><span class="class"><a href="db_Exception_ExecuteCommandException.html#%5CPAGI%5CException%5CExecuteCommandException" target="content">ExecuteCommandException</a></span></li>
+<li><span class="class"><a href="db_Exception_InvalidCommandException.html#%5CPAGI%5CException%5CInvalidCommandException" target="content">InvalidCommandException</a></span></li>
+<li><span class="class"><a href="db_Exception_PAGIException.html#%5CPAGI%5CException%5CPAGIException" target="content">PAGIException</a></span></li>
+<li><span class="class"><a href="db_Exception_RecordException.html#%5CPAGI%5CException%5CRecordException" target="content">RecordException</a></span></li>
+<li><span class="class"><a href="db_Exception_SoundFileException.html#%5CPAGI%5CException%5CSoundFileException" target="content">SoundFileException</a></span></li>
+</ul>
+</li>
+<li class="closed">
+<span class="folder">Logger</span><ul><li class="closed">
+<span class="folder">Asterisk</span><ul>
+<li class="closed">
+<span class="folder">Impl</span><ul><li><span class="class"><a href="db_Logger_Asterisk_Impl_AsteriskLoggerImpl.html#%5CPAGI%5CLogger%5CAsterisk%5CImpl%5CAsteriskLoggerImpl" target="content">AsteriskLoggerImpl</a></span></li></ul>
+</li>
+<li><span class="interface"><a href="db_Logger_Asterisk_IAsteriskLogger.html#%5CPAGI%5CLogger%5CAsterisk%5CIAsteriskLogger" target="content">IAsteriskLogger</a></span></li>
+</ul>
+</li></ul>
+</li>
+</ul>
+</div>
+<h3 id="sidebar-namespaces">
+<img src="css/docblox/images/icons/namespaces.png" alt="Namespaces"><a href="#namespaces">Namespaces</a>
+</h3>
+<div class="sidebar-section sidebar-tree">
+<div class="search-bar">
+<a href="#" onclick="$(this).parent().next().find('.collapsable-hitarea').click(); return false;"><img src="images/collapse_all.png" title="Collapse all" alt="Collapse all"></a><a href="#" onclick="$(this).parent().next().find('.expandable-hitarea').click(); return false;"><img src="images/expand_all.png" title="Expand all" alt="Expand all"></a><div><input type="text" onkeyup="tree_search(this);"></div>
+</div>
+<ul class="sidebar-nav-tree"><li class="closed">
+<span class="folder">PAGI</span><ul>
+<li class="closed">
+<span class="folder">Application</span><ul><li><span class="class"><a href="db_Application_PAGIApplication.html#%5CPAGI%5CApplication%5CPAGIApplication" target="content">PAGIApplication</a></span></li></ul>
+</li>
+<li class="closed">
+<span class="folder">Autoloader</span><ul><li><span class="class"><a href="db_Autoloader_Autoloader.html#%5CPAGI%5CAutoloader%5CAutoloader" target="content">Autoloader</a></span></li></ul>
+</li>
+<li class="closed">
+<span class="folder">CDR</span><ul>
+<li class="closed">
+<span class="folder">Impl</span><ul><li><span class="class"><a href="db_CDR_Impl_CDRFacade.html#%5CPAGI%5CCDR%5CImpl%5CCDRFacade" target="content">CDRFacade</a></span></li></ul>
+</li>
+<li><span class="interface"><a href="db_CDR_ICDR.html#%5CPAGI%5CCDR%5CICDR" target="content">ICDR</a></span></li>
+</ul>
+</li>
+<li class="closed">
+<span class="folder">CallSpool</span><ul>
+<li class="closed">
+<span class="folder">Exception</span><ul><li><span class="class"><a href="db_CallSpool_Exception_CallSpoolException.html#%5CPAGI%5CCallSpool%5CException%5CCallSpoolException" target="content">CallSpoolException</a></span></li></ul>
+</li>
+<li class="closed">
+<span class="folder">Impl</span><ul><li><span class="class"><a href="db_CallSpool_Impl_CallSpoolImpl.html#%5CPAGI%5CCallSpool%5CImpl%5CCallSpoolImpl" target="content">CallSpoolImpl</a></span></li></ul>
+</li>
+<li><span class="class"><a href="db_CallSpool_CallFile.html#%5CPAGI%5CCallSpool%5CCallFile" target="content">CallFile</a></span></li>
+<li><span class="interface"><a href="db_CallSpool_ICallSpool.html#%5CPAGI%5CCallSpool%5CICallSpool" target="content">ICallSpool</a></span></li>
+</ul>
+</li>
+<li class="closed">
+<span class="folder">CallerId</span><ul>
+<li class="closed">
+<span class="folder">Impl</span><ul><li><span class="class"><a href="db_CallerId_Impl_CallerIdFacade.html#%5CPAGI%5CCallerId%5CImpl%5CCallerIdFacade" target="content">CallerIdFacade</a></span></li></ul>
+</li>
+<li><span class="interface"><a href="db_CallerId_ICallerId.html#%5CPAGI%5CCallerId%5CICallerId" target="content">ICallerId</a></span></li>
+</ul>
+</li>
+<li class="closed">
+<span class="folder">ChannelVariables</span><ul>
+<li class="closed">
+<span class="folder">Impl</span><ul><li><span class="class"><a href="db_ChannelVariables_Impl_ChannelVariablesFacade.html#%5CPAGI%5CChannelVariables%5CImpl%5CChannelVariablesFacade" target="content">ChannelVariablesFacade</a></span></li></ul>
+</li>
+<li><span class="interface"><a href="db_ChannelVariables_IChannelVariables.html#%5CPAGI%5CChannelVariables%5CIChannelVariables" target="content">IChannelVariables</a></span></li>
+</ul>
+</li>
+<li class="closed">
+<span class="folder">Client</span><ul>
+<li class="closed">
+<span class="folder">Impl</span><ul><li><span class="class"><a href="db_Client_Impl_ClientImpl.html#%5CPAGI%5CClient%5CImpl%5CClientImpl" target="content">ClientImpl</a></span></li></ul>
+</li>
+<li class="closed">
+<span class="folder">Result</span><ul>
+<li><span class="class"><a href="db_Client_Result_DataReadResult.html#%5CPAGI%5CClient%5CResult%5CDataReadResult" target="content">DataReadResult</a></span></li>
+<li><span class="class"><a href="db_Client_Result_DialResult.html#%5CPAGI%5CClient%5CResult%5CDialResult" target="content">DialResult</a></span></li>
+<li><span class="class"><a href="db_Client_Result_DigitReadResult.html#%5CPAGI%5CClient%5CResult%5CDigitReadResult" target="content">DigitReadResult</a></span></li>
+<li><span class="class"><a href="db_Client_Result_ExecResult.html#%5CPAGI%5CClient%5CResult%5CExecResult" target="content">ExecResult</a></span></li>
+<li><span class="class"><a href="db_Client_Result_FaxResult.html#%5CPAGI%5CClient%5CResult%5CFaxResult" target="content">FaxResult</a></span></li>
+<li><span class="interface"><a href="db_Client_Result_IReadResult.html#%5CPAGI%5CClient%5CResult%5CIReadResult" target="content">IReadResult</a></span></li>
+<li><span class="interface"><a href="db_Client_Result_IResult.html#%5CPAGI%5CClient%5CResult%5CIResult" target="content">IResult</a></span></li>
+<li><span class="class"><a href="db_Client_Result_PlayResult.html#%5CPAGI%5CClient%5CResult%5CPlayResult" target="content">PlayResult</a></span></li>
+<li><span class="class"><a href="db_Client_Result_ReadResultDecorator.html#%5CPAGI%5CClient%5CResult%5CReadResultDecorator" target="content">ReadResultDecorator</a></span></li>
+<li><span class="class"><a href="db_Client_Result_RecordResult.html#%5CPAGI%5CClient%5CResult%5CRecordResult" target="content">RecordResult</a></span></li>
+<li><span class="class"><a href="db_Client_Result_Result.html#%5CPAGI%5CClient%5CResult%5CResult" target="content">Result</a></span></li>
+<li><span class="class"><a href="db_Client_Result_ResultDecorator.html#%5CPAGI%5CClient%5CResult%5CResultDecorator" target="content">ResultDecorator</a></span></li>
+</ul>
+</li>
+<li><span class="class"><a href="db_Client_AbstractClient.html#%5CPAGI%5CClient%5CAbstractClient" target="content">AbstractClient</a></span></li>
+<li><span class="class"><a href="db_Client_ChannelStatus.html#%5CPAGI%5CClient%5CChannelStatus" target="content">ChannelStatus</a></span></li>
+<li><span class="interface"><a href="db_Client_IClient.html#%5CPAGI%5CClient%5CIClient" target="content">IClient</a></span></li>
+</ul>
+</li>
+<li class="closed">
+<span class="folder">DialDescriptor</span><ul>
+<li><span class="class"><a href="db_DialDescriptor_DAHDIDialDescriptor.html#%5CPAGI%5CDialDescriptor%5CDAHDIDialDescriptor" target="content">DAHDIDialDescriptor</a></span></li>
+<li><span class="class"><a href="db_DialDescriptor_DialDescriptor.html#%5CPAGI%5CDialDescriptor%5CDialDescriptor" target="content">DialDescriptor</a></span></li>
+<li><span class="class"><a href="db_DialDescriptor_SIPDialDescriptor.html#%5CPAGI%5CDialDescriptor%5CSIPDialDescriptor" target="content">SIPDialDescriptor</a></span></li>
+</ul>
+</li>
+<li class="closed">
+<span class="folder">Exception</span><ul>
+<li><span class="class"><a href="db_Exception_ChannelDownException.html#%5CPAGI%5CException%5CChannelDownException" target="content">ChannelDownException</a></span></li>
+<li><span class="class"><a href="db_Exception_DatabaseInvalidEntryException.html#%5CPAGI%5CException%5CDatabaseInvalidEntryException" target="content">DatabaseInvalidEntryException</a></span></li>
+<li><span class="class"><a href="db_Exception_ExecuteCommandException.html#%5CPAGI%5CException%5CExecuteCommandException" target="content">ExecuteCommandException</a></span></li>
+<li><span class="class"><a href="db_Exception_InvalidCommandException.html#%5CPAGI%5CException%5CInvalidCommandException" target="content">InvalidCommandException</a></span></li>
+<li><span class="class"><a href="db_Exception_PAGIException.html#%5CPAGI%5CException%5CPAGIException" target="content">PAGIException</a></span></li>
+<li><span class="class"><a href="db_Exception_RecordException.html#%5CPAGI%5CException%5CRecordException" target="content">RecordException</a></span></li>
+<li><span class="class"><a href="db_Exception_SoundFileException.html#%5CPAGI%5CException%5CSoundFileException" target="content">SoundFileException</a></span></li>
+</ul>
+</li>
+<li class="closed">
+<span class="folder">Logger</span><ul><li class="closed">
+<span class="folder">Asterisk</span><ul>
+<li class="closed">
+<span class="folder">Impl</span><ul><li><span class="class"><a href="db_Logger_Asterisk_Impl_AsteriskLoggerImpl.html#%5CPAGI%5CLogger%5CAsterisk%5CImpl%5CAsteriskLoggerImpl" target="content">AsteriskLoggerImpl</a></span></li></ul>
+</li>
+<li><span class="interface"><a href="db_Logger_Asterisk_IAsteriskLogger.html#%5CPAGI%5CLogger%5CAsterisk%5CIAsteriskLogger" target="content">IAsteriskLogger</a></span></li>
+</ul>
+</li></ul>
+</li>
+</ul>
+</li></ul>
+</div>
+<h3 id="sidebar-charts">
+<img src="css/docblox/images/icons/chart.png" alt="Charts"><a href="#charts">Charts</a>
+</h3>
+<div class="sidebar-section"><ul style="list-style-image: url('css/docblox/images/icons/chart15x12.png');"><li><a href="graph.html" target="content">Class Inheritance Diagram</a></li></ul></div>
+<h3 id="sidebar-reports">
+<img src="css/docblox/images/icons/reports.png" alt="Reports"><a href="#reports">Reports</a>
+</h3>
+<div class="sidebar-section"><ul style="list-style-image: url('css/docblox/images/icons/reports9x12.png');">
+<li><a href="report_markers.html" target="content">Markers (TODO/FIXME)</a></li>
+<li><a href="report_parse_markers.html" target="content">Parsing errors</a></li>
+<li><a href="report_deprecated.html" target="content">Deprecated elements</a></li>
+</ul></div>
+</div>
+<div id="sidebar-footer">
+        Documentation is generated by <a href="http://docblox-project.org" target="_top"><img src="images/icon48x48.png" height="12" align="top" alt="Logo"> DocBlox 0.18.1</a>, images courtesy of <a href="http://glyphish.com/" target="_top">Glyphish</a>
+</div>
+</div></body></html>
