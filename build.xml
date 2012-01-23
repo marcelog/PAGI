@@ -130,10 +130,23 @@
   <target name="_package">
     <mkdir dir="${package.output.dir}"/>
     <exec
+      command="${pear.exec} channel-discover pear.marcelog.name"
+      dir="${project.basedir}" passthru="true"
+    />
+    <exec
       command="${genphar.exec} ${genphar.args}"
       dir="${project.basedir}"
       passthru="true"
     />
+    <exec
+      command="${genpear.exec}" dir="${project.basedir}" passthru="true"
+      output="${dir.src}/package.xml"
+    />
+    <exec
+      command="${pear.exec} package" dir="${dir.src}" passthru="true"
+    />
+    <move file="${dir.src}/package.xml" tofile="${dir.output}/package.xml" />
+    <move file="${dir.src}/${peartgz}" tofile="${dir.output}/${peartgz}" />
   </target>
 
   <target name="install-dependencies">
