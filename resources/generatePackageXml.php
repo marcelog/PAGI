@@ -25,12 +25,12 @@
 Supports bean inheritance, via normal OOP and explicit definitions in xml/yaml. Can apply global aspects to parent classes.
  </notes>
  <contents>
-  <dir baseinstalldir="/Ding" name="<?php echo realpath(__DIR__ . '/../src/mg/PAGI'); ?>/">
+  <dir baseinstalldir="/PAGI" name="<?php echo realpath(__DIR__ . '/../src/mg/PAGI'); ?>/">
 <?php
 
 function dumpFileInfo($realPath, $pearPath) {
 ?>
-<file baseinstalldir="/Ding" md5sum="<?php echo md5_file($realPath); ?>" name="<?php echo $pearPath; ?>" role="php" />
+<file baseinstalldir="/PAGI" md5sum="<?php echo md5_file($realPath); ?>" name="<?php echo $pearPath; ?>" role="php" />
 <?php
 }
 
