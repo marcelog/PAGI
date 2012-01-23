@@ -8,6 +8,7 @@
 
   <target name="clean">
     <delete dir="${dir.output}"/>
+    <delete file="${dir.src}/package.xml" />
   </target>
 
   <target name="phpdepend">
@@ -146,8 +147,8 @@
     <exec
       command="${pear.exec} package" dir="${dir.src}" passthru="true"
     />
-    <move file="${dir.src}/package.xml" tofile="${dir.output}/package.xml" />
-    <move file="${dir.src}/${peartgz}" tofile="${dir.output}/${peartgz}" />
+    <delete file="${dir.src}/package.xml" />
+    <move file="${dir.src}/${peartgz}" tofile="${dir.output}/${peartgz}" overwrite="yes"/>
   </target>
 
   <target name="install-dependencies">
