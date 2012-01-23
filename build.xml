@@ -140,8 +140,9 @@
     />
     <exec
       command="${genpear.exec}" dir="${project.basedir}" passthru="true"
-      output="${dir.src}/package.xml"
-    />
+      output="${dir.output}/package.xml"
+     />
+    <copy file="${dir.output}/package.xml" tofile="${dir.src}/package.xml" />
     <exec
       command="${pear.exec} package" dir="${dir.src}" passthru="true"
     />
