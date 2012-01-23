@@ -148,7 +148,7 @@
       command="${pear.exec} package" dir="${dir.src}" passthru="true"
     />
     <delete file="${dir.src}/package.xml" />
-    <move file="${dir.src}/${peartgz}" tofile="${dir.output}/${peartgz}" overwrite="yes"/>
+    <move file="${dir.src}/${peartgz}" tofile="${dir.output}/${peartgz}" overwrite="true"/>
   </target>
 
   <target name="install-dependencies">
