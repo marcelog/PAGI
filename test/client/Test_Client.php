@@ -1457,13 +1457,13 @@ class Test_Client extends \PHPUnit_Framework_TestCase
         setFgetsMock($standardAGIStart, array());
         $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
         $write = array(
-        	'EXEC "PlayTones" "busy"'
+        	'EXEC "Busy" "10"'
         );
         $read = array(
             '200 result=0',
         );
         setFgetsMock($read, $write);
-        $result = $client->playBusyTone();
+        $result = $client->playBusyTone(10);
     }
     /**
      * @test
@@ -1491,13 +1491,13 @@ class Test_Client extends \PHPUnit_Framework_TestCase
         setFgetsMock($standardAGIStart, array());
         $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
         $write = array(
-        	'EXEC "PlayTones" "congestion"'
+        	'EXEC "Congestion" "10"'
         );
         $read = array(
             '200 result=0',
         );
         setFgetsMock($read, $write);
-        $result = $client->playCongestionTone();
+        $result = $client->playCongestionTone(10);
     }
     /**
      * @test
