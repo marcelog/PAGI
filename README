@@ -11,7 +11,7 @@ something like this in your dialplan:
 
 For an in-depth tutorial: http://marcelog.github.com/articles/pagi_tutorial_create_voip_telephony_application_for_asterisk_with_agi_and_php.html
 
-Checkout the api (phpdoc) at: http://marcelog.github.com/PAGI/php-doc/html/index.html
+Checkout the api (phpdoc) at: http://ci.marcelog.name:8080/job/PAGI/javadoc/
 
 [default]
 exten => 1,1,AGI(/tmp/PAGI/docs/examples/quickstart/run.sh,a,b,c,d)
