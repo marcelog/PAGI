@@ -9,6 +9,8 @@ shutdown methods are automatically setup and called.
 Please see docs/examples/quickstart for a very basic example. You'll need
 something like this in your dialplan:
 
+For an in-depth tutorial: http://marcelog.github.com/articles/pagi_tutorial_create_voip_telephony_application_for_asterisk_with_agi_and_php.html
+
 Checkout the api (phpdoc) at: http://marcelog.github.com/PAGI/php-doc/html/index.html
 
 [default]
