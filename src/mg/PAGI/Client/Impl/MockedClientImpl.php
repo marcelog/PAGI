@@ -63,10 +63,11 @@ class MockedClientImpl extends AbstractClient
     protected function send($text)
     {
         $this->resultCounter++;
-        if (!isset($this->mockedResultStrings[$this->resultCounter])) {
+        if (empty($this->mockedResultStrings)) {
             throw new MockedException("Dont know how to respond to $text");
         }
-        return $this->getResultFromResultString($this->mockedResultStrings[$this->resultCounter]);
+        $result = array_shift($this->mockedResultStrings);
+        return $this->getResultFromResultString($result);
     }
 
     protected function open()
@@ -81,7 +82,7 @@ class MockedClientImpl extends AbstractClient
 
     public function __destruct()
     {
-        if ($this->resultCounter != count($this->mockedResultStrings) - 1) {
+        if (!empty($this->mockedResultStrings)) {
             trigger_error(
             	"Some results were not used: " . print_r($this->mockedResultStrings, true),
             	E_USER_ERROR
@@ -120,13 +121,13 @@ class MockedClientImpl extends AbstractClient
         if (empty($this->methodCallAsserts[$methodName])) {
             unset($this->methodCallAsserts[$methodName]);
         }
-        $count = count($arguments);
+        $count = count($args);
         for ($i = 0; $i < $count; $i++) {
-            if (!isset($args[$i])) {
+            if (!isset($arguments[$i])) {
                 throw new MockedException("Missing argument number " . $i + 1);
             }
-            $arg = $args[$i];
-            if ($arg !== $arguments[$i]) {
+            $arg = $arguments[$i];
+            if ($arg !== $args[$i]) {
                 throw new MockedException(
                 	"Arguments mismatch for $methodName: called with: " . print_r($arguments, true)
                     . " expected: " . print_r($args, true)

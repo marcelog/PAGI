@@ -44,39 +44,84 @@ class Test_Mock extends PHPUnit_Framework_TestCase
 {
     /**
      * @test
+     * @expectedException PAGI\Exception\MockedException
      */
-    public function cannot_read()
+    public function cannot_respond_if_no_onMethod_was_defined_first()
     {
-        $variables = array(
-            'agi_request' => 'netlabs-all.php',
-            'agi_channel' => 'SIP/administracion-00803890',
-            'agi_language' => 'ar',
-            'agi_type' => 'SIP',
-            'agi_uniqueid' => '1330012581.77',
-            'agi_version' => '1.6.0.9',
-            'agi_callerid' => '40',
-            'agi_calleridname' => 'Admin',
-            'agi_callingpres' => '1',
-            'agi_callingani2' => '0',
-            'agi_callington' => '0',
-            'agi_callingtns' => '0',
-            'agi_dnid' => '45155249',
-            'agi_rdnis' => 'unknown',
-            'agi_context' => 'netlabs',
-            'agi_extension' => '45155249',
-            'agi_priority' => '1',
-            'agi_enhanced' => '0.0',
-            'agi_accountcode' => '',
-            'agi_threadid' => '1095317840'
-        );
-
-        $result = array('200 result=48 endpos=1');
-        $mock = new PAGI\Client\Impl\MockedClientImpl($variables, $result);
-        //$mock->open();
+        $mock = new PAGI\Client\Impl\MockedClientImpl();
         $result = $mock->streamFile('blah', '01234567890*#');
-        $this->assertFalse($result->isTimeout());
-        $this->assertEquals($result->getDigitsCount(), 1);
-        $this->assertEquals($result->getDigits(), '0');
-        //$mock->close();
+    }
+
+    /**
+     * @test
+     * @expectedException PAGI\Exception\MockedException
+     */
+    public function can_assert_number_of_arguments()
+    {
+        $mock = new PAGI\Client\Impl\MockedClientImpl();
+        $mock->assert('streamFile', array('blah', '*'));
+        $mock->streamFile('blah');
+    }
+
+    /**
+     * @test
+     * @expectedException PAGI\Exception\MockedException
+     */
+    public function can_assert_arguments_equality()
+    {
+        $mock = new PAGI\Client\Impl\MockedClientImpl();
+        $mock->assert('waitDigit', array(1000));
+        $mock->waitDigit(100);
+    }
+
+    /**
+     * @test
+     */
+    public function can_example_mock()
+    {
+        $mock = new PAGI\Client\Impl\MockedClientImpl();
+        $mock
+            ->assert('waitDigit', array(1000))
+            ->assert('streamFile', array('blah', '01234567890*#'))
+            ->assert('dial', array('SIP/blah', array(60, 'tH')))
+            ->assert('getData', array('blah', 123, '#'))
+            ->assert('sayDateTime', array('asd', 123))
+            ->assert('setVariable', array('asd', 'asd'))
+            ->onAnswer(true)
+            ->onWaitDigit(false)
+            ->onWaitDigit(true, '*')
+            ->onStreamFile(false)
+            ->onStreamFile(true, '#')
+            ->onGetData(false)
+            ->onGetData(true, '44449*#')
+            ->onSayDate(true, '#')
+            ->onSayTime(true, '#')
+            ->onSayDateTime(true, '#')
+            ->onSayAlpha(true, '#')
+            ->onSayPhonetic(true, '#')
+            ->onSayNumber(true, '#')
+            ->onSayDigits(true, '#')
+            ->onDial(true, 'name', '123456', 20, 'ANSWER', '#blah')
+            ->onHangup(true)
+        ;
+        $mock->answer();
+        $mock->consoleLog("blah");
+        $mock->log("blah");
+        $mock->setVariable('asd', 'asd');
+        $mock->waitDigit(1000);
+        $mock->waitDigit(1000);
+        $mock->streamFile('blah', '01234567890*#');
+        $mock->streamFile('blah', '01234567890*#');
+        $mock->getData('blah', 123, '#');
+        $mock->getData('blah', 123, '#');
+        $mock->sayDate('asd', time());
+        $mock->sayTime('asd', time());
+        $mock->sayDateTime('asd', 123);
+        $mock->sayAlpha('asd');
+        $mock->sayPhonetic('asd');
+        $mock->sayNumber(123);
+        $mock->sayDigits(123);
+        $mock->dial('SIP/blah', array(60, 'tH'));
+        $mock->hangup();
     }
 }
