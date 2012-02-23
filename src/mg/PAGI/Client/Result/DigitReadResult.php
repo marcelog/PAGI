@@ -111,7 +111,7 @@ class DigitReadResult extends ResultDecorator implements IReadResult
             $this->_timeout = true;
             break;
         default:
-            $this->_digits = chr($result);
+            $this->_digits = chr(intval($result));
             break;
         }
     }
