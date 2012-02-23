@@ -112,8 +112,6 @@ class ClientImpl extends AbstractClient
         } else {
             $this->_output = fopen('php://stdout', 'w');
         }
-        $this->_variables = array();
-        $this->_arguments = $this->_variables; // Just reusing an empty array.
         while(true) {
             $line = $this->read($this->_input);
             if ($this->isEndOfEnvironmentVariables($line)) {

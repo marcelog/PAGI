@@ -73,13 +73,13 @@ abstract class AbstractClient implements IClient
      * Initial channel variables given by asterisk at start.
      * @var string[]
      */
-    protected $_variables;
+    protected $_variables = array();
 
     /**
      * Initial arguments given by the user in the dialplan.
      * @var string[]
      */
-    protected $_arguments;
+    protected $_arguments = array();
 
     /**
      * Sends a command to asterisk. Returns an array with:

@@ -99,8 +99,7 @@ class DigitReadResult extends ResultDecorator implements IReadResult
     public function __construct(IResult $result)
     {
         parent::__construct($result);
-        $this->_digit = false;
-        $this->_interrupted = false;
+        $this->_digits = false;
         $this->_timeout = false;
         $result = $result->getResult();
         switch($result)
