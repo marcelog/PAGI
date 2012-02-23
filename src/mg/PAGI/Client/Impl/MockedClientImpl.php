@@ -63,6 +63,9 @@ class MockedClientImpl extends AbstractClient
     protected function send($text)
     {
         $this->resultCounter++;
+        if (!isset($this->mockedResultStrings[$this->resultCounter])) {
+            throw new MockedException("Dont know how to respond to $text");
+        }
         return $this->getResultFromResultString($this->mockedResultStrings[$this->resultCounter]);
     }
 
@@ -78,7 +81,12 @@ class MockedClientImpl extends AbstractClient
 
     public function __destruct()
     {
-
+        if ($this->resultCounter != count($this->mockedResultStrings) - 1) {
+            trigger_error(
+            	"Some results were not used: " . print_r($this->mockedResultStrings, true),
+            	E_USER_ERROR
+            );
+        }
         if (!empty($this->methodCallAsserts)) {
             trigger_error(
             	"Some methods were not called: " . print_r($this->methodCallAsserts, true),
@@ -241,6 +249,30 @@ class MockedClientImpl extends AbstractClient
     public function log($msg, $priority = 'NOTICE')
     {
         return;
+    }
+
+    public function getOption($file, $escapeDigits, $maxTime)
+    {
+        $args = func_get_args();
+        $this->assertCall('getOption', $args);
+        return parent::getOption($file, $escapeDigits, $maxTime);
+    }
+
+    public function setCallerId($name, $number)
+    {
+        $args = func_get_args();
+        $this->assertCall('setCallerId', $args);
+        return parent::setCallerId($name, $number);
+    }
+
+    public function onGetOption($interrupted, $digit = '#', $offset = 1)
+    {
+        $this->addMockedResult(
+            '200 result='
+            . ($interrupted ? ord($digit) : '0')
+            . " endpos=$offset"
+        );
+        return $this;
     }
 
     public function onWaitDigit($interrupted, $digit = '#')
