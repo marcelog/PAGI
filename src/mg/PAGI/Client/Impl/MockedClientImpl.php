@@ -30,6 +30,7 @@
 namespace PAGI\Client\Impl;
 
 use PAGI\Client\AbstractClient;
+use PAGI\Exception\MockedException;
 
 /**
  * An AGI client implementation useful for mocking and testing ivr apps.
@@ -104,11 +105,11 @@ class MockedClientImpl extends AbstractClient
         $count = count($arguments);
         for ($i = 0; $i < $count; $i++) {
             if (!isset($args[$i])) {
-                throw new \Exception("Missing argument number " . $i + 1);
+                throw new MockedException("Missing argument number " . $i + 1);
             }
             $arg = $args[$i];
             if ($arg !== $arguments[$i]) {
-                throw new \Exception(
+                throw new MockedException(
                 	"Arguments mismatch for $methodName: called with: " . print_r($arguments, true)
                     . " expected: " . print_r($args, true)
                 );
