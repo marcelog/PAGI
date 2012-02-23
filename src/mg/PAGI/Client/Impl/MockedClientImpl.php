@@ -57,6 +57,7 @@ class MockedClientImpl extends AbstractClient
      */
     private $resultCounter = -1;
 
+    private $methodCallAsserts = array();
 
     protected function send($text)
     {
@@ -77,6 +78,261 @@ class MockedClientImpl extends AbstractClient
     public function __destruct()
     {
         $this->close();
+    }
+
+    public function addMockedResult($string)
+    {
+        $this->mockedResultStrings[] = $string;
+        return $this;
+    }
+
+    public function assert($methodName, array $args = array())
+    {
+        if (!isset($this->methodCallAsserts[$methodName])) {
+            $this->methodCallAsserts[$methodName] = array();
+        }
+        $this->methodCallAsserts[$methodName][] = $args;
+        return $this;
+    }
+
+    private function assertCall($methodName, array $arguments)
+    {
+        if (!isset($this->methodCallAsserts[$methodName]) || empty($this->methodCallAsserts[$methodName])) {
+            return true;
+        }
+        $args = array_shift($this->methodCallAsserts[$methodName]);
+        $count = count($arguments);
+        for ($i = 0; $i < $count; $i++) {
+            if (!isset($args[$i])) {
+                throw new \Exception("Missing argument number " . $i + 1);
+            }
+            $arg = $args[$i];
+            if ($arg !== $arguments[$i]) {
+                throw new \Exception(
+                	"Arguments mismatch for $methodName: called with: " . print_r($arguments, true)
+                    . " expected: " . print_r($args, true)
+                );
+            }
+        }
+        return true;
+    }
+
+    public function waitDigit($timeout)
+    {
+        $args = func_get_args();
+        $this->assertCall('waitDigit', $args);
+        return parent::waitDigit($timeout);
+    }
+
+    public function streamFile($file, $escapeDigits = '')
+    {
+        $args = func_get_args();
+        $this->assertCall('streamFile', $args);
+        return parent::streamFile($file, $escapeDigits);
+    }
+
+    public function dial($channel, array $options = array())
+    {
+        $args = func_get_args();
+        $this->assertCall('dial', $args);
+        return parent::dial($channel, $options);
+    }
+
+    public function getData($file, $maxTime, $maxDigits)
+    {
+        $args = func_get_args();
+        $this->assertCall('getData', $args);
+        return parent::getData($file, $maxTime, $maxDigits);
+    }
+
+    public function record($file, $format, $escapeDigits, $maxRecordTime = -1, $silence = false)
+    {
+        $args = func_get_args();
+        $this->assertCall('record', $args);
+        return parent::record($file, $format, $escapeDigits, $maxRecordTime, $silence);
+    }
+
+    public function sayTime($time, $escapeDigits = '')
+    {
+        $args = func_get_args();
+        $this->assertCall('sayTime', $args);
+        return parent::sayTime($time, $escapeDigits);
+    }
+
+    public function sayDate($time, $escapeDigits = '')
+    {
+        $args = func_get_args();
+        $this->assertCall('sayDate', $args);
+        return parent::sayDate($time, $escapeDigits);
+    }
+
+    public function sayDateTime($time, $format, $escapeDigits = '')
+    {
+        $args = func_get_args();
+        $this->assertCall('sayDateTime', $args);
+        return parent::sayDateTime($time, $format, $escapeDigits);
+    }
+
+    public function sayDigits($digits, $escapeDigits = '')
+    {
+        $args = func_get_args();
+        $this->assertCall('sayDigits', $args);
+        return parent::sayDigits($digits, $escapeDigits);
+    }
+
+    public function sayNumber($digits, $escapeDigits = '')
+    {
+        $args = func_get_args();
+        $this->assertCall('sayNumber', $args);
+        return parent::sayNumber($digits, $escapeDigits);
+    }
+
+    public function sayAlpha($what, $escapeDigits = '')
+    {
+        $args = func_get_args();
+        $this->assertCall('sayAlpha', $args);
+        return parent::sayAlpha($what, $escapeDigits);
+    }
+
+    public function sayPhonetic($what, $escapeDigits = '')
+    {
+        $args = func_get_args();
+        $this->assertCall('sayPhonetic', $args);
+        return parent::sayPhonetic($what, $escapeDigits);
+    }
+
+    public function onWaitDigit($interrupted, $digit = '#')
+    {
+        $this->addMockedResult(
+            '200 result='
+            . ($interrupted ? ord($digit) : '0')
+        );
+        return $this;
+    }
+
+    public function onGetVariable($success, $value = '')
+    {
+        if ($success) {
+            $this->addMockedResult('200 result=1 (' . $value . ')');
+        } else {
+            $this->addMockedResult('200 result=0');
+        }
+        return $this;
+    }
+
+    public function onDial(
+        $success, $peerName, $peerNumber, $answeredTime,
+        $dialStatus, $dynamicFeatures
+    ) {
+        if ($success) {
+            $this->addMockedResult('200 result=0');
+        } else {
+            $this->addMockedResult('200 result=-1');
+        }
+        $this->onGetVariable(true, $peerName);
+        $this->onGetVariable(true, $peerNumber);
+        $this->onGetVariable(true, $answeredTime);
+        $this->onGetVariable(true, $dialStatus);
+        $this->onGetVariable(true, $dynamicFeatures);
+        return $this;
+    }
+
+    public function onStreamFile($interrupted, $digit = '#', $offset = 1)
+    {
+        $this->addMockedResult(
+            '200 result='
+            . ($interrupted ? ord($digit) : '0')
+            . " endpos=$offset"
+        );
+        return $this;
+    }
+
+    public function onGetData($interrupted, $digits = '#')
+    {
+        $this->addMockedResult(
+            '200 result='
+            . ($interrupted ? $digits : ' (timeout)')
+        );
+        return $this;
+    }
+
+    public function onSayTime($interrupted, $digit = '#')
+    {
+        $this->addMockedResult(
+            '200 result='
+            . ($interrupted ? ord($digit) : '0')
+        );
+        return $this;
+    }
+
+    public function onSayDateTime($interrupted, $digit = '#')
+    {
+        $this->addMockedResult(
+            '200 result='
+            . ($interrupted ? ord($digit) : '0')
+        );
+        return $this;
+    }
+
+    public function onSayDate($interrupted, $digit = '#')
+    {
+        $this->addMockedResult(
+            '200 result='
+            . ($interrupted ? ord($digit) : '0')
+        );
+        return $this;
+    }
+
+    public function onSayNumber($interrupted, $digit = '#')
+    {
+        $this->addMockedResult(
+            '200 result='
+            . ($interrupted ? ord($digit) : '0')
+        );
+        return $this;
+    }
+
+    public function onSayDigits($interrupted, $digit = '#')
+    {
+        $this->addMockedResult(
+            '200 result='
+            . ($interrupted ? ord($digit) : '0')
+        );
+        return $this;
+    }
+
+    public function onSayPhonetic($interrupted, $digit = '#')
+    {
+        $this->addMockedResult(
+            '200 result='
+            . ($interrupted ? ord($digit) : '0')
+        );
+        return $this;
+    }
+
+    public function onSayAlpha($interrupted, $digit = '#')
+    {
+        $this->addMockedResult(
+            '200 result='
+            . ($interrupted ? ord($digit) : '0')
+        );
+        return $this;
+    }
+
+    public function onAnswer($success)
+    {
+        $this->addMockedResult(
+            '200 result=' . ($success ? '0' : '-1')
+        );
+        return $this;
+    }
+
+    public function onHangup($success)
+    {
+        $this->addMockedResult(
+            '200 result=' . ($success ? '0' : '-1')
+        );
+        return $this;
     }
 
     public function __construct(
