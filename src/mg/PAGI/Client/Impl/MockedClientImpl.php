@@ -78,6 +78,13 @@ class MockedClientImpl extends AbstractClient
 
     public function __destruct()
     {
+
+        if (!empty($this->methodCallAsserts)) {
+            trigger_error(
+            	"Some methods were not called: " . print_r($this->methodCallAsserts, true),
+            	E_USER_ERROR
+            );
+        }
         $this->close();
     }
 
@@ -102,6 +109,9 @@ class MockedClientImpl extends AbstractClient
             return true;
         }
         $args = array_shift($this->methodCallAsserts[$methodName]);
+        if (empty($this->methodCallAsserts[$methodName])) {
+            unset($this->methodCallAsserts[$methodName]);
+        }
         $count = count($arguments);
         for ($i = 0; $i < $count; $i++) {
             if (!isset($args[$i])) {
@@ -202,6 +212,37 @@ class MockedClientImpl extends AbstractClient
         return parent::sayPhonetic($what, $escapeDigits);
     }
 
+    public function getFullVariable($name, $channel = false)
+    {
+        $args = func_get_args();
+        $this->assertCall('getFullVariable', $args);
+        return parent::getFullVariable($name, $channel);
+    }
+
+    public function getVariable($name)
+    {
+        $args = func_get_args();
+        $this->assertCall('getVariable', $args);
+        return parent::getVariable($name);
+    }
+
+    public function setVariable($name, $value)
+    {
+        $args = func_get_args();
+        $this->assertCall('setVariable', $args);
+        return;
+    }
+
+    public function consoleLog($msg, $level = 1)
+    {
+        return;
+    }
+
+    public function log($msg, $priority = 'NOTICE')
+    {
+        return;
+    }
+
     public function onWaitDigit($interrupted, $digit = '#')
     {
         $this->addMockedResult(
@@ -212,6 +253,16 @@ class MockedClientImpl extends AbstractClient
     }
 
     public function onGetVariable($success, $value = '')
+    {
+        if ($success) {
+            $this->addMockedResult('200 result=1 (' . $value . ')');
+        } else {
+            $this->addMockedResult('200 result=0');
+        }
+        return $this;
+    }
+
+    public function onGetFullVariable($success, $value = '')
     {
         if ($success) {
             $this->addMockedResult('200 result=1 (' . $value . ')');
