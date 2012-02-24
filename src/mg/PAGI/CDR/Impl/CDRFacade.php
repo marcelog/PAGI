@@ -117,12 +117,6 @@ class CDRFacade implements ICDR
     private $_client;
 
     /**
-     * Current instance.
-     * @var CDRFacade
-     */
-    private static $_instance = false;
-
-    /**
      * (non-PHPdoc)
      * @see PAGI\CDR.ICDR::setUserfield()
      */
@@ -348,31 +342,13 @@ class CDRFacade implements ICDR
     }
 
     /**
-     * Returns an instance for this facade.
-     *
-     * @param IClient $client AGI Client to use.
-     *
-     * @return CDRFacade
-     */
-    public static function getInstance(IClient $client = null)
-    {
-        if (self::$_instance === false) {
-            $ret = new CDRFacade($client);
-            self::$_instance = $ret;
-        } else {
-            $ret = self::$_instance;
-        }
-        return $ret;
-    }
-
-    /**
      * Constructor.
      *
      * @param IClient $client AGI Client.
      *
      * @return void
      */
-    protected function __construct(IClient $client)
+    public function __construct(IClient $client)
     {
         $this->_client = $client;
     }

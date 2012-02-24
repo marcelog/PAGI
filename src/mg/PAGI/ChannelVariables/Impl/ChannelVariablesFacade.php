@@ -58,12 +58,6 @@ class ChannelVariablesFacade implements IChannelVariables
     private $_arguments;
 
     /**
-     * Current instance.
-     * @var ChannelVariablesFacade
-     */
-    private static $_instance = false;
-
-    /**
      * Returns the given variable. Returns false if not set.
      *
      * @param string $key Variable to get.
@@ -280,27 +274,6 @@ class ChannelVariablesFacade implements IChannelVariables
     }
 
     /**
-     * Returns an instance for this facade implementation.
-     *
-     * @param string[] $variables Initial channel variables given by asterisk.
-     * @param string[] $arguments AGI arguments given by asterisk (agi_arg_N).
-     *
-     * @return ChannelVariablesFacade
-     */
-    public static function getInstance(
-        array $variables = array(), array $arguments = array()
-    ) {
-        if (self::$_instance === false) {
-            $ret = new ChannelVariablesFacade($variables, $arguments);
-            self::$_instance = $ret;
-        } else {
-            $ret = self::$_instance;
-        }
-        return $ret;
-    }
-
-
-    /**
      * (non-PHPdoc)
      * @see PAGI\ChannelVariables.IChannelVariables::getDirectoryConfig()
      */
@@ -407,7 +380,7 @@ class ChannelVariablesFacade implements IChannelVariables
      *
      * @return void
      */
-    protected function __construct(array $variables, array $arguments)
+    public function __construct(array $variables, array $arguments)
     {
         $this->_variables = $variables;
         $this->_arguments = $arguments;

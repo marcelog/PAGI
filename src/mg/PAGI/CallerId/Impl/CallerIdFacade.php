@@ -51,12 +51,6 @@ class CallerIdFacade implements ICallerId
     private $_client;
 
     /**
-     * Current instance.
-     * @var CallerIdFacade
-     */
-    private static $_instance = false;
-
-    /**
      * (non-PHPdoc)
      * @see PAGI\CallerId.ICallerId::setANI()
      */
@@ -190,31 +184,13 @@ class CallerIdFacade implements ICallerId
     }
 
     /**
-     * Returns an instance for this facade.
-     *
-     * @param IClient $client AGI Client to use.
-     *
-     * @return CallerIdFacade
-     */
-    public static function getInstance(IClient $client = null)
-    {
-        if (self::$_instance === false) {
-            $ret = new CallerIdFacade($client);
-            self::$_instance = $ret;
-        } else {
-            $ret = self::$_instance;
-        }
-        return $ret;
-    }
-
-    /**
      * Constructor.
      *
      * @param IClient $client AGI Client to use.
      *
      * @return void
      */
-    protected function __construct(IClient $client)
+    public function __construct(IClient $client)
     {
         $this->_client = $client;
     }

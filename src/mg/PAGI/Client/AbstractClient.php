@@ -700,7 +700,7 @@ abstract class AbstractClient implements IClient
      */
     public function getChannelVariables()
     {
-        return ChannelVariablesFacade::getInstance(
+        return new ChannelVariablesFacade(
             $this->_variables, $this->_arguments
         );
     }
@@ -711,7 +711,7 @@ abstract class AbstractClient implements IClient
      */
     public function getCDR()
     {
-        return CDRFacade::getInstance($this);
+        return new CDRFacade($this);
     }
 
     /**
@@ -720,7 +720,7 @@ abstract class AbstractClient implements IClient
      */
     public function getCallerId()
     {
-        return CallerIdFacade::getInstance($this);
+        return new CallerIdFacade($this);
     }
 
     /**
