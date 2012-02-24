@@ -57,6 +57,11 @@ or
 just replace 1.9.1 by the release version you'd like to install :)
 See: http://pear.marcelog.name/
 --------------------------------------------------------------------------------
+Testing IVR applications
+========================
+A mocked pagi client is included to easily test your ivr applications. See
+docs/examples/mock to see an example of how to use it.
+--------------------------------------------------------------------------------
 AutoDial
 ========
 CallFiles are supported. You can also schedule a call in the future.
