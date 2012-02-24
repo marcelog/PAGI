@@ -249,6 +249,7 @@ class Test_Mock extends PHPUnit_Framework_TestCase
             ->onSayNumber(true, '#')
             ->onSayDigits(true, '#')
             ->onHangup(true)
+            ->onChannelStatus(PAGI\Client\ChannelStatus::LINE_UP)
         ;
 
         $mock->answer();
@@ -266,9 +267,14 @@ class Test_Mock extends PHPUnit_Framework_TestCase
         $mock->sayNumber(123);
         $mock->sayDigits(123);
         $mock->hangup();
+        $mock->channelStatus();
         $mock->setCallerId('name', 'number');
         $mock->consoleLog("blah");
         $mock->log("blah");
         $mock->setVariable('asd', 'asd');
+        $mock->setContext('context');
+        $mock->setExtension('extension');
+        $mock->setPriority(1);
+        $mock->setMusic(true);
     }
 }
