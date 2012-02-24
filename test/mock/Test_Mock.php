@@ -250,10 +250,8 @@ class Test_Mock extends PHPUnit_Framework_TestCase
             ->onSayDigits(true, '#')
             ->onHangup(true)
         ;
+
         $mock->answer();
-        $mock->consoleLog("blah");
-        $mock->log("blah");
-        $mock->setVariable('asd', 'asd');
         $mock->waitDigit(1000);
         $mock->waitDigit(1000);
         $mock->streamFile('blah', '01234567890*#');
@@ -269,5 +267,8 @@ class Test_Mock extends PHPUnit_Framework_TestCase
         $mock->sayDigits(123);
         $mock->hangup();
         $mock->setCallerId('name', 'number');
+        $mock->consoleLog("blah");
+        $mock->log("blah");
+        $mock->setVariable('asd', 'asd');
     }
 }

@@ -3,26 +3,26 @@
 require_once 'PAGI/Autoloader/Autoloader.php';
 PAGI\Autoloader\Autoloader::register();
 $variables = array(
-    'agi_request' => 'request.php',
-    'agi_channel' => 'SIP/blah-00803890',
-    'agi_language' => 'ar',
-    'agi_type' => 'SIP',
-    'agi_uniqueid' => '1330012581.77',
-    'agi_version' => '1.6.0.9',
-    'agi_callerid' => '40',
-    'agi_calleridname' => 'Admin',
-    'agi_callingpres' => '1',
-    'agi_callingani2' => '0',
-    'agi_callington' => '0',
-    'agi_callingtns' => '0',
-    'agi_dnid' => '55555555',
-    'agi_rdnis' => 'unknown',
-    'agi_context' => 'default',
-    'agi_extension' => '55555555',
-    'agi_priority' => '1',
-    'agi_enhanced' => '0.0',
-    'agi_accountcode' => '',
-    'agi_threadid' => '1095317840'
+    'request' => 'request.php',
+    'channel' => 'SIP/blah-00803890',
+    'language' => 'ar',
+    'type' => 'SIP',
+    'uniqueid' => '1330012581.77',
+    'version' => '1.6.0.9',
+    'callerid' => '40',
+    'calleridname' => 'Admin',
+    'callingpres' => '1',
+    'callingani2' => '0',
+    'callington' => '0',
+    'callingtns' => '0',
+    'dnid' => '55555555',
+    'rdnis' => 'unknown',
+    'context' => 'default',
+    'extension' => '55555555',
+    'priority' => '1',
+    'enhanced' => '0.0',
+    'accountcode' => '',
+    'threadid' => '1095317840'
 );
 
 $mock = new PAGI\Client\Impl\MockedClientImpl();

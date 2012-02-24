@@ -139,6 +139,12 @@ class MockedClientImpl extends AbstractClient
         return true;
     }
 
+    public function channelStatus($channel = false)
+    {
+        $args = func_get_args();
+        $this->assertCall('channelStatus', $args);
+        return parent::channelStatus($channel);
+    }
     public function waitDigit($timeout)
     {
         $args = func_get_args();
@@ -267,6 +273,31 @@ class MockedClientImpl extends AbstractClient
         $this->assertCall('setCallerId', $args);
     }
 
+
+    public function setPriority($priority)
+    {
+        return;
+    }
+    public function setContext($context)
+    {
+        return;
+    }
+    public function setExtension($extension)
+    {
+        return;
+    }
+    public function setMusic($enable, $class = false)
+    {
+        return;
+    }
+
+    public function answer()
+    {
+        $args = func_get_args();
+        $this->assertCall('answer', $args);
+        return parent::answer();
+    }
+
     public function onGetOption($interrupted, $digit = '#', $offset = 1)
     {
         $this->addMockedResult(
@@ -303,6 +334,12 @@ class MockedClientImpl extends AbstractClient
         } else {
             $this->addMockedResult('200 result=0');
         }
+        return $this;
+    }
+
+    public function onChannelStatus($status)
+    {
+        $this->addMockedResult("200 result=$status");
         return $this;
     }
 
