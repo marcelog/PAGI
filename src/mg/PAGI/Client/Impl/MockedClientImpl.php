@@ -471,15 +471,18 @@ class MockedClientImpl extends AbstractClient
         return $this;
     }
 
-    public function __construct(
-        array $envVariables = array(), array $resultStrings = array()
-    ) {
+    public function __construct(array $options = array())
+    {
         if (isset($options['log4php.properties'])) {
             \Logger::configure($options['log4php.properties']);
         }
         $this->_logger = \Logger::getLogger(__CLASS__);
-        $this->_variables = $envVariables;
-        $this->mockedResultStrings = $resultStrings;
+        if (isset($options['variables'])) {
+            $this->_variables = $options['variables'];
+        }
+        if (isset($options['resultStrings'])) {
+            $this->mockedResultStrings = $options['resultStrings'];
+        }
         $this->open();
     }
 }

@@ -26,7 +26,10 @@ $variables = array(
     'threadid' => '1095317840'
 );
 
-$mock = new PAGI\Client\Impl\MockedClientImpl($variables);
+$mock = new PAGI\Client\Impl\MockedClientImpl(array(
+    'log4php.properties' => __DIR__ . '/../quickstart/log4php.properties',
+    'variables' => $variables
+));
 $mock
     ->assert('sayDigits', array('12345', '12#'))
     ->assert('sayNumber', array('12345', '12#'))

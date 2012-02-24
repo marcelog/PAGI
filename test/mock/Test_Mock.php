@@ -42,13 +42,24 @@
  */
 class Test_Mock extends PHPUnit_Framework_TestCase
 {
+    private $_properties = array();
+
+    public function setUp()
+    {
+        $this->_properties = array(
+            'log4php.properties' => RESOURCES_DIR . DIRECTORY_SEPARATOR . 'log4php.properties',
+            'variables' => array(),
+            'resultStrings' => array()
+        );
+    }
+
     /**
      * @test
      * @expectedException PAGI\Exception\MockedException
      */
     public function cannot_respond_if_no_onMethod_was_defined_first()
     {
-        $mock = new PAGI\Client\Impl\MockedClientImpl();
+        $mock = new PAGI\Client\Impl\MockedClientImpl($this->_properties);
         $result = $mock->streamFile('blah', '01234567890*#');
     }
 
@@ -58,7 +69,7 @@ class Test_Mock extends PHPUnit_Framework_TestCase
      */
     public function can_assert_number_of_arguments()
     {
-        $mock = new PAGI\Client\Impl\MockedClientImpl();
+        $mock = new PAGI\Client\Impl\MockedClientImpl($this->_properties);
         $mock->assert('streamFile', array('blah', '*'));
         $mock->streamFile('blah');
     }
@@ -69,7 +80,7 @@ class Test_Mock extends PHPUnit_Framework_TestCase
      */
     public function can_assert_arguments_equality()
     {
-        $mock = new PAGI\Client\Impl\MockedClientImpl();
+        $mock = new PAGI\Client\Impl\MockedClientImpl($this->_properties);
         $mock->assert('waitDigit', array(1000));
         $mock->waitDigit(100);
     }
@@ -79,7 +90,7 @@ class Test_Mock extends PHPUnit_Framework_TestCase
      */
     public function cannot_finish_without_using_all_results()
     {
-        $mock = new PAGI\Client\Impl\MockedClientImpl();
+        $mock = new PAGI\Client\Impl\MockedClientImpl($this->_properties);
         $mock->onDial(true, 'name', '123456', 20, 'ANSWER', '#blah');
         try
         {
@@ -95,7 +106,7 @@ class Test_Mock extends PHPUnit_Framework_TestCase
      */
     public function cannot_finish_without_using_all_asserts()
     {
-        $mock = new PAGI\Client\Impl\MockedClientImpl();
+        $mock = new PAGI\Client\Impl\MockedClientImpl($this->_properties);
         $mock->assert('waitDigit', array(1));
         try
         {
@@ -110,7 +121,7 @@ class Test_Mock extends PHPUnit_Framework_TestCase
      */
     public function can_dial_success()
     {
-        $mock = new PAGI\Client\Impl\MockedClientImpl();
+        $mock = new PAGI\Client\Impl\MockedClientImpl($this->_properties);
         $mock->onDial(true, 'name', '123456', 20, 'ANSWER', '#blah');
         $result = $mock->dial('SIP/blah', array(60, 'tH'));
         $this->assertTrue($result->isAnswer());
@@ -121,7 +132,7 @@ class Test_Mock extends PHPUnit_Framework_TestCase
      */
     public function can_dial_failed()
     {
-        $mock = new PAGI\Client\Impl\MockedClientImpl();
+        $mock = new PAGI\Client\Impl\MockedClientImpl($this->_properties);
         $mock->onDial(false, 'name', '123456', 20, 'CONGESTION', '#blah');
         $result = $mock->dial('SIP/blah', array(60, 'tH'));
         $this->assertTrue($result->isCongestion());
@@ -132,7 +143,7 @@ class Test_Mock extends PHPUnit_Framework_TestCase
      */
     public function can_get_full_variable_failed()
     {
-        $mock = new PAGI\Client\Impl\MockedClientImpl();
+        $mock = new PAGI\Client\Impl\MockedClientImpl($this->_properties);
         $mock->onGetFullVariable(false);
         $this->assertFalse($mock->getFullVariable('whatever'));
     }
@@ -141,7 +152,7 @@ class Test_Mock extends PHPUnit_Framework_TestCase
      */
     public function can_get_full_variable_success()
     {
-        $mock = new PAGI\Client\Impl\MockedClientImpl();
+        $mock = new PAGI\Client\Impl\MockedClientImpl($this->_properties);
         $mock->onGetFullVariable(true, 'value');
         $this->assertEquals($mock->getFullVariable('whatever'), 'value');
     }
@@ -150,7 +161,7 @@ class Test_Mock extends PHPUnit_Framework_TestCase
      */
     public function can_get_variable_failed()
     {
-        $mock = new PAGI\Client\Impl\MockedClientImpl();
+        $mock = new PAGI\Client\Impl\MockedClientImpl($this->_properties);
         $mock->onGetVariable(false);
         $this->assertFalse($mock->getVariable('whatever'));
     }
@@ -159,7 +170,7 @@ class Test_Mock extends PHPUnit_Framework_TestCase
      */
     public function can_get_variable_success()
     {
-        $mock = new PAGI\Client\Impl\MockedClientImpl();
+        $mock = new PAGI\Client\Impl\MockedClientImpl($this->_properties);
         $mock->onGetVariable(true, 'value');
         $this->assertEquals($mock->getVariable('whatever'), 'value');
     }
@@ -168,7 +179,7 @@ class Test_Mock extends PHPUnit_Framework_TestCase
      */
     public function can_record_with_hangup()
     {
-        $mock = new PAGI\Client\Impl\MockedClientImpl();
+        $mock = new PAGI\Client\Impl\MockedClientImpl($this->_properties);
         $mock->onRecord(false, true, '#', 0);
         $result = $mock->record('blah', 'wav', '#');
         $this->assertTrue($result->isHangup());
@@ -179,7 +190,7 @@ class Test_Mock extends PHPUnit_Framework_TestCase
      */
     public function can_record_with_interrupt()
     {
-        $mock = new PAGI\Client\Impl\MockedClientImpl();
+        $mock = new PAGI\Client\Impl\MockedClientImpl($this->_properties);
         $mock->onRecord(true, false, '#', 0);
         $result = $mock->record('blah', 'wav', '#');
         $this->assertFalse($result->isHangup());
@@ -192,7 +203,7 @@ class Test_Mock extends PHPUnit_Framework_TestCase
      */
     public function can_get_option_without_interrupt()
     {
-        $mock = new PAGI\Client\Impl\MockedClientImpl();
+        $mock = new PAGI\Client\Impl\MockedClientImpl($this->_properties);
         $mock->onGetOption(false, '#', 1000);
         $result = $mock->getOption('blah', '#', 1000);
         $this->assertTrue($result->isTimeout());
@@ -203,7 +214,7 @@ class Test_Mock extends PHPUnit_Framework_TestCase
      */
     public function can_get_option_with_interrupt()
     {
-        $mock = new PAGI\Client\Impl\MockedClientImpl();
+        $mock = new PAGI\Client\Impl\MockedClientImpl($this->_properties);
         $mock->onGetOption(true, '#', 1000);
         $result = $mock->getOption('blah', '#', 1000);
         $this->assertFalse($result->isTimeout());
@@ -215,7 +226,7 @@ class Test_Mock extends PHPUnit_Framework_TestCase
      */
     public function can_record_with_timeout()
     {
-        $mock = new PAGI\Client\Impl\MockedClientImpl();
+        $mock = new PAGI\Client\Impl\MockedClientImpl($this->_properties);
         $mock->onRecord(false, false, '#', 0);
         $result = $mock->record('blah', 'wav', '#');
         $this->assertFalse($result->isHangup());
@@ -226,7 +237,7 @@ class Test_Mock extends PHPUnit_Framework_TestCase
      */
     public function can_example_mock()
     {
-        $mock = new PAGI\Client\Impl\MockedClientImpl();
+        $mock = new PAGI\Client\Impl\MockedClientImpl($this->_properties);
         $mock
             ->assert('waitDigit', array(1000))
             ->assert('streamFile', array('blah', '01234567890*#'))
