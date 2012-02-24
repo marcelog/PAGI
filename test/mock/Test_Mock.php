@@ -77,16 +77,163 @@ class Test_Mock extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function cannot_finish_without_using_all_results()
+    {
+        $mock = new PAGI\Client\Impl\MockedClientImpl();
+        $mock->onDial(true, 'name', '123456', 20, 'ANSWER', '#blah');
+        try
+        {
+            unset($mock);
+            $this->fail('Should not here');
+        } catch(PAGI\Exception\MockedException $exception) {
+
+        }
+    }
+
+    /**
+     * @test
+     */
+    public function cannot_finish_without_using_all_asserts()
+    {
+        $mock = new PAGI\Client\Impl\MockedClientImpl();
+        $mock->assert('waitDigit', array(1));
+        try
+        {
+            unset($mock);
+            $this->fail('Should not here');
+        } catch(PAGI\Exception\MockedException $exception) {
+
+        }
+    }
+    /**
+     * @test
+     */
+    public function can_dial_success()
+    {
+        $mock = new PAGI\Client\Impl\MockedClientImpl();
+        $mock->onDial(true, 'name', '123456', 20, 'ANSWER', '#blah');
+        $result = $mock->dial('SIP/blah', array(60, 'tH'));
+        $this->assertTrue($result->isAnswer());
+        $this->assertTrue($result->isResult(0));
+    }
+    /**
+     * @test
+     */
+    public function can_dial_failed()
+    {
+        $mock = new PAGI\Client\Impl\MockedClientImpl();
+        $mock->onDial(false, 'name', '123456', 20, 'CONGESTION', '#blah');
+        $result = $mock->dial('SIP/blah', array(60, 'tH'));
+        $this->assertTrue($result->isCongestion());
+        $this->assertTrue($result->isResult(-1));
+    }
+    /**
+     * @test
+     */
+    public function can_get_full_variable_failed()
+    {
+        $mock = new PAGI\Client\Impl\MockedClientImpl();
+        $mock->onGetFullVariable(false);
+        $this->assertFalse($mock->getFullVariable('whatever'));
+    }
+    /**
+     * @test
+     */
+    public function can_get_full_variable_success()
+    {
+        $mock = new PAGI\Client\Impl\MockedClientImpl();
+        $mock->onGetFullVariable(true, 'value');
+        $this->assertEquals($mock->getFullVariable('whatever'), 'value');
+    }
+    /**
+     * @test
+     */
+    public function can_get_variable_failed()
+    {
+        $mock = new PAGI\Client\Impl\MockedClientImpl();
+        $mock->onGetVariable(false);
+        $this->assertFalse($mock->getVariable('whatever'));
+    }
+    /**
+     * @test
+     */
+    public function can_get_variable_success()
+    {
+        $mock = new PAGI\Client\Impl\MockedClientImpl();
+        $mock->onGetVariable(true, 'value');
+        $this->assertEquals($mock->getVariable('whatever'), 'value');
+    }
+    /**
+     * @test
+     */
+    public function can_record_with_hangup()
+    {
+        $mock = new PAGI\Client\Impl\MockedClientImpl();
+        $mock->onRecord(false, true, '#', 0);
+        $result = $mock->record('blah', 'wav', '#');
+        $this->assertTrue($result->isHangup());
+        $this->assertTrue($result->isInterrupted());
+    }
+    /**
+     * @test
+     */
+    public function can_record_with_interrupt()
+    {
+        $mock = new PAGI\Client\Impl\MockedClientImpl();
+        $mock->onRecord(true, false, '#', 0);
+        $result = $mock->record('blah', 'wav', '#');
+        $this->assertFalse($result->isHangup());
+        $this->assertTrue($result->isInterrupted());
+        $this->assertEquals($result->getDigits(), '#');
+    }
+
+    /**
+     * @test
+     */
+    public function can_get_option_without_interrupt()
+    {
+        $mock = new PAGI\Client\Impl\MockedClientImpl();
+        $mock->onGetOption(false, '#', 1000);
+        $result = $mock->getOption('blah', '#', 1000);
+        $this->assertTrue($result->isTimeout());
+    }
+
+    /**
+     * @test
+     */
+    public function can_get_option_with_interrupt()
+    {
+        $mock = new PAGI\Client\Impl\MockedClientImpl();
+        $mock->onGetOption(true, '#', 1000);
+        $result = $mock->getOption('blah', '#', 1000);
+        $this->assertFalse($result->isTimeout());
+        $this->assertEquals($result->getDigits(), '#');
+    }
+
+    /**
+     * @test
+     */
+    public function can_record_with_timeout()
+    {
+        $mock = new PAGI\Client\Impl\MockedClientImpl();
+        $mock->onRecord(false, false, '#', 0);
+        $result = $mock->record('blah', 'wav', '#');
+        $this->assertFalse($result->isHangup());
+        $this->assertFalse($result->isInterrupted());
+    }
+    /**
+     * @test
+     */
     public function can_example_mock()
     {
         $mock = new PAGI\Client\Impl\MockedClientImpl();
         $mock
             ->assert('waitDigit', array(1000))
             ->assert('streamFile', array('blah', '01234567890*#'))
-            ->assert('dial', array('SIP/blah', array(60, 'tH')))
             ->assert('getData', array('blah', 123, '#'))
             ->assert('sayDateTime', array('asd', 123))
             ->assert('setVariable', array('asd', 'asd'))
+            ->assert('setCallerId', array('name', 'number'))
             ->onAnswer(true)
             ->onWaitDigit(false)
             ->onWaitDigit(true, '*')
@@ -101,7 +248,6 @@ class Test_Mock extends PHPUnit_Framework_TestCase
             ->onSayPhonetic(true, '#')
             ->onSayNumber(true, '#')
             ->onSayDigits(true, '#')
-            ->onDial(true, 'name', '123456', 20, 'ANSWER', '#blah')
             ->onHangup(true)
         ;
         $mock->answer();
@@ -121,7 +267,7 @@ class Test_Mock extends PHPUnit_Framework_TestCase
         $mock->sayPhonetic('asd');
         $mock->sayNumber(123);
         $mock->sayDigits(123);
-        $mock->dial('SIP/blah', array(60, 'tH'));
         $mock->hangup();
+        $mock->setCallerId('name', 'number');
     }
 }

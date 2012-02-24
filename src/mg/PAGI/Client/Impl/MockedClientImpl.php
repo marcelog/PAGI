@@ -77,24 +77,26 @@ class MockedClientImpl extends AbstractClient
 
     protected function close()
     {
+        if (!empty($this->mockedResultStrings)) {
+            echo "Some results were not used: " . print_r($this->mockedResultStrings, true);
+            throw new MockedException(
+            	"Some results were not used: " . print_r($this->mockedResultStrings, true)
+            );
+        }
+        if (!empty($this->methodCallAsserts)) {
+            echo "Some methods were not called: " . print_r($this->methodCallAsserts, true);
+            throw new MockedException(
+            	"Some methods were not called: " . print_r($this->methodCallAsserts, true)
+            );
+        }
         return;
     }
 
     public function __destruct()
     {
-        if (!empty($this->mockedResultStrings)) {
-            trigger_error(
-            	"Some results were not used: " . print_r($this->mockedResultStrings, true),
-            	E_USER_ERROR
-            );
-        }
-        if (!empty($this->methodCallAsserts)) {
-            trigger_error(
-            	"Some methods were not called: " . print_r($this->methodCallAsserts, true),
-            	E_USER_ERROR
-            );
-        }
+        // @codeCoverageIgnoreStart
         $this->close();
+        // @codeCoverageIgnoreEnd
     }
 
     public function addMockedResult($string)
@@ -263,7 +265,6 @@ class MockedClientImpl extends AbstractClient
     {
         $args = func_get_args();
         $this->assertCall('setCallerId', $args);
-        return parent::setCallerId($name, $number);
     }
 
     public function onGetOption($interrupted, $digit = '#', $offset = 1)
@@ -319,6 +320,18 @@ class MockedClientImpl extends AbstractClient
         $this->onGetVariable(true, $answeredTime);
         $this->onGetVariable(true, $dialStatus);
         $this->onGetVariable(true, $dynamicFeatures);
+        return $this;
+    }
+
+    public function onRecord(
+        $interrupted, $hangup, $digit, $endpos
+    ) {
+        $this->addMockedResult(
+            '200 result='
+            . ($interrupted ? ord($digit) . ' (dtmf)' : '0')
+            . ($hangup ? ' (hangup)' : '')
+            . " endpos=$endpos"
+        );
         return $this;
     }
 
