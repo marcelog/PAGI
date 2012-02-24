@@ -67,6 +67,7 @@ class MockedClientImpl extends AbstractClient
             throw new MockedException("Dont know how to respond to $text");
         }
         $result = array_shift($this->mockedResultStrings);
+        $this->_logger->debug("$text -> $result");
         return $this->getResultFromResultString($result);
     }
 
@@ -473,6 +474,10 @@ class MockedClientImpl extends AbstractClient
     public function __construct(
         array $envVariables = array(), array $resultStrings = array()
     ) {
+        if (isset($options['log4php.properties'])) {
+            \Logger::configure($options['log4php.properties']);
+        }
+        $this->_logger = \Logger::getLogger(__CLASS__);
         $this->_variables = $envVariables;
         $this->mockedResultStrings = $resultStrings;
         $this->open();
