@@ -52,22 +52,16 @@ class MockedClientImpl extends AbstractClient
      */
     private $mockedResultStrings;
 
-    /**
-     * Result counter.
-     * @var integer
-     */
-    private $resultCounter = -1;
-
     private $methodCallAsserts = array();
 
     protected function send($text)
     {
-        $this->resultCounter++;
+        $this->_logger->debug("Sending: $text");
         if (empty($this->mockedResultStrings)) {
             throw new MockedException("Dont know how to respond to $text");
         }
         $result = array_shift($this->mockedResultStrings);
-        $this->_logger->debug("$text -> $result");
+        $this->_logger->debug("Result: $result");
         return $this->getResultFromResultString($result);
     }
 
@@ -117,7 +111,7 @@ class MockedClientImpl extends AbstractClient
 
     private function assertCall($methodName, array $arguments)
     {
-        if (!isset($this->methodCallAsserts[$methodName]) || empty($this->methodCallAsserts[$methodName])) {
+        if (!isset($this->methodCallAsserts[$methodName])) {
             return true;
         }
         $args = array_shift($this->methodCallAsserts[$methodName]);
@@ -297,6 +291,12 @@ class MockedClientImpl extends AbstractClient
         $args = func_get_args();
         $this->assertCall('answer', $args);
         return parent::answer();
+    }
+    public function hangup()
+    {
+        $args = func_get_args();
+        $this->assertCall('hangup', $args);
+        return parent::hangup();
     }
 
     public function onGetOption($interrupted, $digit = '#', $offset = 1)
