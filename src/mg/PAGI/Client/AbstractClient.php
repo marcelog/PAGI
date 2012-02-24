@@ -81,6 +81,10 @@ abstract class AbstractClient implements IClient
      */
     protected $_arguments = array();
 
+    protected $cdrInstance = false;
+    protected $channelVariablesInstance = false;
+    protected $clidInstance = false;
+
     /**
      * Sends a command to asterisk. Returns an array with:
      * [0] => AGI Result (3 digits)
@@ -700,9 +704,12 @@ abstract class AbstractClient implements IClient
      */
     public function getChannelVariables()
     {
-        return new ChannelVariablesFacade(
-            $this->_variables, $this->_arguments
-        );
+        if ($this->channelVariablesInstance === false) {
+            $this->channelVariablesInstance = new ChannelVariablesFacade(
+                $this->_variables, $this->_arguments
+            );
+        }
+        return $this->channelVariablesInstance;
     }
 
     /**
@@ -711,7 +718,10 @@ abstract class AbstractClient implements IClient
      */
     public function getCDR()
     {
-        return new CDRFacade($this);
+        if ($this->cdrInstance === false) {
+            $this->cdrInstance = new CDRFacade($this);
+        }
+        return $this->cdrInstance;
     }
 
     /**
@@ -720,7 +730,10 @@ abstract class AbstractClient implements IClient
      */
     public function getCallerId()
     {
-        return new CallerIdFacade($this);
+        if ($this->clidInstance === false) {
+            $this->clidInstance = new CallerIdFacade($this);
+        }
+        return $this->clidInstance;
     }
 
     /**
