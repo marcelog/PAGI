@@ -6,12 +6,14 @@ This framework is intended to simply making agi applications. You will
 extend PAGIApplication and your signal handler, error handler, init, and
 shutdown methods are automatically setup and called.
 
-Please see docs/examples/quickstart for a very basic example. You'll need
-something like this in your dialplan:
-
 For an in-depth tutorial: http://marcelog.github.com/articles/pagi_tutorial_create_voip_telephony_application_for_asterisk_with_agi_and_php.html
 
+An example IVR application that includes unit tests is available here: https://github.com/marcelog/Pagi-App-And-Test-Example
+
 Checkout the api (phpdoc) at: http://ci.marcelog.name:8080/job/PAGI/javadoc/
+
+Please see docs/examples/quickstart for a very basic example. You'll need
+something like this in your dialplan:
 
 [default]
 exten => 1,1,AGI(/tmp/PAGI/docs/examples/quickstart/run.sh,a,b,c,d)
@@ -61,6 +63,8 @@ Testing IVR applications
 ========================
 A mocked pagi client is included to easily test your ivr applications. See
 docs/examples/mock to see an example of how to use it.
+
+Another example can be found at: https://github.com/marcelog/Pagi-App-And-Test-Example
 --------------------------------------------------------------------------------
 AutoDial
 ========
