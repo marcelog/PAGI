@@ -1,7 +1,5 @@
 Introduction
 ============
-This software is still in development, stay tuned.
-
 This framework is intended to simply making agi applications. You will 
 extend PAGIApplication and your signal handler, error handler, init, and
 shutdown methods are automatically setup and called.
