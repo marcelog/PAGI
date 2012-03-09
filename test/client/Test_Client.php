@@ -1463,7 +1463,7 @@ class Test_Client extends \PHPUnit_Framework_TestCase
             '200 result=0',
         );
         setFgetsMock($read, $write);
-        $result = $client->playBusyTone(10);
+        $result = $client->playBusyTone();
     }
     /**
      * @test
@@ -1497,7 +1497,7 @@ class Test_Client extends \PHPUnit_Framework_TestCase
             '200 result=0',
         );
         setFgetsMock($read, $write);
-        $result = $client->playCongestionTone(10);
+        $result = $client->playCongestionTone();
     }
     /**
      * @test

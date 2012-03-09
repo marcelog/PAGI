@@ -535,18 +535,14 @@ interface IClient
     /**
      * Plays "Busy" tone, defined in indications.conf
      *
-     * @param integer $timeout Tone duration in seconds
-     *
      * @return ExecDecorator
      */
-    public function playBusyTone($timeout);
+    public function playBusyTone();
 
     /**
      * Plays "Congestion" tone, defined in indications.conf
      *
-     * @param integer $timeout Tone duration in seconds
-     *
      * @return ExecDecorator
      */
-    public function playCongestionTone($timeout);
+    public function playCongestionTone();
 }

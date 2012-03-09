@@ -775,22 +775,18 @@ abstract class AbstractClient implements IClient
      * (non-PHPdoc)
      * @see IClient::playBusyTone()
      */
-    public function playBusyTone($timeout)
+    public function playBusyTone()
     {
-        $result = $this->playTone('Busy');
-        sleep($timeout);
-        return $result;
+        return $this->playTone('Busy');
     }
 
     /**
      * (non-PHPdoc)
      * @see IClient::playCongestionTone()
      */
-    public function playCongestionTone($timeout)
+    public function playCongestionTone()
     {
-        $result = $this->playTone('Congestion');
-        sleep($timeout);
-        return $result;
+        return $this->playTone('Congestion');
     }
 
     /**
