@@ -1457,7 +1457,7 @@ class Test_Client extends \PHPUnit_Framework_TestCase
         setFgetsMock($standardAGIStart, array());
         $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
         $write = array(
-        	'EXEC "Busy" "10"'
+        	'EXEC "PlayTones" "Busy"'
         );
         $read = array(
             '200 result=0',
@@ -1491,7 +1491,7 @@ class Test_Client extends \PHPUnit_Framework_TestCase
         setFgetsMock($standardAGIStart, array());
         $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
         $write = array(
-        	'EXEC "Congestion" "10"'
+        	'EXEC "PlayTones" "Congestion"'
         );
         $read = array(
             '200 result=0',

@@ -777,7 +777,9 @@ abstract class AbstractClient implements IClient
      */
     public function playBusyTone($timeout)
     {
-        return $this->exec('Busy', array($timeout));
+        $result = $this->playTone('Busy');
+        sleep($timeout);
+        return $result;
     }
 
     /**
@@ -786,7 +788,9 @@ abstract class AbstractClient implements IClient
      */
     public function playCongestionTone($timeout)
     {
-        return $this->exec('Congestion', array($timeout));
+        $result = $this->playTone('Congestion');
+        sleep($timeout);
+        return $result;
     }
 
     /**
