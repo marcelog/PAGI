@@ -468,7 +468,7 @@ class Node
             break;
         default:
             $this->appendInput($digit);
-            if ($this->inputLengthIsAtLeast($this->_minInput)) {
+            if ($this->_minInput > 0 && $this->inputLengthIsAtLeast($this->_minInput)) {
                 $this->_state = self::STATE_COMPLETE;
             }
         }
@@ -604,7 +604,7 @@ class Node
             }
             $input = $result->getDigits();
             $this->acceptInput($input);
-            if ($this->inputIsEnd($input)) {
+            if ($this->inputIsEnd($input) || $this->wasCancelled()) {
                 break;
             }
         }
