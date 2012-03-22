@@ -645,7 +645,7 @@ class Node
      */
     public function hasCustomData($key)
     {
-        return $this->_registry[$key];
+        return isset($this->_registry[$key]);
     }
 
     /**
