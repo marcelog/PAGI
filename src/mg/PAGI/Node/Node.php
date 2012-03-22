@@ -246,7 +246,13 @@ class Node
             if ($result === false) {
                 $this->logDebug("Validation FAILED: $name");
                 $onError = $data['soundOnError'];
-                $this->addPrePromptMessage($onError);
+                if (is_array($onError)) {
+                    foreach ($onError as $msg) {
+                        $this->addPrePromptMessage($msg);
+                    }
+                } else {
+                    $this->addPrePromptMessage($onError);
+                }
                 return false;
             }
             $this->logDebug("Validation OK: $name");
@@ -263,7 +269,7 @@ class Node
     {
         $args = func_get_args();
         $name = array_shift($args);
-        $this->_promptMessages[$name] = $args;
+        $this->_promptMessages[] = array($name => $args);
     }
 
     /**
@@ -275,7 +281,7 @@ class Node
     {
         $args = func_get_args();
         $name = array_shift($args);
-        $this->_prePromptMessages[$name] = $args;
+        $this->_prePromptMessages[] = array($name => $args);
     }
 
     /**
@@ -491,14 +497,16 @@ class Node
     protected function callClientMethods($methods, $stopWhen = null)
     {
         $result = null;
-        foreach ($methods as $name => $arguments) {
-            $this->logDebug("$name(" . implode(",", $arguments) . ")");
-            $result = call_user_func_array(
-                array($this->_client, $name), $arguments
-            );
-            if ($stopWhen !== null) {
-                if ($stopWhen($result)) {
-                    return $result;
+        foreach ($methods as $callInfo) {
+            foreach ($callInfo as $name => $arguments) {
+                $this->logDebug("$name(" . implode(",", $arguments) . ")");
+                $result = call_user_func_array(
+                    array($this->_client, $name), $arguments
+                );
+                if ($stopWhen !== null) {
+                    if ($stopWhen($result)) {
+                        return $result;
+                    }
                 }
             }
         }
@@ -729,9 +737,9 @@ class Node
             $this->logDebug("Max attempts reached");
             $this->_state = self::STATE_MAX_INPUTS_REACHED;
             if ($this->_onMaxValidInputAttempts !== null) {
-                $this->callClientMethods(
+                $this->callClientMethods(array(
                     array('streamFile' => array($this->_onMaxValidInputAttempts, self::DTMF_ANY))
-                );
+                ));
             }
         }
         if (!$this->isComplete() && $this->_executeOnInputFailed !== null) {
