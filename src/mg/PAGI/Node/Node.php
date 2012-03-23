@@ -174,6 +174,12 @@ class Node
     const INPUT_NORMAL = 2;
 
     /**
+     * Used to specify infinite time for timeouts.
+     * @var integer
+     */
+    const TIME_INFINITE = -1;
+
+    /**
      * Holds the PAGI client.
      * @var PAGI\Client\IClient
      */
@@ -214,13 +220,13 @@ class Node
      * messages.
      * @var integer
      */
-    private $_timeBetweenDigits = '-1';
+    private $_timeBetweenDigits = self::TIME_INFINITE;
     /**
      * In milliseconds, maximum time to wait for a complete user input (per
      * attempt).
      * @var integer
      */
-    private $_totalTimeForInput = '-1';
+    private $_totalTimeForInput = self::TIME_INFINITE;
     /**
      * Holds the prompt messages (actions) to be used before expecting the user
      * input (like sounds, numbers, datetimes, etc).
@@ -1110,9 +1116,6 @@ class Node
      */
     public function run()
     {
-        if (!($this->_client instanceof \PAGI\Client\IClient)) {
-            throw new NodeException("Need a PAGI client to work with");
-        }
         $this->_inputAttemptsUsed = 1;
         for ($attempts = 0; $attempts < $this->_totalAttemptsForInput; $attempts++) {
             $this->doInput();
