@@ -60,6 +60,88 @@ class Test_Node extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function can_cancel_and_retry_input()
+    {
+        $node = $this->createNode();
+        $node->getClient()
+            ->onStreamFile(true, '1')
+            ->onWaitDigit(true, '2')
+            ->onWaitDigit(true, '3')
+            ->onWaitDigit(true, '*')
+            ->onStreamFile(true, '#')
+            ->assert('streamFile', array('you-have', Node::DTMF_ANY))
+            ->assert('streamFile', array('you-have', Node::DTMF_ANY))
+        ;
+        $node
+            ->expectAtLeast(3)
+            ->expectAtMost(5)
+            ->maxAttemptsForInput(2)
+            ->cancelWithInputRetriesInput()
+            ->cancelWith(Node::DTMF_STAR)
+            ->endInputWith(Node::DTMF_HASH)
+            ->saySound('you-have')
+            ->run()
+        ;
+        $this->assertTrue($node->maxInputsReached());
+        $this->assertEquals($node->getInput(), '');
+        $this->assertFalse($node->hasInput());
+    }
+
+    /**
+     * test
+     */
+    public function can_cancel_without_retrying_input()
+    {
+        $node = $this->createNode();
+        $node->getClient()
+            ->onStreamFile(true, '1')
+            ->onWaitDigit(true, '2')
+            ->onWaitDigit(true, '3')
+            ->onWaitDigit(true, '*')
+            ->assert('streamFile', array('you-have', Node::DTMF_ANY))
+        ;
+        $node
+            ->expectAtLeast(3)
+            ->expectAtMost(5)
+            ->maxAttemptsForInput(2)
+            ->cancelWith(Node::DTMF_STAR)
+            ->endInputWith(Node::DTMF_HASH)
+            ->saySound('you-have')
+            ->run()
+        ;
+        $this->assertTrue($node->wasCancelled());
+        $this->assertEquals($node->getInput(), '123');
+        $this->assertTrue($node->hasInput());
+    }
+
+	/**
+     * @test
+     */
+    public function can_play_on_no_input()
+    {
+        $node = $this->createNode();
+        $node->getClient()
+            ->onStreamFile(false)
+            ->onStreamFile(false)
+            ->onStreamFile(false)
+            ->assert('streamFile', array('you-have', Node::DTMF_ANY))
+            ->assert('streamFile', array('try-again', Node::DTMF_ANY))
+            ->assert('streamFile', array('you-have', Node::DTMF_ANY))
+            ;
+        $node
+            ->maxAttemptsForInput(2)
+            ->playOnNoInput('try-again')
+            ->saySound('you-have')
+            ->run()
+        ;
+        $this->assertTrue($node->isTimeout());
+        $this->assertEquals($node->getInput(), '');
+        $this->assertFalse($node->hasInput());
+    }
+
+    /**
+     * @test
+     */
     public function can_end_input()
     {
         $node = $this->createNode();
@@ -75,6 +157,7 @@ class Test_Node extends PHPUnit_Framework_TestCase
             ->assert('sayDigits', array(99, Node::DTMF_ANY))
         ;
         $node
+            ->playOnNoInput('try-again')
             ->expectAtLeast(3)
             ->expectAtMost(5)
             ->endInputWith(Node::DTMF_HASH)
@@ -104,6 +187,7 @@ class Test_Node extends PHPUnit_Framework_TestCase
             ->assert('sayDigits', array(99, Node::DTMF_ANY))
         ;
         $node
+            ->playOnNoInput('try-again')
             ->cancelWith(Node::DTMF_STAR)
             ->saySound('you-have')
             ->sayNumber(12)
@@ -145,6 +229,7 @@ class Test_Node extends PHPUnit_Framework_TestCase
             ->assert('sayDigits', array(99, Node::DTMF_ANY))
         ;
         $node
+            ->playOnNoInput('try-again')
             ->expectAtLeast(1)
             ->saySound('you-have')
             ->sayNumber(12)
@@ -173,6 +258,7 @@ class Test_Node extends PHPUnit_Framework_TestCase
             ->assert('sayDateTime', array(444, 'format', Node::DTMF_NONE))
         ;
         $node
+            ->playOnNoInput('try-again')
             ->unInterruptablePrompts()
             ->saySound('you-have')
             ->sayNumber(12)
@@ -200,6 +286,7 @@ class Test_Node extends PHPUnit_Framework_TestCase
             ->assert('sayDateTime', array(444, 'format', Node::DTMF_ANY))
         ;
         $node
+            ->playOnNoInput('try-again')
             ->saySound('you-have')
             ->sayNumber(12)
             ->sayDigits(99)
