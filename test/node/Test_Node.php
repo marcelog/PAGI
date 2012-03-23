@@ -80,6 +80,33 @@ class Test_Node extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function can_init_to_not_run()
+    {
+        $node = $this->createNode();
+        $refObject = new \ReflectionObject($node);
+        $refProperty = $refObject->getProperty('state');
+        $refProperty->setAccessible(true);
+        $this->assertEquals($refProperty->getValue($node), Node::STATE_NOT_RUN);
+        $node->__toString();
+    }
+
+    /**
+     * @test
+     * @expectedException PAGI\Node\Exception\NodeException
+     */
+    public function cannot_convert_invalid_state_to_string()
+    {
+        $node = $this->createNode();
+        $refObject = new \ReflectionObject($node);
+        $refProperty = $refObject->getProperty('state');
+        $refProperty->setAccessible(true);
+        $refProperty->setValue($node, 'foo');
+        $node->__toString();
+    }
+
+    /**
+     * @test
+     */
     public function can_discard_input_on_pre_prompt_messages()
     {
         $validators = array(

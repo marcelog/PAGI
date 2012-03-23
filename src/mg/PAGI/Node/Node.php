@@ -129,49 +129,49 @@ class Node
      * State when the node has not be run yet.
      * @var integer
      */
-    const STATE_NOT_RUN = 0;
+    const STATE_NOT_RUN = 1;
     /**
      * State reached when the node can be cancelled (it has a cancel digit set)
      * and the user pressed it.
      * @var integer
      */
-    const STATE_CANCEL = 1;
+    const STATE_CANCEL = 2;
     /**
      * State reached when the input is considered complete (it has at least
      * the minimum number of digits)
      * @var integer
      */
-    const STATE_COMPLETE = 2;
+    const STATE_COMPLETE = 3;
     /**
      * The user has not entered any input.
      * @var integer
      */
-    const STATE_TIMEOUT = 3;
+    const STATE_TIMEOUT = 4;
     /**
      * The user exceeded the maximum number of attempts allowed to enter
      * a valid option.
      * @var integer
      */
-    const STATE_MAX_INPUTS_REACHED = 4;
+    const STATE_MAX_INPUTS_REACHED = 5;
 
     /**
      * Used when evaluating input, returned when the user presses the end of
      * input digit.
      * @var integer
      */
-    const INPUT_END = 0;
+    const INPUT_END = 1;
     /**
      * Used when evaluating input, returned when the user presses the cancel
      * digit.
      * @var integer
      */
-    const INPUT_CANCEL = 1;
+    const INPUT_CANCEL = 2;
     /**
      * Used when evaluating input, returned when the user presses a digit
      * that is not a cancel or end of input digit.
      * @var integer
      */
-    const INPUT_NORMAL = 2;
+    const INPUT_NORMAL = 3;
 
     /**
      * Used to specify infinite time for timeouts.
@@ -193,7 +193,7 @@ class Node
      * Node state.
      * @var integer
      */
-    private $_state = self::STATE_NOT_RUN;
+    protected $state = self::STATE_NOT_RUN;
     /**
      * Holds the configured end of input digit.
      * @var string
@@ -814,15 +814,15 @@ class Node
     {
         switch($this->evaluateInput($digit)) {
         case self::INPUT_CANCEL:
-            $this->_state = self::STATE_CANCEL;
+            $this->state = self::STATE_CANCEL;
             break;
         case self::INPUT_END:
-            $this->_state = self::STATE_COMPLETE;
+            $this->state = self::STATE_COMPLETE;
             break;
         default:
             $this->appendInput($digit);
             if ($this->_minInput > 0 && $this->inputLengthIsAtLeast($this->_minInput)) {
-                $this->_state = self::STATE_COMPLETE;
+                $this->state = self::STATE_COMPLETE;
             }
         }
     }
@@ -834,7 +834,7 @@ class Node
      */
     public function maxInputsReached()
     {
-        return $this->_state == self::STATE_MAX_INPUTS_REACHED;
+        return $this->state == self::STATE_MAX_INPUTS_REACHED;
     }
 
     /**
@@ -844,7 +844,7 @@ class Node
      */
     public function wasCancelled()
     {
-        return $this->_state == self::STATE_CANCEL;
+        return $this->state == self::STATE_CANCEL;
     }
 
     /**
@@ -854,7 +854,7 @@ class Node
      */
     public function isTimeout()
     {
-        return $this->_state == self::STATE_TIMEOUT;
+        return $this->state == self::STATE_TIMEOUT;
     }
 
     /**
@@ -864,7 +864,7 @@ class Node
      */
     public function isComplete()
     {
-        return $this->_state == self::STATE_COMPLETE;
+        return $this->state == self::STATE_COMPLETE;
     }
 
     /**
@@ -1055,7 +1055,7 @@ class Node
      */
     protected function resetInput()
     {
-        $this->_state = self::STATE_TIMEOUT;
+        $this->state = self::STATE_TIMEOUT;
         $this->_input = self::DTMF_NONE;
         return $this;
     }
@@ -1148,7 +1148,7 @@ class Node
         }
         if ($this->_minInput > 0 && $attempts == $this->_totalAttemptsForInput) {
             $this->logDebug("Max attempts reached");
-            $this->_state = self::STATE_MAX_INPUTS_REACHED;
+            $this->state = self::STATE_MAX_INPUTS_REACHED;
             if ($this->_onMaxValidInputAttempts !== null) {
                 $this->callClientMethods(array(
                     array('streamFile' => array($this->_onMaxValidInputAttempts, self::DTMF_ANY))
@@ -1185,19 +1185,19 @@ class Node
      */
     protected function stateToString()
     {
-        switch ($this->_state) {
+        switch ($this->state) {
         case self::STATE_CANCEL:
             return "cancel";
         case self::STATE_COMPLETE:
             return "complete";
-        case self::STATE_NOT_RUN:
+        case self::STATE_NOT_RUN: // a string like 'foo' matches here?
             return "not run";
         case self::STATE_TIMEOUT:
             return "timeout";
         case self::STATE_MAX_INPUTS_REACHED:
             return "max valid input attempts reached";
         default:
-            return "???";
+            throw new NodeException("Bad state for node");
         }
     }
 
