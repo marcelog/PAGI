@@ -80,6 +80,69 @@ class Test_Node extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function can_execute_validators()
+    {
+        $validators = array(
+            'validator1' => Node::createValidatorInfo(
+                function (Node $node) {
+                    return true;
+                }
+            ),
+            'validator2' => Node::createValidatorInfo(
+                function ($node) {
+                    return $node->getInput() > 1;
+                },
+                'sound2'
+            ),
+            'validator3' => Node::createValidatorInfo(
+                function ($node) {
+                    return $node->getInput() > 2;
+                },
+                array('sound2', 'sound3')
+            )
+        );
+        $node = $this->createNode();
+        $node->getClient()
+            ->assert('streamFile', array('you-have', Node::DTMF_ANY))
+            ->assert('streamFile', array('sound2', Node::DTMF_ANY))
+            ->assert('streamFile', array('you-have', Node::DTMF_ANY))
+            ->assert('streamFile', array('sound2', Node::DTMF_ANY))
+            ->assert('streamFile', array('sound3', Node::DTMF_ANY))
+            ->assert('streamFile', array('you-have', Node::DTMF_ANY))
+            ->onStreamFile(true, '1')
+            ->onStreamFile(false, 'sound2')
+            ->onStreamFile(true, '2')
+            ->onStreamFile(false, 'sound2')
+            ->onStreamFile(false, 'sound3')
+            ->onStreamFile(true, '3')
+            ;
+        $node
+            ->saySound('you-have')
+            ->expectExactly(1)
+            ->maxAttemptsForInput(5)
+            ->loadValidatorsFrom($validators)
+            ->run()
+        ;
+        $this->assertTrue($node->hasInput());
+        $this->assertEquals($node->getInput(), '3');
+        $this->assertTrue($node->isComplete());
+    }
+
+    /**
+     * @test
+     */
+    public function can_create_validator_info()
+    {
+        $validatorInfo = Node::createValidatorInfo(
+            function ($node) { return true; }, 'sound'
+        );
+        $this->assertEquals($validatorInfo['soundOnError'], 'sound');
+        $this->assertTrue($validatorInfo['callback'](null));
+    }
+
+    /**
+     * @test
+     */
     public function can_honor_max_time_for_input()
     {
         global $mockTime;
