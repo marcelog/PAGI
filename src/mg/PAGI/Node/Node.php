@@ -309,6 +309,11 @@ class Node
     private $_cancelWithInputRetriesInput = false;
 
     /**
+     * Used to save the total amount of opportunities used to enter valid input.
+     * @var integer
+     */
+    private $_inputAttemptsUsed = 0;
+    /**
      * Make pre prompt messages not interruptable
      *
      * @return Node
@@ -673,7 +678,7 @@ class Node
      */
     public function hasInput()
     {
-        return $this->inputLenIsAtLeast(1);
+        return $this->inputLengthIsAtLeast(1);
     }
 
     /**
@@ -1089,6 +1094,16 @@ class Node
     }
 
     /**
+     * Returns the total number of input attempts used by the user.
+     *
+     * @return integer
+     */
+    public function getTotalInputAttemptsUsed()
+    {
+        return $this->_inputAttemptsUsed;
+    }
+
+    /**
      * Executes this node.
      *
      * @return Node
@@ -1098,10 +1113,11 @@ class Node
         if (!($this->_client instanceof \PAGI\Client\IClient)) {
             throw new NodeException("Need a PAGI client to work with");
         }
+        $this->_inputAttemptsUsed = 1;
         for ($attempts = 0; $attempts < $this->_totalAttemptsForInput; $attempts++) {
             $this->doInput();
             if ($this->wasCancelled()) {
-                if ($this->_cancelWithInputRetriesInput && $this->inputLengthIsAtLeast(1)) {
+                if ($this->_cancelWithInputRetriesInput && $this->hasInput()) {
                     $this->logDebug("Cancelled input, retrying");
                     continue;
                 }
@@ -1110,13 +1126,13 @@ class Node
             }
             if (
                 $this->_onNoInputMessage !== null
-                && !$this->inputLengthIsAtLeast(1)
+                && !$this->hasInput()
                 && $attempts != $this->_totalAttemptsForInput
             ) {
                 $this->addPrePromptMessage($this->_onNoInputMessage);
                 continue;
             }
-            if ($this->inputLengthIsAtLeast(1) && $this->validate()) {
+            if ($this->hasInput() && $this->validate()) {
                 $this->logDebug("Input validated");
                 if ($this->_executeOnValidInput !== null) {
                     $callback = $this->_executeOnValidInput;
@@ -1125,6 +1141,7 @@ class Node
                 break;
             }
         }
+        $this->_inputAttemptsUsed = $attempts + 1;
         if ($this->_minInput > 0 && $attempts == $this->_totalAttemptsForInput) {
             $this->logDebug("Max attempts reached");
             $this->_state = self::STATE_MAX_INPUTS_REACHED;
