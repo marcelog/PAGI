@@ -327,6 +327,7 @@ class Node
     public function prePromptMessagesNotInterruptable()
     {
         $this->_prePromptMessagesInterruptable = false;
+        $this->_validInterruptDigits = self::DTMF_NONE;
         return $this;
     }
 
