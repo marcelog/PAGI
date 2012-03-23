@@ -1,9 +1,47 @@
 <?php
+/**
+ * A node, used to get input from the user, validate it, play prompt messages,
+ * etc.
+ *
+ * PHP Version 5.3
+ *
+ * @category PAGI
+ * @package  Node
+ * @author   Marcelo Gornstein <marcelog@gmail.com>
+ * @license  http://marcelog.github.com/PAGI/ Apache License 2.0
+ * @version  SVN: $Id$
+ * @link     http://marcelog.github.com/PAGI/
+ *
+ * Copyright 2011 Marcelo Gornstein <marcelog@gmail.com>
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
 namespace PAGI\Node;
 
 use PAGI\Client\IClient;
 use PAGI\Node\Exception\NodeException;
 
+/**
+ * A node, used to get input from the user, validate it, play prompt messages,
+ * etc.
+ *
+ * @category PAGI
+ * @package  Node
+ * @author   Marcelo Gornstein <marcelog@gmail.com>
+ * @license  http://marcelog.github.com/PAGI/ Apache License 2.0
+ * @link     http://marcelog.github.com/PAGI/
+ */
 class Node
 {
     /**
@@ -11,7 +49,15 @@ class Node
      * @var string
      */
     const DTMF_ANY = '0123456789*#';
+    /**
+     * DTMF digit '*'
+     * @var string
+     */
     const DTMF_STAR = '*';
+    /**
+     * DTMF digit '#'
+     * @var string
+     */
     const DTMF_HASH = '#';
     /**
      * DTMF digits which are integers (numbers)
@@ -28,14 +74,50 @@ class Node
      * @var string
      */
     const DTMF_1 = '1';
+    /**
+     * DTMF digit '2'
+     * @var string
+     */
     const DTMF_2 = '2';
+    /**
+     * DTMF digit '3'
+     * @var string
+     */
     const DTMF_3 = '3';
+    /**
+     * DTMF digit '4'
+     * @var string
+     */
     const DTMF_4 = '4';
+    /**
+     * DTMF digit '5'
+     * @var string
+     */
     const DTMF_5 = '5';
+    /**
+     * DTMF digit '6'
+     * @var string
+     */
     const DTMF_6 = '6';
+    /**
+     * DTMF digit '7'
+     * @var string
+     */
     const DTMF_7 = '7';
+    /**
+     * DTMF digit '8'
+     * @var string
+     */
     const DTMF_8 = '8';
+    /**
+     * DTMF digit '9'
+     * @var string
+     */
     const DTMF_9 = '9';
+    /**
+     * DTMF digit '0'
+     * @var string
+     */
     const DTMF_0 = '0';
 
     /**
@@ -67,38 +149,158 @@ class Node
      */
     const STATE_MAX_INPUTS_REACHED = 4;
 
+    /**
+     * Used when evaluating input, returned when the user presses the end of
+     * input digit.
+     * @var integer
+     */
     const INPUT_END = 0;
+    /**
+     * Used when evaluating input, returned when the user presses the cancel
+     * digit.
+     * @var integer
+     */
     const INPUT_CANCEL = 1;
+    /**
+     * Used when evaluating input, returned when the user presses a digit
+     * that is not a cancel or end of input digit.
+     * @var integer
+     */
     const INPUT_NORMAL = 2;
 
+    /**
+     * Holds the PAGI client.
+     * @var PAGI\Client\IClient
+     */
     private $_client = null;
+    /**
+     * Here's where the user input is appended one digit at the time.
+     * @var string
+     */
     private $_input = '';
+    /**
+     * Node state.
+     * @var integer
+     */
     private $_state = self::STATE_NOT_RUN;
+    /**
+     * Holds the configured end of input digit.
+     * @var string
+     */
     private $_endOfInputDigit = 'X';
+    /**
+     * Holds the configured cancel digit.
+     * @var string
+     */
     private $_cancelDigit = 'X';
+    /**
+     * The minimum configured expected input length.
+     * @var integer
+     */
     private $_minInput = 0;
+    /**
+     * The maximum configured expected input length.
+     * @var integer
+     */
     private $_maxInput = 0;
+    /**
+     * In milliseconds, maximum time to wait for user input between digits.
+     * Only taken into account when expecting input outside prompt and preprompt
+     * messages.
+     * @var integer
+     */
     private $_timeBetweenDigits = '-1';
+    /**
+     * In milliseconds, maximum time to wait for a complete user input (per
+     * attempt).
+     * @var integer
+     */
     private $_totalTimeForInput = '-1';
+    /**
+     * Holds the prompt messages (actions) to be used before expecting the user
+     * input (like sounds, numbers, datetimes, etc).
+     * @var string[]
+     */
     private $_promptMessages = array();
+    /**
+     * Similar to prompt messages, but dynamically populated and cleared with
+     * pre prompt messages, like error messages from validations.
+     * @var string[]
+     */
     private $_prePromptMessages = array();
+    /**
+     * True if the pre prompt messages can be interrupted with a dtmf digit.
+     * @var boolean
+     */
     private $_prePromptMessagesInterruptable = true;
+    /**
+     * When the user can interrupt the pre prompt messages, this will indicate
+     * if the digit pressed count as input (thus, discarding the prompt
+     * messages).
+     * @var boolean
+     */
     private $_acceptPrePromptInputAsInput = true;
     /**
      * Node name.
      * @var string
      */
     private $_name = 'X';
+    /**
+     * Holds all input validators.
+     * @var Closure[]
+     */
     private $_inputValidations = array();
+    /**
+     * Total attempts for the user to enter a valid input. Will loop input
+     * routine this many times when the input is not validated.
+     * @var integer
+     */
     private $_totalAttemptsForInput = 1;
-    private $_errorMessages = array();
+    /**
+     * Optional message to play when the user did not enter any digits on
+     * input.
+     * @var string
+     */
     private $_onNoInputMessage = null;
+    /**
+     * Optinal message to play when the user exceeded the maximum allowed
+     * attempts to enter a valid input.
+     * @var message
+     */
     private $_onMaxValidInputAttempts = null;
+    /**
+     * True if prompt messages can be interrupted.
+     * @var boolean
+     */
     private $_promptsCanBeInterrupted = true;
+    /**
+     * When pre prompt or prompt messages can be interrupted, these are the
+     * valid interrupt digits.
+     * @var string
+     */
     private $_validInterruptDigits = self::DTMF_ANY;
+    /**
+     * Carries state. This is where optional custom data can be saved in the
+     * callbacks and 3rd party software. Keys are strings.
+     * @var mixed[]
+     */
     private $_registry = array();
+    /**
+     * Callback to execute on valid input from the user.
+     * @var Closure
+     */
     private $_executeOnValidInput = null;
+    /**
+     * Callback to execute when the node failed to correctly
+     * Enter description here ...
+     * @var Closure
+     */
     private $_executeOnInputFailed = null;
+    /**
+     * When true, the user may retry the input by pressing the cancel button
+     * if and only if he/she has already input one or more digits.
+     * @var boolean
+     */
     private $_cancelWithInputRetriesInput = false;
 
     /**
@@ -298,71 +500,161 @@ class Node
         );
     }
 
+    /**
+     * Loads a prompt message for saying the digits of the given number.
+	 *
+     * @param integer $digits
+     *
+     * @return Node
+     */
     public function sayDigits($digits)
     {
         $this->addClientMethodCall('sayDigits', $digits, $this->_validInterruptDigits);
         return $this;
     }
 
+    /**
+     * Loads a prompt message for saying a number.
+     *
+     * @param integer $number
+     *
+     * @return Node
+     */
     public function sayNumber($number)
     {
         $this->addClientMethodCall('sayNumber', $number, $this->_validInterruptDigits);
         return $this;
     }
 
+    /**
+     * Loads a prompt message for saying a date/time expressed by a unix
+     * timestamp and a format.
+     *
+     * @param integer $timestamp
+     * @param string $format
+     *
+     * @return Node
+     */
     public function sayDateTime($timestamp, $format)
     {
         $this->addClientMethodCall('sayDateTime', $timestamp, $format, $this->_validInterruptDigits);
         return $this;
     }
 
+    /**
+     * Loads a prompt message for playing an audio file.
+     *
+     * @param string $filename
+     *
+     * @return Node
+     */
     public function saySound($filename)
     {
         $this->addClientMethodCall('streamFile', $filename, $this->_validInterruptDigits);
         return $this;
     }
 
+    /**
+     * Configure the node to expect at least this many digits. The input is
+     * considered complete when this many digits has been entered. Cancel and
+     * end of input digits (if configured) are not taken into account.
+     *
+     * @param integer $length
+     *
+     * @return Node
+     */
     public function expectAtLeast($length)
     {
         $this->_minInput = $length;
         return $this;
     }
 
+    /**
+     * Configure the node to expect at most this many digits. The reading loop
+     * will try to read this many digits.
+     *
+     * @param integer $length
+     *
+     * @return Node
+     */
     public function expectAtMost($length)
     {
         $this->_maxInput = $length;
         return $this;
     }
 
+    /**
+     * Configure this node to expect at least and at most this many digits.
+     *
+     * @param integer $length
+     *
+     * @return Node
+     */
     public function expectExactly($length)
     {
         return $this->expectAtLeast($length)->expectAtMost($length);
     }
 
+    /**
+     * Configures a specific digit as the cancel digit.
+     *
+     * @param char $digit
+     *
+     * @return Node
+     */
     public function cancelWith($digit)
     {
         $this->_cancelDigit = $digit;
         return $this;
     }
 
+    /**
+     * Configures a specific digit as the end of input digit.
+     *
+     * @param char $digit
+     *
+     * @return Node
+     */
     public function endInputWith($digit)
     {
         $this->_endOfInputDigit = $digit;
         return $this;
     }
 
+    /**
+     * Configures the maximum time available between digits before a timeout.
+     *
+     * @param integer $milliseconds
+     *
+     * @return Node
+     */
     public function maxTimeBetweenDigits($milliseconds)
     {
         $this->_timeBetweenDigits = $milliseconds;
         return $this;
     }
 
+    /**
+     * Configures the maximum time available for the user to enter valid input
+     * per attempt.
+     *
+     * @param integer $milliseconds
+     *
+     * @return Node
+     */
     public function maxTotalTimeForInput($milliseconds)
     {
         $this->_totalTimeForInput = $milliseconds;
         return $this;
     }
 
+    /**
+     * True if this node has at least this many digits entered.
+     *
+     * @param integer $length
+     *
+     * @return boolean
+     */
     public function inputLengthIsAtLeast($length)
     {
         return strlen($this->_input) >= $length;
@@ -425,27 +717,63 @@ class Node
         return $this;
     }
 
+    /**
+     * Convenient method to create a node.
+     *
+     * @param string $name
+     * @param PAGI\Client\IClient $agiClient
+     *
+     * @return Node
+     */
     public static function create($name, $agiClient)
     {
         $node = new Node();
         return $node->setName($name)->setAgiClient($agiClient);
     }
 
+    /**
+     * Appends an input to the node input.
+     *
+     * @param char $digit
+     *
+     * @return void
+     */
     protected function appendInput($digit)
     {
         $this->_input .= $digit;
     }
 
+    /**
+     * True if the digit matches the cancel digit.
+     *
+     * @param char $digit
+     *
+     * @return boolean
+     */
     protected function inputIsCancel($digit)
     {
         return $digit == $this->_cancelDigit;
     }
 
+    /**
+     * True if the digit matches the end of input digit.
+     *
+     * @param char $digit
+     *
+     * @return boolean
+     */
     protected function inputIsEnd($digit)
     {
         return $digit == $this->_endOfInputDigit;
     }
 
+    /**
+     * Returns the kind of digit entered by the user, CANCEL, END, NORMAL.
+     *
+     * @param char $digit
+     *
+     * @return integer
+     */
     protected function evaluateInput($digit)
     {
         if ($this->inputIsCancel($digit)) {
@@ -457,6 +785,14 @@ class Node
         return self::INPUT_NORMAL;
     }
 
+    /**
+     * Process a single digit input by the user. Changes the node state
+     * according to the digit entered (CANCEL, COMPLETE).
+     *
+     * @param char $digit
+     *
+     * @return void
+     */
     protected function acceptInput($digit)
     {
         switch($this->evaluateInput($digit)) {
@@ -474,26 +810,57 @@ class Node
         }
     }
 
+    /**
+     * True if the user reached the maximum allowed attempts for valid input.
+     *
+     * @return boolean
+     */
     public function maxInputsReached()
     {
         return $this->_state == self::STATE_MAX_INPUTS_REACHED;
     }
 
+    /**
+     * True if this node is in CANCEL state.
+     *
+     * @return boolean
+     */
     public function wasCancelled()
     {
         return $this->_state == self::STATE_CANCEL;
     }
 
+    /**
+     * True if this node is in TIMEOUT state.
+     *
+     * @return boolean
+     */
     public function isTimeout()
     {
         return $this->_state == self::STATE_TIMEOUT;
     }
 
+    /**
+     * True if this node is in COMPLETE state.
+     *
+     * @return boolean
+     */
     public function isComplete()
     {
         return $this->_state == self::STATE_COMPLETE;
     }
 
+    /**
+     * Calls methods in the PAGI client.
+     *
+     * @param methodInfo[] $methods Methods to call, an array of arrays. The
+     * second array has the method name as key and an array of arguments as
+     * value.
+     * @param Closure $stopWhen If any, this callback is evaluated before
+     * returning. Will return when false.
+     *
+     * @return IResult
+     */
     protected function callClientMethods($methods, $stopWhen = null)
     {
         $result = null;
@@ -513,6 +880,11 @@ class Node
         return $result;
     }
 
+    /**
+     * Plays pre prompt messages, like error messages from validations.
+     *
+     * @return IResult|null
+     */
     protected function playPromptMessages()
     {
         $interruptable = $this->_promptsCanBeInterrupted;
@@ -525,6 +897,11 @@ class Node
         return $result;
     }
 
+    /**
+     * Internally used to clear pre prompt messages after being played.
+     *
+     * @return void
+     */
     protected function clearPrePromptMessages()
     {
         $this->_prePromptMessages = array();
@@ -581,7 +958,9 @@ class Node
             $this->acceptInput($result->getDigits());
         } else {
             $result = $this->playPromptMessages();
-            $this->acceptInput($result->getDigits());
+            if ($result !== null) {
+                $this->acceptInput($result->getDigits());
+            }
         }
         if ($this->isComplete() || $this->wasCancelled()) {
             return;
@@ -690,6 +1069,14 @@ class Node
         return $this;
     }
 
+    /**
+     * Executes a callback when the node fails to properly get input from the
+     * user (either because of cancel, max attempts reached, timeout).
+     *
+     * @param \Closure $callback
+     *
+     * @return Node
+     */
     public function executeOnInputFailed(\Closure $callback)
     {
         $this->_executeOnInputFailed = $callback;
@@ -733,7 +1120,7 @@ class Node
                 break;
             }
         }
-        if ($attempts == $this->_totalAttemptsForInput) {
+        if ($this->_minInput > 0 && $attempts == $this->_totalAttemptsForInput) {
             $this->logDebug("Max attempts reached");
             $this->_state = self::STATE_MAX_INPUTS_REACHED;
             if ($this->_onMaxValidInputAttempts !== null) {
