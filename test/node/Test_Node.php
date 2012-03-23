@@ -27,6 +27,26 @@
  * limitations under the License.
  *
  */
+namespace {
+    $mockTime = false;
+    $mockTimeValues = array();
+}
+
+namespace PAGI\Node {
+    function time()
+    {
+        global $mockTime;
+        global $mockTimeValues;
+
+        if (!$mockTime) {
+            return \time();
+        }
+        return array_shift($mockTimeValues);
+    }
+}
+
+namespace {
+
 use PAGI\Node\Node;
 
 /**
@@ -55,6 +75,118 @@ class Test_Node extends PHPUnit_Framework_TestCase
                 'resultStrings' => array()
             ))
         );
+    }
+
+    /**
+     * @test
+     */
+    public function can_honor_max_time_for_input()
+    {
+        global $mockTime;
+        global $mockTimeValues;
+
+        $mockTime = true;
+        $now = time();
+        $mockTimeValues[] = $now; // start
+        $mockTimeValues[] = $now; // 1st check
+        $mockTimeValues[] = $now + 5; // after 1st digit
+
+        $node = $this->createNode();
+        $node->getClient()
+            ->onStreamFile(true, '1')
+            ->onWaitDigit(true, '2')
+            ->assert('streamFile', array('you-have', Node::DTMF_ANY))
+        ;
+        $node
+            ->saySound('you-have')
+            ->expectExactly(3)
+            ->maxTotalTimeForInput(5000)
+            ->run()
+        ;
+        $this->assertTrue($node->isTimeout());
+        $mockTime = false;
+        $mockTimeValues = array();
+    }
+
+    /**
+     * @test
+     */
+    public function can_execute_on_valid_input()
+    {
+        $helper = new \stdClass;
+        $helper->flag = false;
+
+        $node = $this->createNode();
+        $node->getClient()
+            ->onStreamFile(true, '1')
+            ->onWaitDigit(true, '2')
+            ->onWaitDigit(true, '3')
+            ->assert('streamFile', array('you-have', Node::DTMF_ANY))
+        ;
+        $node
+            ->expectExactly(3)
+            ->maxAttemptsForInput(2)
+            ->executeOnValidInput(function ($node) use ($helper) {
+                $helper->flag = true;
+            })
+            ->saySound('you-have')
+            ->run()
+        ;
+        $this->assertTrue($helper->flag);
+    }
+
+    /**
+     * @test
+     */
+    public function can_execute_on_failed_input()
+    {
+        $helper = new \stdClass;
+        $helper->flag = false;
+
+        $node = $this->createNode();
+        $node->getClient()
+            ->onStreamFile(false)
+            ->onWaitDigit(false)
+            ->assert('streamFile', array('you-have', Node::DTMF_ANY))
+        ;
+        $node
+            ->expectExactly(3)
+            ->executeOnInputFailed(function ($node) use ($helper) {
+                $helper->flag = true;
+            })
+            ->saySound('you-have')
+            ->run()
+        ;
+        $this->assertTrue($helper->flag);
+    }
+
+    /**
+     * @test
+     */
+    public function can_play_on_max_attempts_reached()
+    {
+        $node = $this->createNode();
+        $node->getClient()
+            ->onStreamFile(false)
+            ->onWaitDigit(false)
+            ->onStreamFile(false)
+            ->onWaitDigit(false)
+            ->onStreamFile(false)
+            ->assert('streamFile', array('you-have', Node::DTMF_ANY))
+            ->assert('streamFile', array('you-have', Node::DTMF_ANY))
+            ->assert('streamFile', array('max-attempts-reached', Node::DTMF_ANY))
+        ;
+        $node
+            ->expectAtLeast(3)
+            ->expectAtMost(5)
+            ->playOnMaxValidInputAttempts('max-attempts-reached')
+            ->maxAttemptsForInput(2)
+            ->saySound('you-have')
+            ->run()
+        ;
+        $this->assertTrue($node->maxInputsReached());
+        $this->assertEquals($node->getInput(), '');
+        $this->assertFalse($node->hasInput());
     }
 
     /**
@@ -295,4 +427,45 @@ class Test_Node extends PHPUnit_Framework_TestCase
         ;
         $this->assertTrue($node->isTimeout());
     }
+
+    /**
+     * @test
+     */
+    public function can_set_infinite_time_between_digits()
+    {
+        $node = $this->createNode();
+        $node->getClient()
+            ->onStreamFile(true, '1')
+            ->onWaitDigit(true, '2')
+            ->assert('streamFile', array('you-have', Node::DTMF_ANY))
+            ->assert('waitDigit', array(-1))
+        ;
+        $node
+            ->saySound('you-have')
+            ->expectExactly(2)
+            ->maxTimeBetweenDigits(Node::TIME_INFINITE)
+            ->run()
+        ;
+    }
+
+    /**
+     * @test
+     */
+    public function can_set_time_between_digits()
+    {
+        $node = $this->createNode();
+        $node->getClient()
+            ->onStreamFile(true, '1')
+            ->onWaitDigit(true, '2')
+            ->assert('streamFile', array('you-have', Node::DTMF_ANY))
+            ->assert('waitDigit', array(1052))
+        ;
+        $node
+            ->saySound('you-have')
+            ->expectExactly(2)
+            ->maxTimeBetweenDigits(1052)
+            ->run()
+        ;
+    }
+}
 }
