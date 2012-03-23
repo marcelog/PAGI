@@ -121,6 +121,11 @@ class Node
     const DTMF_0 = '0';
 
     /**
+     * No DTMFs.
+     * @var string
+     */
+    const DTMF_NONE = '';
+    /**
      * State when the node has not be run yet.
      * @var integer
      */
@@ -177,7 +182,7 @@ class Node
      * Here's where the user input is appended one digit at the time.
      * @var string
      */
-    private $_input = '';
+    private $_input = self::DTMF_NONE;
     /**
      * Node state.
      * @var integer
@@ -334,7 +339,7 @@ class Node
     public function unInterruptablePrompts()
     {
         $this->_promptsCanBeInterrupted = false;
-        $this->_validInterruptDigits = '';
+        $this->_validInterruptDigits = self::DTMF_NONE;
         return $this;
     }
 
@@ -935,7 +940,7 @@ class Node
     protected function resetInput()
     {
         $this->_state = self::STATE_TIMEOUT;
-        $this->_input = '';
+        $this->_input = self::DTMF_NONE;
         return $this;
     }
 
