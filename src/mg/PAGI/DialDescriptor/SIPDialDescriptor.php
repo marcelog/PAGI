@@ -36,7 +36,7 @@ namespace PAGI\DialDescriptor;
  * @author   Agustín Gutiérrez <agu.gutierrez@gmail.com>
  * @license  http://marcelog.github.com/PAGI/ Apache License 2.0
  * @link     http://marcelog.github.com/PAGI/
-**/
+ */
 class SIPDialDescriptor extends DialDescriptor
 {
     const TECHNOLOGY = 'SIP';
