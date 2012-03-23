@@ -60,6 +60,65 @@ class Test_Node extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function can_end_input()
+    {
+        $node = $this->createNode();
+        $node->getClient()
+            ->onStreamFile(false)
+            ->onSayNumber(false)
+            ->onSayDigits(true, '1')
+            ->onWaitDigit(true, '2')
+            ->onWaitDigit(true, '3')
+            ->onWaitDigit(true, '#')
+            ->assert('streamFile', array('you-have', Node::DTMF_ANY))
+            ->assert('sayNumber', array(12, Node::DTMF_ANY))
+            ->assert('sayDigits', array(99, Node::DTMF_ANY))
+        ;
+        $node
+            ->expectAtLeast(3)
+            ->expectAtMost(5)
+            ->endInputWith(Node::DTMF_HASH)
+            ->saySound('you-have')
+            ->sayNumber(12)
+            ->sayDigits(99)
+            ->sayDateTime(444, 'format')
+            ->run()
+        ;
+        $this->assertTrue($node->isComplete());
+        $this->assertEquals($node->getInput(), '123');
+        $this->assertTrue($node->hasInput());
+    }
+
+    /**
+     * @test
+     */
+    public function can_cancel_node()
+    {
+        $node = $this->createNode();
+        $node->getClient()
+            ->onStreamFile(false)
+            ->onSayNumber(false)
+            ->onSayDigits(true, '*')
+            ->assert('streamFile', array('you-have', Node::DTMF_ANY))
+            ->assert('sayNumber', array(12, Node::DTMF_ANY))
+            ->assert('sayDigits', array(99, Node::DTMF_ANY))
+        ;
+        $node
+            ->cancelWith(Node::DTMF_STAR)
+            ->saySound('you-have')
+            ->sayNumber(12)
+            ->sayDigits(99)
+            ->sayDateTime(444, 'format')
+            ->run()
+        ;
+        $this->assertTrue($node->wasCancelled());
+        $this->assertEquals($node->getInput(), '');
+        $this->assertFalse($node->hasInput());
+    }
+
+    /**
+     * @test
+     */
     public function can_carry_state()
     {
         $node = $this->createNode();
@@ -86,12 +145,15 @@ class Test_Node extends PHPUnit_Framework_TestCase
             ->assert('sayDigits', array(99, Node::DTMF_ANY))
         ;
         $node
+            ->expectAtLeast(1)
             ->saySound('you-have')
             ->sayNumber(12)
             ->sayDigits(99)
             ->sayDateTime(444, 'format')
             ->run()
         ;
+        $this->assertEquals($node->getInput(), '#');
+        $this->assertTrue($node->isComplete());
     }
 
     /**
