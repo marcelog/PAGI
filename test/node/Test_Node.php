@@ -80,6 +80,103 @@ class Test_Node extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function can_discard_input_on_pre_prompt_messages()
+    {
+        $validators = array(
+            'validator1' => Node::createValidatorInfo(
+                function (Node $node) {
+                    return true;
+                }
+            ),
+            'validator2' => Node::createValidatorInfo(
+                function ($node) {
+                    return $node->getInput() > 1;
+                },
+                'sound2'
+            ),
+            'validator3' => Node::createValidatorInfo(
+                function ($node) {
+                    return $node->getInput() > 2;
+                },
+                array('sound2', 'sound3')
+            )
+        );
+        $node = $this->createNode();
+        $node->getClient()
+            ->assert('streamFile', array('you-have', Node::DTMF_ANY))
+            ->assert('streamFile', array('sound2', Node::DTMF_ANY))
+            ->assert('streamFile', array('you-have', Node::DTMF_ANY))
+            ->assert('streamFile', array('sound2', Node::DTMF_ANY))
+            ->assert('streamFile', array('you-have', Node::DTMF_ANY))
+            ->onStreamFile(true, '1')
+            ->onStreamFile(true, '1')
+            ->onStreamFile(true, '2')
+            ->onStreamFile(true, '2')
+            ->onStreamFile(true, '3')
+            ;
+        $node
+            ->saySound('you-have')
+            ->dontAcceptPrePromptInputAsInput()
+            ->expectExactly(1)
+            ->maxAttemptsForInput(5)
+            ->loadValidatorsFrom($validators)
+            ->run()
+        ;
+        $this->assertTrue($node->hasInput());
+        $this->assertEquals($node->getInput(), '3');
+        $this->assertTrue($node->isComplete());
+    }
+
+    /**
+     * @test
+     */
+    public function can_accept_input_on_pre_prompt_messages()
+    {
+        $validators = array(
+            'validator1' => Node::createValidatorInfo(
+                function (Node $node) {
+                    return true;
+                }
+            ),
+            'validator2' => Node::createValidatorInfo(
+                function ($node) {
+                    return $node->getInput() > 1;
+                },
+                'sound2'
+            ),
+            'validator3' => Node::createValidatorInfo(
+                function ($node) {
+                    return $node->getInput() > 2;
+                },
+                array('sound2', 'sound3')
+            )
+        );
+        $node = $this->createNode();
+        $node->getClient()
+            ->assert('streamFile', array('you-have', Node::DTMF_ANY))
+            ->assert('streamFile', array('sound2', Node::DTMF_ANY))
+            ->assert('streamFile', array('sound2', Node::DTMF_ANY))
+            ->assert('streamFile', array('sound3', Node::DTMF_ANY))
+            ->onStreamFile(true, '1')
+            ->onStreamFile(true, '2')
+            ->onStreamFile(false)
+            ->onStreamFile(true, '3')
+            ;
+        $node
+            ->saySound('you-have')
+            ->expectExactly(1)
+            ->maxAttemptsForInput(5)
+            ->loadValidatorsFrom($validators)
+            ->run()
+        ;
+        $this->assertTrue($node->hasInput());
+        $this->assertEquals($node->getInput(), '3');
+        $this->assertTrue($node->isComplete());
+    }
+
+    /**
+     * @test
+     */
     public function can_make_pre_prompt_messages_uninterruptable()
     {
         $validators = array(
@@ -302,6 +399,7 @@ class Test_Node extends PHPUnit_Framework_TestCase
         $this->assertTrue($node->maxInputsReached());
         $this->assertEquals($node->getInput(), '');
         $this->assertFalse($node->hasInput());
+        $this->assertEquals($node->getTotalInputAttemptsUsed(), 2);
     }
 
     /**
@@ -332,6 +430,7 @@ class Test_Node extends PHPUnit_Framework_TestCase
         $this->assertTrue($node->maxInputsReached());
         $this->assertEquals($node->getInput(), '');
         $this->assertFalse($node->hasInput());
+        $this->assertEquals($node->getTotalInputAttemptsUsed(), 2);
     }
 
     /**
@@ -359,6 +458,7 @@ class Test_Node extends PHPUnit_Framework_TestCase
         $this->assertTrue($node->wasCancelled());
         $this->assertEquals($node->getInput(), '123');
         $this->assertTrue($node->hasInput());
+        $this->assertEquals($node->getTotalInputAttemptsUsed(), 1);
     }
 
 	/**
@@ -384,6 +484,7 @@ class Test_Node extends PHPUnit_Framework_TestCase
         $this->assertTrue($node->isTimeout());
         $this->assertEquals($node->getInput(), '');
         $this->assertFalse($node->hasInput());
+        $this->assertEquals($node->getTotalInputAttemptsUsed(), 2);
     }
 
     /**
