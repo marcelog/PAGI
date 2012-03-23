@@ -944,69 +944,6 @@ class Node
     }
 
     /**
-     * Internally used to clear the input per input attempt. Also resets state
-     * to TIMEOUT.
-     *
-	 * @return Node
-     */
-    protected function resetInput()
-    {
-        $this->_state = self::STATE_TIMEOUT;
-        $this->_input = self::DTMF_NONE;
-        return $this;
-    }
-
-    /**
-     * Internally used to accept input from the user. Plays pre prompt messages,
-     * prompt, and waits for a complete input or cancel.
-     *
-     * @return void
-     */
-    protected function doInput()
-    {
-        $this->resetInput();
-        $result = $this->playPrePromptMessages();
-        if (!$this->_acceptPrePromptInputAsInput) {
-            $result = $this->playPromptMessages();
-            if ($result !== null && $result->isTimeout()) {
-                $this->acceptInput($result->getDigits());
-            }
-        } else if ($result !== null && !$result->isTimeout()) {
-            $this->acceptInput($result->getDigits());
-        } else {
-            $result = $this->playPromptMessages();
-            if ($result !== null) {
-                $this->acceptInput($result->getDigits());
-            }
-        }
-        if ($this->isComplete() || $this->wasCancelled()) {
-            return;
-        }
-        $len = strlen($this->_input);
-        $start = time();
-        for ($i = $len; $i < $this->_maxInput; $i++) {
-            if ($this->_totalTimeForInput != -1) {
-                $totalElapsedTime = (time() - $start) * 1000;
-                if ($totalElapsedTime >= $this->_totalTimeForInput) {
-                    $this->logDebug("Expired total available time for input");
-                    break;
-                }
-            }
-            $this->logDebug($this->_name . ": Reading Digit #: " . ($i + 1));
-            $result = $this->_client->waitDigit($this->_timeBetweenDigits);
-            if ($result->isTimeout()) {
-                $this->logDebug("Expired available time per digit");
-                break;
-            }
-            $input = $result->getDigits();
-            $this->acceptInput($input);
-            if ($this->inputIsEnd($input) || $this->wasCancelled()) {
-                break;
-            }
-        }
-    }
-
-    /**
      * Saves a custom key/value to the registry.
      *
      * @param string $key
@@ -1111,13 +1048,77 @@ class Node
     }
 
     /**
+     * Internally used to clear the input per input attempt. Also resets state
+     * to TIMEOUT.
+     *
+	 * @return Node
+     */
+    protected function resetInput()
+    {
+        $this->_state = self::STATE_TIMEOUT;
+        $this->_input = self::DTMF_NONE;
+        return $this;
+    }
+
+    /**
+     * Internally used to accept input from the user. Plays pre prompt messages,
+     * prompt, and waits for a complete input or cancel.
+     *
+     * @return void
+     */
+    protected function doInput()
+    {
+        $this->resetInput();
+        $this->_inputAttemptsUsed++;
+        $result = $this->playPrePromptMessages();
+        if (!$this->_acceptPrePromptInputAsInput) {
+            $result = $this->playPromptMessages();
+            if ($result !== null && !$result->isTimeout()) {
+                $this->acceptInput($result->getDigits());
+            }
+        } else if ($result !== null && !$result->isTimeout()) {
+            $this->acceptInput($result->getDigits());
+        } else {
+            $result = $this->playPromptMessages();
+            if ($result !== null) {
+                $this->acceptInput($result->getDigits());
+            }
+        }
+        if ($this->isComplete() || $this->wasCancelled()) {
+            return;
+        }
+        $len = strlen($this->_input);
+        $start = time();
+        for ($i = $len; $i < $this->_maxInput; $i++) {
+            if ($this->_totalTimeForInput != -1) {
+                $totalElapsedTime = (time() - $start) * 1000;
+                if ($totalElapsedTime >= $this->_totalTimeForInput) {
+                    $this->logDebug("Expired total available time for input");
+                    break;
+                }
+            }
+            $this->logDebug($this->_name . ": Reading Digit #: " . ($i + 1));
+            $result = $this->_client->waitDigit($this->_timeBetweenDigits);
+            if ($result->isTimeout()) {
+                $this->logDebug("Expired available time per digit");
+                break;
+            }
+            $input = $result->getDigits();
+            $this->acceptInput($input);
+            if ($this->inputIsEnd($input) || $this->wasCancelled()) {
+                break;
+            }
+        }
+    }
+
+    /**
      * Executes this node.
      *
      * @return Node
      */
     public function run()
     {
-        $this->_inputAttemptsUsed = 1;
+        $this->_inputAttemptsUsed = 0;
         for ($attempts = 0; $attempts < $this->_totalAttemptsForInput; $attempts++) {
             $this->doInput();
             if ($this->wasCancelled()) {
@@ -1145,7 +1146,6 @@ class Node
                 break;
             }
         }
-        $this->_inputAttemptsUsed = $attempts + 1;
         if ($this->_minInput > 0 && $attempts == $this->_totalAttemptsForInput) {
             $this->logDebug("Max attempts reached");
             $this->_state = self::STATE_MAX_INPUTS_REACHED;
