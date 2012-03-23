@@ -80,6 +80,58 @@ class Test_Node extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function can_make_pre_prompt_messages_uninterruptable()
+    {
+        $validators = array(
+            'validator1' => Node::createValidatorInfo(
+                function (Node $node) {
+                    return true;
+                }
+            ),
+            'validator2' => Node::createValidatorInfo(
+                function ($node) {
+                    return $node->getInput() > 1;
+                },
+                'sound2'
+            ),
+            'validator3' => Node::createValidatorInfo(
+                function ($node) {
+                    return $node->getInput() > 2;
+                },
+                array('sound2', 'sound3')
+            )
+        );
+        $node = $this->createNode();
+        $node->getClient()
+            ->assert('streamFile', array('you-have', Node::DTMF_ANY))
+            ->assert('streamFile', array('sound2', Node::DTMF_NONE))
+            ->assert('streamFile', array('you-have', Node::DTMF_ANY))
+            ->assert('streamFile', array('sound2', Node::DTMF_NONE))
+            ->assert('streamFile', array('sound3', Node::DTMF_NONE))
+            ->assert('streamFile', array('you-have', Node::DTMF_ANY))
+            ->onStreamFile(true, '1')
+            ->onStreamFile(false)
+            ->onStreamFile(true, '2')
+            ->onStreamFile(false)
+            ->onStreamFile(false)
+            ->onStreamFile(true, '3')
+            ;
+        $node
+            ->saySound('you-have')
+            ->prePromptMessagesNotInterruptable()
+            ->expectExactly(1)
+            ->maxAttemptsForInput(5)
+            ->loadValidatorsFrom($validators)
+            ->run()
+        ;
+        $this->assertTrue($node->hasInput());
+        $this->assertEquals($node->getInput(), '3');
+        $this->assertTrue($node->isComplete());
+    }
+
+    /**
+     * @test
+     */
     public function can_execute_validators()
     {
         $validators = array(
@@ -110,10 +162,10 @@ class Test_Node extends PHPUnit_Framework_TestCase
             ->assert('streamFile', array('sound3', Node::DTMF_ANY))
             ->assert('streamFile', array('you-have', Node::DTMF_ANY))
             ->onStreamFile(true, '1')
-            ->onStreamFile(false, 'sound2')
+            ->onStreamFile(false)
             ->onStreamFile(true, '2')
-            ->onStreamFile(false, 'sound2')
-            ->onStreamFile(false, 'sound3')
+            ->onStreamFile(false)
+            ->onStreamFile(false)
             ->onStreamFile(true, '3')
             ;
         $node
@@ -443,10 +495,10 @@ class Test_Node extends PHPUnit_Framework_TestCase
     {
         $node = $this->createNode();
         $node->getClient()
-            ->onStreamFile(true, '#')
-            ->onSayNumber(true, '#')
-            ->onSayDigits(true, '#')
-            ->onSayDateTime(true, '#')
+            ->onStreamFile(false)
+            ->onSayNumber(false)
+            ->onSayDigits(false)
+            ->onSayDateTime(false)
             ->assert('streamFile', array('you-have', Node::DTMF_NONE))
             ->assert('sayNumber', array(12, Node::DTMF_NONE))
             ->assert('sayDigits', array(99, Node::DTMF_NONE))
