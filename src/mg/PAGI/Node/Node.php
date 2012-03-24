@@ -1084,7 +1084,9 @@ class Node
                 }
             }
             $this->logDebug($this->_name . ": Reading Digit #: " . ($i + 1));
-            $result = $this->_client->waitDigit($this->_timeBetweenDigits);
+            $result = $this->callClientMethods(array(
+                    array('waitDigit' => array($this->_timeBetweenDigits))
+            ));
             if ($result->isTimeout()) {
                 $this->logDebug("Expired available time per digit");
                 break;
@@ -1179,9 +1181,9 @@ class Node
      *
      * @return string
      */
-    protected function stateToString()
+    protected function stateToString($state)
     {
-        switch ($this->state) {
+        switch ($state) {
         case self::STATE_CANCEL:
             return "cancel";
         case self::STATE_COMPLETE:
@@ -1207,7 +1209,7 @@ class Node
         return
             "[ Node: " . $this->_name
             . " input: (" . $this->_input . ") "
-            . " state: (" . $this->stateToString() . ")"
+            . " state: (" . $this->stateToString($this->state) . ")"
             . "]"
         ;
     }

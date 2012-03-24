@@ -29,6 +29,8 @@
  */
 namespace PAGI\Client\Impl;
 
+use PAGI\Logger\Asterisk\Impl\MockedAsteriskLoggerImpl;
+
 use PAGI\Client\AbstractClient;
 use PAGI\Exception\MockedException;
 
@@ -469,6 +471,32 @@ class MockedClientImpl extends AbstractClient
             '200 result=' . ($success ? '0' : '-1')
         );
         return $this;
+    }
+
+    public function onCreateNode($name)
+    {
+        $this->nodes[$name] = new \PAGI\Node\MockedNode();
+        $this->nodes[$name]->setName($name)->setAgiClient($this);
+        return $this->nodes[$name];
+    }
+
+    public function createNode($name)
+    {
+        if (!isset($this->nodes[$name])) {
+            $this->_logger->warn("Unknown node: $name");
+            return parent::createNode($name);
+        }
+        return $this->nodes[$name];
+    }
+
+    public function getAsteriskLogger()
+    {
+        return new MockedAsteriskLoggerImpl($this->getLogger());
+    }
+
+    public function getLogger()
+    {
+        return $this->_logger;
     }
 
     public function __construct(array $options = array())

@@ -27,6 +27,8 @@
  * limitations under the License.
  *
  */
+use PAGI\Node\MockedNode;
+use PAGI\Node\Node;
 
 /**
  * This class will test the agi client mock
@@ -287,5 +289,25 @@ class Test_Mock extends PHPUnit_Framework_TestCase
         $mock->setExtension('extension');
         $mock->setPriority(1);
         $mock->setMusic(true);
+    }
+
+    /**
+     * @test
+     */
+    public function can_get_unknown_node()
+    {
+        $mock = new PAGI\Client\Impl\MockedClientImpl($this->_properties);
+        $this->assertTrue($mock->createNode('test') instanceof Node);
+    }
+
+    /**
+     * @test
+     */
+    public function can_get_knownmocked_node()
+    {
+        $mock = new PAGI\Client\Impl\MockedClientImpl($this->_properties);
+        $mock->onCreateNode('test')->runWithInput('*');
+        $this->assertTrue($mock->createNode('test') instanceof MockedNode);
+
     }
 }

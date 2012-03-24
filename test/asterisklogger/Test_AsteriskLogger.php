@@ -97,5 +97,19 @@ class Test_AsteriskLogger extends \PHPUnit_Framework_TestCase
         $logger = $client->getAsteriskLogger(); // should return the same instance.
     }
 
+    /**
+     * @test
+     */
+    public function can_mock_asterisk_logger()
+    {
+        $client = new \PAGI\Client\Impl\MockedClientImpl($this->_properties);
+        $logger = $client->getAsteriskLogger();
+        $logger->dtmf('test');
+        $logger->error('test');
+        $logger->warn('test');
+        $logger->notice('test');
+        $logger->debug('test');
+        $logger->verbose('test');
+    }
 }
 }
