@@ -66,15 +66,20 @@ use PAGI\Node\Node;
  */
 class Test_Node extends PHPUnit_Framework_TestCase
 {
+    private $client;
+
+    public function setUp()
+    {
+        $this->client = new PAGI\Client\Impl\MockedClientImpl(array(
+    		'log4php.properties' => RESOURCES_DIR . DIRECTORY_SEPARATOR . 'log4php.properties',
+    		'variables' => array(),
+    		'resultStrings' => array()
+        ));
+    }
+
     protected function createNode($name = 'test')
     {
-        return Node::create(
-            $name, new PAGI\Client\Impl\MockedClientImpl(array(
-                'log4php.properties' => RESOURCES_DIR . DIRECTORY_SEPARATOR . 'log4php.properties',
-                'variables' => array(),
-                'resultStrings' => array()
-            ))
-        );
+        return $this->client->createNode($name);
     }
 
     /**

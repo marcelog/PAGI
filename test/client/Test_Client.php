@@ -1619,7 +1619,20 @@ class Test_Client extends \PHPUnit_Framework_TestCase
         global $standardAGIStart;
         setFgetsMock($standardAGIStart, array());
         $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
-        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties); //should return the same instance
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+    }
+
+    /**
+     * @test
+     */
+    public function can_get_node()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $node = $client->createNode('name');
+        $this->assertTrue($node->getClient() instanceof \PAGI\Client\Impl\ClientImpl);
+        $this->assertEquals($node->getName(), 'name');
     }
 }
 }

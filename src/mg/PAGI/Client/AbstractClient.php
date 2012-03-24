@@ -813,4 +813,17 @@ abstract class AbstractClient implements IClient
     {
         return $this->exec('StopPlayTones', array());
     }
+
+    /**
+     * Convenient method to create a node.
+     *
+     * @param string $name
+     *
+     * @return Node
+     */
+    public function createNode($name)
+    {
+        $node = new \PAGI\Node\Node();
+        return $node->setName($name)->setAgiClient($this);
+    }
 }

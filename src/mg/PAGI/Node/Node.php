@@ -735,20 +735,6 @@ class Node
     }
 
     /**
-     * Convenient method to create a node.
-     *
-     * @param string $name
-     * @param PAGI\Client\IClient $agiClient
-     *
-     * @return Node
-     */
-    public static function create($name, $agiClient)
-    {
-        $node = new Node();
-        return $node->setName($name)->setAgiClient($agiClient);
-    }
-
-    /**
      * Appends an input to the node input.
      *
      * @param char $digit
@@ -1176,6 +1162,16 @@ class Node
         $ani = $this->_client->getChannelVariables()->getCallerIdName();
         $dnis = $this->_client->getChannelVariables()->getDNIS();
         $logger->debug($this->_name . ": $ani -> $dnis: $msg");
+    }
+
+    /**
+     * Returns the node name.
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->_name;
     }
 
     /**
