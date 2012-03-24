@@ -71,7 +71,7 @@ class MockedNode extends Node
      *
      * @return MockedNode
      */
-    public function expectSaySound($filename, $totalTimes)
+    public function assertSaySound($filename, $totalTimes)
     {
         $this->expectedSaySound[$filename] = $totalTimes;
         $this->doneSaySound[$filename] = 0;
@@ -107,18 +107,6 @@ class MockedNode extends Node
      *
      * @return MockedNode
      */
-    public function assertTimeout()
-    {
-        $this->expectedState = Node::STATE_TIMEOUT;
-        return $this;
-    }
-
-    /**
-     * Assert that this node is in state of max input attempts reached
-     * after run().
-     *
-     * @return MockedNode
-     */
     public function assertMaxInputAttemptsReached()
     {
         $this->expectedState = Node::STATE_MAX_INPUTS_REACHED;
@@ -134,7 +122,7 @@ class MockedNode extends Node
      */
     public function runWithInput($digits)
     {
-        preg_match_all('/([0-9*# ])/', $digits, $matches);
+        preg_match_all('/([0-9*# X])/', $digits, $matches);
         $this->mockedInput = $matches[1];
         return $this;
     }
@@ -147,13 +135,14 @@ class MockedNode extends Node
     {
         $result = parent::run();
         foreach ($this->expectedSaySound as $filename => $times) {
-            if (!isset($this->doneSaySound[$filename])) {
-                throw new MockedException("$filename was never played");
-            }
-            if ($times != $this->doneSaySound[$filename]) {
+            $playedTimes = isset($this->doneSaySound[$filename])
+                ? $this->doneSaySound[$filename]
+                : 0
+            ;
+            if ($times != $playedTimes) {
                 throw new MockedException(
                 	"$filename expected to be played $times times, was "
-                    . "played {$this->doneSaySound[$filename]} times"
+                    . "played $playedTimes times"
                 );
             }
         }

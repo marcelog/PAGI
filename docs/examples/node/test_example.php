@@ -24,7 +24,7 @@ $pagiClient
     ->onAnswer(true)
     ->onCreateNode('mainMenu')
     ->runWithInput('888')
-    ->expectSaySound('pp/50', 2)
+    ->assertSaySound('pp/50', 2)
     ->assertMaxInputAttemptsReached()
 ;
 $pagiApp->init();
