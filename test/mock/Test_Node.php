@@ -59,6 +59,66 @@ class Test_MockedNode extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function can_assert_on_client_on_valid_input()
+    {
+        $this->client
+            ->onCreateNode(__METHOD__)
+            ->runWithInput('1')
+            ->doBeforeValidInput(function (Node $node) {
+                $client = $node->getClient()->assert('playDialTone');
+            })
+        ;
+        $node = $this->client
+            ->createNode(__METHOD__)
+            ->expectExactly(1)
+            ->validateInputWith(
+    			'successeeded',
+                function (Node $node) {
+                    return true;
+                },
+                'invalid'
+            )
+            ->saySound('prompt')
+            ->executeOnValidInput(function(Node $node) {
+                $node->getClient()->playDialTone();
+            })
+            ->run()
+        ;
+    }
+
+    /**
+     * @test
+     */
+    public function can_assert_on_client_on_failed_input()
+    {
+        $this->client
+            ->onCreateNode(__METHOD__)
+            ->runWithInput('1')
+            ->doBeforeFailedInput(function (Node $node) {
+                $client = $node->getClient()->assert('playBusyTone');
+            })
+        ;
+        $node = $this->client
+            ->createNode(__METHOD__)
+            ->expectExactly(1)
+            ->validateInputWith(
+    			'fails',
+                function (Node $node) {
+                    return false;
+                },
+                'invalid'
+            )
+            ->saySound('prompt')
+            ->executeOnInputFailed(function(Node $node) {
+                $node->getClient()->playBusyTone();
+            })
+            ->run()
+        ;
+    }
+
+    /**
+     * @test
+     */
     public function can_skip_input_on_uninterruptable_message()
     {
         $this->client

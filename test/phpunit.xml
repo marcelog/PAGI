@@ -15,11 +15,11 @@
     </whitelist>
   </filter>
   <testsuites>
-    <testsuite name="Node">
-      <directory suffix=".php">node</directory>
-    </testsuite>
     <testsuite name="Mock">
       <directory suffix=".php">mock</directory>
+    </testsuite>
+    <testsuite name="Node">
+      <directory suffix=".php">node</directory>
     </testsuite>
     <testsuite name="CallSpool">
       <directory suffix=".php">spool</directory>

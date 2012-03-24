@@ -25,7 +25,10 @@ class MyPagiApplication extends PAGIApplication
                     return $node->getInput() < 6 && $node->getInput() > 0;
                 },
                 'pp/50'
-            )
+            )->executeOnValidInput(function (Node $node) {
+                $node->getClient()->playBusyTone();
+                $node->getClient()->streamFile('hi');
+            })
         ;
     }
 

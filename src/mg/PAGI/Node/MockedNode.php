@@ -63,6 +63,18 @@ class MockedNode extends Node
     private $expectedState = Node::STATE_NOT_RUN;
 
     /**
+     * Optional callback to be used before executing the onInputValid callback.
+     * @var Closure|null
+     */
+    private $validInputCallback = null;
+
+    /**
+     * Optional callback to be used before executing the onInputFailed callback.
+     * @var Closure|null
+     */
+    private $failedInputCallback = null;
+
+    /**
      * Configures this node to expect a given filename to be played n number
      * of times.
      *
@@ -234,5 +246,33 @@ class MockedNode extends Node
             }
         }
         return parent::callClientMethods($methods, $stopWhen);
+    }
+
+    public function doBeforeValidInput(\Closure $callback)
+    {
+        $this->validInputCallback = $callback;
+        return $this;
+    }
+
+    public function doBeforeFailedInput(\Closure $callback)
+    {
+        $this->failedInputCallback = $callback;
+        return $this;
+    }
+
+    protected function beforeOnValidInput()
+    {
+       if ($this->validInputCallback !== null) {
+           $callback = $this->validInputCallback;
+           $callback($this);
+       }
+    }
+
+    protected function beforeOnInputFailed()
+    {
+       if ($this->failedInputCallback !== null) {
+           $callback = $this->failedInputCallback;
+           $callback($this);
+       }
     }
 }

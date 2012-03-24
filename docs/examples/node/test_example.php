@@ -8,6 +8,7 @@ PAGI\Autoloader\Autoloader::register();
 require_once __DIR__ . '/example.php';
 
 use PAGI\Client\Impl\ClientImpl as PagiClient;
+use PAGI\Node\Node;
 
 // Go, go, gooo!
 $pagiClientOptions = array(
@@ -23,9 +24,18 @@ pcntl_signal(SIGHUP, array($pagiApp, 'signalHandler'));
 $pagiClient
     ->onAnswer(true)
     ->onCreateNode('mainMenu')
-    ->runWithInput('888')
-    ->assertSaySound('pp/50', 2)
-    ->assertMaxInputAttemptsReached()
+    ->runWithInput('1')
+    ->doBeforeValidInput(function (Node $node) {
+        $client = $node->getClient();
+        $client
+            ->onPlayBusyTone(true)
+            ->onStreamFile('hi')
+            ->assert('streamFile', array('hi'))
+            ->assert('playBusyTone')
+        ;
+    })
+    ->doBeforeFailedInput(function (Node $node) {
+    })
 ;
 $pagiApp->init();
 $pagiApp->run();

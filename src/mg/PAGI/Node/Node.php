@@ -1100,6 +1100,26 @@ class Node
     }
 
     /**
+     * Convenient hook to execute before calling the onValidInput callback.
+     *
+     * @return void
+     */
+    protected function beforeOnValidInput()
+    {
+
+    }
+
+    /**
+     * Convenient hook to execute before calling the onInputFailed callback.
+     *
+     * @return void
+     */
+    protected function beforeOnInputFailed()
+    {
+
+    }
+
+    /**
      * Executes this node.
      *
      * @return Node
@@ -1129,6 +1149,7 @@ class Node
                 $this->logDebug("Input validated");
                 if ($this->_executeOnValidInput !== null) {
                     $callback = $this->_executeOnValidInput;
+                    $this->beforeOnValidInput();
                     $callback($this);
                 }
                 break;
@@ -1145,6 +1166,7 @@ class Node
         }
         if (!$this->isComplete() && $this->_executeOnInputFailed !== null) {
             $callback = $this->_executeOnInputFailed;
+            $this->beforeOnInputFailed();
             $callback($this);
         }
         $this->logDebug($this);

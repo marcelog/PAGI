@@ -268,8 +268,50 @@ class MockedClientImpl extends AbstractClient
     {
         $args = func_get_args();
         $this->assertCall('setCallerId', $args);
+        return;
     }
 
+    public function playBusyTone()
+    {
+        $args = func_get_args();
+        $this->assertCall('playBusyTone', $args);
+        return;
+    }
+
+    public function playCongestionTone()
+    {
+        $args = func_get_args();
+        $this->assertCall('playCongestionTone', $args);
+        return;
+    }
+
+    public function playDialTone()
+    {
+        $args = func_get_args();
+        $this->assertCall('playDialTone', $args);
+        return;
+    }
+
+    public function stopPlayingTones()
+    {
+        $args = func_get_args();
+        $this->assertCall('stopPlayingTones', $args);
+        return;
+    }
+
+    public function playCustomTones(array $frequencies)
+    {
+        $args = func_get_args();
+        $this->assertCall('playCustomTones', $frequencies);
+        return;
+    }
+
+    public function playTone($tone)
+    {
+        $args = func_get_args();
+        $this->assertCall('playTone', $args);
+        return;
+    }
 
     public function setPriority($priority)
     {

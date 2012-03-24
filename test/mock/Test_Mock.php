@@ -247,6 +247,12 @@ class Test_Mock extends PHPUnit_Framework_TestCase
             ->assert('sayDateTime', array('asd', 123))
             ->assert('setVariable', array('asd', 'asd'))
             ->assert('setCallerId', array('name', 'number'))
+            ->assert('playBusyTone')
+            ->assert('playDialTone')
+            ->assert('playCongestionTone')
+            ->assert('stopPlayingTones')
+            ->assert('playTone', array('some'))
+            ->assert('playCustomTones', array(1, 2, 3))
             ->onAnswer(true)
             ->onWaitDigit(false)
             ->onWaitDigit(true, '*')
@@ -282,6 +288,12 @@ class Test_Mock extends PHPUnit_Framework_TestCase
         $mock->hangup();
         $mock->channelStatus();
         $mock->setCallerId('name', 'number');
+        $mock->playBusyTone();
+        $mock->playDialTone();
+        $mock->playCongestionTone();
+        $mock->stopPlayingTones();
+        $mock->playTone('some');
+        $mock->playCustomTones(array(1, 2, 3));
         $mock->consoleLog("blah");
         $mock->log("blah");
         $mock->setVariable('asd', 'asd');
