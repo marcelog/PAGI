@@ -1041,7 +1041,11 @@ class Node
      */
     protected function resetInput()
     {
-        $this->state = self::STATE_TIMEOUT;
+        if ($this->_minInput === 0) {
+            $this->state = self::STATE_COMPLETE;
+        } else {
+            $this->state = self::STATE_TIMEOUT;
+        }
         $this->_input = self::DTMF_NONE;
         return $this;
     }

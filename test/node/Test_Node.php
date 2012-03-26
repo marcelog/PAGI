@@ -466,7 +466,7 @@ class Test_Node extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * test
+     * @test
      */
     public function can_cancel_without_retrying_input()
     {
@@ -513,7 +513,7 @@ class Test_Node extends PHPUnit_Framework_TestCase
             ->saySound('you-have')
             ->run()
         ;
-        $this->assertTrue($node->isTimeout());
+        $this->assertTrue($node->isComplete());
         $this->assertEquals($node->getInput(), '');
         $this->assertFalse($node->hasInput());
         $this->assertEquals($node->getTotalInputAttemptsUsed(), 2);
@@ -646,7 +646,7 @@ class Test_Node extends PHPUnit_Framework_TestCase
             ->sayDateTime(444, 'format')
             ->run()
         ;
-        $this->assertTrue($node->isTimeout());
+        $this->assertTrue($node->isComplete());
     }
 
     /**
@@ -673,7 +673,7 @@ class Test_Node extends PHPUnit_Framework_TestCase
             ->sayDateTime(444, 'format')
             ->run()
         ;
-        $this->assertTrue($node->isTimeout());
+        $this->assertTrue($node->isComplete());
     }
 
     /**
