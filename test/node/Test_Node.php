@@ -85,6 +85,22 @@ class Test_Node extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function can_execute_before_run()
+    {
+        $object = new stdClass;
+        $object->flag = false;
+        $node = $this->createNode()
+            ->executeBeforeRun(function(Node $node) use ($object) {
+                $object->flag = true;
+            })
+            ->run()
+        ;
+        $this->assertTrue($object->flag);
+    }
+
+    /**
+     * @test
+     */
     public function can_init_to_not_run()
     {
         $node = $this->createNode();

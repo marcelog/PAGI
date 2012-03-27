@@ -319,6 +319,13 @@ class Node
      * @var integer
      */
     private $_inputAttemptsUsed = 0;
+
+    /**
+     * Execute before running this node.
+     * @var \Closure
+     */
+    private $_executeBeforeRun = null;
+
     /**
      * Make pre prompt messages not interruptable
      *
@@ -1074,7 +1081,11 @@ class Node
                 $this->acceptInput($result->getDigits());
             }
         }
-        if ($this->isComplete() || $this->wasCancelled()) {
+        if (
+            $this->inputLengthIsAtLeast($this->_maxInput) // max = 1
+            || $this->wasCancelled()
+            || ($this->isComplete() && !$this->hasInput()) // user pressed eoi
+        ) {
             return;
         }
         $len = strlen($this->_input);
@@ -1124,6 +1135,19 @@ class Node
     }
 
     /**
+     * Executes before running the node.
+     *
+     * @param unknown_type $callback
+     *
+     * @return Node
+     */
+    public function executeBeforeRun(\Closure $callback)
+    {
+        $this->_executeBeforeRun = $callback;
+        return $this;
+    }
+
+    /**
      * Executes this node.
      *
      * @return Node
@@ -1131,6 +1155,10 @@ class Node
     public function run()
     {
         $this->_inputAttemptsUsed = 0;
+        if ($this->_executeBeforeRun !== null) {
+            $callback = $this->_executeBeforeRun;
+            $callback($this);
+        }
         for ($attempts = 0; $attempts < $this->_totalAttemptsForInput; $attempts++) {
             $this->doInput();
             if ($this->wasCancelled()) {
