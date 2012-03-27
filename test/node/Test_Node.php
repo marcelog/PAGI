@@ -85,6 +85,39 @@ class Test_Node extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function can_execute_after_failed_validation()
+    {
+        $helper = new \stdClass;
+        $helper->flag = false;
+
+        $node = $this->createNode();
+        $node->getClient()
+            ->onStreamFile(true, '1')
+            ->onStreamFile(false)
+            ->assert('streamFile', array('you-have', Node::DTMF_ANY))
+            ->assert('streamFile', array('invalid', Node::DTMF_ANY))
+        ;
+        $node
+            ->expectExactly(1)
+            ->maxAttemptsForInput(1)
+            ->validateInputWith(
+                'fails',
+                function (Node $node) {
+                    return false;
+                },
+                'invalid'
+            )
+            ->executeAfterFailedValidation(function (Node $node) use ($helper) {
+                $helper->flag = true;
+            })
+            ->saySound('you-have')
+            ->run()
+        ;
+        $this->assertTrue($helper->flag);
+    }
+    /**
+     * @test
+     */
     public function can_execute_before_run()
     {
         $object = new stdClass;

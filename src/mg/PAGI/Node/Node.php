@@ -327,6 +327,12 @@ class Node
     private $_executeBeforeRun = null;
 
     /**
+     * Execute after a validation has failed.
+     * @var \Closure
+     */
+    private $_executeAfterFailedValidation = null;
+
+    /**
      * Make pre prompt messages not interruptable
      *
      * @return Node
@@ -517,7 +523,7 @@ class Node
      *
      * @return void
      */
-    protected function addPrePromptMessage($filename)
+    public function addPrePromptMessage($filename)
     {
         $this->addPrePromptClientMethodCall(
         	'streamFile', $filename, $this->_validInterruptDigits
@@ -1137,13 +1143,26 @@ class Node
     /**
      * Executes before running the node.
      *
-     * @param unknown_type $callback
+     * @param \closure $callback
      *
      * @return Node
      */
     public function executeBeforeRun(\Closure $callback)
     {
         $this->_executeBeforeRun = $callback;
+        return $this;
+    }
+
+    /**
+     * Executes after the 1st failed validation.
+     *
+     * @param \Closure $callback
+     *
+     * @return Node
+     */
+    public function executeAfterFailedValidation(\Closure $callback)
+    {
+        $this->_executeAfterFailedValidation = $callback;
         return $this;
     }
 
@@ -1169,24 +1188,31 @@ class Node
                 $this->logDebug("Cancelled node, quitting");
                 break;
             }
+            // dont play on last attempt
             if (
                 $this->_onNoInputMessage !== null
                 && !$this->hasInput()
-                && $attempts != $this->_totalAttemptsForInput
+                && $attempts != ($this->_totalAttemptsForInput - 1)
             ) {
                 $this->addPrePromptMessage($this->_onNoInputMessage);
                 continue;
             }
-            if ($this->hasInput() && $this->validate()) {
-                $this->logDebug("Input validated");
-                if ($this->_executeOnValidInput !== null) {
-                    $callback = $this->_executeOnValidInput;
-                    $this->beforeOnValidInput();
+            if ($this->hasInput()) {
+                if ($this->validate()) {
+                    $this->logDebug("Input validated");
+                    if ($this->_executeOnValidInput !== null) {
+                        $callback = $this->_executeOnValidInput;
+                        $this->beforeOnValidInput();
+                        $callback($this);
+                    }
+                    break;
+                } else if ($this->_executeAfterFailedValidation !== null) {
+                    $callback = $this->_executeAfterFailedValidation;
                     $callback($this);
                 }
-                break;
             }
         }
+        $result = $this->playPrePromptMessages();
         if ($this->_minInput > 0 && $attempts == $this->_totalAttemptsForInput) {
             $this->logDebug("Max attempts reached");
             $this->state = self::STATE_MAX_INPUTS_REACHED;
