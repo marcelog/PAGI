@@ -53,8 +53,8 @@ You can now easily install PAGI by issuing:
 
 or
 
-# pear install marcelog/PAGI-1.9.1
-just replace 1.9.1 by the release version you'd like to install :)
+# pear install marcelog/PAGI-1.10.0
+just replace 1.10.0 by the release version you'd like to install :)
 See: http://pear.marcelog.name/
 --------------------------------------------------------------------------------
 Testing IVR applications
@@ -63,6 +63,30 @@ A mocked pagi client is included to easily test your ivr applications. See
 docs/examples/mock to see an example of how to use it.
 
 Another example can be found at: https://github.com/marcelog/Pagi-App-And-Test-Example
+--------------------------------------------------------------------------------
+Nodes
+=====
+Simple Call Flow Nodes are available (see docs/examples/node/example.php). Using
+nodes will let you simplify how you build and test your ivr applications. Nodes
+are an abstraction layer above the pagi client, and support:
+ * Prompts mixing sound files, playing numbers/digits/datetime's.
+ * Cancel and End Of Input digits.
+ * Validator callbacks for inputs, can optionally specify 1 or more sound files
+ to play when the validation fails.
+ * Callbacks for invalid and valid inputs.
+ * Optional sound when no input.
+ * Maximum valid input attempts.
+ * Optional sound when maximum attempts has been reached.
+ * Expecting at least/at most/exactly N digits per input.
+ * Timeout between digits in more-than-1 digit inputs.
+ * Timeout per input attempt.
+ * Retry Attempts for valid inputs.
+ * And much more!
+
+The NodeController will let you control the call flow of your application, by
+registering nodes and actions based on node results. Thus, you can jump from
+one node to the other on cancel or complete inputs, hangup the call, execute a
+callback, etc. For an example, see docs/examples/nodecontroller/example.php
 --------------------------------------------------------------------------------
 AutoDial
 ========
