@@ -110,7 +110,9 @@ class CallerIdFacade implements ICallerId
      */
     public function setName($value)
     {
+        $num = $this->getNumber();
         $this->setCallerIdVariable('name', $value);
+        $this->setCallerIdVariable('all', "$value<$num>");
     }
 
     /**
@@ -137,7 +139,9 @@ class CallerIdFacade implements ICallerId
      */
     public function setNumber($value)
     {
+        $name = $this->getName();
         $this->setCallerIdVariable('num', $value);
+        $this->setCallerIdVariable('all', "$name<$value>");
     }
 
     /**
@@ -163,6 +167,15 @@ class CallerIdFacade implements ICallerId
     protected function setCallerIdVariable($name, $value)
     {
         $this->_client->setVariable('CALLERID(' . $name . ')', $value);
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\CallerId.ICallerId::setCallerPres()
+     */
+    public function setCallerPres($presentationMode)
+    {
+        $this->_client->exec('SET', array("CALLERPRES()=$presentationMode"));
     }
 
     /**

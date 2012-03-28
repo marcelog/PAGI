@@ -122,4 +122,22 @@ interface ICallerId
      * @return void
      */
     public function setNumber($value);
+
+    /**
+     * Changes the caller id presentation mode.
+     *
+     * @param string $presentationMode Can be one of:
+     * allowed_not_screened - Presentation Allowed, Not Screened.
+     * allowed_passed_screen - Presentation Allowed, Passed Screen.
+     * allowed_failed_screen - Presentation Allowed, Failed Screen.
+     * allowed - Presentation Allowed, Network Number.
+     * prohib_not_screened - Presentation Prohibited, Not Screened.
+     * prohib_passed_screen - Presentation Prohibited, Passed Screen.
+     * prohib_failed_screen - Presentation Prohibited, Failed Screen.
+     * prohib - Presentation Prohibited, Network Number.
+     * unavailable - Number Unavailable.
+     *
+     * @return void
+     */
+    public function setCallerPres($presentationMode);
 }

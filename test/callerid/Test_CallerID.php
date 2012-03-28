@@ -55,6 +55,25 @@ class Test_CallerID extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function can_set_callerid_pres()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $clid = $client->getCallerId();
+        $callerIdW = array(
+            'EXEC "SET" "CALLERPRES()=blah"'
+        );
+        $callerIdR = array(
+            '200 result=1'
+        );
+        setFgetsMock($callerIdR, $callerIdW);
+        $clid->setCallerPres("blah");
+    }
+
+    /**
+     * @test
+     */
     public function can_get_callerid()
     {
         global $standardAGIStart;
@@ -90,18 +109,26 @@ class Test_CallerID extends \PHPUnit_Framework_TestCase
         $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
         $clid = $client->getCallerId();
         $callerIdW = array(
+            'GET FULL VARIABLE "${CALLERID(name)}"',
         	'SET VARIABLE "CALLERID(num)" "666"',
+            'SET VARIABLE "CALLERID(all)" "pepe zamora<666>"',
+            'GET FULL VARIABLE "${CALLERID(num)}"',
         	'SET VARIABLE "CALLERID(name)" "pepe zamora"',
+            'SET VARIABLE "CALLERID(all)" "pepe zamora<666>"',
         	'SET VARIABLE "CALLERID(ani)" "222"',
         	'SET VARIABLE "CALLERID(rdnis)" "333"',
         	'SET VARIABLE "CALLERID(dnid)" "555"',
         );
         $callerIdR = array(
+            '200 result=1 "pepe zamora"',
+            '200 result=1',
+            '200 result=1',
+        	'200 result=1 "666"',
+        	'200 result=1',
             '200 result=1',
         	'200 result=1',
         	'200 result=1',
-        	'200 result=1',
-        	'200 result=1',
+            '200 result=1',
         );
         setFgetsMock($callerIdR, $callerIdW);
         $clid->setNumber('666');
