@@ -815,15 +815,31 @@ abstract class AbstractClient implements IClient
     }
 
     /**
-     * Convenient method to create a node.
-     *
-     * @param string $name
-     *
-     * @return Node
+     * (non-PHPdoc)
+     * @see IClient::createNode()
      */
     public function createNode($name)
     {
         $node = new \PAGI\Node\Node();
         return $node->setName($name)->setAgiClient($this);
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see IClient::sipHeaderAdd()
+     */
+    public function sipHeaderAdd($name, $value)
+    {
+        $this->exec('SipAddHeader', array("$name: $value"));
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see IClient::sipHeaderRemove()
+     */
+    public function sipHeaderRemove($name)
+    {
+        $result = $this->exec('SipRemoveHeader', array($name));
+        return $result->getData();
     }
 }

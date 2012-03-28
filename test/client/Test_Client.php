@@ -1634,5 +1634,41 @@ class Test_Client extends \PHPUnit_Framework_TestCase
         $this->assertTrue($node->getClient() instanceof \PAGI\Client\Impl\ClientImpl);
         $this->assertEquals($node->getName(), 'name');
     }
+
+    /**
+     * @test
+     */
+    public function can_add_sip_header()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+            'EXEC "SipAddHeader" "name: value"'
+        );
+        $read = array(
+            '200 result=0',
+        );
+        setFgetsMock($read, $write);
+        $result = $client->sipHeaderAdd('name', 'value');
+    }
+
+    /**
+     * @test
+     */
+    public function can_add_sip_remove()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+            'EXEC "SipRemoveHeader" "name"'
+        );
+        $read = array(
+            '200 result=0',
+        );
+        setFgetsMock($read, $write);
+        $result = $client->sipHeaderRemove('name');
+    }
 }
 }

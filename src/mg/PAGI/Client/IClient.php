@@ -349,7 +349,7 @@ interface IClient
      * @param string[] $options     Application arguments.
      *
      * @throws ExecuteCommandException
-     * @return ExecDecorator
+     * @return ExecResult
      */
     public function exec($application, array $options = array());
 
@@ -483,7 +483,7 @@ interface IClient
     /**
      * Indicates progress of a call, starting early audio.
      *
-     * @return ExecDecorator
+     * @return ExecResult
      */
     public function indicateProgress();
     /**
@@ -491,7 +491,7 @@ interface IClient
      *
      * @param integer $timeout Time in seconds to wait for hangup
      *
-     * @return ExecDecorator
+     * @return ExecResult
      */
     public function indicateBusy($timeout);
     /**
@@ -499,7 +499,7 @@ interface IClient
      *
      * @param integer $timeout Time in seconds to wait for hangup
      *
-     * @return ExecDecorator
+     * @return ExecResult
      */
     public function indicateCongestion($timeout);
     /**
@@ -507,7 +507,7 @@ interface IClient
      *
      * @param string $tone Tone to play
      *
-     * @return ExecDecorator
+     * @return ExecResult
      */
     public function playTone($tone);
     /**
@@ -516,33 +516,61 @@ interface IClient
      * @param string[] $frequencies Frequencies for the tone: 425/50,0/50 or
      * !950/330,!1400/330,!1800/330,0 etc.
      *
-     * @return ExecDecorator
+     * @return ExecResult
      */
     public function playCustomTones(array $frequencies);
     /**
      * Stop playing current played tones.
      *
-     * @return ExecDecorator
+     * @return ExecResult
      */
     public function stopPlayingTones();
 
     /**
      * Plays "Dial" tone, defined in indications.conf
      *
-     * @return ExecDecorator
+     * @return ExecResult
      */
     public function playDialTone();
     /**
      * Plays "Busy" tone, defined in indications.conf
      *
-     * @return ExecDecorator
+     * @return ExecResult
      */
     public function playBusyTone();
 
     /**
      * Plays "Congestion" tone, defined in indications.conf
      *
-     * @return ExecDecorator
+     * @return ExecResult
      */
     public function playCongestionTone();
+
+    /**
+     * Convenient method to create a node.
+     *
+     * @param string $name
+     *
+     * @return Node
+     */
+    public function createNode($name);
+
+    /**
+     * Adds a SIP header to the first invite message in a dial command.
+     *
+     * @param string $name
+     * @param string $value
+     *
+     * @return ExecResult
+     */
+    public function sipHeaderAdd($name, $value);
+
+    /**
+     * Removes a header previously added with sipHeaderAdd.
+     *
+     * @param string $name
+     *
+     * @return ExecResult
+     */
+    public function sipHeaderRemove($name);
 }
