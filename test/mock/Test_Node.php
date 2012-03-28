@@ -72,7 +72,7 @@ class Test_MockedNode extends PHPUnit_Framework_TestCase
             ->createNode(__METHOD__)
             ->expectExactly(1)
             ->validateInputWith(
-    			'successeeded',
+    			'succeeded',
                 function (Node $node) {
                     return true;
                 },
