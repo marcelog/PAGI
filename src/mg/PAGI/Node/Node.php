@@ -327,6 +327,12 @@ class Node
     private $_executeBeforeRun = null;
 
     /**
+     * Execute after running this node.
+     * @var \Closure
+     */
+    private $_executeAfterRun = null;
+
+    /**
      * Execute after a validation has failed.
      * @var \Closure
      */
@@ -1154,6 +1160,19 @@ class Node
     }
 
     /**
+     * Executes after running the node.
+     *
+     * @param \closure $callback
+     *
+     * @return Node
+     */
+    public function executeAfterRun(\Closure $callback)
+    {
+        $this->_executeAfterRun = $callback;
+        return $this;
+    }
+
+    /**
      * Executes after the 1st failed validation.
      *
      * @param \Closure $callback
@@ -1227,6 +1246,11 @@ class Node
             $this->beforeOnInputFailed();
             $callback($this);
         }
+        if ($this->_executeAfterRun !== null) {
+            $callback = $this->_executeAfterRun;
+            $callback($this);
+        }
+
         $this->logDebug($this);
         return $this;
     }
