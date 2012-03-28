@@ -201,6 +201,55 @@ class Test_MockedNode extends PHPUnit_Framework_TestCase
             ->run()
         ;
     }
+
+    /**
+     * @test
+     */
+    public function can_assert_say_digits()
+    {
+        $this->client
+            ->onCreateNode(__METHOD__)
+            ->assertSayDigits(123, 1)
+        ;
+        $node = $this->client
+            ->createNode(__METHOD__)
+            ->sayDigits(123)
+            ->run()
+        ;
+    }
+
+    /**
+     * @test
+     */
+    public function can_assert_say_number()
+    {
+        $this->client
+            ->onCreateNode(__METHOD__)
+            ->assertSayNumber(1122, 1)
+        ;
+        $node = $this->client
+            ->createNode(__METHOD__)
+            ->sayNumber(1122)
+            ->run()
+        ;
+    }
+
+    /**
+     * @test
+     */
+    public function can_assert_say_datetime()
+    {
+        $this->client
+            ->onCreateNode(__METHOD__)
+            ->assertSayDateTime(3, 'aa', 1)
+        ;
+        $node = $this->client
+            ->createNode(__METHOD__)
+            ->sayDateTime(3, 'aa')
+            ->run()
+        ;
+    }
+
     /**
      * @test
      */

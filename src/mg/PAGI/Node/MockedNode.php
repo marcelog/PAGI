@@ -227,16 +227,14 @@ class MockedNode extends Node
             $data = unserialize($semiHash);
             $what = array_shift($data);
             $arguments = array_shift($data);
-            if (!isset($this->doneSay[$semiHash])) {
-                throw new MockedException(
-                    "$what (" . implode(",", $arguments) . ") was never called"
-                );
+            $doneTimes = 0;
+            if (isset($this->doneSay[$semiHash])) {
+                $doneTimes = $this->doneSay[$semiHash];
             }
-            if ($times != $this->doneSay[$semiHash]) {
+            if ($times != $doneTimes) {
                 throw new MockedException(
                     "$what (" . implode(",", $arguments) . ") expected to be"
-                    . " called $times times, was called "
-                    . " {$this->doneSay[$semiHash]} times"
+                    . " called $times times, was called $doneTimes times"
                 );
             }
         }
