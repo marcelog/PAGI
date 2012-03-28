@@ -25,10 +25,13 @@ $pagiClient
     ->onAnswer(true)
     ->onCreateNode('mainMenu')
     ->runWithInput('1')
+    ->assertSaySound('pp/30', 1)
+    ->assertSayDigits(123, 1)
+    ->assertSayNumber(321, 1)
+    ->assertSayDateTime(1, 'dmY', 1)
     ->doBeforeValidInput(function (Node $node) {
         $client = $node->getClient();
         $client
-            ->onPlayBusyTone(true)
             ->onStreamFile('hi')
             ->assert('streamFile', array('hi'))
             ->assert('playBusyTone')

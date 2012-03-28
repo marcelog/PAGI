@@ -12,7 +12,11 @@ class MyPagiApplication extends PAGIApplication
     {
         return $this->agi->createNode('mainMenu')
             ->saySound('pp/30')
-            ->maxAttemptsForInput(3)
+            ->sayDigits(123)
+            ->sayNumber(321)
+            ->sayDateTime(1, 'dmY')
+            ->unInterruptablePrompts()
+            ->maxAttemptsForInput(1)
             ->endInputWith(Node::DTMF_HASH)
             ->playOnNoInput('pp/6')
             ->expectExactly(1)
@@ -57,7 +61,7 @@ class MyPagiApplication extends PAGIApplication
 
     public function errorHandler($type, $message, $file, $line)
     {
-        $this->asteriskLogger->error("$message at $file:$line");
+        //$this->asteriskLogger->error("$message at $file:$line");
         $this->logger->error("$message at $file:$line");
     }
 
