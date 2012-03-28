@@ -47,15 +47,18 @@ class MockedNode extends Node
     private $mockedInput = array();
     /**
      * The expected number of times that prompt messages need to be played
-     * (keys are filenames).
+     * (keys are pagi client method names).
      * @var string[]
      */
-    private $expectedSaySound = array();
+    private $expectedSay = array();
+
     /**
-     * The counter of prompt messages actually played (keys are filenames).
+     * The counter of prompt messages actually played
+     * (keys are pagi client method names).
      * @var string[]
      */
-    private $doneSaySound = array();
+    private $doneSay = array();
+
     /**
      * Default expected state.
      * @var integer
@@ -85,11 +88,85 @@ class MockedNode extends Node
      */
     public function assertSaySound($filename, $totalTimes)
     {
-        $this->expectedSaySound[$filename] = $totalTimes;
-        $this->doneSaySound[$filename] = 0;
-        return $this;
+        return $this->assertSay('streamFile', $totalTimes, array($filename));
     }
 
+    /**
+     * Configures this node to expect the given digits to be played n number
+     * of times.
+     *
+     * @param integer $digits
+     * @param integer $totalTimes
+     *
+     * @return MockedNode
+     */
+    public function assertSayDigits($digits, $totalTimes)
+    {
+        return $this->assertSay('sayDigits', $totalTimes, array($digits));
+    }
+
+    /**
+     * Configures this node to expect the given number to be played n number
+     * of times.
+     *
+     * @param integer $digits
+     * @param integer $totalTimes
+     *
+     * @return MockedNode
+     */
+    public function assertSayNumber($number, $totalTimes)
+    {
+        return $this->assertSay('sayNumber', $totalTimes, array($number));
+    }
+
+    /**
+     * Configures this node to expect the given datetime to be played n number
+     * of times with the given format.
+     *
+     * @param integer $digits
+     * @param integer $totalTimes
+     *
+     * @return MockedNode
+     */
+    public function assertSayDateTime($time, $format, $totalTimes)
+    {
+        return $this->assertSay('sayDateTime', $totalTimes, array($time, $format));
+    }
+
+    /**
+     * Records a played prompt message with its arguments.
+     *
+     * @param string $what The pagi method name called.
+     * @param string[] $arguments The arguments used, without the interrupt
+     * digits.
+     *
+     * @return void
+     */
+    protected function recordDoneSay($what, $arguments = array())
+    {
+        $semiHash = serialize(array($what, $arguments));
+        if (isset($this->doneSay[$semiHash])) {
+            $this->doneSay[$semiHash]++;
+        } else {
+            $this->doneSay[$semiHash] = 1;
+        }
+    }
+
+    /**
+     * Generic method to expect prompt messages played.
+     *
+     * @param string $what The pagi method name to expect.
+     * @param integer $totalTimes Total times to expect this call
+     * @param string[] $arguments The arguments to assert.
+     *
+     * @return MockedNode
+     */
+    protected function assertSay($what, $totalTimes, $arguments = array())
+    {
+        $semiHash = serialize(array($what, $arguments));
+        $this->expectedSay[$semiHash] = $totalTimes;
+        return $this;
+    }
 
     /**
      * Assert that this node is in state cancel after run().
@@ -146,15 +223,20 @@ class MockedNode extends Node
     public function run()
     {
         $result = parent::run();
-        foreach ($this->expectedSaySound as $filename => $times) {
-            $playedTimes = isset($this->doneSaySound[$filename])
-                ? $this->doneSaySound[$filename]
-                : 0
-            ;
-            if ($times != $playedTimes) {
+        foreach ($this->expectedSay as $semiHash => $times) {
+            $data = unserialize($semiHash);
+            $what = array_shift($data);
+            $arguments = array_shift($data);
+            if (!isset($this->doneSay[$semiHash])) {
                 throw new MockedException(
-                	"$filename expected to be played $times times, was "
-                    . "played $playedTimes times"
+                    "$what (" . implode(",", $arguments) . ") was never called"
+                );
+            }
+            if ($times != $this->doneSay[$semiHash]) {
+                throw new MockedException(
+                    "$what (" . implode(",", $arguments) . ") expected to be"
+                    . " called $times times, was called "
+                    . " {$this->doneSay[$semiHash]} times"
                 );
             }
         }
@@ -181,14 +263,19 @@ class MockedNode extends Node
     {
         $client = $this->getClient();
         $logger = $client->getLogger();
+
         $args = "(" . implode(',', $arguments) . ")";
+        $argsCount = count($arguments);
+        $interruptDigits = $arguments[$argsCount - 1];
+
+        $this->recordDoneSay($what, array_slice($arguments, 0, $argsCount - 1));
         if (empty($this->mockedInput)) {
             $logger->debug("No more input available");
             $client->onStreamFile(false);
         } else {
-            if ($arguments[1] != Node::DTMF_NONE) {
+            if ($interruptDigits != Node::DTMF_NONE) {
                 $digit = array_shift($this->mockedInput);
-                if (strpos($arguments[1], $digit) !== false) {
+                if (strpos($interruptDigits, $digit) !== false) {
                     $logger->debug("Digit '$digit' will interrupt $what $args)");
                     $client->onStreamFile(true, $digit);
                 } else {
@@ -219,10 +306,6 @@ class MockedNode extends Node
                 switch($name)
                 {
                     case 'streamFile':
-                        if (!isset($this->doneSaySound[$arguments[0]])) {
-                            $this->doneSaySound[$arguments[0]] = 0;
-                        }
-                        $this->doneSaySound[$arguments[0]]++;
                     case 'sayNumber':
                     case 'sayDigits':
                     case 'sayDateTime':
