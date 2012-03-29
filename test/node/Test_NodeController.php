@@ -60,6 +60,11 @@ class Test_NodeController extends PHPUnit_Framework_TestCase
         return $this->client->createNode($name);
     }
 
+    protected function createNodeController($name = 'test')
+    {
+        return $this->client->createNodeController($name);
+    }
+
     /**
      * @test
      */
@@ -69,7 +74,7 @@ class Test_NodeController extends PHPUnit_Framework_TestCase
         $object->flag = false;
 
         $this->client->onCreateNode(__METHOD__);
-        $controller = new NodeController($this->client);
+        $controller = $this->createNodeController(__METHOD__);
         $controller->registerResult(__METHOD__)->onCancel()->execute(
             function (Node $node) use ($object) {
                 $object->flag = true;
@@ -86,7 +91,7 @@ class Test_NodeController extends PHPUnit_Framework_TestCase
      */
     public function cannot_jump_to_unknown_node()
     {
-        $controller = new NodeController($this->client);
+        $controller = $this->createNodeController(__METHOD__);
         $controller->jumpTo(__METHOD__);
     }
 
@@ -100,7 +105,7 @@ class Test_NodeController extends PHPUnit_Framework_TestCase
 
         $this->client->onCreateNode(__METHOD__);
 
-        $controller = new NodeController($this->client);
+        $controller = $this->createNodeController(__METHOD__);
         $controller->registerResult(__METHOD__)
             ->onComplete()->execute(function (Node $node) {
                 $node->getClient()->assert('hangup')->onHangup(true);
@@ -125,7 +130,7 @@ class Test_NodeController extends PHPUnit_Framework_TestCase
         $this->client->onCreateNode(__METHOD__);
         $this->client->onCreateNode(__METHOD__ . '2');
 
-        $controller = new NodeController($this->client);
+        $controller = $this->createNodeController(__METHOD__);
         $controller->registerResult(__METHOD__)
             ->onComplete()->jumpTo(__METHOD__ . '2')
         ;
@@ -149,7 +154,7 @@ class Test_NodeController extends PHPUnit_Framework_TestCase
         $object->flag = false;
 
         $this->client->onCreateNode(__METHOD__);
-        $controller = new NodeController($this->client);
+        $controller = $this->createNodeController(__METHOD__);
         $controller->registerResult(__METHOD__)->onComplete()->execute(
             function (Node $node) use ($object) {
                 $object->flag = true;
@@ -169,7 +174,7 @@ class Test_NodeController extends PHPUnit_Framework_TestCase
         $object->flag = false;
 
         $this->client->onCreateNode(__METHOD__)->runWithInput('*');
-        $controller = new NodeController($this->client);
+        $controller = $this->createNodeController(__METHOD__);
         $controller->registerResult(__METHOD__)->onCancel()->execute(
             function (Node $node) use ($object) {
                 $object->flag = true;
@@ -193,7 +198,7 @@ class Test_NodeController extends PHPUnit_Framework_TestCase
         $object->flag = false;
 
         $this->client->onCreateNode(__METHOD__)->runWithInput('123');
-        $controller = new NodeController($this->client);
+        $controller = $this->createNodeController(__METHOD__);
         $controller->registerResult(__METHOD__)->onMaxAttemptsReached()->execute(
             function (Node $node) use ($object) {
                 $object->flag = true;
@@ -225,7 +230,7 @@ class Test_NodeController extends PHPUnit_Framework_TestCase
         $object->flag = false;
 
         $this->client->onCreateNode(__METHOD__)->runWithInput('123');
-        $controller = new NodeController($this->client);
+        $controller = $this->createNodeController(__METHOD__);
         $controller->registerResult(__METHOD__)
             ->onComplete()
             ->withInput('3')

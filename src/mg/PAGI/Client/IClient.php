@@ -573,4 +573,13 @@ interface IClient
      * @return ExecResult
      */
     public function sipHeaderRemove($name);
+
+    /**
+     * Creates a new node controller.
+     *
+     * @param string $name
+     *
+     * @return NodeController
+     */
+    public function createNodeController($name);
 }

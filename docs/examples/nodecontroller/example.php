@@ -285,6 +285,9 @@ class MyPagiApplication extends PAGIApplication
         $this->buildGenericNode('dial', $nodeController)
             ->saySound('pp/16')
             ->maxAttemptsForInput(3)
+            ->expectAtLeast(1)
+            ->expectAtMost(15)
+            ->cancelWith(Node::DTMF_STAR)
             ->cancelWithInputRetriesInput()
         ;
         $nodeController->registerResult('dial')
@@ -305,7 +308,7 @@ class MyPagiApplication extends PAGIApplication
         $this->asteriskLogger = $this->agi->getAsteriskLogger();
         $this->channelVariables = $this->agi->getChannelVariables();
         $this->asteriskLogger->notice('Init');
-        $this->nodeController = new NodeController($this->agi);
+        $this->nodeController = $this->agi->createNodeController('app');
         $this->buildHelp($this->nodeController);
         $this->buildDial($this->nodeController);
         $this->buildMainMenu($this->nodeController);

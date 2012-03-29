@@ -842,4 +842,14 @@ abstract class AbstractClient implements IClient
         $result = $this->exec('SipRemoveHeader', array($name));
         return $result->getData();
     }
+
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\Client.IClient::createNodeController()
+     */
+    public function createNodeController($name)
+    {
+        $controller = new \PAGI\Node\NodeController();
+        return $controller->setName($name)->setAgiClient($this);
+    }
 }

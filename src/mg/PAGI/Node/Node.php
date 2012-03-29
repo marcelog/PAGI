@@ -1267,7 +1267,7 @@ class Node
         $logger = $this->_client->getAsteriskLogger();
         $ani = $this->_client->getChannelVariables()->getCallerIdName();
         $dnis = $this->_client->getChannelVariables()->getDNIS();
-        $logger->debug($this->_name . ": $ani -> $dnis: $msg");
+        $logger->debug("Node: {$this->_name}: $ani -> $dnis: $msg");
     }
 
     /**

@@ -69,6 +69,12 @@ class NodeController
     protected $logger;
 
     /**
+     * Node name.
+     * @var string
+     */
+    private $_name = 'X';
+
+    /**
      * Runs a node and process the result.
      *
      * @param string $name Node to run.
@@ -84,7 +90,7 @@ class NodeController
         // recursion optimization.
         while($name !== false) {
             $node = $this->nodes[$name];
-            $this->logger->debug("Running $name");
+            $this->logDebug("Running $name");
             $node->run();
             $name = $this->processNodeResult($node);
         }
@@ -106,15 +112,15 @@ class NodeController
             foreach ($this->nodeResults[$name] as $resultInfo) {
                 if ($resultInfo->appliesTo($node)) {
                     if ($resultInfo->isActionHangup()) {
-                        $this->logger->debug("Hanging up after $name");
+                        $this->logDebug("Hanging up after $name");
                         $this->client->hangup();
                     } else if($resultInfo->isActionJumpTo()) {
                         $data = $resultInfo->getActionData();
                         $nodeName = $data['nodeName'];
-                        $this->logger->debug("Jumping from $name to $nodeName");
+                        $this->logDebug("Jumping from $name to $nodeName");
                         $ret = $nodeName;
                     } else if ($resultInfo->isActionExecute()) {
-                        $this->logger->debug("Executing callback after $name");
+                        $this->logDebug("Executing callback after $name");
                         $data = $resultInfo->getActionData();
                         $callback = $data['callback'];
                         $callback($node);
@@ -158,15 +164,44 @@ class NodeController
     }
 
     /**
-     * Constructor.
+     * Gives a name for this node.
      *
-     * @param PAGI\Client\IClient $client
+     * @param string $name
      *
-     * @return void
+     * @return Node
      */
-    public function __construct(IClient $client)
+    public function setName($name)
+    {
+        $this->_name = $name;
+        return $this;
+    }
+
+    /**
+     * Sets the pagi client to use by this node.
+     *
+     * @param \PAGI\Client\IClient $client
+     *
+     * @return NodeController
+     */
+    public function setAgiClient(IClient $client)
     {
         $this->client = $client;
         $this->logger = $this->client->getAsteriskLogger();
+        return $this;
+    }
+
+    /**
+     * Used internally to log debug messages
+     *
+     * @param string $msg
+     *
+     * @return void
+     */
+    protected function logDebug($msg)
+    {
+        $logger = $this->client->getAsteriskLogger();
+        $ani = $this->client->getChannelVariables()->getCallerIdName();
+        $dnis = $this->client->getChannelVariables()->getDNIS();
+        $logger->debug("NodeController: {$this->_name}: $ani -> $dnis: $msg");
     }
 }
