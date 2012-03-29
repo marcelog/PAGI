@@ -22,27 +22,61 @@ class NodeActionCommand
         return $this;
     }
 
+    /**
+     * Do the configured action when the node has been cancelled.
+     *
+     * @return \PAGI\Node\NodeActionCommand
+     */
     public function onCancel()
     {
         $this->result = self::NODE_RESULT_CANCEL;
         return $this;
     }
+
+    /**
+     * Do the configured action when the node has completed successfully.
+     *
+     * @return \PAGI\Node\NodeActionCommand
+     */
     public function onComplete()
     {
         $this->result = self::NODE_RESULT_COMPLETE;
         return $this;
     }
+
+    /**
+     * Do the configured action when the node has completed successfully with
+     * this specific input from the user. Very useful for menues.
+     *
+     * @param string $input The expected input from the user.
+     *
+     * @return \PAGI\Node\NodeActionCommand
+     */
     public function withInput($input)
     {
         $this->data['input'] = $input;
         return $this;
     }
+
+    /**
+     * Do the configured action when the node finished without a valid input
+     * from the user.
+     *
+     * @return \PAGI\Node\NodeActionCommand
+     */
     public function onMaxAttemptsReached()
     {
         $this->result = self::NODE_RESULT_MAX_ATTEMPTS_REACHED;
         return $this;
     }
 
+    /**
+     * As an action, jump to the given node (name).
+     *
+     * @param string $name The node name where to jump to.
+     *
+     * @return \PAGI\Node\NodeActionCommand
+     */
     public function jumpTo($name)
     {
         $this->action = self::NODE_ACTION_JUMP_TO;
@@ -50,6 +84,15 @@ class NodeActionCommand
         return $this;
     }
 
+    /**
+     * As an action, evaluate the given callback and jump to the node (name)
+     * returned by it.
+     *
+     * @param \Closure $callback A string MUST be returned that is the name
+     * of the node to jump to.
+     *
+     * @return \PAGI\Node\NodeActionCommand
+     */
     public function jumpAfterEval(\Closure $callback)
     {
         $this->action = self::NODE_ACTION_JUMP_TO;
@@ -57,6 +100,13 @@ class NodeActionCommand
         return $this;
     }
 
+    /**
+     * As an action, hangup the call with the given cause.
+     *
+     * @param integer $cause
+     *
+     * @return \PAGI\Node\NodeActionCommand
+     */
     public function hangup($cause)
     {
         $this->action = self::NODE_ACTION_HANGUP;
@@ -64,6 +114,13 @@ class NodeActionCommand
         return $this;
     }
 
+    /**
+     * As an action, execute the given callback.
+     *
+     * @param \Closure $callback
+     *
+     * @return \PAGI\Node\NodeActionCommand
+     */
     public function execute(\Closure $callback)
     {
         $this->action = self::NODE_ACTION_EXECUTE;
@@ -71,11 +128,24 @@ class NodeActionCommand
         return $this;
     }
 
+    /**
+     * Returns the action information.
+     *
+     * @return array
+     */
     public function getActionData()
     {
         return $this->data;
     }
 
+    /**
+     * True if the given node (already executed) matches with the specs defined
+     * in this action command.
+     *
+     * @param Node $node
+     *
+     * @return boolean
+     */
     public function appliesTo(Node $node)
     {
         if (
@@ -100,16 +170,31 @@ class NodeActionCommand
         return false;
     }
 
+    /**
+     * True if a callback should be executed as an action.
+     *
+     * @return boolean
+     */
     public function isActionExecute()
     {
         return $this->action == self::NODE_ACTION_EXECUTE;
     }
 
+    /**
+     * True if hangup should be done as an action.
+     *
+     * @return boolean
+     */
     public function isActionHangup()
     {
         return $this->action == self::NODE_ACTION_HANGUP;
     }
 
+    /**
+     * True if we have to jump to another node as an action.
+     *
+     * @return boolean
+     */
     public function isActionJumpTo()
     {
         return $this->action == self::NODE_ACTION_JUMP_TO;
