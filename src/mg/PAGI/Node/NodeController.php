@@ -116,7 +116,12 @@ class NodeController
                         $this->client->hangup();
                     } else if($resultInfo->isActionJumpTo()) {
                         $data = $resultInfo->getActionData();
-                        $nodeName = $data['nodeName'];
+                        if (isset($data['nodeEval'])) {
+                            $callback = $data['nodeEval'];
+                            $nodeName = $callback($node);
+                        } else {
+                            $nodeName = $data['nodeName'];
+                        }
                         $this->logDebug("Jumping from $name to $nodeName");
                         $ret = $nodeName;
                     } else if ($resultInfo->isActionExecute()) {

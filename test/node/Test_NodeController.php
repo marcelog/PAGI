@@ -148,6 +148,33 @@ class Test_NodeController extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function can_jump_after_evaluation()
+    {
+        $object = new stdClass;
+        $object->flag = false;
+
+        $this->client->onCreateNode(__METHOD__);
+        $this->client->onCreateNode('can_jump_after_evaluation2');
+
+        $controller = $this->createNodeController(__METHOD__);
+        $controller->registerResult(__METHOD__)
+        ->onComplete()->jumpAfterEval(function (Node $node) {
+            return 'can_jump_after_evaluation2';
+        });
+        $controller->registerResult('can_jump_after_evaluation2')->onComplete()->execute(
+                function (Node $node) use ($object) {
+            $object->flag = true;
+        }
+        );
+        $controller->register(__METHOD__)->saySound('test');
+        $controller->register('can_jump_after_evaluation2')->saySound('test2');
+        $controller->jumpTo(__METHOD__);
+        $this->assertTrue($object->flag);
+    }
+
+    /**
+     * @test
+     */
     public function can_detect_complete()
     {
         $object = new stdClass;

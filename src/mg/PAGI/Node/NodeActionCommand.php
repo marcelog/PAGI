@@ -50,6 +50,13 @@ class NodeActionCommand
         return $this;
     }
 
+    public function jumpAfterEval(\Closure $callback)
+    {
+        $this->action = self::NODE_ACTION_JUMP_TO;
+        $this->data['nodeEval'] = $callback;
+        return $this;
+    }
+
     public function hangup($cause)
     {
         $this->action = self::NODE_ACTION_HANGUP;
