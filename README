@@ -53,8 +53,8 @@ You can now easily install PAGI by issuing:
 
 or
 
-# pear install marcelog/PAGI-1.10.1
-just replace 1.10.1 by the release version you'd like to install :)
+# pear install marcelog/PAGI-1.10.3
+just replace 1.10.3 by the release version you'd like to install :)
 See: http://pear.marcelog.name/
 --------------------------------------------------------------------------------
 Testing IVR applications
@@ -66,6 +66,7 @@ Another example can be found at: https://github.com/marcelog/Pagi-App-And-Test-E
 --------------------------------------------------------------------------------
 Nodes
 =====
+For a tutorial about nodes, see this article: http://marcelog.github.com/articles/pagi_node_call_flow_easy_telephony_application_for_asterisk_php.html
 Simple Call Flow Nodes are available (see docs/examples/node/example.php). Using
 nodes will let you simplify how you build and test your ivr applications. Nodes
 are an abstraction layer above the pagi client, and support:
