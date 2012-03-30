@@ -1173,7 +1173,7 @@ class Node
     /**
      * Executes after running the node.
      *
-     * @param \closure $callback
+     * @param \Closure $callback
      *
      * @return Node
      */
