@@ -299,6 +299,7 @@ class MockedNode extends Node
     {
         $client = $this->getClient();
         $logger = $client->getLogger();
+        $result = null;
         foreach ($methods as $callInfo) {
             foreach ($callInfo as $name => $arguments) {
                 switch($name)
@@ -324,23 +325,47 @@ class MockedNode extends Node
                     default:
                         break;
                 }
+                $result = parent::callClientMethod($name, $arguments);
+                if ($stopWhen !== null) {
+                    if ($stopWhen($result)) {
+                        return $result;
+                    }
+                }
             }
         }
-        return parent::callClientMethods($methods, $stopWhen);
+        return $result;
     }
 
+    /**
+     * Execute a callback before invoking the real callback for valid input.
+     *
+     * @param \Closure $callback
+     *
+     * @return \PAGI\Node\MockedNode
+     */
     public function doBeforeValidInput(\Closure $callback)
     {
         $this->validInputCallback = $callback;
         return $this;
     }
 
+    /**
+     * Execute a callback before invoking the real callback for failed input.
+     *
+     * @param \Closure $callback
+     *
+     * @return \PAGI\Node\MockedNode
+     */
     public function doBeforeFailedInput(\Closure $callback)
     {
         $this->failedInputCallback = $callback;
         return $this;
     }
 
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\Node.Node::beforeOnValidInput()
+     */
     protected function beforeOnValidInput()
     {
        if ($this->validInputCallback !== null) {
@@ -349,6 +374,10 @@ class MockedNode extends Node
        }
     }
 
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\Node.Node::beforeOnInputFailed()
+     */
     protected function beforeOnInputFailed()
     {
        if ($this->failedInputCallback !== null) {

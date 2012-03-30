@@ -873,6 +873,20 @@ class Node
     }
 
     /**
+     * Call a specific method on a client.
+     *
+     * @param string $name
+     * @param string[] $arguments
+     *
+     * @return IResult
+     */
+    protected function callClientMethod($name, array $arguments = array())
+    {
+        $this->logDebug("$name(" . implode(",", $arguments) . ")");
+        return call_user_func_array(array($this->_client, $name), $arguments);
+    }
+
+    /**
      * Calls methods in the PAGI client.
      *
      * @param methodInfo[] $methods Methods to call, an array of arrays. The
@@ -888,10 +902,7 @@ class Node
         $result = null;
         foreach ($methods as $callInfo) {
             foreach ($callInfo as $name => $arguments) {
-                $this->logDebug("$name(" . implode(",", $arguments) . ")");
-                $result = call_user_func_array(
-                    array($this->_client, $name), $arguments
-                );
+                $result = $this->callClientMethod($name, $arguments);
                 if ($stopWhen !== null) {
                     if ($stopWhen($result)) {
                         return $result;
