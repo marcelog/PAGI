@@ -587,6 +587,34 @@ class Test_Node extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function can_play_on_no_input_on_last_attempt()
+    {
+        $node = $this->createNode();
+        $node->getClient()
+        ->onStreamFile(false)
+        ->onStreamFile(false)
+        ->onStreamFile(false)
+        ->onStreamFile(false)
+        ->assert('streamFile', array('you-have', Node::DTMF_ANY))
+        ->assert('streamFile', array('try-again', Node::DTMF_ANY))
+        ->assert('streamFile', array('you-have', Node::DTMF_ANY))
+        ->assert('streamFile', array('try-again', Node::DTMF_ANY))
+        ;
+        $node
+        ->maxAttemptsForInput(2)
+        ->playOnNoInput('try-again')
+        ->saySound('you-have')
+        ->playNoInputMessageOnLastAttempt()
+        ->run()
+        ;
+        $this->assertTrue($node->isComplete());
+        $this->assertEquals($node->getInput(), '');
+        $this->assertFalse($node->hasInput());
+        $this->assertEquals($node->getTotalInputAttemptsUsed(), 2);
+    }
+    /**
+     * @test
+     */
     public function can_end_input()
     {
         $node = $this->createNode();

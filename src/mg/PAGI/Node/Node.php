@@ -339,6 +339,12 @@ class Node
     private $_executeAfterFailedValidation = null;
 
     /**
+     * Play "no input" message in last attempt too.
+     * @var boolean
+     */
+    private $_playOnNoInputInLastAttempt = false;
+
+    /**
      * Make pre prompt messages not interruptable
      *
      * @return Node
@@ -376,8 +382,8 @@ class Node
 
     /**
      * Specify an optional message to play when the user did not enter any
-     * input at all. Will NOT be played if this happens in the last allowed
-     * attempt.
+     * input at all. By default, will NOT be played if this happens in the last
+     * allowed attempt.
      *
      * @param string $filename Sound file to play.
      *
@@ -386,6 +392,17 @@ class Node
     public function playOnNoInput($filename)
     {
         $this->_onNoInputMessage = $filename;
+        return $this;
+    }
+
+    /**
+     * Forces to play "no input" message on last attempt too.
+     *
+     * @return Node
+     */
+    public function playNoInputMessageOnLastAttempt()
+    {
+        $this->_playOnNoInputInLastAttempt = true;
         return $this;
     }
 
@@ -1218,11 +1235,11 @@ class Node
                 $this->logDebug("Cancelled node, quitting");
                 break;
             }
-            // dont play on last attempt
+            // dont play on last attempt by default
             if (
                 $this->_onNoInputMessage !== null
                 && !$this->hasInput()
-                && $attempts != ($this->_totalAttemptsForInput - 1)
+                && ($this->_playOnNoInputInLastAttempt || $attempts != ($this->_totalAttemptsForInput - 1))
             ) {
                 $this->addPrePromptMessage($this->_onNoInputMessage);
                 continue;
