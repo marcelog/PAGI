@@ -16,6 +16,13 @@ class NodeActionCommand
     const NODE_ACTION_JUMP_TO = 2;
     const NODE_ACTION_EXECUTE = 3;
 
+    /**
+     * Sets the controlled node.
+     *
+     * @param string $name The name of the controlled node.
+     *
+     * @return \PAGI\Node\NodeActionCommand
+     */
     public function whenNode($name)
     {
         $this->nodeName = $name;
