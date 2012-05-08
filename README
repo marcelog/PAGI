@@ -88,6 +88,9 @@ The NodeController will let you control the call flow of your application, by
 registering nodes and actions based on node results. Thus, you can jump from
 one node to the other on cancel or complete inputs, hangup the call, execute a
 callback, etc. For an example, see docs/examples/nodecontroller/example.php
+
+An article about the node controller is available at:
+http://marcelog.github.com/articles/making_your_ivr_nodes_call_flow_with_pagi_and_php_asterisk.html
 --------------------------------------------------------------------------------
 AutoDial
 ========
