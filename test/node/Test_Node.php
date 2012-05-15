@@ -808,5 +808,26 @@ class Test_Node extends PHPUnit_Framework_TestCase
             ->run()
         ;
     }
+
+    /**
+     * @test
+     */
+    public function can_clear_prompt_messages()
+    {
+        $node = $this->createNode();
+        $node->getClient()
+            ->onStreamFile(false)
+            ->assert('streamFile', array('no-you-dont', Node::DTMF_ANY))
+            ;
+        $node
+            ->saySound('you-have')
+            ->clearPromptMessages()
+            ->saySound('no-you-dont')
+            ->run()
+        ;
+        $this->assertTrue($node->isComplete());
+        $this->assertEquals($node->getInput(), '');
+        $this->assertFalse($node->hasInput());
+    }
 }
 }

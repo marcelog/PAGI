@@ -516,6 +516,17 @@ class Node
     }
 
     /**
+     * Removes prompt messages.
+     *
+     * @return Node
+     */
+    public function clearPromptMessages()
+    {
+        $this->_promptMessages = array();
+        return $this;
+    }
+
+    /**
      * Internally used to execute prompt messages in the agi client.
      *
      * @return void
