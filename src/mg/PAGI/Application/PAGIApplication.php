@@ -118,10 +118,7 @@ abstract class PAGIApplication
      */
     public function __construct(array $properties = array())
     {
-        if (isset($properties['log4php.properties'])) {
-            \Logger::configure($properties['log4php.properties']);
-        }
-        $this->logger = \Logger::getLogger('Pagi.PAGIApplication');
+        $this->logger = isset($properties['logger']) ? $properties['logger'] : null;
         $this->_agiClient = $properties['pagiClient'];
         register_shutdown_function(array($this, 'shutdown'));
         $signalHandler = array($this, 'signalHandler');

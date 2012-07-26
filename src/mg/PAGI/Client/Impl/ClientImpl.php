@@ -79,7 +79,7 @@ class ClientImpl extends AbstractClient
      */
     protected function send($text)
     {
-        if ($this->_logger->isDebugEnabled()) {
+        if ($this->_logger) {
             $this->_logger->debug('Sending: ' . $text);
         }
         $text .= "\n";
@@ -119,7 +119,7 @@ class ClientImpl extends AbstractClient
             }
             $this->readEnvironmentVariable($line);
         }
-        if ($this->_logger->isDebugEnabled()) {
+        if ($this->_logger) {
             $this->_logger->debug(print_r($this->_variables, true));
         }
     }
@@ -153,7 +153,7 @@ class ClientImpl extends AbstractClient
             throw new PAGIException('Could not read from AGI');
         }
         $line = substr($line, 0, -1);
-        if ($this->_logger->isDebugEnabled()) {
+        if ($this->_logger) {
             $this->_logger->debug('Read: ' . $line);
         }
         return $line;
@@ -182,8 +182,7 @@ class ClientImpl extends AbstractClient
      *
      * Note: The client accepts an array with options. The available options are
      *
-     * log4php.properties => Optional. If set, should contain the absolute
-     * path to the log4php.properties file.
+     * logger => Optional. Should contain an instance of Monolog.
      *
      * stdin => Optional. If set, should contain an already open stream from
      * where the client will read data (useful to make it interact with fastagi
@@ -199,10 +198,7 @@ class ClientImpl extends AbstractClient
     protected function __construct(array $options = array())
     {
         $this->_options = $options;
-        if (isset($options['log4php.properties'])) {
-            \Logger::configure($options['log4php.properties']);
-        }
-        $this->_logger = \Logger::getLogger(__CLASS__);
+        $this->_logger = isset($options['logger']) ? $options['logger'] : null;
         $this->open();
     }
 }

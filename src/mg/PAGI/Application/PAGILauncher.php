@@ -6,9 +6,6 @@
  * want to run.
  * -- PAGIBootstrap: Name of the file (like a.php) that you want to include_once
  * before running the application.
- * -- log4php: Absolute full path to the log4php.properties (may be a dummy
- * path, in this case you may gain some performance but wont be able to see
- * any logs apart from the asterisk console).
  *
  * PHP Version 5
  *
@@ -41,10 +38,11 @@ use PAGI\Application\PAGIApplication;
 
 $appName = getenv('PAGIApplication');
 $bootstrap = getenv('PAGIBootstrap');
-$log4php = realpath(getenv('log4php_properties'));
 $myApp = '';
-//\Logger::configure($log4php);
-//$logger = \Logger::getLogger('PAGI.Launcher');
+
+$logger = null;
+//$logger = new \Monolog\Logger('pagilogger');
+//$logger->pushHandler(new \Monolog\Handler\StreamHandler('/path/to/your.log', \Monolog\Logger::WARNING));
 try
 {
 
@@ -56,7 +54,7 @@ try
     if (!$rClass->isSubclassOf('PAGI\\Application\\PAGIApplication')) {
         throw new \Exception($appName . ': Invalid application');
     }
-    $agi = PAGI\Client\Impl\ClientImpl::getInstance(array('log4php.properties' => $log4php));
+    $agi = PAGI\Client\Impl\ClientImpl::getInstance(array('logger' => $logger));
     $myApp = new $appName(array('pagiClient' => $agi));
     $myApp->init();
     $myApp->run();
