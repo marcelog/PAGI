@@ -1,0 +1,14 @@
+{
+    "name": "jacobkiers/pagi",
+    "description": "PAGI library",
+    "type": "library",
+    "require": {
+        "php": ">=5.3.3",
+        "monolog/monolog":"1.*@stable"
+    },
+    "autoload": {
+        "psr-0": {
+            "PAGI": "src/mg/"
+        }
+    }
+}
