@@ -58,8 +58,8 @@ You can now easily install PAGI by issuing:
 
 or
 
-# pear install marcelog/PAGI-1.10.5
-just replace 1.10.5 by the release version you'd like to install :)
+# pear install marcelog/PAGI-1.10.6
+just replace 1.10.6 by the release version you'd like to install :)
 See: http://pear.marcelog.name/
 -------------------------------------------------------------------------------
 Available as PHAR
