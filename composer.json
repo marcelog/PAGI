@@ -1,5 +1,5 @@
 {
-  "name": "marcelog/PAGI",
+  "name": "marcelog/pagi",
   "type": "library",
   "description": "Asterisk Gateway Interface (AGI) client for PHP, suitable to make telephony applications using call flow nodes",
   "keywords": ["asterisk","agi","client","call","flow","node","ivr","telephony","voip"],
