@@ -36,6 +36,20 @@ stdin => Optional. If set, should contain an already open stream from where the
          be used by the client.
 stdout => Optional. Same as stdin but for the output of the client.
 -------------------------------------------------------------------------------
+Available via Composer
+----------------------
+Just add the package "marcelog/pagi":
+{
+    "require": {
+        "marcelog/pagi": "dev-master"
+    }
+}
+
+Note that since log4php is a dependency and does not have a composer
+installation available, you will need to add it to your own composer.json file.
+
+Packagist URL: http://packagist.org/packages/marcelog/pagi
+-------------------------------------------------------------------------------
 Available via PEAR
 ------------------
 You can now easily install PAGI by issuing:
@@ -47,6 +61,11 @@ or
 # pear install marcelog/PAGI-1.10.5
 just replace 1.10.5 by the release version you'd like to install :)
 See: http://pear.marcelog.name/
+-------------------------------------------------------------------------------
+Available as PHAR
+-----------------
+Just go to the Jenkins server at http://ci.marcelog.name and grab the latest
+phar distribution from the PAGI job.
 -------------------------------------------------------------------------------
 Testing IVR applications
 ========================
