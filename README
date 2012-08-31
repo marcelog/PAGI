@@ -11,11 +11,12 @@ Resources:
  * API at: http://ci.marcelog.name:8080/job/PAGI/javadoc/
  * CI (Jenkins) at: http://ci.marcelog.name/ provides API, metrics, and
  distributables.
-
 -------------------------------------------------------------------------------
-Who uses it?
-------------
-Read some of the success stories at: http://marcelog.github.com/PAGI/users.html
+Contact me
+----------
+If you have any questions, issues, feature requests, or just want to report
+your "success story", or maybe even say hi, please send an email to
+marcelog@gmail.com
 -------------------------------------------------------------------------------
 Included Example
 ----------------
