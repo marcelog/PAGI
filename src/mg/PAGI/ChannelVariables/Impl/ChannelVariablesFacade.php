@@ -275,6 +275,15 @@ class ChannelVariablesFacade implements IChannelVariables
 
     /**
      * (non-PHPdoc)
+     * @see PAGI\ChannelVariables.IChannelVariables::getArguments()
+     */
+    public function getArguments()
+    {
+        return $this->_arguments;
+    }
+
+    /**
+     * (non-PHPdoc)
      * @see PAGI\ChannelVariables.IChannelVariables::getDirectoryConfig()
      */
     public function getDirectoryConfig()
