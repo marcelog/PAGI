@@ -253,6 +253,7 @@ class Test_Mock extends PHPUnit_Framework_TestCase
             ->assert('stopPlayingTones')
             ->assert('playTone', array('some'))
             ->assert('playCustomTones', array(1, 2, 3))
+            ->assert('amd', array())
             ->onAnswer(true)
             ->onWaitDigit(false)
             ->onWaitDigit(true, '*')
@@ -267,6 +268,7 @@ class Test_Mock extends PHPUnit_Framework_TestCase
             ->onSayPhonetic(true, '#')
             ->onSayNumber(true, '#')
             ->onSayDigits(true, '#')
+            ->onAmd('status', 'cause')
             ->onHangup(true)
             ->onChannelStatus(PAGI\Client\ChannelStatus::LINE_UP)
         ;
@@ -285,6 +287,7 @@ class Test_Mock extends PHPUnit_Framework_TestCase
         $mock->sayPhonetic('asd');
         $mock->sayNumber(123);
         $mock->sayDigits(123);
+        $mock->amd();
         $mock->hangup();
         $mock->channelStatus();
         $mock->setCallerId('name', 'number');
