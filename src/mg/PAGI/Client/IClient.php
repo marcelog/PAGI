@@ -582,4 +582,14 @@ interface IClient
      * @return NodeController
      */
     public function createNodeController($name);
+
+    /**
+     * Runs the AMD() application. For a complete list of options see:
+     * https://wiki.asterisk.org/wiki/display/AST/Application_AMD
+     *
+     * @param string[] $options
+     *
+     * @return AmdResult 
+     */
+    public function amd($options);
 }

@@ -1670,5 +1670,173 @@ class Test_Client extends \PHPUnit_Framework_TestCase
         setFgetsMock($read, $write);
         $result = $client->sipHeaderRemove('name');
     }
+
+    /**
+     * @test
+     */
+    public function can_amd_send_options()
+    {
+        global $standardAGIStart;
+        global $mockTime;
+        global $mockTimeReturn;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+            'EXEC "AMD" "a,b,c,d,e,f,g,h,i"',
+            false,
+            false
+        );
+        $read = array(
+            '200 result=0 endpos=0',
+            '200 result=1 (A)',
+            '200 result=1 (B)'
+        );
+        setFgetsMock($read, $write);
+        $result = $client->amd(array(
+            'initialSilence' => 'a',
+            'greeting' => 'b',
+            'afterGreetingSilence' => 'c',
+            'totalAnalysisTime' => 'd', 
+            'miniumWordLength' => 'e',
+            'betweenWordSilence' => 'f',
+            'maximumNumberOfWords' => 'g',
+            'silenceThreshold' => 'h',
+            'maximumWordLength' => 'i'
+        ));
+        $this->assertEquals($result->getStatus(), 'A');
+        $this->assertEquals($result->getCause(), 'B');
+        $this->assertEquals($result->__toString(), '[ Amd:  Status: A Cause: B ]');
+    }
+
+    /**
+     * @test
+     */
+    public function can_amd_detect_human()
+    {
+        global $standardAGIStart;
+        global $mockTime;
+        global $mockTimeReturn;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+            'EXEC "AMD" ",,,,,,,,"',
+            false,
+            false
+        );
+        $read = array(
+            '200 result=0 endpos=0',
+            '200 result=1 (HUMAN)',
+            '200 result=1 (HUMAN)'
+        );
+        setFgetsMock($read, $write);
+        $result = $client->amd();
+        $this->assertTrue($result->isHuman());
+        $this->assertTrue($result->isCauseHuman());
+    }
+
+    /**
+     * @test
+     */
+    public function can_amd_detect_machine()
+    {
+        global $standardAGIStart;
+        global $mockTime;
+        global $mockTimeReturn;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+            'EXEC "AMD" ",,,,,,,,"',
+            false,
+            false
+        );
+        $read = array(
+            '200 result=0 endpos=0',
+            '200 result=1 (MACHINE)',
+            '200 result=1 (LONGGREETING)'
+        );
+        setFgetsMock($read, $write);
+        $result = $client->amd();
+        $this->assertTrue($result->isMachine());
+        $this->assertTrue($result->isCauseGreeting());
+    }
+
+    /**
+     * @test
+     */
+    public function can_amd_unsure()
+    {
+        global $standardAGIStart;
+        global $mockTime;
+        global $mockTimeReturn;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+            'EXEC "AMD" ",,,,,,,,"',
+            false,
+            false
+        );
+        $read = array(
+            '200 result=0 endpos=0',
+            '200 result=1 (NOTSURE)',
+            '200 result=1 (MAXWORDLENGTH)'
+        );
+        setFgetsMock($read, $write);
+        $result = $client->amd();
+        $this->assertTrue($result->isNotSure());
+        $this->assertTrue($result->isCauseWordLength());
+    }
+
+    /**
+     * @test
+     */
+    public function can_amd_hangup()
+    {
+        global $standardAGIStart;
+        global $mockTime;
+        global $mockTimeReturn;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+            'EXEC "AMD" ",,,,,,,,"',
+            false,
+            false
+        );
+        $read = array(
+            '200 result=0 endpos=0',
+            '200 result=1 (HANGUP)',
+            '200 result=1 (INITIALSILENCE)'
+        );
+        setFgetsMock($read, $write);
+        $result = $client->amd();
+        $this->assertTrue($result->isHangup());
+        $this->assertTrue($result->isCauseInitialSilence());
+    }
+
+    /**
+     * @test
+     */
+    public function can_amd_cause_too_long()
+    {
+        global $standardAGIStart;
+        global $mockTime;
+        global $mockTimeReturn;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+            'EXEC "AMD" ",,,,,,,,"',
+            false,
+            false
+        );
+        $read = array(
+            '200 result=0 endpos=0',
+            '200 result=1 (NOTSURE)',
+            '200 result=1 (TOOLONG)'
+        );
+        setFgetsMock($read, $write);
+        $result = $client->amd();
+        $this->assertTrue($result->isNotSure());
+        $this->assertTrue($result->isCauseTooLong());
+    }
+    
 }
 }
