@@ -122,7 +122,7 @@ class AmdResult extends ExecResult
      */
     private function isCause($string)
     {
-        return strcasecmp($this->_cause, $string) === 0;
+        return strncasecmp($this->_cause, $string, strlen($string)) === 0;
     }
 
     /**
