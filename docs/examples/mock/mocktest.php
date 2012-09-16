@@ -1,5 +1,5 @@
 <?php
-
+date_default_timezone_set('America/Buenos_Aires');
 require_once 'PAGI/Autoloader/Autoloader.php';
 PAGI\Autoloader\Autoloader::register();
 $variables = array(
@@ -67,4 +67,3 @@ var_dump($mock->sayNumber(123));
 var_dump($mock->sayDigits(123));
 var_dump($mock->dial('SIP/blah', array(60, 'tH')));
 var_dump($mock->hangup());
-//var_dump($mock->waitDigit(1000));

@@ -43,8 +43,6 @@ $appName = getenv('PAGIApplication');
 $bootstrap = getenv('PAGIBootstrap');
 $log4php = realpath(getenv('log4php_properties'));
 $myApp = '';
-//\Logger::configure($log4php);
-//$logger = \Logger::getLogger('PAGI.Launcher');
 try
 {
 

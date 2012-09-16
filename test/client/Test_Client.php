@@ -242,8 +242,8 @@ class Test_Client extends \PHPUnit_Framework_TestCase
      */
     public function can_use_custom_stream()
     {
-        $in = fopen(RESOURCES_DIR . DIRECTORY_SEPARATOR . 'inputstream.txt', 'r');
-        $out = fopen('/tmp/output.txt', 'w+');
+        $in = fopen(__DIR__ . '/../resources/inputstream.txt', 'r');
+        $out = fopen(TMPDIR . '/output.txt', 'w+');
         $client = \PAGI\Client\Impl\ClientImpl::getInstance(array(
             'stdin' => $in,
         	'stdout' => $out,
