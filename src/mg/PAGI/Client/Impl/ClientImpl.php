@@ -125,9 +125,9 @@ class ClientImpl extends AbstractClient
             $message = '['.$channel.'] === BEGIN AGI VARIABLES ===' . PHP_EOL;
 
             foreach($this->_variables as $name => $value) {
-                $message .= '['.$channel.'] '.$name.' => '.$value.PHP_EOL; 
+                $message .= '['.$channel.'] '.$name.' => '.$value.PHP_EOL;
             }
-            
+
             $message .= '['.$channel.'] === END AGI VARIABLES ==='.PHP_EOL;
             $this->_logger->debug($message);
         }
@@ -163,7 +163,10 @@ class ClientImpl extends AbstractClient
         }
         $line = substr($line, 0, -1);
         if ($this->_logger) {
-            $channel = $this->getChannelVariables()->getChannel();
+            $channel = 'uninitialized';
+            if (isset($this->_variables['channel'])) {
+                $channel = $this->_variables['channel'];
+            }
             $this->_logger->debug('['.$channel.'] Read: '.$line);
         }
         return $line;
