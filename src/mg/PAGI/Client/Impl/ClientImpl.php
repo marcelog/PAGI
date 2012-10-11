@@ -80,7 +80,8 @@ class ClientImpl extends AbstractClient
     protected function send($text)
     {
         if ($this->_logger) {
-            $this->_logger->debug('Sending: ' . $text);
+            $channel = $this->getChannelVariables()->getChannel();
+            $this->_logger->debug('['.$channel.'] Sending: '.$text);
         }
         $text .= "\n";
         $len = strlen($text);
@@ -120,7 +121,15 @@ class ClientImpl extends AbstractClient
             $this->readEnvironmentVariable($line);
         }
         if ($this->_logger) {
-            $this->_logger->debug(print_r($this->_variables, true));
+            $channel = $this->getChannelVariables()->getChannel();
+            $message = '['.$channel.'] === BEGIN AGI VARIABLES ===' . PHP_EOL;
+
+            foreach($this->_variables as $name => $value) {
+                $message .= '['.$channel.'] '.$name.' => '.$value.PHP_EOL; 
+            }
+            
+            $message .= '['.$channel.'] === END AGI VARIABLES ==='.PHP_EOL;
+            $this->_logger->debug($message);
         }
     }
 
@@ -154,7 +163,8 @@ class ClientImpl extends AbstractClient
         }
         $line = substr($line, 0, -1);
         if ($this->_logger) {
-            $this->_logger->debug('Read: ' . $line);
+            $channel = $this->getChannelVariables()->getChannel();
+            $this->_logger->debug('['.$channel.'] Read: '.$line);
         }
         return $line;
     }
