@@ -4,7 +4,7 @@
   "description": "Asterisk Gateway Interface (AGI) client for PHP, suitable to make telephony applications using call flow nodes",
   "keywords": ["asterisk","agi","client","call","flow","node","ivr","telephony","voip"],
   "homepage": "http://marcelog.github.com/PAGI",
-  "license": "Apache2",
+  "license": "Apache-2.0",
   "authors": [
     {
       "name": "Marcelo Gornstein",
