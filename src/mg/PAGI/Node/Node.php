@@ -362,7 +362,7 @@ class Node
         }
 
         $digits = array_unique(str_split($this->_validInterruptDigits.$digit));
-        array_sort($digits);
+        sort($digits);
 
         $this->_validInterruptDigits = '';
         foreach($digits as $interrupt_digit) {
