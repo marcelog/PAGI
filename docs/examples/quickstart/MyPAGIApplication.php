@@ -1,4 +1,6 @@
 <?php
+define('ROOT_PATH', getenv('root')); // Only used inside log4php.properties
+
 /**
  * PAGI basic use example. Please see run.sh in this same directory for an
  * example of how to actually run this from your dialplan.
@@ -132,6 +134,7 @@ class MyPAGIApplication extends PAGIApplication
         //$this->log($client->faxReceive('/tmp/a.tiff')->__toString());
         //$this->log($client->faxSend('/tmp/a.tiff')->__toString());
         $variables = $client->getChannelVariables();
+
         $this->log('Config dir: ' . $variables->getDirectoryConfig());
         $this->log('Config file: ' . $variables->getConfigFile());
         $this->log('Module dir: ' . $variables->getDirectoryModules());
@@ -182,21 +185,21 @@ class MyPAGIApplication extends PAGIApplication
             $this->log('Timeouted for say number.');
         }
 
-        $result = $client->getData('/var/lib/asterisk/sounds/welcome', 10000, 4);
+        $result = $client->getData('welcome', 10000, 4);
         if (!$result->isTimeout()) {
             $this->log('Read: ' . $result->getDigits());
         } else {
             $this->log('Timeouted for get data with: ' . $result->getDigits());
         }
 
-        $result = $client->getOption('/var/lib/asterisk/sounds/welcome', '0123456789*#', 10000);
+        $result = $client->getOption('welcome', '0123456789*#', 10000);
         if (!$result->isTimeout()) {
             $this->log('Read: ' . $result->getDigits());
         } else {
             $this->log('Timeouted for get option.');
         }
 
-        $result = $client->streamFile('/var/lib/asterisk/sounds/welcome', '#');
+        $result = $client->streamFile('welcome', '#');
         if (!$result->isTimeout()) {
             $this->log('Read: ' . $result->getDigits());
         } else {

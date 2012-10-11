@@ -330,6 +330,13 @@ class MockedClientImpl extends AbstractClient
         return;
     }
 
+    public function amd($options = array())
+    {
+        $args = func_get_args();
+        $this->assertCall('amd', $args);
+        return parent::amd($options);
+    }
+
     public function answer()
     {
         $args = func_get_args();
@@ -512,6 +519,14 @@ class MockedClientImpl extends AbstractClient
         $this->addMockedResult(
             '200 result=' . ($success ? '0' : '-1')
         );
+        return $this;
+    }
+
+    public function onAmd($status, $cause)
+    {
+        $this->addMockedResult('200 result=0');
+        $this->onGetVariable(true, $status);
+        $this->onGetVariable(true, $cause);
         return $this;
     }
 

@@ -37,6 +37,7 @@ use PAGI\Client\Result\DigitReadResult;
 use PAGI\Client\Result\DataReadResult;
 use PAGI\Client\Result\PlayResult;
 use PAGI\Client\Result\RecordResult;
+use PAGI\Client\Result\AmdResult;
 use PAGI\Client\ChannelStatus;
 
 use PAGI\Exception\ExecuteCommandException;
@@ -140,6 +141,33 @@ abstract class AbstractClient implements IClient
             break;
         }
         throw new InvalidCommandException($result);
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\Client.IClient::amd()
+     */
+    public function amd($options = array())
+    {
+        $knownOptions = array(
+            'initialSilence', 'greeting', 'afterGreetingSilence', 'totalAnalysisTime', 
+            'miniumWordLength', 'betweenWordSilence', 'maximumNumberOfWords',
+            'silenceThreshold', 'maximumWordLength'
+        );
+        $args = array();
+        $total = count($knownOptions);
+        for ($i = 0; $i < $total; $i++) {
+            $key = $knownOptions[$i];
+            if (isset($options[$key])) {
+                $args[] = $options[$key];
+            } else {
+                $args[] = '';
+            }
+        }
+        $result = new AmdResult($this->exec('AMD', $args));
+        $result->setStatus($this->getFullVariable('AMDSTATUS'));
+        $result->setCause($this->getFullVariable('AMDCAUSE'));
+        return $result;
     }
 
     /**

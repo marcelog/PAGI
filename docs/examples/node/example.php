@@ -61,7 +61,6 @@ class MyPagiApplication extends PAGIApplication
 
     public function errorHandler($type, $message, $file, $line)
     {
-        //$this->asteriskLogger->error("$message at $file:$line");
         $this->logger->error("$message at $file:$line");
     }
 

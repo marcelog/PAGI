@@ -39,10 +39,15 @@ use PAGI\Application\PAGIApplication;
 $appName = getenv('PAGIApplication');
 $bootstrap = getenv('PAGIBootstrap');
 $myApp = '';
-
 $logger = null;
-//$logger = new \Monolog\Logger('pagilogger');
-//$logger->pushHandler(new \Monolog\Handler\StreamHandler('/path/to/your.log', \Monolog\Logger::WARNING));
+
+/*
+ * Example: set up Monolog
+ *
+ * $logger = new \Monolog\Logger('pagilogger');
+ * $logger->pushHandler(new \Monolog\Handler\StreamHandler('/path/to/your.log', \Monolog\Logger::WARNING));
+ */
+
 try
 {
 

@@ -198,6 +198,13 @@ interface IChannelVariables
     public function getArgument($index);
 
     /**
+     * Returns all arguments as an array.
+     *
+     * @return string[]
+     */
+    public function getArguments();
+
+    /**
      * Returns the config directory for this running version of asterisk.
      * Uses environment variable AST_CONFIG_DIR.
      *
