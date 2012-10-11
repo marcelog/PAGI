@@ -48,7 +48,7 @@ class Node
      * Any of the available DTMF digits in a classic telephone.
      * @var string
      */
-    const DTMF_ANY = '0123456789*#';
+    const DTMF_ANY = '#*0123456789';
     /**
      * DTMF digit '*'
      * @var string
@@ -63,7 +63,7 @@ class Node
      * DTMF digits which are integers (numbers)
      * @var string
      */
-    const DTMF_NUMERIC = '1234567890';
+    const DTMF_NUMERIC = '0123456789';
     /**
      * DTMF digits non numeric
      * @var string
@@ -344,6 +344,49 @@ class Node
      */
     private $_playOnNoInputInLastAttempt = false;
 
+
+    /**
+     * Add specific keys for interruption.
+     *
+     * @var string One of the DTMF constants
+     * @return Node
+     */
+    public function addValidInterruptDigit($digit)
+    {
+        if (!$this->_promptsCanBeInterrupted) {
+            return $this;
+        }
+
+        if (false !== strpos($this->_validInterruptDigits, $digit)) {
+            return $this;
+        }
+
+        $digits = array_unique(str_split($this->_validInterruptDigits.$digit));
+        array_sort($digits);
+
+        $this->_validInterruptDigits = '';
+        foreach($digits as $interrupt_digit) {
+            switch($interrupt_digit) {
+                case self::DTMF_0:
+                case self::DTMF_1:
+                case self::DTMF_2:
+                case self::DTMF_3:
+                case self::DTMF_4:
+                case self::DTMF_5:
+                case self::DTMF_6:
+                case self::DTMF_7:
+                case self::DTMF_8:
+                case self::DTMF_9:
+                case self::DTMF_HASH:
+                case self::DTMF_STAR:
+                    $this->_validInterruptDigits .= $interrupt_digit;
+                    break;
+            }
+        }
+        
+        return $this;
+    }
+    
     /**
      * Make pre prompt messages not interruptable
      *
@@ -369,6 +412,29 @@ class Node
     }
 
     /**
+     * Clear the digits with which a prompt can be interrupted.
+     *
+     * @return Node
+     */
+    public function clearInterruptDigits()
+    {
+        $this->_validInterruptDigits = self::DTMF_NONE;
+        return $this;
+    }
+
+    /**
+     * Make prompt messages interruptable.
+     *
+     * @return Node
+     */
+    public function interruptablePrompts()
+    {
+        $this->_promptsCanBeInterrupted = true;
+        $this->_validInterruptDigits = self::DTMF_ANY;
+        return $this;
+    }
+
+    /**
      * Make prompt messages not interruptable.
      *
      * @return Node
@@ -378,6 +444,16 @@ class Node
         $this->_promptsCanBeInterrupted = false;
         $this->_validInterruptDigits = self::DTMF_NONE;
         return $this;
+    }
+
+    /**
+     * Returns whether this node is interruptable.
+     * 
+     * @return Node
+     */
+    public function isInterruptable()
+    {
+        return $this->_promptsCanBeInterrupted;
     }
 
     /**
