@@ -1,7 +1,4 @@
-vendor
-.buildpath
-.settings
-.project
-build
-resources/php.ini
-
+/phpunit.xml
+/vendor
+/build
+/composer.lock
