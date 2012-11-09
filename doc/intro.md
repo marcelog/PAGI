@@ -6,16 +6,15 @@ PAGI is a PHP client for AGI: [Asterisk Gateway Interface](http://www.asteriskdo
 Testing IVR applications
 ========================
 
-A mocked PAGI client is included to easily test your IVR applications. See an [example](https://github.com/marcelog/PAGI/tree/master/doc/examples/mock) of how to use it.
+A mocked PAGI client is included to easily test your IVR applications.
 
 Nodes
 =====
 
 For a tutorial about nodes, see [this article](http://marcelog.github.com/articles/pagi_node_call_flow_easy_telephony_application_for_asterisk_php.html).
 
-Simple Call Flow Nodes are available (see an [example](https://github.com/marcelog/PAGI/tree/master/doc/examples/node/app.php)). Using
-nodes will let you simplify how you build and test your IVR applications. Nodes are an abstraction layer above
-the PAGI client, and support:
+Simple Call Flow Nodes are available. Using nodes will let you simplify how you build and test your IVR
+applications. Nodes are an abstraction layer above the PAGI client, and support:
 
 - Prompts mixing sound files, playing numbers/digits/datetime's.
 - Cancel and End Of Input digits.

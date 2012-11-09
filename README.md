@@ -11,7 +11,7 @@ require_once __DIR__.'/../vendor/autoload.php';
 
 class MyApplication extends PAGI\Application\Application
 {
-	// @see docs/examples/quickstart
+	// @see doc/usage.md
 }
 
 $client = PAGI\Client\Client::getInstance();
