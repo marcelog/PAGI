@@ -43,7 +43,7 @@ Alternatively, you can download the [PAGI build](http://ci.marcelog.name:8080/jo
 More Information
 ----------------
 
-Read the [documentation](https://github.com/marcelog/PAGI/tree/master/docs) for more information.
+Read the [documentation](https://github.com/marcelog/PAGI/tree/master/doc) for more information.
 
 Tests
 ------
