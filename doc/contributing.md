@@ -12,6 +12,4 @@ follow these steps:
 
 - Send a pull request. Bonus points for topic branches.
 
-.. note::
-
-    Any code you contribute must be licensed under the Apache2 License.
+**Note**: Any code you contribute must be licensed under the Apache2 License.
