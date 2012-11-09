@@ -11,6 +11,8 @@
 
 namespace PAGI\Client;
 
+use PAGI\Logger\AsteriskLogger;
+
 use PAGI\Client\Result\Result;
 use PAGI\Client\Result\FaxResult;
 use PAGI\Client\Result\ExecResult;
@@ -542,6 +544,14 @@ abstract class AbstractClient implements ClientInterface
     /**
      * {@inheritdoc}
      */
+    public function getAsteriskLogger()
+    {
+        return AsteriskLogger::getInstance($this);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function databaseDel($family, $key)
     {
         $cmd = implode(
@@ -778,7 +788,7 @@ abstract class AbstractClient implements ClientInterface
     {
         $node = new Node();
 
-        return $node->setName($name)->setAgiClient($this);
+        return $node->setName($name)->setClient($this);
     }
 
     /**
@@ -806,6 +816,6 @@ abstract class AbstractClient implements ClientInterface
     {
         $controller = new NodeController();
 
-        return $controller->setName($name)->setAgiClient($this);
+        return $controller->setName($name)->setClient($this);
     }
 }

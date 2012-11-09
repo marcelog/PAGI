@@ -168,7 +168,7 @@ class NodeController
      *
      * @return NodeController
      */
-    public function setAgiClient(ClientInterface $client)
+    public function setClient(ClientInterface $client)
     {
         $this->client = $client;
 

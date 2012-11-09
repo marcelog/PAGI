@@ -53,6 +53,13 @@ interface ClientInterface
     public function log($message, $priority = 'NOTICE');
 
     /**
+     * Returns an asterisk logger facade.
+     *
+     * @return \PAGI\Logger\AsteriskLoggerInterface
+     */
+    public function getAsteriskLogger();
+
+    /**
      * Retrieves channel status. Uses agi command "CHANNEL STATUS"
      *
      * @param string $channel Optional, channel name

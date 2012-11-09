@@ -571,7 +571,7 @@ class MockedClient extends AbstractClient
     public function onCreateNode($name)
     {
         $this->nodes[$name] = new \PAGI\Node\MockedNode();
-        $this->nodes[$name]->setName($name)->setAgiClient($this);
+        $this->nodes[$name]->setName($name)->setClient($this);
 
         return $this->nodes[$name];
     }
