@@ -503,10 +503,12 @@ class Node
                 $onError = $data['soundOnError'];
                 if (is_array($onError)) {
                     foreach ($onError as $msg) {
-                        $this->addPrePromptMessage($msg);
+                        if ($msg!=null)
+                            $this->addPrePromptMessage($msg);
                     }
                 } else {
-                    $this->addPrePromptMessage($onError);
+                    if ($onError!=null)
+                        $this->addPrePromptMessage($onError);
                 }
                 return false;
             }
