@@ -460,6 +460,20 @@ abstract class AbstractClient implements IClient
         )));
     }
 
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\Client.IClient::sayIVONA()
+     */
+    public function sayIVONA($what)
+    {
+        $result = new IvonaResult($this->exec('IVONA', array($what)));
+        $dtmf = $result->getResult();
+        if ($dtmf !== "") {
+            $result->setData(chr($dtmf));
+        }
+        return $result;
+    }
+
     private function _playAndRead($cmd)
     {
         return new PlayResult(new DigitReadResult($this->send($cmd)));
