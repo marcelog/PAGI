@@ -506,7 +506,9 @@ class Node
                         $this->addPrePromptMessage($msg);
                     }
                 } else {
-                    $this->addPrePromptMessage($onError);
+                    if (is_string($onError)) {
+                        $this->addPrePromptMessage($onError);
+                    }
                 }
                 return false;
             }
