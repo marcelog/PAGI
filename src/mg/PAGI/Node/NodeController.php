@@ -124,6 +124,7 @@ class NodeController
                         }
                         $this->logDebug("Jumping from $name to $nodeName");
                         $ret = $nodeName;
+                        break;
                     } else if ($resultInfo->isActionExecute()) {
                         $this->logDebug("Executing callback after $name");
                         $data = $resultInfo->getActionData();
