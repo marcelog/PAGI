@@ -295,6 +295,25 @@ class Test_Client extends \PHPUnit_Framework_TestCase
      * @test
      * @expectedException \PAGI\Exception\ChannelDownException
      */
+    public function can_detect_fastagi_hangup()
+    {
+        global $standardAGIStart;
+        setFgetsMock($standardAGIStart, array());
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $write = array(
+        	'STREAM FILE "file" "#"'
+        );
+        $read = array(
+            'HANGUP'
+        );
+        setFgetsMock($read, $write);
+        $result = $client->streamFile('file', '#');
+    }
+
+    /**
+     * @test
+     * @expectedException \PAGI\Exception\ChannelDownException
+     */
     public function cannot_answer()
     {
         global $standardAGIStart;
