@@ -239,6 +239,18 @@ interface IClient
     public function sayAlpha($what, $escapeDigits = '');
 
     /**
+     * Say a given character string, returning early if any of the given DTMF
+     * digits are received on the channel. Uses agi command "IVONA".
+     *
+     * @param string $what         What to say.
+     * to skip the sound.
+     *
+     * @throws ChannelDownException
+     * @return PlayResult
+     */
+    public function sayIVONA($what);
+
+    /**
      * Changes the priority for continuation upon exiting the application.
      * Uses agi command "SET PRIORITY".
      *

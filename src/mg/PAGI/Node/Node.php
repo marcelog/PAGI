@@ -621,6 +621,19 @@ class Node
     }
 
     /**
+     * Say a text using IVONA TTS engine
+     *
+     * @param string $text
+     *
+     * @return Node
+     */
+    public function sayIVONA($text)
+    {
+        $this->addClientMethodCall('sayIVONA', $text);
+        return $this;
+    }
+
+    /**
      * Configure the node to expect at least this many digits. The input is
      * considered complete when this many digits has been entered. Cancel and
      * end of input digits (if configured) are not taken into account.
