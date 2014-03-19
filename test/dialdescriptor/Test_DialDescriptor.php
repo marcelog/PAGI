@@ -79,5 +79,18 @@ class Test_DialDescriptor extends \PHPUnit_Framework_TestCase
         $descriptor->setChannel('1-1');
         $this->assertEquals($descriptor->getChannelDescriptor(), 'DAHDI/1-1/777');
     }
+    /**
+     * @test
+     */
+    public function can_use_local_descriptor()
+    {
+        $descriptor = new \PAGI\DialDescriptor\LocalDialDescriptor('test', '3000');
+
+        $this->assertEquals($descriptor->getChannelDescriptor(), 'LOCAL/3000@test');
+        $this->assertEquals($descriptor->getTechnology(), 'LOCAL');
+
+        $descriptor->setTarget('777');
+        $this->assertEquals($descriptor->getChannelDescriptor(), 'LOCAL/777');
+    }
 }
 }
