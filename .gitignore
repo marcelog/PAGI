@@ -4,4 +4,5 @@ vendor
 .project
 build
 resources/php.ini
-
+composer.lock
+nbproject
