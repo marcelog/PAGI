@@ -13,6 +13,7 @@ Resources:
  * [API](http://ci.marcelog.name:8080/job/PAGI/javadoc/)
  * [CI (Jenkins)](http://ci.marcelog.name/ provides API, metrics, and distributables).
  * [Packagist Home](http://packagist.org/packages/marcelog/pagi)
+ * [Professional Telephony Applications at hand](http://sdjournal.org/a-practical-introduction-to-functional-programming-with-php-sdj-issue-released/) The march edition of [Software Developer Journal](http://sdjournal.org/) features a complete article about writing telephony applications with PAMI and PAGI.
 
 Contact me
 ----------
