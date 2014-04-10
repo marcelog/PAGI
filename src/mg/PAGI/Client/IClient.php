@@ -28,6 +28,25 @@
  */
 namespace PAGI\Client;
 
+use PAGI\CallerId\ICallerId;
+use PAGI\CDR\ICDR;
+use PAGI\ChannelVariables\IChannelVariables;
+use PAGI\Client\Result\AmdResult;
+use PAGI\Client\Result\DialResult;
+use PAGI\Client\Result\DigitReadResult;
+use PAGI\Client\Result\ExecResult;
+use PAGI\Client\Result\FaxResult;
+use PAGI\Client\Result\PlayResult;
+use PAGI\Client\Result\RecordResult;
+use PAGI\Exception\ChannelDownException;
+use PAGI\Exception\DatabaseInvalidEntryException;
+use PAGI\Exception\ExecuteCommandException;
+use PAGI\Exception\PAGIException;
+use PAGI\Exception\SoundFileException;
+use PAGI\Logger\Asterisk\IAsteriskLogger;
+use PAGI\Node\Node;
+use PAGI\Node\NodeController;
+
 /**
  * AGI Client interface.
  *

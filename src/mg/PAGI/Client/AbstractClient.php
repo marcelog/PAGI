@@ -128,6 +128,9 @@ abstract class AbstractClient implements IClient
      */
     protected function getResultFromResultString($text)
     {
+        if($text == 'HANGUP') {
+            throw new ChannelDownException(new Result('511 asterisk hangup'));
+        }
         $result = new Result($text);
         switch($result->getCode())
         {

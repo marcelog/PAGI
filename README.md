@@ -6,12 +6,14 @@ from a developers' perspective.
 
 Resources:
 
+ * [Complete PAGI/PAMI talk for the PHP Conference Argentina 2013](http://www.slideshare.net/mgornstein/phpconf-2013). Check the slide notes for the complete text :)
  * [Main Site](http://marcelog.github.com/PAGI)
  * [In-depth tutorial](http://marcelog.github.com/articles/pagi_tutorial_create_voip_telephony_application_for_asterisk_with_agi_and_php.html)
  * [An example IVR application that includes unit tests is available here](https://github.com/marcelog/Pagi-App-And-Test-Example)
  * [API](http://ci.marcelog.name:8080/job/PAGI/javadoc/)
  * [CI (Jenkins)](http://ci.marcelog.name/ provides API, metrics, and distributables).
  * [Packagist Home](http://packagist.org/packages/marcelog/pagi)
+ * [Professional Telephony Applications at hand](http://sdjournal.org/a-practical-introduction-to-functional-programming-with-php-sdj-issue-released/) The march edition of [Software Developer Journal](http://sdjournal.org/) features a complete article about writing telephony applications with PAMI and PAGI.
 
 Contact me
 ----------

@@ -581,8 +581,10 @@ class Node
                     foreach ($onError as $msg) {
                         $this->addPrePromptMessage($msg);
                     }
-                } else {
+                } else if (is_string($onError)) {
                     $this->addPrePromptMessage($onError);
+                } else {
+                    $this->logDebug("Ignoring validation sound: " . print_r($onError, true));
                 }
                 return false;
             }
