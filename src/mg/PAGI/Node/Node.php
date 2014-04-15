@@ -30,6 +30,8 @@
 namespace PAGI\Node;
 
 use PAGI\Client\IClient;
+use PAGI\Client\Result\IReadResult;
+use PAGI\Client\Result\IResult;
 use PAGI\Node\Exception\NodeException;
 
 /**
@@ -181,7 +183,7 @@ class Node
 
     /**
      * Holds the PAGI client.
-     * @var PAGI\Client\IClient
+     * @var \PAGI\Client\IClient
      */
     private $_client = null;
     /**
@@ -258,7 +260,7 @@ class Node
     private $_name = 'X';
     /**
      * Holds all input validators.
-     * @var Closure[]
+     * @var \Closure[]
      */
     private $_inputValidations = array();
     /**
@@ -276,7 +278,7 @@ class Node
     /**
      * Optinal message to play when the user exceeded the maximum allowed
      * attempts to enter a valid input.
-     * @var message
+     * @var string
      */
     private $_onMaxValidInputAttempts = null;
     /**
@@ -298,13 +300,13 @@ class Node
     private $_registry = array();
     /**
      * Callback to execute on valid input from the user.
-     * @var Closure
+     * @var \Closure
      */
     private $_executeOnValidInput = null;
     /**
      * Callback to execute when the node failed to correctly
      * Enter description here ...
-     * @var Closure
+     * @var \Closure
      */
     private $_executeOnInputFailed = null;
     /**
@@ -664,7 +666,7 @@ class Node
     /**
      * Configures a specific digit as the cancel digit.
      *
-     * @param char $digit
+     * @param string $digit A single character, one of the DTMF_* constants.
      *
      * @return Node
      */
@@ -677,7 +679,7 @@ class Node
     /**
      * Configures a specific digit as the end of input digit.
      *
-     * @param char $digit
+     * @param string $digit A single character, one of the DTMF_* constants.
      *
      * @return Node
      */
@@ -786,7 +788,7 @@ class Node
     /**
      * Appends an input to the node input.
      *
-     * @param char $digit
+     * @param string $digit A single character, one of the DTMF_* constants.
      *
      * @return void
      */
@@ -798,7 +800,7 @@ class Node
     /**
      * True if the digit matches the cancel digit.
      *
-     * @param char $digit
+     * @param string $digit A single character, one of the DTMF_* constants.
      *
      * @return boolean
      */
@@ -810,7 +812,7 @@ class Node
     /**
      * True if the digit matches the end of input digit.
      *
-     * @param char $digit
+     * @param string $digit A single character, one of the DTMF_* constants.
      *
      * @return boolean
      */
@@ -822,7 +824,7 @@ class Node
     /**
      * Returns the kind of digit entered by the user, CANCEL, END, NORMAL.
      *
-     * @param char $digit
+     * @param string $digit A single character, one of the DTMF_* constants.
      *
      * @return integer
      */
@@ -841,7 +843,7 @@ class Node
      * Process a single digit input by the user. Changes the node state
      * according to the digit entered (CANCEL, COMPLETE).
      *
-     * @param char $digit
+     * @param @param string $digit A single character, one of the DTMF_* constants.
      *
      * @return void
      */
@@ -922,7 +924,7 @@ class Node
      * @param methodInfo[] $methods Methods to call, an array of arrays. The
      * second array has the method name as key and an array of arguments as
      * value.
-     * @param Closure $stopWhen If any, this callback is evaluated before
+     * @param \Closure $stopWhen If any, this callback is evaluated before
      * returning. Will return when false.
      *
      * @return IResult
@@ -954,6 +956,7 @@ class Node
         $result = $this->callClientMethods(
             $this->_promptMessages,
             function($result) use ($interruptable) {
+                /* @var $result IReadResult */
                 return $interruptable && !$result->isTimeout();
             }
         );
@@ -974,7 +977,7 @@ class Node
      * Internally used to play all pre prompt queued messages. Clears the
      * queue after it.
      *
-     * @return \PAGI\Client\Result\IResult
+     * @return IResult
      */
     protected function playPrePromptMessages()
     {
@@ -982,6 +985,7 @@ class Node
         $result = $this->callClientMethods(
             $this->_prePromptMessages,
             function($result) use ($interruptable) {
+                /* @var $result IReadResult */
                 return $interruptable && !$result->isTimeout();
             }
         );
@@ -1118,6 +1122,7 @@ class Node
      */
     protected function doInput()
     {
+        /* @var $result IReadResult */
         $this->resetInput();
         $this->_inputAttemptsUsed++;
         $result = $this->playPrePromptMessages();
@@ -1324,7 +1329,10 @@ class Node
     /**
      * Maps the current node state to a human readable string.
      *
+     * @param integer $state One of the STATE_* constants.
+     *
      * @return string
+     * @throws Exception\NodeException
      */
     protected function stateToString($state)
     {

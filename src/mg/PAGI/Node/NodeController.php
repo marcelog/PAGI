@@ -46,25 +46,25 @@ class NodeController
 {
     /**
      * All registered nodes.
-     * @var PAGI\Node\Node[]
+     * @var \PAGI\Node\Node[]
      */
     protected $nodes = array();
 
     /**
      * All registered node results.
-     * @var PAGI\Node\NodeActionCommand[]
+     * @var \PAGI\Node\NodeActionCommand[]
      */
     protected $nodeResults = array();
 
     /**
      * The PAGI client in use.
-     * @var PAGI\Client\IClient
+     * @var \PAGI\Client\IClient
      */
     protected $client;
 
     /**
      * Asterisk logger instance to use.
-     * @var PAGI\Logger\Asterisk\IAsteriskLogger
+     * @var \PAGI\Logger\Asterisk\IAsteriskLogger
      */
     protected $logger;
 
@@ -80,6 +80,7 @@ class NodeController
      * @param string $name Node to run.
      *
      * @return void
+     * @throws NodeException
      */
     public function jumpTo($name)
     {
@@ -100,7 +101,7 @@ class NodeController
      * Process the result of the given node. Returns false if no other nodes
      * should be run, or a string with the next node name.
      *
-     * @param PAGI\Node\Node $node Node that was run.
+     * @param Node $node Node that was run.
      *
      * @return string|false
      */
@@ -110,6 +111,7 @@ class NodeController
         $name = $node->getName();
         if (isset($this->nodeResults[$name])) {
             foreach ($this->nodeResults[$name] as $resultInfo) {
+                /* @var $resultInfo NodeActionCommand */
                 if ($resultInfo->appliesTo($node)) {
                     if ($resultInfo->isActionHangup()) {
                         $this->logDebug("Hanging up after $name");
@@ -143,7 +145,7 @@ class NodeController
      *
      * @param string $name
      *
-     * @return PAGI\Node\NodeActionCommand
+     * @return NodeActionCommand
      */
     public function registerResult($name)
     {
@@ -160,7 +162,7 @@ class NodeController
      *
      * @param string $name The node to be registered
      *
-     * @return PAGI\Node\Node
+     * @return \PAGI\Node\Node
      */
     public function register($name)
     {

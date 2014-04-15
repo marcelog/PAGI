@@ -140,8 +140,6 @@ abstract class ReadResultDecorator implements IReadResult
      * Constructor.
      *
      * @param IReadResult $result Result to decorate.
-     *
-     * @return void
      */
     public function __construct(IReadResult $result)
     {

@@ -115,7 +115,7 @@ interface IClient
      * @throws ChannelDownException
      * @return integer
      */
-    public function channelStatus($channel = false);
+    public function channelStatus($channel = '');
 
     /**
      * Plays a file, can be interrupted by escapeDigits.
@@ -129,7 +129,7 @@ interface IClient
      * @throws ChannelDownException
      * @return PlayResult
      */
-    public function streamFile($file, $escapeDigits);
+    public function streamFile($file, $escapeDigits = '');
 
     /**
      * Waits up to <timeout> milliseconds for channel to receive a DTMF digit.
