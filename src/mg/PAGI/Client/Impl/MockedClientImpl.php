@@ -136,7 +136,7 @@ class MockedClientImpl extends AbstractClient
         return true;
     }
 
-    public function channelStatus($channel = false)
+    public function channelStatus($channel = '')
     {
         $args = func_get_args();
         $this->assertCall('channelStatus', $args);

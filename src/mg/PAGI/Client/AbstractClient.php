@@ -256,10 +256,10 @@ abstract class AbstractClient implements IClient
      * (non-PHPdoc)
      * @see PAGI\Client.IClient::channelStatus()
      */
-    public function channelStatus($channel = false)
+    public function channelStatus($channel = '')
     {
         $cmd = implode(' ', array('CHANNEL', 'STATUS'));
-        if ($channel !== false) {
+        if ($channel !== '') {
             $cmd .= ' "' . $channel . '"';
         }
         $result = $this->send($cmd);
