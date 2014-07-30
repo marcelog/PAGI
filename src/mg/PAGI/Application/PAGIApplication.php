@@ -28,6 +28,7 @@
  */
 namespace PAGI\Application;
 
+use PAGI\Client\IClient;
 use PAGI\Client\Impl\ClientImpl;
 
 /**
