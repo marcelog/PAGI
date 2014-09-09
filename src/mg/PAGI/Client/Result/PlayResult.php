@@ -57,12 +57,10 @@ class PlayResult extends ReadResultDecorator
         parent::__construct($result);
         if ($result->hasData()) {
             // check offset
-            if ($result->hasData()) {
-                $data = explode('=', $result->getData());
-                if (isset($data[1])) {
-                    if ($data[1] == 0) {
-                        throw new SoundFileException('Invalid format?');
-                    }
+            $data = explode('=', $result->getData());
+            if (isset($data[1])) {
+                if ($data[1] == 0) {
+                    throw new SoundFileException('Invalid format?');
                 }
             }
         }
