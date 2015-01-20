@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Grummfy/PAGI.svg)](https://travis-ci.org/Grummfy/PAGI)
+
 Introduction
 ============
 This framework is intended to simply making ivr applications using Asterisk's
