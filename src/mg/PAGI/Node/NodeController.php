@@ -84,12 +84,14 @@ class NodeController
      */
     public function jumpTo($name)
     {
-        if (!isset($this->nodes[$name])) {
-            throw new NodeException("Unknown node: $name");
-        }
         // Cant make this recursive because php does not support tail
         // recursion optimization.
         while($name !== false) {
+
+	        if (!isset($this->nodes[$name])) {
+		        throw new NodeException("Unknown node: '$name''");
+	        }
+
             $node = $this->nodes[$name];
             $this->logDebug("Running $name");
             $node->run();

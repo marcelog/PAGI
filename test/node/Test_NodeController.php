@@ -85,15 +85,53 @@ class Test_NodeController extends PHPUnit_Framework_TestCase
         $this->assertFalse($object->flag);
     }
 
-    /**
-     * @test
-     * @expectedException PAGI\Node\Exception\NodeException
-     */
-    public function cannot_jump_to_unknown_node()
-    {
-        $controller = $this->createNodeController(__METHOD__);
-        $controller->jumpTo(__METHOD__);
-    }
+	/**
+	 * @test
+	 * @expectedException PAGI\Node\Exception\NodeException
+	 */
+	public function cannot_jump_to_unknown_node()
+	{
+		$controller = $this->createNodeController(__METHOD__);
+		$controller->jumpTo(__METHOD__);
+	}
+
+	/**
+	 * @test
+	 * @expectedException PAGI\Node\Exception\NodeException
+	 */
+	public function cannot_jump_to_unknown_childnode()
+	{
+		$controller = $this->createNodeController(__METHOD__);
+
+		$node = $controller->register(__METHOD__ . 'node');
+
+		$controller->registerResult($node->getName())
+		           ->jumpAfterEval(function (Node $node)
+		           {
+			           return 'def';
+		           });
+
+		$controller->jumpTo($node->getName());
+	}
+
+	/**
+	 * @test
+	 * @expectedException PAGI\Node\Exception\NodeException
+	 */
+	public function cannot_jump_to_empty_childnode()
+	{
+		$controller = $this->createNodeController(__METHOD__);
+
+		$node = $controller->register(__METHOD__ . 'node');
+
+		$controller->registerResult($node->getName())
+		           ->jumpAfterEval(function (Node $node)
+		           {
+			           // do nothing, happends when we don't read the docs!
+		           });
+
+		$controller->jumpTo($node->getName());
+	}
 
     /**
      * @test
