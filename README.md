@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/marcelog/PAGI.svg)](https://travis-ci.org/marcelog/PAGI)
+
 Introduction
 ============
 This framework is intended to simply making ivr applications using Asterisk's

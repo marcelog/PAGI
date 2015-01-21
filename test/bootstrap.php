@@ -22,5 +22,7 @@ if (!defined('RESOURCES_DIR')) {
 if (!defined('TMPDIR')) {
     define('TMPDIR', getenv('TMPDIR'));
 }
+
+require_once __DIR__ . '/../vendor/autoload.php';
 require_once 'PAGI/Autoloader/Autoloader.php'; // Include PAGI autoloader.
 \PAGI\Autoloader\Autoloader::register(); // Call autoloader register for PAGI autoloader.
