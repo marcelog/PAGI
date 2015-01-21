@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Grummfy/PAGI.svg)](https://travis-ci.org/Grummfy/PAGI)
+[![Build Status](https://travis-ci.org/marcelog/PAGI.svg)](https://travis-ci.org/marcelog/PAGI)
 
 Introduction
 ============
