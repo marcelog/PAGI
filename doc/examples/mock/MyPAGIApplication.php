@@ -1,4 +1,22 @@
 <?php
+require __DIR__ . implode(DIRECTORY_SEPARATOR, array(
+    '',
+    '..',
+    '..',
+    '..',
+    'vendor',
+    'autoload.php'
+));
+
+require __DIR__ . implode(DIRECTORY_SEPARATOR, array(
+    implode(DIRECTORY_SEPARATOR, array(
+        '',
+        '..',
+        'quickstart',
+        'MyPAGIApplication.php'
+    ))
+));
+
 $variables = array(
     'request' => 'request.php',
     'channel' => 'SIP/blah-00803890',

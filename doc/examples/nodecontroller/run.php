@@ -3,6 +3,18 @@
 declare(ticks=1);
 
 date_default_timezone_set('America/Buenos_Aires');
+ini_set('error_reporting', E_ALL);
+ini_set('display_errors', true);
+
+require __DIR__ . implode(DIRECTORY_SEPARATOR, array(
+    '',
+    '..',
+    '..',
+    '..',
+    'vendor',
+    'autoload.php'
+));
+
 require_once __DIR__ . '/example.php';
 
 use PAGI\Client\Impl\ClientImpl as PagiClient;
