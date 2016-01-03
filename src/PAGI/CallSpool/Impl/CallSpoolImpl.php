@@ -87,7 +87,7 @@ class CallSpoolImpl implements ICallSpool
      * (non-PHPdoc)
      * @see PAGI\CallSpool.ICallSpool::spool()
      */
-    public function spool(CallFile $call, $schedule = false)
+    public function spool(CallFile $call, $schedule = null)
     {
         $filename = tempnam($this->tmpDir, 'PAGICallFile');
         if ($filename === false) {
@@ -97,7 +97,7 @@ class CallSpoolImpl implements ICallSpool
             @unlink($filename);
             throw new CallSpoolException('Error writing: ' . $filename);
         }
-        if ($schedule !== false) {
+        if (!is_null($schedule)) {
             if (@touch($filename, $schedule) === false) {
                 @unlink($filename);
                 throw new CallSpoolException('Error scheduling: ' . $filename);

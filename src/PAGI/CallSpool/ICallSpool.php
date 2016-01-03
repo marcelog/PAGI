@@ -49,5 +49,5 @@ interface ICallSpool
      *
      * @return void
      */
-    public function spool(CallFile $call, $schedule = false);
+    public function spool(CallFile $call, $schedule = null);
 }
