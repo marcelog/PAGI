@@ -1,3 +1,12 @@
+[![License](https://poser.pugx.org/marcelog/PAGI/license)](https://packagist.org/packages/marcelog/PAGI)
+[![Latest Stable Version](https://poser.pugx.org/marcelog/PAGI/v/stable)](https://packagist.org/packages/marcelog/PAGI)
+[![Documentation Status](https://readthedocs.org/projects/pami/badge/?version=latest)](http://pami.readthedocs.org/en/latest/?badge=latest)
+
+[![Build Status](https://travis-ci.org/marcelog/PAGI.svg)](https://travis-ci.org/marcelog/PAGI)
+[![Coverage Status](https://coveralls.io/repos/marcelog/PAGI/badge.svg?branch=master&service=github)](https://coveralls.io/github/marcelog/PAGI?branch=master)
+[![Code Climate](https://codeclimate.com/github/marcelog/PAGI/badges/gpa.svg)](https://codeclimate.com/github/marcelog/PAGI)
+[![Issue Count](https://codeclimate.com/github/marcelog/PAGI/badges/issue_count.svg)](https://codeclimate.com/github/marcelog/PAGI)
+
 Introduction
 ============
 This framework is intended to simply making ivr applications using Asterisk's
@@ -11,17 +20,18 @@ Resources:
  * [In-depth tutorial](http://marcelog.github.com/articles/pagi_tutorial_create_voip_telephony_application_for_asterisk_with_agi_and_php.html)
  * [An example IVR application that includes unit tests is available here](https://github.com/marcelog/Pagi-App-And-Test-Example)
  * [API](http://ci.marcelog.name:8080/job/PAGI/javadoc/)
- * [CI (Jenkins)](http://ci.marcelog.name/ provides API, metrics, and distributables).
- * [Packagist Home](http://packagist.org/packages/marcelog/pagi)
  * [Professional Telephony Applications at hand](http://sdjournal.org/a-practical-introduction-to-functional-programming-with-php-sdj-issue-released/) The march edition of [Software Developer Journal](http://sdjournal.org/) features a complete article about writing telephony applications with PAMI and PAGI.
 
-Contact me
-----------
-If you have any questions, issues, feature requests, or just want to report
-your "success story", or maybe even say hi, please send an email to marcelog@gmail.com
+# Installing
+Add this library to your [Composer](https://packagist.org/) configuration. In
+composer.json:
+```json
+  "require": {
+    "marcelog/pagi": "2.*"
+  }
+```
 
-Included Example
-----------------
+# Included Examples
 Please see **docs/examples** for all the included examples.
 
 You can start by *docs/examples/quickstart* for a very basic example. You'll need something like this in your dialplan:
@@ -30,49 +40,13 @@ You can start by *docs/examples/quickstart* for a very basic example. You'll nee
     exten => 1,1,AGI(/path/to/PAGI/docs/examples/quickstart/run.sh,a,b,c,d)
     exten => 1,n,Hangup
 
-Available via Composer
-----------------------
-Just add the package "marcelog/pagi":
+# Testing IVR applications
 
-    {
-        "require": {
-            "marcelog/pagi": "dev-master"
-        },
-        "repositories": [
-        {
-          "type": "pear",
-          "url": "http://pear.apache.org/log4php/"
-        }]
-    }
-
-Packagist URL: (http://packagist.org/packages/marcelog/pagi)
-
-Available via PEAR
-------------------
-You can now easily install PAGI by issuing:
-
-    pear channel-discover pear.marcelog.name
-    pear install marcelog/PAGI
-
-or
-
-    pear install marcelog/PAGI-X.Y.Z
-just replace X.Y.Z by the release version you'd like to install :)
-
-See the [pear channel](http://pear.marcelog.name/)
-
-Available as PHAR
------------------
-Just go to the [Jenkins server](http://ci.marcelog.name) and grab the latest
-phar distribution from the PAGI job.
-
-Testing IVR applications
-========================
 A mocked pagi client is included to easily test your ivr applications. See
 **docs/examples/mock** to see an example of how to use it.
 
-Nodes
-=====
+# Nodes
+
 For a tutorial about nodes, see [this article](http://marcelog.github.com/articles/pagi_node_call_flow_easy_telephony_application_for_asterisk_php.html)
 
 Simple Call Flow Nodes are available (see **docs/examples/node/example.php**). Using
@@ -100,17 +74,17 @@ callback, etc. For an example, see docs/examples/nodecontroller/example.php
 
 An article about the node controller is available [here](http://marcelog.github.com/articles/making_your_ivr_nodes_call_flow_with_pagi_and_php_asterisk.html)
 
-AutoDial
-========
+# AutoDial
+
 CallFiles are supported. You can also schedule a call in the future.
 
-Fax
-===
+# Fax
+
 Sending and receiving faxes is supported using spandsp (applications SendFax
 and ReceiveFax).
 
-Available Facades
-=================
+# Available Facades
+
  * PAGI\Client\CDR: Provided to access cdr variables.
  * PAGI\Client\ChannelVariables: Provided to access channel variables and asterisk
 environment variables.
@@ -121,11 +95,11 @@ environment variables.
  * PAGI\Logger\Asterisk: Provides access to asterisk logger (see logger.conf in
 your asterisk installation).
 
-Results
-=======
+# Results
+
 For every operation, a Result is provided. Some operations decorate this
 Result to add functionality, like PlayResult, ReadResult, etc. For example,
-a stream file will return a PlayResult, which decorates a ReadResult which 
+a stream file will return a PlayResult, which decorates a ReadResult which
 in turn, decorated a Result.
 
   * PAGI\Client\DialResult
@@ -134,23 +108,41 @@ in turn, decorated a Result.
   * PAGI\Client\PlayResult
   * PAGI\Client\FaxResult
 
-Debugging, logging
-==================
-You need [log4php](http://logging.apache.org/log4php/). Just make sure you
-copy it to the include_path and PAGI will pick it up from there (the 
-directory *src/main/php* is the one that needs to be in the include_path).
+# Debugging, logging
 
-Developers
-==========
-* build.xml is a phing build file, not ant.
-* It's very possible that you may need to edit build.properties.
-* Available main targets: all, build, test, report.
-* Tools run: phpdoc, phploc, phpcs, phpmd, phpcpd, phpdepend, phpunit.
-* Setup your installation by editing pear and php paths in build.properties
-* Run phing install-dependencies this will install pear and everything needed
-to run phing tests and metrics.
-* Copy resources/php.ini.example to resources/php.ini and edit it.
-* Run phing all
+You can optionally set a [PSR-3](http://www.php-fig.org/psr/psr-3/) compatible logger:
+```php
+$pagi->setLogger($logger);
+```
+
+By default, the client will use the [NullLogger](http://www.php-fig.org/psr/psr-3/#1-4-helper-classes-and-interfaces).
+
+# Developers
+This project uses [phing](https://www.phing.info/). Current tasks include:
+ * test: Runs [PHPUnit](https://phpunit.de/).
+ * cs: Runs [CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer).
+ * doc: Runs [PhpDocumentor](http://www.phpdoc.org/).
+ * md: runs [PHPMD](http://phpmd.org/).
+ * build: This is the default task, and will run all the other tasks.
+
+## Running a phing task
+To run a task, just do:
+
+```sh
+vendor/bin/phing build
+```
+
+## Contributing
+To contribute:
+ * Make sure you open a **concise** and **short** pull request.
+ * Throw in any needed unit tests to accomodate the new code or the
+ changes involved.
+ * Run `phing` and make sure everything is ok before submitting the pull
+ request (make phpmd and CodeSniffer happy, also make sure that phpDocumentor
+ does not throw any warnings, since all our documentation is automatically
+ generated).
+ * Your code must comply with [PSR-2](http://www.php-fig.org/psr/psr-2/),
+ CodeSniffer should take care of that.
 
 LICENSE
 =======

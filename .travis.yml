@@ -1,0 +1,23 @@
+language: php
+php:
+  - '5.4'
+  - '5.5'
+  - '5.6'
+  - '7.0'
+
+before_script:
+  - phpenv config-add test/resources/php.ini
+
+install:
+  - composer install
+
+script:
+  - vendor/bin/phing build
+
+after_script:
+  - travis_retry php vendor/bin/coveralls -v
+  - vendor/bin/test-reporter
+
+addons:
+  code_climate:
+    repo_token: 568675e210a5bfc69593877127f7297bab3150dc4d26692bd19bc49c75bd2c14

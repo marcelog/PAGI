@@ -94,9 +94,7 @@ class Test_CallSpool extends \PHPUnit_Framework_TestCase
         $mockRename = false;
         $mockTempnam = false;
         $mockPutContents = false;
-        $this->_properties = array(
-            'log4php.properties' => RESOURCES_DIR . DIRECTORY_SEPARATOR . 'log4php.properties'
-        );
+        $this->_properties = array();
     }
 
     /**
