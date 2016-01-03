@@ -16,7 +16,7 @@ if (!defined('RESOURCES_DIR')) {
     define('RESOURCES_DIR', ROOT_PATH . '/resources');
 }
 if (!defined('TMPDIR')) {
-    define('TMPDIR', getenv('TMPDIR'));
+    define('TMPDIR', '/tmp');
 }
 require_once implode(DIRECTORY_SEPARATOR, array(
   __DIR__, "..", "..", "vendor", "autoload.php"
