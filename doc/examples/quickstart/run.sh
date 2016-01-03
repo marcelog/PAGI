@@ -15,7 +15,7 @@ export PAGIBootstrap=MyPAGIApplication.php
 
 # PHP to run and options
 php=/usr/php/bin/php
-phpoptions="-c ${root}/resources/php.ini -d include_path=${root}/src/mg:${root}/docs/examples/quickstart"
+phpoptions="-c ${root}/resources/php.ini -d include_path=${root}/docs/examples/quickstart"
 
 # Standard.. the idea is to have a common launcher.
 launcher=${root}/src/mg/PAGI/Application/PAGILauncher.php

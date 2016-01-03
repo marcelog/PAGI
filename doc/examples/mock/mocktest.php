@@ -1,4 +1,12 @@
 <?php
+require __DIR__ . implode(DIRECTORY_SEPARATOR, array(
+    '',
+    '..',
+    '..',
+    '..',
+    'vendor',
+    'autoload.php'
+));
 $variables = array(
     'request' => 'request.php',
     'channel' => 'SIP/blah-00803890',

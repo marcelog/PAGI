@@ -31,6 +31,14 @@ composer.json:
   }
 ```
 
+# Using it
+
+First, make sure you include the [autoloader shipped with composer](https://getcomposer.org/doc/01-basic-usage.md#autoloading):
+
+```php
+require __DIR__ . '/vendor/autoload.php';
+```
+
 # Quickstart
 
 You can start by *docs/examples/quickstart* for a very basic example. You'll need something like this in your dialplan:
