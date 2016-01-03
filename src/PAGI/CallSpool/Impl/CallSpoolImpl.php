@@ -51,36 +51,36 @@ class CallSpoolImpl implements ICallSpool
      * Where to temporary generate call files.
      * @var string
      */
-    private $_tmpDir = '/tmp';
+    private $tmpDir = '/tmp';
 
     /**
      * Asterisk spool directory.
      * @var string
      */
-    private $_spoolDir = '/var/spool/asterisk';
+    private $spoolDir = '/var/spool/asterisk';
 
     /**
      * Current instance.
      * @var CallSpoolImpl
      */
-    private static $_instance = false;
+    private static $instance = false;
 
     /**
      * Returns an instance for this spool/
-	 *
+     *
      * @param string[] $options Configuration options.
      *
      * @return CallSpoolImpl
      */
     public static function getInstance(array $options = array())
     {
-        if (self::$_instance === false) {
+        if (self::$instance === false) {
             $ret = new CallSpoolImpl($options);
-            self::$_instance = $ret;
+            self::$instance = $ret;
         } else {
-            $ret = self::$_instance;
+            $ret = self::$instance;
         }
-        return self::$_instance;
+        return self::$instance;
     }
 
     /**
@@ -89,7 +89,7 @@ class CallSpoolImpl implements ICallSpool
      */
     public function spool(CallFile $call, $schedule = false)
     {
-        $filename = tempnam($this->_tmpDir, 'PAGICallFile');
+        $filename = tempnam($this->tmpDir, 'PAGICallFile');
         if ($filename === false) {
             throw new CallSpoolException('Could generate temporary filename');
         }
@@ -105,7 +105,7 @@ class CallSpoolImpl implements ICallSpool
         }
         $newFilename = implode(
             DIRECTORY_SEPARATOR,
-            array($this->_spoolDir, 'outgoing', basename($filename))
+            array($this->spoolDir, 'outgoing', basename($filename))
         );
         $dir = dirname($newFilename);
         if (!file_exists($dir)) {
@@ -131,10 +131,10 @@ class CallSpoolImpl implements ICallSpool
     private function __construct(array $options)
     {
         if (isset($options['tmpDir'])) {
-            $this->_tmpDir = $options['tmpDir'];
+            $this->tmpDir = $options['tmpDir'];
         }
         if (isset($options['spoolDir'])) {
-            $this->_spoolDir = $options['spoolDir'];
+            $this->spoolDir = $options['spoolDir'];
         }
     }
 }

@@ -56,28 +56,28 @@ abstract class PAGIApplication
      * AGI Client.
      * @var IClient
      */
-    private $_agiClient;
+    private $agiClient;
 
     /**
      * Called to initialize the application
      *
      * @return void
      */
-    public abstract function init();
+    abstract public function init();
 
     /**
      * Called when PHPvm is shutting down.
      *
      * @return void
      */
-    public abstract function shutdown();
+    abstract public function shutdown();
 
     /**
      * Called to run the application, after calling init().
      *
      * @return void
      */
-    public abstract function run();
+    abstract public function run();
 
     /**
      * Your error handler. Be careful when implementing this one.
@@ -89,7 +89,7 @@ abstract class PAGIApplication
      *
      * @return boolean
      */
-    public abstract function errorHandler($type, $message, $file, $line);
+    abstract public function errorHandler($type, $message, $file, $line);
 
     /**
      * Your signal handler. Be careful when implementing this one.
@@ -98,7 +98,7 @@ abstract class PAGIApplication
      *
      * @return void
      */
-    public abstract function signalHandler($signal);
+    abstract public function signalHandler($signal);
 
     /**
      * Returns AGI Client.
@@ -107,7 +107,7 @@ abstract class PAGIApplication
      */
     protected function getAgi()
     {
-        return $this->_agiClient;
+        return $this->agiClient;
     }
 
     /**
@@ -134,7 +134,7 @@ abstract class PAGIApplication
     public function __construct(array $properties = array())
     {
         $this->logger = new NullLogger;
-        $this->_agiClient = $properties['pagiClient'];
+        $this->agiClient = $properties['pagiClient'];
         register_shutdown_function(array($this, 'shutdown'));
         $signalHandler = array($this, 'signalHandler');
         pcntl_signal(SIGINT, $signalHandler);

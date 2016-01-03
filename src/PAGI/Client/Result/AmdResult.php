@@ -49,13 +49,13 @@ class AmdResult extends ExecResult
      * Cause
      * @var string 'MACHINE'|'HUMAN'|'NOTSURE'|'HANGUP'
      */
-    private $_status;
+    private $status;
 
     /**
      * Cause
      * @var string 'TOOLONG'|'INITIALSILENCE'|'HUMAN'|'LONGGREETING'|'MAXWORDLENGTH'
      */
-    private $_cause;
+    private $cause;
 
     /**
      * Returns the cause string.
@@ -64,7 +64,7 @@ class AmdResult extends ExecResult
      */
     public function getCause()
     {
-        return $this->_cause;
+        return $this->cause;
     }
 
     /**
@@ -74,7 +74,7 @@ class AmdResult extends ExecResult
      */
     public function getStatus()
     {
-        return $this->_status;
+        return $this->status;
     }
 
     /**
@@ -86,7 +86,7 @@ class AmdResult extends ExecResult
      */
     public function setCause($cause)
     {
-        $this->_cause = $cause;
+        $this->cause = $cause;
     }
 
     /**
@@ -98,7 +98,7 @@ class AmdResult extends ExecResult
      */
     public function setStatus($status)
     {
-        $this->_status = $status;
+        $this->status = $status;
     }
 
     /**
@@ -110,7 +110,7 @@ class AmdResult extends ExecResult
      */
     private function isStatus($string)
     {
-        return strcasecmp($this->_status, $string) === 0;
+        return strcasecmp($this->status, $string) === 0;
     }
 
     /**
@@ -122,7 +122,7 @@ class AmdResult extends ExecResult
      */
     private function isCause($string)
     {
-        return strncasecmp($this->_cause, $string, strlen($string)) === 0;
+        return strncasecmp($this->cause, $string, strlen($string)) === 0;
     }
 
     /**
@@ -223,8 +223,8 @@ class AmdResult extends ExecResult
     {
         return
             '[ Amd: '
-            . ' Status: ' . $this->_status
-            . ' Cause: ' . $this->_cause
+            . ' Status: ' . $this->status
+            . ' Cause: ' . $this->cause
             . ' ]'
             ;
     }

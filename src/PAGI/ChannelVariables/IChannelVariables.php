@@ -208,7 +208,7 @@ interface IChannelVariables
      * Returns the config directory for this running version of asterisk.
      * Uses environment variable AST_CONFIG_DIR.
      *
-	 * @return string
+     * @return string
      */
     public function getDirectoryConfig();
 
@@ -216,7 +216,7 @@ interface IChannelVariables
      * Returns the config file for this running version of asterisk.
      * Uses environment variable AST_CONFIG_FILE.
      *
-	 * @return string
+     * @return string
      */
     public function getConfigFile();
 
@@ -224,7 +224,7 @@ interface IChannelVariables
      * Returns the modules directory for this running version of asterisk.
      * Uses environment variable AST_MODULE_DIR.
      *
-	 * @return string
+     * @return string
      */
     public function getDirectoryModules();
 
@@ -232,7 +232,7 @@ interface IChannelVariables
      * Returns the spool directory for this running version of asterisk.
      * Uses environment variable AST_SPOOL_DIR.
      *
-	 * @return string
+     * @return string
      */
     public function getDirectorySpool();
 
@@ -240,7 +240,7 @@ interface IChannelVariables
      * Returns the monitor directory for this running version of asterisk.
      * Uses environment variable AST_MONITOR_DIR.
      *
-	 * @return string
+     * @return string
      */
     public function getDirectoryMonitor();
 
@@ -248,7 +248,7 @@ interface IChannelVariables
      * Returns the var directory for this running version of asterisk.
      * Uses environment variable AST_VAR_DIR.
      *
-	 * @return string
+     * @return string
      */
     public function getDirectoryVar();
 
@@ -256,7 +256,7 @@ interface IChannelVariables
      * Returns the data directory for this running version of asterisk.
      * Uses environment variable AST_DATA_DIR.
      *
-	 * @return string
+     * @return string
      */
     public function getDirectoryData();
 
@@ -264,7 +264,7 @@ interface IChannelVariables
      * Returns the log directory for this running version of asterisk.
      * Uses environment variable AST_LOG_DIR.
      *
-	 * @return string
+     * @return string
      */
     public function getDirectoryLog();
 
@@ -272,7 +272,7 @@ interface IChannelVariables
      * Returns the agi directory for this running version of asterisk.
      * Uses environment variable AST_AGI_DIR.
      *
-	 * @return string
+     * @return string
      */
     public function getDirectoryAgi();
 
@@ -280,7 +280,7 @@ interface IChannelVariables
      * Returns the key directory for this running version of asterisk.
      * Uses environment variable AST_KEY_DIR.
      *
-	 * @return string
+     * @return string
      */
     public function getDirectoryKey();
 
@@ -288,7 +288,7 @@ interface IChannelVariables
      * Returns the run directory for this running version of asterisk.
      * Uses environment variable AST_RUN_DIR.
      *
-	 * @return string
+     * @return string
      */
     public function getDirectoryRun();
 }

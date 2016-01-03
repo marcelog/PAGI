@@ -49,13 +49,13 @@ class ChannelVariablesFacade implements IChannelVariables
      * Channel variables given by asterisk.
      * @var string[]
      */
-    private $_variables;
+    private $variables;
 
     /**
      * AGI Arguments (agi_arg_N).
      * @var string[]
      */
-    private $_arguments;
+    private $arguments;
 
     /**
      * Returns the given variable. Returns false if not set.
@@ -66,10 +66,10 @@ class ChannelVariablesFacade implements IChannelVariables
      */
     protected function getAGIVariable($key)
     {
-        if (!isset($this->_variables[$key])) {
+        if (!isset($this->variables[$key])) {
             return false;
         }
-        return $this->_variables[$key];
+        return $this->variables[$key];
     }
 
     /**
@@ -258,7 +258,7 @@ class ChannelVariablesFacade implements IChannelVariables
      */
     public function getTotalArguments()
     {
-        return count($this->_arguments);
+        return count($this->arguments);
     }
 
     /**
@@ -267,8 +267,8 @@ class ChannelVariablesFacade implements IChannelVariables
      */
     public function getArgument($index)
     {
-        if (isset($this->_arguments[$index])) {
-            return $this->_arguments[$index];
+        if (isset($this->arguments[$index])) {
+            return $this->arguments[$index];
         }
         return false;
     }
@@ -279,7 +279,7 @@ class ChannelVariablesFacade implements IChannelVariables
      */
     public function getArguments()
     {
-        return $this->_arguments;
+        return $this->arguments;
     }
 
     /**
@@ -391,7 +391,7 @@ class ChannelVariablesFacade implements IChannelVariables
      */
     public function __construct(array $variables, array $arguments)
     {
-        $this->_variables = $variables;
-        $this->_arguments = $arguments;
+        $this->variables = $variables;
+        $this->arguments = $arguments;
     }
 }

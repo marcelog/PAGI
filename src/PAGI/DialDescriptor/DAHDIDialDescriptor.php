@@ -132,6 +132,4 @@ class DAHDIDialDescriptor extends DialDescriptor
         $this->identifier = $channel;
         $this->isGroup = false;
     }
-
 }
-

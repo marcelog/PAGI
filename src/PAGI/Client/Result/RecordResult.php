@@ -49,43 +49,43 @@ class RecordResult extends ResultDecorator
      * Was the record interrupted because of a hangup?
      * @var boolean
      */
-    private $_hangup;
+    private $hangup;
 
     /**
      * Was the record interrupted because of a dtmf?
      * @var boolean
      */
-    private $_dtmf;
+    private $dtmf;
 
     /**
      * Error because of "waitfor"?
      * @var boolean
      */
-    private $_waitfor;
+    private $waitfor;
 
     /**
      * Error creating/writing/accessing the file?
      * @var boolean
      */
-    private $_writefile;
+    private $writefile;
 
     /**
      * Was this record a failure?
      * @var boolean
      */
-    private $_failed;
+    private $failed;
 
     /**
      * Ending position for the recording.
      * @var integer
      */
-    private $_endpos;
+    private $endpos;
 
     /**
      * Digit pressed (if any).
      * @var string
      */
-    private $_digits;
+    private $digits;
 
     /**
      * Returns true if this recording was interrupted by either a hangup or a
@@ -95,7 +95,7 @@ class RecordResult extends ResultDecorator
      */
     public function isInterrupted()
     {
-        return $this->_hangup || $this->_dtmf;
+        return $this->hangup || $this->dtmf;
     }
 
     /**
@@ -105,7 +105,7 @@ class RecordResult extends ResultDecorator
      */
     public function isHangup()
     {
-        return $this->_hangup;
+        return $this->hangup;
     }
 
     /**
@@ -115,7 +115,7 @@ class RecordResult extends ResultDecorator
      */
     public function getEndPos()
     {
-        return $this->_endpos;
+        return $this->endpos;
     }
 
     /**
@@ -139,20 +139,20 @@ class RecordResult extends ResultDecorator
     {
         parent::__construct($result);
         $data = $result->getData();
-        $this->_endpos = 0;
-        $this->_hangup = (strpos($data, 'hangup') !== false);
-        $this->_waitfor = (strpos($data, 'waitfor') !== false);
-        $this->_writefile = (strpos($data, 'writefile') !== false);
-        $this->_dtmf = (strpos($data, 'dtmf') !== false);
-        if ($this->_dtmf) {
-            $this->_digits = chr($result->getResult());
+        $this->endpos = 0;
+        $this->hangup = (strpos($data, 'hangup') !== false);
+        $this->waitfor = (strpos($data, 'waitfor') !== false);
+        $this->writefile = (strpos($data, 'writefile') !== false);
+        $this->dtmf = (strpos($data, 'dtmf') !== false);
+        if ($this->dtmf) {
+            $this->digits = chr($result->getResult());
         }
-        if ($this->_writefile || $this->_waitfor) {
+        if ($this->writefile || $this->waitfor) {
             throw new RecordException($data);
         }
         $data = explode('=', $data);
         if (isset($data[1])) {
-            $this->_endpos = $data[1];
+            $this->endpos = $data[1];
         }
     }
 }

@@ -59,7 +59,7 @@ interface IReadResult extends IResult
     /**
      * Returns the number of digits read.
      *
-	 * @return integer
+     * @return integer
      */
     public function getDigitsCount();
 }

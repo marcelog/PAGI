@@ -5,24 +5,24 @@
  * can be accessed just like channel variables. The following builtin variables
  * are available and, unless specified, read-only.
  *
- * ${CDR(clid)}	 Caller ID
- * ${CDR(src)}	 Source
- * ${CDR(dst)}	 Destination
- * ${CDR(dcontext)}	 Destination context
- * ${CDR(channel)}	 Channel name
- * ${CDR(dstchannel)}	 Destination channel
- * ${CDR(lastapp)}	 Last app executed
- * ${CDR(lastdata)}	 Last app's arguments
- * ${CDR(start)}	 Time the call started.
- * ${CDR(answer)}	 Time the call was answered.
- * ${CDR(end)}	 Time the call ended.
- * ${CDR(duration)}	 Duration of the call.
- * ${CDR(billsec)}	 Duration of the call once it was answered.
- * ${CDR(disposition)}	 ANSWERED, NO ANSWER, BUSY
- * ${CDR(amaflags)}	 DOCUMENTATION, BILL, IGNORE etc
- * ${CDR(accountcode)}	 The channel's account code (read-write).
- * ${CDR(uniqueid)}	 The channel's unique id.
- * ${CDR(userfield)}	 The channels uses specified field (read-write).
+ * ${CDR(clid)}  Caller ID
+ * ${CDR(src)}   Source
+ * ${CDR(dst)}   Destination
+ * ${CDR(dcontext)}  Destination context
+ * ${CDR(channel)}   Channel name
+ * ${CDR(dstchannel)}    Destination channel
+ * ${CDR(lastapp)}   Last app executed
+ * ${CDR(lastdata)}  Last app's arguments
+ * ${CDR(start)}     Time the call started.
+ * ${CDR(answer)}    Time the call was answered.
+ * ${CDR(end)}   Time the call ended.
+ * ${CDR(duration)}  Duration of the call.
+ * ${CDR(billsec)}   Duration of the call once it was answered.
+ * ${CDR(disposition)}   ANSWERED, NO ANSWER, BUSY
+ * ${CDR(amaflags)}  DOCUMENTATION, BILL, IGNORE etc
+ * ${CDR(accountcode)}   The channel's account code (read-write).
+ * ${CDR(uniqueid)}  The channel's unique id.
+ * ${CDR(userfield)}     The channels uses specified field (read-write).
  *
  *
  * In addition, you can set your own extra variables with a traditional
@@ -70,24 +70,24 @@ use PAGI\CDR\ICDR;
  * can be accessed just like channel variables. The following builtin variables
  * are available and, unless specified, read-only.
  *
- * ${CDR(clid)}	 Caller ID
- * ${CDR(src)}	 Source
- * ${CDR(dst)}	 Destination
- * ${CDR(dcontext)}	 Destination context
- * ${CDR(channel)}	 Channel name
- * ${CDR(dstchannel)}	 Destination channel
- * ${CDR(lastapp)}	 Last app executed
- * ${CDR(lastdata)}	 Last app's arguments
- * ${CDR(start)}	 Time the call started.
- * ${CDR(answer)}	 Time the call was answered.
- * ${CDR(end)}	 Time the call ended.
- * ${CDR(duration)}	 Duration of the call.
- * ${CDR(billsec)}	 Duration of the call once it was answered.
- * ${CDR(disposition)}	 ANSWERED, NO ANSWER, BUSY
- * ${CDR(amaflags)}	 DOCUMENTATION, BILL, IGNORE etc
- * ${CDR(accountcode)}	 The channel's account code (read-write).
- * ${CDR(uniqueid)}	 The channel's unique id.
- * ${CDR(userfield)}	 The channels uses specified field (read-write).
+ * ${CDR(clid)}  Caller ID
+ * ${CDR(src)}   Source
+ * ${CDR(dst)}   Destination
+ * ${CDR(dcontext)}  Destination context
+ * ${CDR(channel)}   Channel name
+ * ${CDR(dstchannel)}    Destination channel
+ * ${CDR(lastapp)}   Last app executed
+ * ${CDR(lastdata)}  Last app's arguments
+ * ${CDR(start)}     Time the call started.
+ * ${CDR(answer)}    Time the call was answered.
+ * ${CDR(end)}   Time the call ended.
+ * ${CDR(duration)}  Duration of the call.
+ * ${CDR(billsec)}   Duration of the call once it was answered.
+ * ${CDR(disposition)}   ANSWERED, NO ANSWER, BUSY
+ * ${CDR(amaflags)}  DOCUMENTATION, BILL, IGNORE etc
+ * ${CDR(accountcode)}   The channel's account code (read-write).
+ * ${CDR(uniqueid)}  The channel's unique id.
+ * ${CDR(userfield)}     The channels uses specified field (read-write).
  *
  *
  * In addition, you can set your own extra variables with a traditional
@@ -114,7 +114,7 @@ class CDRFacade implements ICDR
      * AGI Client, needed to access cdr data.
      * @var IClient
      */
-    private $_client;
+    private $client;
 
     /**
      * (non-PHPdoc)
@@ -325,7 +325,7 @@ class CDRFacade implements ICDR
      */
     protected function getCDRVariable($name)
     {
-        return $this->_client->getFullVariable('CDR(' . $name . ')');
+        return $this->client->getFullVariable('CDR(' . $name . ')');
     }
 
     /**
@@ -338,7 +338,7 @@ class CDRFacade implements ICDR
      */
     protected function setCDRVariable($name, $value)
     {
-        $this->_client->setVariable('CDR(' . $name . ')', $value);
+        $this->client->setVariable('CDR(' . $name . ')', $value);
     }
 
     /**
@@ -350,6 +350,6 @@ class CDRFacade implements ICDR
      */
     public function __construct(IClient $client)
     {
-        $this->_client = $client;
+        $this->client = $client;
     }
 }

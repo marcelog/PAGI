@@ -94,5 +94,4 @@ class SIPDialDescriptor extends DialDescriptor
     {
         $this->provider = $provider;
     }
-
 }

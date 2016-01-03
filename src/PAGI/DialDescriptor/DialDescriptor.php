@@ -52,14 +52,14 @@ abstract class DialDescriptor
      *
      * @return string
      */
-    public abstract function getChannelDescriptor();
+    abstract public function getChannelDescriptor();
 
     /**
      * Get channel technology.
      *
      * @return string
      */
-    public abstract function getTechnology();
+    abstract public function getTechnology();
 
     /**
      * Set dial target.
@@ -72,5 +72,4 @@ abstract class DialDescriptor
     {
         $this->target = $target;
     }
-
 }

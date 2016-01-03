@@ -78,13 +78,13 @@ class MockedClientImpl extends AbstractClient
         if (!empty($this->mockedResultStrings)) {
             echo "Some results were not used: " . print_r($this->mockedResultStrings, true);
             throw new MockedException(
-            	"Some results were not used: " . print_r($this->mockedResultStrings, true)
+                "Some results were not used: " . print_r($this->mockedResultStrings, true)
             );
         }
         if (!empty($this->methodCallAsserts)) {
             echo "Some methods were not called: " . print_r($this->methodCallAsserts, true);
             throw new MockedException(
-            	"Some methods were not called: " . print_r($this->methodCallAsserts, true)
+                "Some methods were not called: " . print_r($this->methodCallAsserts, true)
             );
         }
         return;
@@ -129,7 +129,7 @@ class MockedClientImpl extends AbstractClient
             $arg = $arguments[$i];
             if ($arg !== $args[$i]) {
                 throw new MockedException(
-                	"Arguments mismatch for $methodName: called with: " . print_r($arguments, true)
+                    "Arguments mismatch for $methodName: called with: " . print_r($arguments, true)
                     . " expected: " . print_r($args, true)
                 );
             }
@@ -397,8 +397,12 @@ class MockedClientImpl extends AbstractClient
     }
 
     public function onDial(
-        $success, $peerName, $peerNumber, $answeredTime,
-        $dialStatus, $dynamicFeatures
+        $success,
+        $peerName,
+        $peerNumber,
+        $answeredTime,
+        $dialStatus,
+        $dynamicFeatures
     ) {
         if ($success) {
             $this->addMockedResult('200 result=0');
@@ -414,7 +418,10 @@ class MockedClientImpl extends AbstractClient
     }
 
     public function onRecord(
-        $interrupted, $hangup, $digit, $endpos
+        $interrupted,
+        $hangup,
+        $digit,
+        $endpos
     ) {
         $this->addMockedResult(
             '200 result='

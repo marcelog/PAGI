@@ -99,8 +99,7 @@ class ChannelStatus
      */
     public static function toString($status)
     {
-        switch($status)
-        {
+        switch ($status) {
             case self::DOWN_AVAILABLE:
                 return 'Channel is down and available';
             case self::DOWN_RESERVED:

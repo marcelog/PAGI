@@ -37,8 +37,7 @@ use PAGI\Application\PAGIApplication;
 $appName = getenv('PAGIApplication');
 $bootstrap = getenv('PAGIBootstrap');
 $myApp = '';
-try
-{
+try {
 
     include_once $bootstrap;
     if (!class_exists($appName, true)) {

@@ -47,7 +47,7 @@ abstract class ResultDecorator implements IResult
      * Our decorated result.
      * @var IResult
      */
-    private $_result;
+    private $result;
 
     /**
      * (non-PHPdoc)
@@ -55,7 +55,7 @@ abstract class ResultDecorator implements IResult
      */
     public function getOriginalLine()
     {
-        return $this->_result->getOriginalLine();
+        return $this->result->getOriginalLine();
     }
 
     /**
@@ -64,7 +64,7 @@ abstract class ResultDecorator implements IResult
      */
     public function getCode()
     {
-        return $this->_result->getCode();
+        return $this->result->getCode();
     }
 
     /**
@@ -73,7 +73,7 @@ abstract class ResultDecorator implements IResult
      */
     public function getResult()
     {
-        return $this->_result->getResult();
+        return $this->result->getResult();
     }
 
     /**
@@ -82,7 +82,7 @@ abstract class ResultDecorator implements IResult
      */
     public function isResult($value)
     {
-        return $this->_result->isResult($value);
+        return $this->result->isResult($value);
     }
 
     /**
@@ -91,7 +91,7 @@ abstract class ResultDecorator implements IResult
      */
     public function hasData()
     {
-        return $this->_result->hasData();
+        return $this->result->hasData();
     }
 
     /**
@@ -100,17 +100,17 @@ abstract class ResultDecorator implements IResult
      */
     public function getData()
     {
-        return $this->_result->getData();
+        return $this->result->getData();
     }
 
     /**
      * Standard procedure.
-	 *
-	 * @return string
+     *
+     * @return string
      */
     public function __toString()
     {
-        return $this->_result->__toString();
+        return $this->result->__toString();
     }
     /**
      * Constructor.
@@ -121,6 +121,6 @@ abstract class ResultDecorator implements IResult
      */
     public function __construct(IResult $result)
     {
-        $this->_result = $result;
+        $this->result = $result;
     }
 }

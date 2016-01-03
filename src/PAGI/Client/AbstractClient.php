@@ -68,19 +68,19 @@ abstract class AbstractClient implements IClient
      * PSR-3 logger.
      * @var Logger
      */
-    protected $_logger;
+    protected $logger;
 
     /**
      * Initial channel variables given by asterisk at start.
      * @var string[]
      */
-    protected $_variables = array();
+    protected $variables = array();
 
     /**
      * Initial arguments given by the user in the dialplan.
      * @var string[]
      */
-    protected $_arguments = array();
+    protected $arguments = array();
 
     protected $cdrInstance = false;
     protected $channelVariablesInstance = false;
@@ -99,7 +99,7 @@ abstract class AbstractClient implements IClient
      *
      * @return Result
      */
-    protected abstract function send($text);
+    abstract protected function send($text);
 
     /**
      * Opens connection to agi. Will also read initial channel variables given
@@ -107,14 +107,14 @@ abstract class AbstractClient implements IClient
      *
      * @return void
      */
-    protected abstract function open();
+    abstract protected function open();
 
     /**
      * Closes the connection to agi.
      *
      * @return void
      */
-    protected abstract function close();
+    abstract protected function close();
 
     /**
      * Returns a result object given a string (the agi result after executing
@@ -128,20 +128,19 @@ abstract class AbstractClient implements IClient
      */
     protected function getResultFromResultString($text)
     {
-        if($text == 'HANGUP') {
+        if ($text == 'HANGUP') {
             throw new ChannelDownException(new Result('511 asterisk hangup'));
         }
         $result = new Result($text);
-        switch($result->getCode())
-        {
-        case 200:
-            return $result;
-        case 511:
-            throw new ChannelDownException($result);
-        case 510:
-        case 520:
-        default:
-            break;
+        switch ($result->getCode()) {
+            case 200:
+                return $result;
+            case 511:
+                throw new ChannelDownException($result);
+            case 510:
+            case 520:
+            default:
+                break;
         }
         throw new InvalidCommandException($result);
     }
@@ -235,9 +234,10 @@ abstract class AbstractClient implements IClient
     public function exec($application, array $options = array())
     {
         $cmd = implode(
-        	' ', array(
-        		'EXEC', '"' . $application . '"',
-        		'"' . implode(',', $options) . '"'
+            ' ',
+            array(
+                'EXEC', '"' . $application . '"',
+                '"' . implode(',', $options) . '"'
             )
         );
         return new ExecResult($this->send($cmd));
@@ -273,10 +273,10 @@ abstract class AbstractClient implements IClient
     public function streamFile($file, $escapeDigits = '')
     {
         $cmd = implode(
-        	' ',
-        	array(
-        		'STREAM', 'FILE', '"' . $file . '"', '"' . $escapeDigits . '"'
-        	)
+            ' ',
+            array(
+                'STREAM', 'FILE', '"' . $file . '"', '"' . $escapeDigits . '"'
+            )
         );
         return new PlayResult(new DigitReadResult($this->send($cmd)));
     }
@@ -288,12 +288,12 @@ abstract class AbstractClient implements IClient
     public function record($file, $format, $escapeDigits, $maxRecordTime = -1, $silence = false)
     {
         $cmd = implode(
-        	' ',
-        	array(
-        		'RECORD', 'FILE',
-        		'"' . $file . '"', '"' . $format . '"',
-        		'"' . $escapeDigits . '"', '"' . $maxRecordTime . '"'
-        	)
+            ' ',
+            array(
+                'RECORD', 'FILE',
+                '"' . $file . '"', '"' . $format . '"',
+                '"' . $escapeDigits . '"', '"' . $maxRecordTime . '"'
+            )
         );
         if ($silence !== false) {
             $cmd .= ' "s=' . $silence . '"';
@@ -362,13 +362,13 @@ abstract class AbstractClient implements IClient
     {
         $timeout = false;
         $cmd = implode(
-        	' ',
-        	array(
-        		'GET', 'DATA',
-        		'"' . $file . '"',
-        	    '"' . $maxTime . '"',
-        	    '"' . $maxDigits . '"'
-        	)
+            ' ',
+            array(
+                'GET', 'DATA',
+                '"' . $file . '"',
+                '"' . $maxTime . '"',
+                '"' . $maxDigits . '"'
+            )
         );
         return new PlayResult(new DataReadResult($this->send($cmd)));
     }
@@ -379,10 +379,10 @@ abstract class AbstractClient implements IClient
      */
     public function getOption($file, $escapeDigits, $maxTime)
     {
-        return $this->_playAndRead(implode(' ', array(
-       		'GET', 'OPTION',
-       		'"' . $file . '"', '"' . $escapeDigits . '"',
-       	    '"' . $maxTime . '"'
+        return $this->playAndRead(implode(' ', array(
+            'GET', 'OPTION',
+            '"' . $file . '"', '"' . $escapeDigits . '"',
+            '"' . $maxTime . '"'
         )));
     }
 
@@ -392,8 +392,8 @@ abstract class AbstractClient implements IClient
      */
     public function sayTime($time, $escapeDigits = '')
     {
-        return $this->_playAndRead(implode(' ', array(
-        	'SAY', 'TIME', '"' . $time . '"','"' . $escapeDigits . '"'
+        return $this->playAndRead(implode(' ', array(
+            'SAY', 'TIME', '"' . $time . '"','"' . $escapeDigits . '"'
         )));
     }
 
@@ -403,8 +403,8 @@ abstract class AbstractClient implements IClient
      */
     public function sayDate($time, $escapeDigits = '')
     {
-        return $this->_playAndRead(implode(' ', array(
-        	'SAY', 'DATE', '"' . $time . '"', '"' . $escapeDigits . '"'
+        return $this->playAndRead(implode(' ', array(
+            'SAY', 'DATE', '"' . $time . '"', '"' . $escapeDigits . '"'
         )));
     }
 
@@ -414,8 +414,8 @@ abstract class AbstractClient implements IClient
      */
     public function sayDateTime($time, $format, $escapeDigits = '')
     {
-        return $this->_playAndRead(implode(' ', array(
-        	'SAY', 'DATETIME', '"' . $time . '"', '"' . $escapeDigits . '"', '"' . $format . '"'
+        return $this->playAndRead(implode(' ', array(
+            'SAY', 'DATETIME', '"' . $time . '"', '"' . $escapeDigits . '"', '"' . $format . '"'
         )));
     }
 
@@ -425,8 +425,8 @@ abstract class AbstractClient implements IClient
      */
     public function sayDigits($digits, $escapeDigits = '')
     {
-        return $this->_playAndRead(implode(' ', array(
-        	'SAY', 'DIGITS', '"' . $digits . '"', '"' . $escapeDigits . '"'
+        return $this->playAndRead(implode(' ', array(
+            'SAY', 'DIGITS', '"' . $digits . '"', '"' . $escapeDigits . '"'
         )));
     }
 
@@ -436,8 +436,8 @@ abstract class AbstractClient implements IClient
      */
     public function sayNumber($digits, $escapeDigits = '')
     {
-        return $this->_playAndRead(implode(' ', array(
-        	'SAY', 'NUMBER', '"' . $digits . '"', '"' . $escapeDigits . '"'
+        return $this->playAndRead(implode(' ', array(
+            'SAY', 'NUMBER', '"' . $digits . '"', '"' . $escapeDigits . '"'
         )));
     }
 
@@ -447,8 +447,8 @@ abstract class AbstractClient implements IClient
      */
     public function sayAlpha($what, $escapeDigits = '')
     {
-        return $this->_playAndRead(implode(' ', array(
-        	'SAY', 'ALPHA', '"' . $what . '"', '"' . $escapeDigits . '"'
+        return $this->playAndRead(implode(' ', array(
+            'SAY', 'ALPHA', '"' . $what . '"', '"' . $escapeDigits . '"'
         )));
     }
 
@@ -458,12 +458,12 @@ abstract class AbstractClient implements IClient
      */
     public function sayPhonetic($what, $escapeDigits = '')
     {
-        return $this->_playAndRead(implode(' ', array(
-       		'SAY', 'PHONETIC', '"' . $what . '"', '"' . $escapeDigits . '"'
+        return $this->playAndRead(implode(' ', array(
+            'SAY', 'PHONETIC', '"' . $what . '"', '"' . $escapeDigits . '"'
         )));
     }
 
-    private function _playAndRead($cmd)
+    private function playAndRead($cmd)
     {
         return new PlayResult(new DigitReadResult($this->send($cmd)));
     }
@@ -527,7 +527,8 @@ abstract class AbstractClient implements IClient
     public function getFullVariable($name, $channel = false)
     {
         $cmd = implode(
-        	' ', array('GET', 'FULL', 'VARIABLE', '"${' . $name . '}"')
+            ' ',
+            array('GET', 'FULL', 'VARIABLE', '"${' . $name . '}"')
         );
         if ($channel !== false) {
             $cmd .= ' "' . $channel . '"';
@@ -548,12 +549,12 @@ abstract class AbstractClient implements IClient
     {
         $this->send(
             implode(
-        		' ',
-        	    array(
-        			'SET', 'VARIABLE',
-        	    	'"' . $name . '"',
-        	    	'"' . str_replace('"', '\\"', $value) . '"'
-        	    )
+                ' ',
+                array(
+                    'SET', 'VARIABLE',
+                    '"' . $name . '"',
+                    '"' . str_replace('"', '\\"', $value) . '"'
+                )
             )
         );
     }
@@ -568,7 +569,8 @@ abstract class AbstractClient implements IClient
         $msg = explode("\n", $msg);
         foreach ($msg as $line) {
             $this->exec(
-            	'LOG', array($priority, str_replace('"', '\\"', $line))
+                'LOG',
+                array($priority, str_replace('"', '\\"', $line))
             );
         }
 
@@ -587,7 +589,7 @@ abstract class AbstractClient implements IClient
                 continue;
             }
             $this->send(
-            	'VERBOSE "' . str_replace('"', '\\"', $line) . '" ' . $level
+                'VERBOSE "' . str_replace('"', '\\"', $line) . '" ' . $level
             );
         }
     }
@@ -608,10 +610,10 @@ abstract class AbstractClient implements IClient
     public function databaseDel($family, $key)
     {
         $cmd = implode(
-        	' ',
-        	array(
-        		'DATABASE', 'DELTREE', '"' . $family. '"', '"' . $key . '"'
-        	)
+            ' ',
+            array(
+                'DATABASE', 'DELTREE', '"' . $family. '"', '"' . $key . '"'
+            )
         );
         $result = $this->send($cmd);
         if ($result->isResult(0)) {
@@ -642,7 +644,8 @@ abstract class AbstractClient implements IClient
     public function databaseGet($family, $key)
     {
         $cmd = implode(
-        	' ', array('DATABASE', 'GET', '"' . $family. '"', '"' . $key . '"')
+            ' ',
+            array('DATABASE', 'GET', '"' . $family. '"', '"' . $key . '"')
         );
         $result = $this->send($cmd);
         if ($result->isResult(0)) {
@@ -658,13 +661,13 @@ abstract class AbstractClient implements IClient
     public function databasePut($family, $key, $value)
     {
         $cmd = implode(
-        	' ',
-        	array(
-        		'DATABASE', 'PUT',
-        	    '"' . $family . '"',
-        	    '"' . $key . '"',
-        	    '"' . $value . '"',
-        	)
+            ' ',
+            array(
+                'DATABASE', 'PUT',
+                '"' . $family . '"',
+                '"' . $key . '"',
+                '"' . $value . '"',
+            )
         );
         $result = $this->send($cmd);
         if ($result->isResult(0)) {
@@ -723,9 +726,9 @@ abstract class AbstractClient implements IClient
         unset($variableName[0]);
         $value = trim(implode('', $variableName));
         if (strncmp($key, 'arg_', 4) === 0) {
-            $this->_arguments[substr($key, 4)] = $value;
+            $this->arguments[substr($key, 4)] = $value;
         } else {
-            $this->_variables[$key] = $value;
+            $this->variables[$key] = $value;
         }
     }
 
@@ -737,7 +740,8 @@ abstract class AbstractClient implements IClient
     {
         if ($this->channelVariablesInstance === false) {
             $this->channelVariablesInstance = new ChannelVariablesFacade(
-                $this->_variables, $this->_arguments
+                $this->variables,
+                $this->arguments
             );
         }
         return $this->channelVariablesInstance;

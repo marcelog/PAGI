@@ -50,37 +50,37 @@ class DialResult extends ExecResult
      * Dialed peer number.
      * @var string
      */
-    private $_dialedPeerNumber;
+    private $dialedPeerNumber;
 
     /**
      * Dialed peer name.
      * @var string
      */
-    private $_dialedPeerName;
+    private $dialedPeerName;
 
     /**
      * Total call length in seconds.
      * @var integer
      */
-    private $_dialedTime;
+    private $dialedTime;
 
     /**
      * Total answered length in seconds.
      * @var integer
      */
-    private $_answeredTime;
+    private $answeredTime;
 
     /**
      * Dial status.
      * @var string
      */
-    private $_dialStatus;
+    private $dialStatus;
 
     /**
      * Features available for the call.
      * @var string
      */
-    private $_dynamicFeatures;
+    private $dynamicFeatures;
 
     /**
      * Returns Peer number.
@@ -89,7 +89,7 @@ class DialResult extends ExecResult
      */
     public function getPeerNumber()
     {
-        return $this->_dialedPeerNumber;
+        return $this->dialedPeerNumber;
     }
 
     /**
@@ -101,7 +101,7 @@ class DialResult extends ExecResult
      */
     public function setPeerNumber($number)
     {
-        $this->_dialedPeerNumber = $number;
+        $this->dialedPeerNumber = $number;
     }
 
     /**
@@ -111,7 +111,7 @@ class DialResult extends ExecResult
      */
     public function getPeerName()
     {
-        return $this->_dialedPeerName;
+        return $this->dialedPeerName;
     }
 
     /**
@@ -123,7 +123,7 @@ class DialResult extends ExecResult
      */
     public function setPeerName($name)
     {
-        $this->_dialedPeerName = $name;
+        $this->dialedPeerName = $name;
     }
 
     /**
@@ -133,7 +133,7 @@ class DialResult extends ExecResult
      */
     public function getDialedTime()
     {
-        return $this->_dialedTime;
+        return $this->dialedTime;
     }
 
     /**
@@ -145,7 +145,7 @@ class DialResult extends ExecResult
      */
     public function setDialedTime($time)
     {
-        $this->_dialedTime = $time;
+        $this->dialedTime = $time;
     }
 
     /**
@@ -155,7 +155,7 @@ class DialResult extends ExecResult
      */
     public function getAnsweredTime()
     {
-        return $this->_answeredTime;
+        return $this->answeredTime;
     }
 
     /**
@@ -167,7 +167,7 @@ class DialResult extends ExecResult
      */
     public function setAnsweredTime($time)
     {
-        $this->_answeredTime = $time;
+        $this->answeredTime = $time;
     }
 
     /**
@@ -177,7 +177,7 @@ class DialResult extends ExecResult
      */
     public function getDialStatus()
     {
-        return $this->_dialStatus;
+        return $this->dialStatus;
     }
 
     /**
@@ -187,7 +187,7 @@ class DialResult extends ExecResult
      */
     public function isBusy()
     {
-        return $this->_dialStatus == 'BUSY';
+        return $this->dialStatus == 'BUSY';
     }
 
     /**
@@ -197,7 +197,7 @@ class DialResult extends ExecResult
      */
     public function isCongestion()
     {
-        return $this->_dialStatus == 'CONGESTION';
+        return $this->dialStatus == 'CONGESTION';
     }
 
     /**
@@ -207,7 +207,7 @@ class DialResult extends ExecResult
      */
     public function isCancel()
     {
-        return $this->_dialStatus == 'CANCEL';
+        return $this->dialStatus == 'CANCEL';
     }
     /**
      * Returns true if the result was ANSWER.
@@ -216,7 +216,7 @@ class DialResult extends ExecResult
      */
     public function isAnswer()
     {
-        return $this->_dialStatus == 'ANSWER';
+        return $this->dialStatus == 'ANSWER';
     }
 
     /**
@@ -226,7 +226,7 @@ class DialResult extends ExecResult
      */
     public function isNoAnswer()
     {
-        return $this->_dialStatus == 'NOANSWER';
+        return $this->dialStatus == 'NOANSWER';
     }
 
     /**
@@ -236,7 +236,7 @@ class DialResult extends ExecResult
      */
     public function isChanUnavailable()
     {
-        return $this->_dialStatus == 'CHANUNAVAIL';
+        return $this->dialStatus == 'CHANUNAVAIL';
     }
     /**
      * Set dial status.
@@ -247,7 +247,7 @@ class DialResult extends ExecResult
      */
     public function setDialStatus($status)
     {
-        $this->_dialStatus = $status;
+        $this->dialStatus = $status;
     }
 
     /**
@@ -257,7 +257,7 @@ class DialResult extends ExecResult
      */
     public function getDynamicFeatures()
     {
-        return $this->_dynamicFeatures;
+        return $this->dynamicFeatures;
     }
 
     /**
@@ -269,7 +269,7 @@ class DialResult extends ExecResult
      */
     public function setDynamicFeatures($features)
     {
-        $this->_dynamicFeatures = $features;
+        $this->dynamicFeatures = $features;
     }
 
     /**

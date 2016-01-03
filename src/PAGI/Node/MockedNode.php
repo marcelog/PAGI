@@ -29,6 +29,7 @@
 namespace PAGI\Node;
 
 use PAGI\Exception\MockedException;
+
 /**
  * A Mocked node. Useful for testing ivr applications.
  *
@@ -302,8 +303,7 @@ class MockedNode extends Node
         $result = null;
         foreach ($methods as $callInfo) {
             foreach ($callInfo as $name => $arguments) {
-                switch($name)
-                {
+                switch ($name) {
                     case 'streamFile':
                     case 'sayNumber':
                     case 'sayDigits':
@@ -368,10 +368,10 @@ class MockedNode extends Node
      */
     protected function beforeOnValidInput()
     {
-       if ($this->validInputCallback !== null) {
-           $callback = $this->validInputCallback;
-           $callback($this);
-       }
+        if ($this->validInputCallback !== null) {
+            $callback = $this->validInputCallback;
+            $callback($this);
+        }
     }
 
     /**
@@ -380,9 +380,9 @@ class MockedNode extends Node
      */
     protected function beforeOnInputFailed()
     {
-       if ($this->failedInputCallback !== null) {
-           $callback = $this->failedInputCallback;
-           $callback($this);
-       }
+        if ($this->failedInputCallback !== null) {
+            $callback = $this->failedInputCallback;
+            $callback($this);
+        }
     }
 }

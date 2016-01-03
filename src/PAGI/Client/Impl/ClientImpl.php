@@ -52,19 +52,19 @@ class ClientImpl extends AbstractClient
      * Current instance.
      * @var ClientImpl
      */
-    private static $_instance = false;
+    private static $instance = false;
 
     /**
      * AGI input
      * @var stream
      */
-    private $_input;
+    private $input;
 
     /**
      * AGI output
      * @var stream
      */
-    private $_output;
+    private $output;
 
     /**
      * Sends a command to asterisk. Returns an array with:
@@ -81,16 +81,16 @@ class ClientImpl extends AbstractClient
      */
     protected function send($text)
     {
-        $this->_logger->debug('Sending: ' . $text);
+        $this->logger->debug('Sending: ' . $text);
         $text .= "\n";
         $len = strlen($text);
-        $res = fwrite($this->_output, $text) === $len;
+        $res = fwrite($this->output, $text) === $len;
         if ($res != true) {
             throw new PAGIException('Could not send command, fwrite failed');
         }
         do {
             $res = $this->read();
-        } while(strlen($res) < 2);
+        } while (strlen($res) < 2);
         return $this->getResultFromResultString($res);
     }
 
@@ -102,24 +102,24 @@ class ClientImpl extends AbstractClient
      */
     protected function open()
     {
-        if (isset($this->_options['stdin'])) {
-            $this->_input = $this->_options['stdin'];
+        if (isset($this->options['stdin'])) {
+            $this->input = $this->options['stdin'];
         } else {
-            $this->_input = fopen('php://stdin', 'r');
+            $this->input = fopen('php://stdin', 'r');
         }
-        if (isset($this->_options['stdout'])) {
-            $this->_output = $this->_options['stdout'];
+        if (isset($this->options['stdout'])) {
+            $this->output = $this->options['stdout'];
         } else {
-            $this->_output = fopen('php://stdout', 'w');
+            $this->output = fopen('php://stdout', 'w');
         }
-        while(true) {
-            $line = $this->read($this->_input);
+        while (true) {
+            $line = $this->read($this->input);
             if ($this->isEndOfEnvironmentVariables($line)) {
                 break;
             }
             $this->readEnvironmentVariable($line);
         }
-        $this->_logger->debug(print_r($this->_variables, true));
+        $this->logger->debug(print_r($this->variables, true));
     }
 
     /**
@@ -129,11 +129,11 @@ class ClientImpl extends AbstractClient
      */
     protected function close()
     {
-        if ($this->_input !== false) {
-            fclose($this->_input);
+        if ($this->input !== false) {
+            fclose($this->input);
         }
-        if ($this->_output !== false) {
-            fclose($this->_output);
+        if ($this->output !== false) {
+            fclose($this->output);
         }
     }
 
@@ -146,12 +146,12 @@ class ClientImpl extends AbstractClient
      */
     protected function read()
     {
-        $line = fgets($this->_input);
+        $line = fgets($this->input);
         if ($line === false) {
             throw new PAGIException('Could not read from AGI');
         }
         $line = substr($line, 0, -1);
-        $this->_logger->debug('Read: ' . $line);
+        $this->logger->debug('Read: ' . $line);
         return $line;
     }
 
@@ -164,11 +164,11 @@ class ClientImpl extends AbstractClient
      */
     public static function getInstance(array $options = array())
     {
-        if (self::$_instance === false) {
+        if (self::$instance === false) {
             $ret = new ClientImpl($options);
-            self::$_instance = $ret;
+            self::$instance = $ret;
         } else {
-            $ret = self::$_instance;
+            $ret = self::$instance;
         }
         return $ret;
     }
@@ -191,8 +191,8 @@ class ClientImpl extends AbstractClient
      */
     protected function __construct(array $options = array())
     {
-        $this->_options = $options;
-        $this->_logger = new NullLogger;
+        $this->options = $options;
+        $this->logger = new NullLogger;
         $this->open();
     }
 }

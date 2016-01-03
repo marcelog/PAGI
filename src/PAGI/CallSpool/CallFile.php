@@ -29,6 +29,7 @@
 namespace PAGI\CallSpool;
 
 use \PAGI\DialDescriptor\DialDescriptor;
+
 /**
  * A call file facade.
  *
@@ -46,13 +47,13 @@ class CallFile
      * Parameters.
      * @var string[]
      */
-    private $_parameters;
+    private $parameters;
 
     /**
      * Variables.
      * @var string[]
      */
-    private $_variables;
+    private $variables;
 
     /**
      * Returns the value for the given parameter.
@@ -63,8 +64,8 @@ class CallFile
      */
     protected function getParameter($key)
     {
-        if (isset($this->_parameters[$key])) {
-            return $this->_parameters[$key];
+        if (isset($this->parameters[$key])) {
+            return $this->parameters[$key];
         }
         return false;
     }
@@ -79,7 +80,7 @@ class CallFile
      */
     protected function setParameter($key, $value)
     {
-        $this->_parameters[$key] = $value;
+        $this->parameters[$key] = $value;
     }
 
     /**
@@ -91,8 +92,8 @@ class CallFile
      */
     public function getVariable($key)
     {
-        if (isset($this->_variables[$key])) {
-            return $this->_variables[$key];
+        if (isset($this->variables[$key])) {
+            return $this->variables[$key];
         }
         return false;
     }
@@ -107,7 +108,7 @@ class CallFile
      */
     public function setVariable($key, $value)
     {
-        $this->_variables[$key] = $value;
+        $this->variables[$key] = $value;
     }
 
     /**
@@ -170,7 +171,7 @@ class CallFile
      * Returns number of retries before failing (not including the initial
      * attempt, e.g. 0 = total of 1 attempt to make the call). Default is 0.
      *
-	 * @return integer
+     * @return integer
      */
     public function getMaxRetries()
     {
@@ -194,7 +195,7 @@ class CallFile
      * Returns seconds between retries, Don't hammer an unavailable phone.
      * Default is 300 (5 min).
      *
-	 * @return integer
+     * @return integer
      */
     public function getRetryTime()
     {
@@ -217,7 +218,7 @@ class CallFile
     /**
      * Returns account code to use for this call.
      *
-	 * @return string
+     * @return string
      */
     public function getAccount()
     {
@@ -239,7 +240,7 @@ class CallFile
     /**
      * Returns context to use for this call when answered.
      *
-	 * @return string
+     * @return string
      */
     public function getContext()
     {
@@ -261,7 +262,7 @@ class CallFile
     /**
      * Returns priority to use for this call when answered.
      *
-	 * @return string
+     * @return string
      */
     public function getPriority()
     {
@@ -283,7 +284,7 @@ class CallFile
     /**
      * Returns extension to use for this call when answered.
      *
-	 * @return string
+     * @return string
      */
     public function getExtension()
     {
@@ -408,10 +409,10 @@ class CallFile
     public function serialize()
     {
         $text = array();
-        foreach ($this->_parameters as $k => $v) {
+        foreach ($this->parameters as $k => $v) {
             $text[] = $k . ': ' . $v;
         }
-        foreach ($this->_variables as $k => $v) {
+        foreach ($this->variables as $k => $v) {
             $text[] = 'Set: ' . $k . '=' . $v;
         }
         return implode("\n", $text);
@@ -461,12 +462,14 @@ class CallFile
      *
      * @return void
      */
-    public function __construct(DialDescriptor $dialDescriptor) {
-        $this->_parameters = array();
-        $this->_variables = array();
+    public function __construct(DialDescriptor $dialDescriptor)
+    {
+        $this->parameters = array();
+        $this->variables = array();
 
         $this->setParameter(
-            'Channel', $dialDescriptor->getChannelDescriptor()
+            'Channel',
+            $dialDescriptor->getChannelDescriptor()
         );
     }
 }

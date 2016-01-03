@@ -222,42 +222,42 @@ class Node
      * messages.
      * @var integer
      */
-    private $_timeBetweenDigits = self::TIME_INFINITE;
+    private $timeBetweenDigits = self::TIME_INFINITE;
     /**
      * In milliseconds, maximum time to wait for a complete user input (per
      * attempt).
      * @var integer
      */
-    private $_totalTimeForInput = self::TIME_INFINITE;
+    private $totalTimeForInput = self::TIME_INFINITE;
     /**
      * Holds the prompt messages (actions) to be used before expecting the user
      * input (like sounds, numbers, datetimes, etc).
      * @var string[]
      */
-    private $_promptMessages = array();
+    private $promptMessages = array();
     /**
      * Similar to prompt messages, but dynamically populated and cleared with
      * pre prompt messages, like error messages from validations.
      * @var string[]
      */
-    private $_prePromptMessages = array();
+    private $prePromptMessages = array();
     /**
      * True if the pre prompt messages can be interrupted with a dtmf digit.
      * @var boolean
      */
-    private $_prePromptMessagesInterruptable = true;
+    private $prePromptMessagesInterruptable = true;
     /**
      * When the user can interrupt the pre prompt messages, this will indicate
      * if the digit pressed count as input (thus, discarding the prompt
      * messages).
      * @var boolean
      */
-    private $_acceptPrePromptInputAsInput = true;
+    private $acceptPrePromptInputAsInput = true;
     /**
      * Node name.
      * @var string
      */
-    private $_name = 'X';
+    private $name = 'X';
     /**
      * Holds all input validators.
      * @var \Closure[]
@@ -268,53 +268,53 @@ class Node
      * routine this many times when the input is not validated.
      * @var integer
      */
-    private $_totalAttemptsForInput = 1;
+    private $totalAttemptsForInput = 1;
     /**
      * Optional message to play when the user did not enter any digits on
      * input.
      * @var string
      */
-    private $_onNoInputMessage = null;
+    private $onNoInputMessage = null;
     /**
      * Optinal message to play when the user exceeded the maximum allowed
      * attempts to enter a valid input.
      * @var string
      */
-    private $_onMaxValidInputAttempts = null;
+    private $onMaxValidInputAttempts = null;
     /**
      * True if prompt messages can be interrupted.
      * @var boolean
      */
-    private $_promptsCanBeInterrupted = true;
+    private $promptsCanBeInterrupted = true;
     /**
      * When pre prompt or prompt messages can be interrupted, these are the
      * valid interrupt digits.
      * @var string
      */
-    private $_validInterruptDigits = self::DTMF_ANY;
+    private $validInterruptDigits = self::DTMF_ANY;
     /**
      * Carries state. This is where optional custom data can be saved in the
      * callbacks and 3rd party software. Keys are strings.
      * @var mixed[]
      */
-    private $_registry = array();
+    private $registry = array();
     /**
      * Callback to execute on valid input from the user.
      * @var \Closure
      */
-    private $_executeOnValidInput = null;
+    private $executeOnValidInput = null;
     /**
      * Callback to execute when the node failed to correctly
      * Enter description here ...
      * @var \Closure
      */
-    private $_executeOnInputFailed = null;
+    private $executeOnInputFailed = null;
     /**
      * When true, the user may retry the input by pressing the cancel button
      * if and only if he/she has already input one or more digits.
      * @var boolean
      */
-    private $_cancelWithInputRetriesInput = false;
+    private $cancelWithInputRetriesInput = false;
 
     /**
      * Used to save the total amount of opportunities used to enter valid input.
@@ -353,8 +353,8 @@ class Node
      */
     public function prePromptMessagesNotInterruptable()
     {
-        $this->_prePromptMessagesInterruptable = false;
-        $this->_validInterruptDigits = self::DTMF_NONE;
+        $this->prePromptMessagesInterruptable = false;
+        $this->validInterruptDigits = self::DTMF_NONE;
         return $this;
     }
 
@@ -366,7 +366,7 @@ class Node
      */
     public function dontAcceptPrePromptInputAsInput()
     {
-        $this->_acceptPrePromptInputAsInput = false;
+        $this->acceptPrePromptInputAsInput = false;
         return $this;
     }
 
@@ -377,8 +377,8 @@ class Node
      */
     public function unInterruptablePrompts()
     {
-        $this->_promptsCanBeInterrupted = false;
-        $this->_validInterruptDigits = self::DTMF_NONE;
+        $this->promptsCanBeInterrupted = false;
+        $this->validInterruptDigits = self::DTMF_NONE;
         return $this;
     }
 
@@ -393,7 +393,7 @@ class Node
      */
     public function playOnNoInput($filename)
     {
-        $this->_onNoInputMessage = $filename;
+        $this->onNoInputMessage = $filename;
         return $this;
     }
 
@@ -418,7 +418,7 @@ class Node
      */
     public function playOnMaxValidInputAttempts($filename)
     {
-        $this->_onMaxValidInputAttempts = $filename;
+        $this->onMaxValidInputAttempts = $filename;
         return $this;
     }
 
@@ -432,7 +432,7 @@ class Node
      */
     public function maxAttemptsForInput($number)
     {
-        $this->_totalAttemptsForInput = $number;
+        $this->totalAttemptsForInput = $number;
         return $this;
     }
 
@@ -447,7 +447,8 @@ class Node
      * @return validatorInfo
      */
     public static function createValidatorInfo(
-        \Closure $validation, $soundOnError = null
+        \Closure $validation,
+        $soundOnError = null
     ) {
         return array(
             'callback' => $validation,
@@ -467,7 +468,9 @@ class Node
     {
         foreach ($validatorsInformation as $name => $validatorInfo) {
             $this->validateInputWith(
-                $name, $validatorInfo['callback'], $validatorInfo['soundOnError']
+                $name,
+                $validatorInfo['callback'],
+                $validatorInfo['soundOnError']
             );
         }
         return $this;
@@ -485,7 +488,8 @@ class Node
     public function validateInputWith($name, \Closure $validation, $soundOnError = null)
     {
         $this->inputValidations[$name] = self::createValidatorInfo(
-            $validation, $soundOnError
+            $validation,
+            $soundOnError
         );
         return $this;
     }
@@ -507,7 +511,7 @@ class Node
                     foreach ($onError as $msg) {
                         $this->addPrePromptMessage($msg);
                     }
-                } else if (is_string($onError)) {
+                } elseif (is_string($onError)) {
                     $this->addPrePromptMessage($onError);
                 } else {
                     $this->logDebug("Ignoring validation sound: " . print_r($onError, true));
@@ -526,7 +530,7 @@ class Node
      */
     public function clearPromptMessages()
     {
-        $this->_promptMessages = array();
+        $this->promptMessages = array();
         return $this;
     }
 
@@ -539,7 +543,7 @@ class Node
     {
         $args = func_get_args();
         $name = array_shift($args);
-        $this->_promptMessages[] = array($name => $args);
+        $this->promptMessages[] = array($name => $args);
     }
 
     /**
@@ -551,7 +555,7 @@ class Node
     {
         $args = func_get_args();
         $name = array_shift($args);
-        $this->_prePromptMessages[] = array($name => $args);
+        $this->prePromptMessages[] = array($name => $args);
     }
 
     /**
@@ -564,20 +568,22 @@ class Node
     public function addPrePromptMessage($filename)
     {
         $this->addPrePromptClientMethodCall(
-        	'streamFile', $filename, $this->_validInterruptDigits
+            'streamFile',
+            $filename,
+            $this->validInterruptDigits
         );
     }
 
     /**
      * Loads a prompt message for saying the digits of the given number.
-	 *
+     *
      * @param integer $digits
      *
      * @return Node
      */
     public function sayDigits($digits)
     {
-        $this->addClientMethodCall('sayDigits', $digits, $this->_validInterruptDigits);
+        $this->addClientMethodCall('sayDigits', $digits, $this->validInterruptDigits);
         return $this;
     }
 
@@ -590,7 +596,7 @@ class Node
      */
     public function sayNumber($number)
     {
-        $this->addClientMethodCall('sayNumber', $number, $this->_validInterruptDigits);
+        $this->addClientMethodCall('sayNumber', $number, $this->validInterruptDigits);
         return $this;
     }
 
@@ -605,7 +611,7 @@ class Node
      */
     public function sayDateTime($timestamp, $format)
     {
-        $this->addClientMethodCall('sayDateTime', $timestamp, $format, $this->_validInterruptDigits);
+        $this->addClientMethodCall('sayDateTime', $timestamp, $format, $this->validInterruptDigits);
         return $this;
     }
 
@@ -618,7 +624,7 @@ class Node
      */
     public function saySound($filename)
     {
-        $this->addClientMethodCall('streamFile', $filename, $this->_validInterruptDigits);
+        $this->addClientMethodCall('streamFile', $filename, $this->validInterruptDigits);
         return $this;
     }
 
@@ -698,7 +704,7 @@ class Node
      */
     public function maxTimeBetweenDigits($milliseconds)
     {
-        $this->_timeBetweenDigits = $milliseconds;
+        $this->timeBetweenDigits = $milliseconds;
         return $this;
     }
 
@@ -712,7 +718,7 @@ class Node
      */
     public function maxTotalTimeForInput($milliseconds)
     {
-        $this->_totalTimeForInput = $milliseconds;
+        $this->totalTimeForInput = $milliseconds;
         return $this;
     }
 
@@ -761,14 +767,14 @@ class Node
 
     /**
      * Gives a name for this node.
-	 *
+     *
      * @param string $name
      *
      * @return Node
      */
     public function setName($name)
     {
-        $this->_name = $name;
+        $this->name = $name;
         return $this;
     }
 
@@ -849,18 +855,18 @@ class Node
      */
     protected function acceptInput($digit)
     {
-        switch($this->evaluateInput($digit)) {
-        case self::INPUT_CANCEL:
-            $this->state = self::STATE_CANCEL;
-            break;
-        case self::INPUT_END:
-            $this->state = self::STATE_COMPLETE;
-            break;
-        default:
-            $this->appendInput($digit);
-            if ($this->minInput > 0 && $this->inputLengthIsAtLeast($this->minInput)) {
+        switch ($this->evaluateInput($digit)) {
+            case self::INPUT_CANCEL:
+                $this->state = self::STATE_CANCEL;
+                break;
+            case self::INPUT_END:
                 $this->state = self::STATE_COMPLETE;
-            }
+                break;
+            default:
+                $this->appendInput($digit);
+                if ($this->minInput > 0 && $this->inputLengthIsAtLeast($this->minInput)) {
+                    $this->state = self::STATE_COMPLETE;
+                }
         }
     }
 
@@ -952,10 +958,10 @@ class Node
      */
     protected function playPromptMessages()
     {
-        $interruptable = $this->_promptsCanBeInterrupted;
+        $interruptable = $this->promptsCanBeInterrupted;
         $result = $this->callClientMethods(
-            $this->_promptMessages,
-            function($result) use ($interruptable) {
+            $this->promptMessages,
+            function ($result) use ($interruptable) {
                 /* @var $result IReadResult */
                 return $interruptable && !$result->isTimeout();
             }
@@ -970,7 +976,7 @@ class Node
      */
     protected function clearPrePromptMessages()
     {
-        $this->_prePromptMessages = array();
+        $this->prePromptMessages = array();
     }
 
     /**
@@ -981,10 +987,10 @@ class Node
      */
     protected function playPrePromptMessages()
     {
-        $interruptable = $this->_prePromptMessagesInterruptable;
+        $interruptable = $this->prePromptMessagesInterruptable;
         $result = $this->callClientMethods(
-            $this->_prePromptMessages,
-            function($result) use ($interruptable) {
+            $this->prePromptMessages,
+            function ($result) use ($interruptable) {
                 /* @var $result IReadResult */
                 return $interruptable && !$result->isTimeout();
             }
@@ -1003,7 +1009,7 @@ class Node
      */
     public function saveCustomData($key, $value)
     {
-        $this->_registry[$key] = $value;
+        $this->registry[$key] = $value;
         return $this;
     }
 
@@ -1016,7 +1022,7 @@ class Node
      */
     public function getCustomData($key)
     {
-        return $this->_registry[$key];
+        return $this->registry[$key];
     }
 
     /**
@@ -1028,7 +1034,7 @@ class Node
      */
     public function hasCustomData($key)
     {
-        return isset($this->_registry[$key]);
+        return isset($this->registry[$key]);
     }
 
     /**
@@ -1040,7 +1046,7 @@ class Node
      */
     public function delCustomData($key)
     {
-        unset($this->_registry[$key]);
+        unset($this->registry[$key]);
         return $this;
     }
 
@@ -1055,7 +1061,7 @@ class Node
      */
     public function cancelWithInputRetriesInput()
     {
-        $this->_cancelWithInputRetriesInput = true;
+        $this->cancelWithInputRetriesInput = true;
         return $this;
     }
 
@@ -1069,7 +1075,7 @@ class Node
      */
     public function executeOnValidInput(\Closure $callback)
     {
-        $this->_executeOnValidInput = $callback;
+        $this->executeOnValidInput = $callback;
         return $this;
     }
 
@@ -1083,7 +1089,7 @@ class Node
      */
     public function executeOnInputFailed(\Closure $callback)
     {
-        $this->_executeOnInputFailed = $callback;
+        $this->executeOnInputFailed = $callback;
         return $this;
     }
 
@@ -1101,7 +1107,7 @@ class Node
      * Internally used to clear the input per input attempt. Also resets state
      * to TIMEOUT.
      *
-	 * @return Node
+     * @return Node
      */
     protected function resetInput()
     {
@@ -1126,12 +1132,12 @@ class Node
         $this->resetInput();
         $this->inputAttemptsUsed++;
         $result = $this->playPrePromptMessages();
-        if (!$this->_acceptPrePromptInputAsInput) {
+        if (!$this->acceptPrePromptInputAsInput) {
             $result = $this->playPromptMessages();
             if ($result !== null && !$result->isTimeout()) {
                 $this->acceptInput($result->getDigits());
             }
-        } else if ($result !== null && !$result->isTimeout()) {
+        } elseif ($result !== null && !$result->isTimeout()) {
             $this->acceptInput($result->getDigits());
         } else {
             $result = $this->playPromptMessages();
@@ -1139,8 +1145,7 @@ class Node
                 $this->acceptInput($result->getDigits());
             }
         }
-        if (
-            $this->inputLengthIsAtLeast($this->maxInput) // max = 1
+        if ($this->inputLengthIsAtLeast($this->maxInput) // max = 1
             || $this->wasCancelled()
             || ($this->isComplete() && !$this->hasInput()) // user pressed eoi
         ) {
@@ -1149,16 +1154,16 @@ class Node
         $len = strlen($this->input);
         $start = time();
         for ($i = $len; $i < $this->maxInput; $i++) {
-            if ($this->_totalTimeForInput != -1) {
+            if ($this->totalTimeForInput != -1) {
                 $totalElapsedTime = (time() - $start) * 1000;
-                if ($totalElapsedTime >= $this->_totalTimeForInput) {
+                if ($totalElapsedTime >= $this->totalTimeForInput) {
                     $this->logDebug("Expired total available time for input");
                     break;
                 }
             }
-            $this->logDebug($this->_name . ": Reading Digit #: " . ($i + 1));
+            $this->logDebug($this->name . ": Reading Digit #: " . ($i + 1));
             $result = $this->callClientMethods(array(
-                    array('waitDigit' => array($this->_timeBetweenDigits))
+                    array('waitDigit' => array($this->timeBetweenDigits))
             ));
             if ($result->isTimeout()) {
                 $this->logDebug("Expired available time per digit");
@@ -1243,10 +1248,10 @@ class Node
             $callback = $this->executeBeforeRun;
             $callback($this);
         }
-        for ($attempts = 0; $attempts < $this->_totalAttemptsForInput; $attempts++) {
+        for ($attempts = 0; $attempts < $this->totalAttemptsForInput; $attempts++) {
             $this->doInput();
             if ($this->wasCancelled()) {
-                if ($this->_cancelWithInputRetriesInput && $this->hasInput()) {
+                if ($this->cancelWithInputRetriesInput && $this->hasInput()) {
                     $this->logDebug("Cancelled input, retrying");
                     continue;
                 }
@@ -1254,41 +1259,40 @@ class Node
                 break;
             }
             // dont play on last attempt by default
-            if (
-                $this->_onNoInputMessage !== null
+            if ($this->onNoInputMessage !== null
                 && !$this->hasInput()
-                && ($this->playOnNoInputInLastAttempt || $attempts != ($this->_totalAttemptsForInput - 1))
+                && ($this->playOnNoInputInLastAttempt || $attempts != ($this->totalAttemptsForInput - 1))
             ) {
-                $this->addPrePromptMessage($this->_onNoInputMessage);
+                $this->addPrePromptMessage($this->onNoInputMessage);
                 continue;
             }
             if ($this->hasInput()) {
                 if ($this->validate()) {
                     $this->logDebug("Input validated");
-                    if ($this->_executeOnValidInput !== null) {
-                        $callback = $this->_executeOnValidInput;
+                    if ($this->executeOnValidInput !== null) {
+                        $callback = $this->executeOnValidInput;
                         $this->beforeOnValidInput();
                         $callback($this);
                     }
                     break;
-                } else if ($this->executeAfterFailedValidation !== null) {
+                } elseif ($this->executeAfterFailedValidation !== null) {
                     $callback = $this->executeAfterFailedValidation;
                     $callback($this);
                 }
             }
         }
         $result = $this->playPrePromptMessages();
-        if ($this->minInput > 0 && $attempts == $this->_totalAttemptsForInput) {
+        if ($this->minInput > 0 && $attempts == $this->totalAttemptsForInput) {
             $this->logDebug("Max attempts reached");
             $this->state = self::STATE_MAX_INPUTS_REACHED;
-            if ($this->_onMaxValidInputAttempts !== null) {
+            if ($this->onMaxValidInputAttempts !== null) {
                 $this->callClientMethods(array(
-                    array('streamFile' => array($this->_onMaxValidInputAttempts, self::DTMF_ANY))
+                    array('streamFile' => array($this->onMaxValidInputAttempts, self::DTMF_ANY))
                 ));
             }
         }
-        if (!$this->isComplete() && $this->_executeOnInputFailed !== null) {
-            $callback = $this->_executeOnInputFailed;
+        if (!$this->isComplete() && $this->executeOnInputFailed !== null) {
+            $callback = $this->executeOnInputFailed;
             $this->beforeOnInputFailed();
             $callback($this);
         }
@@ -1313,7 +1317,7 @@ class Node
         $logger = $this->client->getAsteriskLogger();
         $ani = $this->client->getChannelVariables()->getCallerIdName();
         $dnis = $this->client->getChannelVariables()->getDNIS();
-        $logger->debug("Node: {$this->_name}: $ani -> $dnis: $msg");
+        $logger->debug("Node: {$this->name}: $ani -> $dnis: $msg");
     }
 
     /**
@@ -1323,7 +1327,7 @@ class Node
      */
     public function getName()
     {
-        return $this->_name;
+        return $this->name;
     }
 
     /**
@@ -1337,18 +1341,18 @@ class Node
     protected function stateToString($state)
     {
         switch ($state) {
-        case self::STATE_CANCEL:
-            return "cancel";
-        case self::STATE_COMPLETE:
-            return "complete";
-        case self::STATE_NOT_RUN: // a string like 'foo' matches here?
-            return "not run";
-        case self::STATE_TIMEOUT:
-            return "timeout";
-        case self::STATE_MAX_INPUTS_REACHED:
-            return "max valid input attempts reached";
-        default:
-            throw new NodeException("Bad state for node");
+            case self::STATE_CANCEL:
+                return "cancel";
+            case self::STATE_COMPLETE:
+                return "complete";
+            case self::STATE_NOT_RUN: // a string like 'foo' matches here?
+                return "not run";
+            case self::STATE_TIMEOUT:
+                return "timeout";
+            case self::STATE_MAX_INPUTS_REACHED:
+                return "max valid input attempts reached";
+            default:
+                throw new NodeException("Bad state for node");
         }
     }
 
@@ -1360,7 +1364,7 @@ class Node
     public function __toString()
     {
         return
-            "[ Node: " . $this->_name
+            "[ Node: " . $this->name
             . " input: (" . $this->input . ") "
             . " state: (" . $this->stateToString($this->state) . ")"
             . "]"

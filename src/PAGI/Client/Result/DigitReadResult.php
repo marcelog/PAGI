@@ -55,13 +55,13 @@ class DigitReadResult extends ResultDecorator implements IReadResult
      * Digits read (if any).
      * @var string
      */
-    protected $_digits;
+    protected $digits;
 
     /**
      * Timeout?
      * @var boolean
      */
-    protected $_timeout;
+    protected $timeout;
 
     /**
      * (non-PHPdoc)
@@ -69,7 +69,7 @@ class DigitReadResult extends ResultDecorator implements IReadResult
      */
     public function isTimeout()
     {
-        return $this->_timeout;
+        return $this->timeout;
     }
 
     /**
@@ -78,7 +78,7 @@ class DigitReadResult extends ResultDecorator implements IReadResult
      */
     public function getDigits()
     {
-        return $this->_digits;
+        return $this->digits;
     }
 
     /**
@@ -87,7 +87,7 @@ class DigitReadResult extends ResultDecorator implements IReadResult
      */
     public function getDigitsCount()
     {
-        return strlen($this->_digits);
+        return strlen($this->digits);
     }
     /**
      * Constructor.
@@ -99,20 +99,19 @@ class DigitReadResult extends ResultDecorator implements IReadResult
     public function __construct(IResult $result)
     {
         parent::__construct($result);
-        $this->_digits = false;
-        $this->_timeout = false;
+        $this->digits = false;
+        $this->timeout = false;
         $result = $result->getResult();
-        switch($result)
-        {
-        case -1:
-            throw new ChannelDownException();
-            break;
-        case 0:
-            $this->_timeout = true;
-            break;
-        default:
-            $this->_digits = chr(intval($result));
-            break;
+        switch ($result) {
+            case -1:
+                throw new ChannelDownException();
+                break;
+            case 0:
+                $this->timeout = true;
+                break;
+            default:
+                $this->digits = chr(intval($result));
+                break;
         }
     }
 }

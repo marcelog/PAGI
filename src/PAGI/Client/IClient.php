@@ -306,7 +306,7 @@ interface IClient
      * @param string  $class  If <class> is not specified then the default
      * music on hold class will be used.
      *
-	 * @return void
+     * @return void
      */
     public function setMusic($enable, $class = false);
 
@@ -396,9 +396,9 @@ interface IClient
     /**
      * Cause the channel to automatically hangup at <time> seconds in the future.
      * Of course it can be hungup before then as well.
-	 * Setting to 0 will cause the autohangup feature to be disabled on this channel.
-	 * Uses agi command "SET AUTOHANGUP".
-	 *
+     * Setting to 0 will cause the autohangup feature to be disabled on this channel.
+     * Uses agi command "SET AUTOHANGUP".
+     *
      * @param integer $time Time to hangup channel.
      *
      * @return void

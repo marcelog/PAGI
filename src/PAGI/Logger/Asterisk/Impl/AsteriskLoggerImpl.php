@@ -52,18 +52,18 @@ class AsteriskLoggerImpl implements IAsteriskLogger
      * Holds instance of AGI Client.
      * @var IClient
      */
-    private $_agi = false;
+    private $agi = false;
 
     /**
      * Holds identity to prepend.
      */
-    private $_ident;
+    private $ident;
 
     /**
      * Holds current instance.
      * @var AsteriskLoggerImpl
      */
-    private static $_instance = false;
+    private static $instance = false;
 
     /**
      * (non-PHPdoc)
@@ -71,7 +71,7 @@ class AsteriskLoggerImpl implements IAsteriskLogger
      */
     public function error($msg)
     {
-        $this->_agi->log($msg, 'ERROR');
+        $this->agi->log($msg, 'ERROR');
     }
 
     /**
@@ -80,7 +80,7 @@ class AsteriskLoggerImpl implements IAsteriskLogger
      */
     public function warn($msg)
     {
-        $this->_agi->log($msg, 'WARNING');
+        $this->agi->log($msg, 'WARNING');
     }
 
     /**
@@ -89,7 +89,7 @@ class AsteriskLoggerImpl implements IAsteriskLogger
      */
     public function notice($msg)
     {
-        $this->_agi->log($msg, 'NOTICE');
+        $this->agi->log($msg, 'NOTICE');
     }
 
     /**
@@ -98,7 +98,7 @@ class AsteriskLoggerImpl implements IAsteriskLogger
      */
     public function debug($msg)
     {
-        $this->_agi->log($msg, 'DEBUG');
+        $this->agi->log($msg, 'DEBUG');
     }
 
     /**
@@ -107,7 +107,7 @@ class AsteriskLoggerImpl implements IAsteriskLogger
      */
     public function verbose($msg)
     {
-        $this->_agi->log($msg, 'VERBOSE');
+        $this->agi->log($msg, 'VERBOSE');
     }
 
     /**
@@ -116,7 +116,7 @@ class AsteriskLoggerImpl implements IAsteriskLogger
      */
     public function dtmf($msg)
     {
-        $this->_agi->log($msg, 'DTMF');
+        $this->agi->log($msg, 'DTMF');
     }
 
     /**
@@ -128,11 +128,11 @@ class AsteriskLoggerImpl implements IAsteriskLogger
      */
     public static function getLogger(IClient $agi)
     {
-        if (self::$_instance === false) {
+        if (self::$instance === false) {
             $ret = new AsteriskLoggerImpl($agi);
-            self::$_instance = $ret;
+            self::$instance = $ret;
         } else {
-            $ret = self::$_instance;
+            $ret = self::$instance;
         }
         return $ret;
     }
@@ -146,7 +146,7 @@ class AsteriskLoggerImpl implements IAsteriskLogger
      */
     protected function __construct(IClient $agi)
     {
-        $this->_agi = $agi;
-        $this->_ident = '';
+        $this->agi = $agi;
+        $this->ident = '';
     }
 }

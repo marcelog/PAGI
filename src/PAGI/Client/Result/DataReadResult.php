@@ -59,10 +59,10 @@ class DataReadResult extends DigitReadResult
         // Reset timeout flag. This is because wait-for-digit returns 0 on timeout
         // and the result is the ascii char of the digit read, while other read
         // functions return the digits and (timeout) on data to signal a timeout.
-        $this->_timeout = false;
-        $this->_digits = $result->getResult();
+        $this->timeout = false;
+        $this->digits = $result->getResult();
         if ($result->hasData()) {
-            $this->_timeout = (strpos($result->getData(), '(timeout)') !== false);
+            $this->timeout = (strpos($result->getData(), '(timeout)') !== false);
         }
     }
 }

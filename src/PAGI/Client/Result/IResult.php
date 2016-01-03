@@ -43,7 +43,7 @@ namespace PAGI\Client\Result;
  */
 interface IResult
 {
-	/**
+    /**
      * Returns original line.
      *
      * @return string

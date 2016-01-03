@@ -48,7 +48,7 @@ class CallerIdFacade implements ICallerId
      * Instance of client to access caller id variables.
      * @var IClient
      */
-    private $_client;
+    private $client;
 
     /**
      * (non-PHPdoc)
@@ -153,7 +153,7 @@ class CallerIdFacade implements ICallerId
      */
     protected function getCallerIdVariable($name)
     {
-        return $this->_client->getFullVariable('CALLERID(' . $name . ')');
+        return $this->client->getFullVariable('CALLERID(' . $name . ')');
     }
 
     /**
@@ -166,7 +166,7 @@ class CallerIdFacade implements ICallerId
      */
     protected function setCallerIdVariable($name, $value)
     {
-        $this->_client->setVariable('CALLERID(' . $name . ')', $value);
+        $this->client->setVariable('CALLERID(' . $name . ')', $value);
     }
 
     /**
@@ -175,7 +175,7 @@ class CallerIdFacade implements ICallerId
      */
     public function setCallerPres($presentationMode)
     {
-        $this->_client->exec('SET', array("CALLERPRES()=$presentationMode"));
+        $this->client->exec('SET', array("CALLERPRES()=$presentationMode"));
     }
 
     /**
@@ -205,6 +205,6 @@ class CallerIdFacade implements ICallerId
      */
     public function __construct(IClient $client)
     {
-        $this->_client = $client;
+        $this->client = $client;
     }
 }

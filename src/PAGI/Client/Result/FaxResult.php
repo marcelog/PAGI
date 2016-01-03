@@ -49,49 +49,49 @@ class FaxResult extends ExecResult
      * Local station ID.
      * @var string
      */
-    private $_localId;
+    private $localId;
 
     /**
      * Local header.
      * @var string
      */
-    private $_localHeader;
+    private $localHeader;
 
     /**
      * Remote station ID.
      * @var string
      */
-    private $_remoteId;
+    private $remoteId;
 
     /**
      * True if successfull.
      * @var boolean
      */
-    private $_result;
+    private $result;
 
     /**
-     * Error detail (if $_result === false)
+     * Error detail (if $result === false)
      * @var string
      */
-    private $_error;
+    private $error;
 
     /**
      * Bitrate for the operation.
      * @var integer
      */
-    private $_bitrate;
+    private $bitrate;
 
     /**
      * Total pages for the operation.
      * @var integer
      */
-    private $_pages;
+    private $pages;
 
     /**
      * Resolution for the operation.
      * @var string
      */
-    private $_resolution;
+    private $resolution;
 
     /**
      * Returns local station id.
@@ -100,7 +100,7 @@ class FaxResult extends ExecResult
      */
     public function getLocalStationId()
     {
-        return $this->_localId;
+        return $this->localId;
     }
 
     /**
@@ -112,7 +112,7 @@ class FaxResult extends ExecResult
      */
     public function setLocalStationId($value)
     {
-        $this->_localId = $value;
+        $this->localId = $value;
     }
 
     /**
@@ -122,7 +122,7 @@ class FaxResult extends ExecResult
      */
     public function getLocalHeaderInfo()
     {
-        return $this->_localHeader;
+        return $this->localHeader;
     }
 
     /**
@@ -134,7 +134,7 @@ class FaxResult extends ExecResult
      */
     public function setLocalHeaderInfo($value)
     {
-        $this->_localHeader = $value;
+        $this->localHeader = $value;
     }
 
     /**
@@ -144,7 +144,7 @@ class FaxResult extends ExecResult
      */
     public function isSuccess()
     {
-        return $this->_result;
+        return $this->result;
     }
 
     /**
@@ -156,7 +156,7 @@ class FaxResult extends ExecResult
      */
     public function setResult($value)
     {
-        $this->_result = $value;
+        $this->result = $value;
     }
 
     /**
@@ -166,7 +166,7 @@ class FaxResult extends ExecResult
      */
     public function getError()
     {
-        return $this->_error;
+        return $this->error;
     }
 
     /**
@@ -178,7 +178,7 @@ class FaxResult extends ExecResult
      */
     public function setError($value)
     {
-        $this->_error = $value;
+        $this->error = $value;
     }
 
     /**
@@ -188,7 +188,7 @@ class FaxResult extends ExecResult
      */
     public function getRemoteStationId()
     {
-        return $this->_remoteId;
+        return $this->remoteId;
     }
 
     /**
@@ -200,17 +200,17 @@ class FaxResult extends ExecResult
      */
     public function setRemoteStationId($value)
     {
-        $this->_remoteId = $value;
+        $this->remoteId = $value;
     }
 
     /**
      * Returns number of pages.
      *
-	 * @return integer
+     * @return integer
      */
     public function getPages()
     {
-        return $this->_pages;
+        return $this->pages;
     }
 
     /**
@@ -222,17 +222,17 @@ class FaxResult extends ExecResult
      */
     public function setPages($value)
     {
-        $this->_pages = $value;
+        $this->pages = $value;
     }
 
     /**
      * Returns bitrate.
      *
-	 * @return integer
+     * @return integer
      */
     public function getBitrate()
     {
-        return $this->_bitrate;
+        return $this->bitrate;
     }
 
     /**
@@ -244,7 +244,7 @@ class FaxResult extends ExecResult
      */
     public function setBitrate($value)
     {
-        $this->_bitrate = $value;
+        $this->bitrate = $value;
     }
 
     /**
@@ -254,7 +254,7 @@ class FaxResult extends ExecResult
      */
     public function getResolution()
     {
-        return $this->_resolution;
+        return $this->resolution;
     }
 
     /**
@@ -266,7 +266,7 @@ class FaxResult extends ExecResult
      */
     public function setResolution($value)
     {
-        $this->_resolution = $value;
+        $this->resolution = $value;
     }
 
     /**
@@ -298,13 +298,13 @@ class FaxResult extends ExecResult
     public function __construct(IResult $result)
     {
         parent::__construct($result);
-        $this->_resolution = false;
-        $this->_bitrate = false;
-        $this->_pages = false;
-        $this->_localId = false;
-        $this->_remoteId = false;
-        $this->_localHeader = false;
-        $this->_result = false;
-        $this->_error = false;
+        $this->resolution = false;
+        $this->bitrate = false;
+        $this->pages = false;
+        $this->localId = false;
+        $this->remoteId = false;
+        $this->localHeader = false;
+        $this->result = false;
+        $this->error = false;
     }
 }

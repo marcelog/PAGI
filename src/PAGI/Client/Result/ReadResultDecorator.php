@@ -47,7 +47,7 @@ abstract class ReadResultDecorator implements IReadResult
      * Our decorated result.
      * @var IReadResult
      */
-    private $_result;
+    private $result;
 
     /**
      * (non-PHPdoc)
@@ -55,7 +55,7 @@ abstract class ReadResultDecorator implements IReadResult
      */
     public function getOriginalLine()
     {
-        return $this->_result->getOriginalLine();
+        return $this->result->getOriginalLine();
     }
 
     /**
@@ -64,7 +64,7 @@ abstract class ReadResultDecorator implements IReadResult
      */
     public function getCode()
     {
-        return $this->_result->getCode();
+        return $this->result->getCode();
     }
 
     /**
@@ -73,7 +73,7 @@ abstract class ReadResultDecorator implements IReadResult
      */
     public function getResult()
     {
-        return $this->_result->getResult();
+        return $this->result->getResult();
     }
 
     /**
@@ -82,7 +82,7 @@ abstract class ReadResultDecorator implements IReadResult
      */
     public function isResult($value)
     {
-        return $this->_result->isResult($value);
+        return $this->result->isResult($value);
     }
 
     /**
@@ -91,7 +91,7 @@ abstract class ReadResultDecorator implements IReadResult
      */
     public function hasData()
     {
-        return $this->_result->hasData();
+        return $this->result->hasData();
     }
 
     /**
@@ -100,7 +100,7 @@ abstract class ReadResultDecorator implements IReadResult
      */
     public function getData()
     {
-        return $this->_result->getData();
+        return $this->result->getData();
     }
 
     /**
@@ -109,7 +109,7 @@ abstract class ReadResultDecorator implements IReadResult
      */
     public function isTimeout()
     {
-        return $this->_result->isTimeout();
+        return $this->result->isTimeout();
     }
 
     /**
@@ -118,7 +118,7 @@ abstract class ReadResultDecorator implements IReadResult
      */
     public function getDigits()
     {
-        return $this->_result->getDigits();
+        return $this->result->getDigits();
     }
 
     /**
@@ -127,14 +127,14 @@ abstract class ReadResultDecorator implements IReadResult
      */
     public function getDigitsCount()
     {
-        return strlen($this->_result->getDigits());
+        return strlen($this->result->getDigits());
     }
     /**
      * Standard drill.
      */
     public function __toString()
     {
-        return $this->_result->__toString();
+        return $this->result->__toString();
     }
     /**
      * Constructor.
@@ -143,6 +143,6 @@ abstract class ReadResultDecorator implements IReadResult
      */
     public function __construct(IReadResult $result)
     {
-        $this->_result = $result;
+        $this->result = $result;
     }
 }

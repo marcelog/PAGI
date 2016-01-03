@@ -49,25 +49,25 @@ class Result implements IResult
      * Result code (3 digits).
      * @var integer
      */
-    private $_code;
+    private $code;
 
     /**
      * Result string (if any), from result=xxxxx string.
      * @var string
      */
-    private $_result;
+    private $result;
 
     /**
      * Result data (if any).
      * @var string
      */
-    private $_data;
+    private $data;
 
     /**
      * AGI result line (i.e: xxx result=zzzzzz [yyyyyy])
      * @var string
      */
-    private $_line;
+    private $line;
 
     /**
      * (non-PHPdoc)
@@ -75,7 +75,7 @@ class Result implements IResult
      */
     public function getOriginalLine()
     {
-        return $this->_line;
+        return $this->line;
     }
 
     /**
@@ -84,7 +84,7 @@ class Result implements IResult
      */
     public function getCode()
     {
-        return $this->_code;
+        return $this->code;
     }
 
     /**
@@ -93,7 +93,7 @@ class Result implements IResult
      */
     public function getResult()
     {
-        return $this->_result;
+        return $this->result;
     }
 
     /**
@@ -102,7 +102,7 @@ class Result implements IResult
      */
     public function isResult($value)
     {
-        return $this->_result == $value;
+        return $this->result == $value;
     }
 
     /**
@@ -111,7 +111,7 @@ class Result implements IResult
      */
     public function hasData()
     {
-        return $this->_data !== false;
+        return $this->data !== false;
     }
 
     /**
@@ -120,7 +120,7 @@ class Result implements IResult
      */
     public function getData()
     {
-        return $this->_data;
+        return $this->data;
     }
 
     /**
@@ -148,22 +148,22 @@ class Result implements IResult
      */
     public function __construct($line)
     {
-        $this->_line = $line;
-        $this->_result = false;
-        $this->_data = false;
+        $this->line = $line;
+        $this->result = false;
+        $this->data = false;
 
         $response = explode(' ', $line);
-        $this->_code = $response[0];
+        $this->code = $response[0];
 
-        $this->_result = explode('=', $response[1]);
-        if (isset($this->_result[1])) {
-            $this->_result = $this->_result[1];
+        $this->result = explode('=', $response[1]);
+        if (isset($this->result[1])) {
+            $this->result = $this->result[1];
         }
 
         if (isset($response[2])) {
             unset($response[0]);
             unset($response[1]);
-            $this->_data = implode(' ', $response);
+            $this->data = implode(' ', $response);
         }
     }
 }
