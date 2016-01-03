@@ -41,16 +41,16 @@ require __DIR__ . '/vendor/autoload.php';
 
 # Quickstart
 
-You can start by *docs/examples/quickstart* for a very basic example. You'll need something like this in your dialplan:
+You can start by *doc/examples/quickstart* for a very basic example. You'll need something like this in your dialplan:
 
     [default]
-    exten => 1,1,AGI(/path/to/PAGI/docs/examples/quickstart/run.sh,a,b,c,d)
+    exten => 1,1,AGI(/path/to/PAGI/doc/examples/quickstart/run.sh,a,b,c,d)
     exten => 1,n,Hangup
 
 # Testing IVR applications
 
 A mocked pagi client is included to easily test your ivr applications. See
-**docs/examples/mock** to see an example of how to use it.
+**doc/examples/mock** to see an example of how to use it.
 
 # Features
 
@@ -58,7 +58,7 @@ A mocked pagi client is included to easily test your ivr applications. See
 
 For a tutorial about nodes, see [this article](http://marcelog.github.com/articles/pagi_node_call_flow_easy_telephony_application_for_asterisk_php.html)
 
-Simple Call Flow Nodes are available (see **docs/examples/node/example.php**). Using
+Simple Call Flow Nodes are available (see **doc/examples/node/example.php**). Using
 nodes will let you simplify how you build and test your ivr applications. Nodes
 are an abstraction layer above the pagi client, and support:
 
@@ -79,7 +79,7 @@ are an abstraction layer above the pagi client, and support:
 The NodeController will let you control the call flow of your application, by
 registering nodes and actions based on node results. Thus, you can jump from
 one node to the other on cancel or complete inputs, hangup the call, execute a
-callback, etc. For an example, see docs/examples/nodecontroller/example.php
+callback, etc. For an example, see doc/examples/nodecontroller/example.php
 
 An article about the node controller is available [here](http://marcelog.github.com/articles/making_your_ivr_nodes_call_flow_with_pagi_and_php_asterisk.html)
 
