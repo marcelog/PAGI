@@ -360,10 +360,5 @@ class MyPagiApplication extends PAGIApplication
     {
         $this->asteriskLogger->notice('Shutdown');
     }
-
-    public function setLogger(\Logger $logger)
-    {
-        $this->logger = $logger;
-    }
 }
 

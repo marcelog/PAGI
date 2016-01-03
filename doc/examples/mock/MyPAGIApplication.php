@@ -1,8 +1,4 @@
 <?php
-require_once 'PAGI/Autoloader/Autoloader.php';
-PAGI\Autoloader\Autoloader::register();
-require_once __DIR__ . '/../quickstart/MyPAGIApplication.php';
-
 $variables = array(
     'request' => 'request.php',
     'channel' => 'SIP/blah-00803890',
@@ -27,7 +23,6 @@ $variables = array(
 );
 
 $mock = new PAGI\Client\Impl\MockedClientImpl(array(
-    'log4php.properties' => __DIR__ . '/../quickstart/log4php.properties',
     'variables' => $variables
 ));
 $mock

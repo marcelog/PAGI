@@ -19,14 +19,6 @@
  * limitations under the License.
  *
  */
-
-ini_set('include_path', implode(PATH_SEPARATOR, array(
-    realpath(__DIR__ .'/../../../src/mg'),
-    ini_get('include_path')
-)));
-require_once 'PAGI/Autoloader/Autoloader.php'; // Include PAGI autoloader.
-\PAGI\Autoloader\Autoloader::register(); // Call autoloader register for PAGI autoloader.
-
 use PAGI\CallSpool\CallFile;
 use PAGI\CallSpool\Impl\CallSpoolImpl;
 use PAGI\DialDescriptor\SIPDialDescriptor;

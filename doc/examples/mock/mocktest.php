@@ -1,7 +1,4 @@
 <?php
-date_default_timezone_set('America/Buenos_Aires');
-require_once 'PAGI/Autoloader/Autoloader.php';
-PAGI\Autoloader\Autoloader::register();
 $variables = array(
     'request' => 'request.php',
     'channel' => 'SIP/blah-00803890',

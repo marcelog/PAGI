@@ -1,14 +1,9 @@
 <?php
-define('ROOT_PATH', getenv('root')); // Only used inside log4php.properties
-
 /**
  * PAGI basic use example. Please see run.sh in this same directory for an
  * example of how to actually run this from your dialplan.
  *
  * Note: The client accepts an array with options. The available options are
- *
- * log4php.properties => Optional. If set, should contain the absolute
- * path to the log4php.properties file.
  *
  * stdin => Optional. If set, should contain an already open stream from
  * where the client will read data (useful to make it interact with fastagi
@@ -54,9 +49,6 @@ declare(ticks=1);
  *
  * Note: The client accepts an array with options. The available options are
  *
- * log4php.properties => Optional. If set, should contain the absolute
- * path to the log4php.properties file.
- *
  * stdin => Optional. If set, should contain an already open stream from
  * where the client will read data (useful to make it interact with fastagi
  * servers or even text files to mock stuff when testing). If not set, stdin
@@ -95,9 +87,7 @@ class MyPAGIApplication extends PAGIApplication
     public function log($msg)
     {
         $agi = $this->getAgi();
-        if ($this->logger->isDebugEnabled()) {
-            $this->logger->debug($msg);
-        }
+        $this->logger->debug($msg);
         $agi->consoleLog($msg);
     }
 
