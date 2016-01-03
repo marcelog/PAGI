@@ -32,7 +32,7 @@
 
   <target name="md">
     <exec command="vendor/bin/phpmd ./src text cleancode,codesize,controversial,design,naming,unusedcode"
-      checkreturn="true"
+      checkreturn="false"
       passthru="true"/>
   </target>
 
