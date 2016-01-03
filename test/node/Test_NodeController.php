@@ -49,7 +49,6 @@ class Test_NodeController extends PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->client = new PAGI\Client\Impl\MockedClientImpl(array(
-    		'log4php.properties' => RESOURCES_DIR . DIRECTORY_SEPARATOR . 'log4php.properties',
     		'variables' => array(),
     		'resultStrings' => array()
         ));

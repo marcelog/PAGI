@@ -28,6 +28,9 @@
  *
  */
 namespace PAGI\Client\Impl {
+
+use Psr\Log\NullLogger;
+
 /**
  * This class will test the pagi applicaiton.
  *
@@ -46,9 +49,7 @@ class Test_Application extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->_properties = array(
-            'log4php.properties' => RESOURCES_DIR . DIRECTORY_SEPARATOR . 'log4php.properties'
-        );
+        $this->_properties = array();
     }
 
     /**
@@ -60,6 +61,7 @@ class Test_Application extends \PHPUnit_Framework_TestCase
         setFgetsMock($standardAGIStart, array());
         $this->_properties['pagiClient'] = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
         $application = new MyPAGIApplication($this->_properties);
+        $application->setLogger(new NullLogger);
         $refObject = new \ReflectionObject($application);
         $refMethod = $refObject->getMethod('getAgi');
         $refMethod->setAccessible(true);

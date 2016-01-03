@@ -50,9 +50,7 @@ class Test_MockedNode extends PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->properties = array(
-            'log4php.properties' => RESOURCES_DIR . DIRECTORY_SEPARATOR . 'log4php.properties',
-        );
+        $this->properties = array();
         $this->client = new MockedClientImpl($this->properties);
     }
 

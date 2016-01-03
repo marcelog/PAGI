@@ -49,7 +49,6 @@ class Test_Mock extends PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->_properties = array(
-            'log4php.properties' => RESOURCES_DIR . DIRECTORY_SEPARATOR . 'log4php.properties',
             'variables' => array(),
             'resultStrings' => array()
         );
@@ -89,34 +88,24 @@ class Test_Mock extends PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @expectedException PAGI\Exception\MockedException
      */
     public function cannot_finish_without_using_all_results()
     {
         $mock = new PAGI\Client\Impl\MockedClientImpl($this->_properties);
         $mock->onDial(true, 'name', '123456', 20, 'ANSWER', '#blah');
-        try
-        {
-            unset($mock);
-            $this->fail('Should not here');
-        } catch(PAGI\Exception\MockedException $exception) {
-
-        }
+        unset($mock);
     }
 
     /**
      * @test
+     * @expectedException PAGI\Exception\MockedException
      */
     public function cannot_finish_without_using_all_asserts()
     {
         $mock = new PAGI\Client\Impl\MockedClientImpl($this->_properties);
         $mock->assert('waitDigit', array(1));
-        try
-        {
-            unset($mock);
-            $this->fail('Should not here');
-        } catch(PAGI\Exception\MockedException $exception) {
-
-        }
+        unset($mock);
     }
     /**
      * @test

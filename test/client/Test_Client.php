@@ -27,6 +27,8 @@
  * limitations under the License.
  *
  */
+use Psr\Log\NullLogger;
+
 namespace {
     $mockFopen = false;
     $mockFwrite = false;
@@ -177,9 +179,18 @@ class Test_Client extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->_properties = array(
-            'log4php.properties' => RESOURCES_DIR . DIRECTORY_SEPARATOR . 'log4php.properties'
-        );
+        $this->_properties = array();
+    }
+
+    /**
+     * @test
+     * @runInSeparateProcess
+     */
+    public function can_set_logger()
+    {
+        $client = \PAGI\Client\Impl\ClientImpl::getInstance($this->_properties);
+        $client->setLogger(new NullLogger);
+        $this->assertTrue(true);
     }
 
     /**
@@ -239,6 +250,7 @@ class Test_Client extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @runInSeparateProcess
      */
     public function can_use_custom_stream()
     {
@@ -246,8 +258,7 @@ class Test_Client extends \PHPUnit_Framework_TestCase
         $out = fopen(TMPDIR . '/output.txt', 'w+');
         $client = \PAGI\Client\Impl\ClientImpl::getInstance(array(
             'stdin' => $in,
-        	'stdout' => $out,
-        	'log4php.properties' => RESOURCES_DIR . DIRECTORY_SEPARATOR . 'log4php.properties'
+        	'stdout' => $out
         ));
         $client->answer();
         fclose($in);
@@ -1715,7 +1726,7 @@ class Test_Client extends \PHPUnit_Framework_TestCase
             'initialSilence' => 'a',
             'greeting' => 'b',
             'afterGreetingSilence' => 'c',
-            'totalAnalysisTime' => 'd', 
+            'totalAnalysisTime' => 'd',
             'miniumWordLength' => 'e',
             'betweenWordSilence' => 'f',
             'maximumNumberOfWords' => 'g',
@@ -1856,6 +1867,6 @@ class Test_Client extends \PHPUnit_Framework_TestCase
         $this->assertTrue($result->isNotSure());
         $this->assertTrue($result->isCauseTooLong());
     }
-    
+
 }
 }

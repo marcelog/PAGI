@@ -1,0 +1,72 @@
+<phpunit
+    backupGlobals="true"
+    backupStaticAttributes="false"
+    bootstrap="bootstrap.php"
+    cacheTokens="false"
+    colors="true"
+    convertErrorsToExceptions="true"
+    convertNoticesToExceptions="true"
+    convertWarningsToExceptions="true"
+    forceCoversAnnotation="false"
+    mapTestClassNameToCoveredClassName="false"
+    processIsolation="false"
+    stopOnError="true"
+    stopOnFailure="true"
+    stopOnIncomplete="true"
+    stopOnSkipped="true"
+    stopOnRisky="true"
+    timeoutForSmallTests="1"
+    timeoutForMediumTests="10"
+    timeoutForLargeTests="60"
+    verbose="true">
+
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">../../src</directory>
+            <exclude>
+                <directory suffix="Launcher.php">../../src/PAGI/Application</directory>
+                <directory suffix=".php">../../vendor</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+
+    <testsuites>
+        <testsuite name="Node">
+            <directory suffix=".php">../node</directory>
+        </testsuite>
+        <testsuite name="Mock">
+            <directory suffix=".php">../mock</directory>
+        </testsuite>
+        <testsuite name="CallSpool">
+            <directory suffix=".php">../spool</directory>
+        </testsuite>
+        <testsuite name="ChannelStatus">
+            <directory suffix=".php">../status</directory>
+        </testsuite>
+        <testsuite name="Client">
+            <directory suffix=".php">../client</directory>
+        </testsuite>
+        <testsuite name="CallerID">
+            <directory suffix=".php">../callerid</directory>
+        </testsuite>
+        <testsuite name="ChannelVariables">
+            <directory suffix=".php">../channelvars</directory>
+        </testsuite>
+        <testsuite name="CDR">
+            <directory suffix=".php">../cdr</directory>
+        </testsuite>
+        <testsuite name="Dialdescriptor">
+            <directory suffix=".php">../dialdescriptor</directory>
+        </testsuite>
+        <testsuite name="AsteriskLogger">
+            <directory suffix=".php">../asterisklogger</directory>
+        </testsuite>
+        <testsuite name="Application">
+            <directory suffix=".php">../application</directory>
+        </testsuite>
+    </testsuites>
+    <logging>
+        <log type="coverage-html" target="../../build/coverage-html"/>
+        <log type="coverage-clover" target="../../build/logs/clover.xml"/>
+    </logging>
+</phpunit>
