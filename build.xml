@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <project
-  name="php-sdk"
+  name="pagi"
   default="build"
   basedir="."
   description="PAGI Asterisk Gateway Interface (AGI) client for PHP">
