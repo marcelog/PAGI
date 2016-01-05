@@ -12,9 +12,6 @@ ini_set('display_errors', 1);
 if (!defined('ROOT_PATH')) {
     define('ROOT_PATH', realpath(__DIR__ . "/.."));
 }
-if (!defined('RESOURCES_DIR')) {
-    define('RESOURCES_DIR', ROOT_PATH . '/resources');
-}
 if (!defined('TMPDIR')) {
     define('TMPDIR', '/tmp');
 }
