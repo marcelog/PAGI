@@ -1,6 +1,6 @@
 [![License](https://poser.pugx.org/marcelog/PAGI/license)](https://packagist.org/packages/marcelog/PAGI)
 [![Latest Stable Version](https://poser.pugx.org/marcelog/PAGI/v/stable)](https://packagist.org/packages/marcelog/PAGI)
-[![Documentation Status](https://readthedocs.org/projects/pami/badge/?version=latest)](http://pami.readthedocs.org/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/pagi/badge/?version=latest)](http://pagi.readthedocs.org/en/latest/?badge=latest)
 
 [![Build Status](https://travis-ci.org/marcelog/PAGI.svg)](https://travis-ci.org/marcelog/PAGI)
 [![Coverage Status](https://coveralls.io/repos/marcelog/PAGI/badge.svg?branch=master&service=github)](https://coveralls.io/github/marcelog/PAGI?branch=master)
