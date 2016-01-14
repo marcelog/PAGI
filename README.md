@@ -7,6 +7,8 @@
 [![Code Climate](https://codeclimate.com/github/marcelog/PAGI/badges/gpa.svg)](https://codeclimate.com/github/marcelog/PAGI)
 [![Issue Count](https://codeclimate.com/github/marcelog/PAGI/badges/issue_count.svg)](https://codeclimate.com/github/marcelog/PAGI)
 
+[![Click here to lend your support to: PAGI and make a donation at pledgie.com !](https://pledgie.com/campaigns/30945.png?skin_name=chrome' border='0')](https://pledgie.com/campaigns/30945)
+
 # Introduction
 
 This framework is intended to simply making ivr applications using Asterisk's
