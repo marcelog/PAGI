@@ -93,8 +93,8 @@ class Test_ChannelVariables extends \PHPUnit_Framework_TestCase
         $this->assertEquals($vars->getPriority(), '1');
         $this->assertEquals($vars->getTotalArguments(), 2);
         $this->assertEquals($vars->getArgument(1), 'arg1');
-        $this->assertEquals($vars->getArgument(2), 'arg2');
-        $this->assertEquals(array(1 => 'arg1', 2 => 'arg2'), $vars->getArguments());
+        $this->assertEquals($vars->getArgument(2), 'arg:2:');
+        $this->assertEquals(array(1 => 'arg1', 2 => 'arg:2:'), $vars->getArguments());
         $this->assertFalse($vars->getArgument(3));
         $refObject = new \ReflectionObject($vars);
         $refMethod = $refObject->getMethod('getAGIVariable');

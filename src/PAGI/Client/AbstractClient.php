@@ -721,7 +721,7 @@ abstract class AbstractClient implements IClient
      */
     protected function readEnvironmentVariable($line)
     {
-        $variableName = explode(':', substr($line, 4));
+        $variableName = explode(':', substr($line, 4), 2);
         $key = trim($variableName[0]);
         unset($variableName[0]);
         $value = trim(implode('', $variableName));
