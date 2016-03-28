@@ -48,6 +48,7 @@ namespace {
     $standardAGIStart = array(
         'agi_arg_1:arg1',
     	'agi_arg_2:arg2',
+        'agi_arg_3:http://www.someurl.com:1234',
 		'agi_request:anagi.php',
 		'agi_channel:SIP/jondoe-7026f150',
 		'agi_language:ar',
