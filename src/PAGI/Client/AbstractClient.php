@@ -721,10 +721,7 @@ abstract class AbstractClient implements IClient
      */
     protected function readEnvironmentVariable($line)
     {
-        $variableName = explode(':', substr($line, 4));
-        $key = trim($variableName[0]);
-        unset($variableName[0]);
-        $value = trim(implode('', $variableName));
+        list($key, $value) = explode(':', substr($line, 4), 2);
         if (strncmp($key, 'arg_', 4) === 0) {
             $this->arguments[substr($key, 4)] = $value;
         } else {

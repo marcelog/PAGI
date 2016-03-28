@@ -91,11 +91,19 @@ class Test_ChannelVariables extends \PHPUnit_Framework_TestCase
         $this->assertEquals($vars->getAccountCode(), '123');
         $this->assertEquals($vars->getEnhanced(), '0.0');
         $this->assertEquals($vars->getPriority(), '1');
-        $this->assertEquals($vars->getTotalArguments(), 2);
+        $this->assertEquals($vars->getTotalArguments(), 3);
         $this->assertEquals($vars->getArgument(1), 'arg1');
         $this->assertEquals($vars->getArgument(2), 'arg2');
-        $this->assertEquals(array(1 => 'arg1', 2 => 'arg2'), $vars->getArguments());
-        $this->assertFalse($vars->getArgument(3));
+        $this->assertEquals($vars->getArgument(3), 'http://www.someurl.com:1234');
+        $this->assertEquals(
+            array(
+                1 => 'arg1',
+                2 => 'arg2',
+                3 => 'http://www.someurl.com:1234'
+            ),
+            $vars->getArguments()
+        );
+        $this->assertFalse($vars->getArgument(4));
         $refObject = new \ReflectionObject($vars);
         $refMethod = $refObject->getMethod('getAGIVariable');
         $refMethod->setAccessible(true);
