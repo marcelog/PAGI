@@ -182,6 +182,20 @@ interface IChannelVariables
     public function getPriority();
 
     /**
+     * Returns agi_network_script.
+     *
+     * @return string
+     */
+    public function getNetworkScript();
+
+    /**
+     * Returns agi_network.
+     *
+     * @return string
+     */
+    public function getNetwork();
+
+    /**
      * Returns total number of agi arguments.
      *
      * @return integer
