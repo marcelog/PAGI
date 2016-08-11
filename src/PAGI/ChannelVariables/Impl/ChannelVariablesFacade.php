@@ -254,6 +254,24 @@ class ChannelVariablesFacade implements IChannelVariables
 
     /**
      * (non-PHPdoc)
+     * @see PAGI\ChannelVariables.IChannelVariables::getNetworkScript()
+     */
+    public function getNetworkScript()
+    {
+        return $this->getAGIVariable('network_script');
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see PAGI\ChannelVariables.IChannelVariables::getNetwork()
+     */
+    public function getNetwork()
+    {
+        return $this->getAGIVariable('network');
+    }
+
+    /**
+     * (non-PHPdoc)
      * @see PAGI\ChannelVariables.IChannelVariables::getTotalArguments()
      */
     public function getTotalArguments()
