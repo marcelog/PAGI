@@ -66,7 +66,7 @@ abstract class AbstractClient implements IClient
 {
     /**
      * PSR-3 logger.
-     * @var Logger
+     * @var LoggerInterface
      */
     protected $logger;
 
@@ -573,7 +573,6 @@ abstract class AbstractClient implements IClient
                 array($priority, str_replace('"', '\\"', $line))
             );
         }
-
     }
 
     /**
@@ -888,7 +887,7 @@ abstract class AbstractClient implements IClient
     /**
      * Sets the logger implementation.
      *
-     * @param Psr\Log\LoggerInterface $logger The PSR3-Logger
+     * @param LoggerInterface $logger The PSR3-Logger
      *
      * @return void
      */

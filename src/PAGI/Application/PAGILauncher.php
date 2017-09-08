@@ -31,14 +31,12 @@
  * limitations under the License.
  *
  */
-use PAGI\Application\Exception\InvalidApplicationException;
-use PAGI\Application\PAGIApplication;
 
 $appName = getenv('PAGIApplication');
 $bootstrap = getenv('PAGIBootstrap');
 $myApp = '';
-try {
 
+try {
     include_once $bootstrap;
     if (!class_exists($appName, true)) {
         throw new \Exception($appName . ' is not loaded');
