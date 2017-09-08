@@ -463,3 +463,29 @@ Uses environment variable AST_RUN_DIR.
 
 
 
+
+### getNetworkScript
+
+    string PAGI\ChannelVariables\IChannelVariables::getNetworkScript()
+
+Returns agi_network_script.
+
+
+
+* Visibility: **public**
+
+
+
+
+### getNetwork
+
+    string PAGI\ChannelVariables\IChannelVariables::getNetwork()
+
+Returns agi_network.
+
+
+
+* Visibility: **public**
+
+
+

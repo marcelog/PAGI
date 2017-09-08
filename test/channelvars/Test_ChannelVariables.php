@@ -104,6 +104,8 @@ class Test_ChannelVariables extends \PHPUnit_Framework_TestCase
             $vars->getArguments()
         );
         $this->assertFalse($vars->getArgument(4));
+        $this->assertEquals($vars->getNetwork(), 'yes');
+        $this->assertEquals($vars->getNetworkScript(), 'ScriptName');
         $refObject = new \ReflectionObject($vars);
         $refMethod = $refObject->getMethod('getAGIVariable');
         $refMethod->setAccessible(true);

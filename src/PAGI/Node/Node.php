@@ -1184,7 +1184,6 @@ class Node
      */
     protected function beforeOnValidInput()
     {
-
     }
 
     /**
@@ -1194,7 +1193,6 @@ class Node
      */
     protected function beforeOnInputFailed()
     {
-
     }
 
     /**

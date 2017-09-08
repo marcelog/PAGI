@@ -512,7 +512,7 @@ file_get_contents() or similar).&lt;/p&gt;
 
 ### __construct
 
-    void PAGI\CallSpool\CallFile::__construct(\PAGI\DialDescriptor\DialDescriptor $dialDescriptor)
+    void PAGI\CallSpool\CallFile::__construct(\PAGI\CallSpool\PAGI\DialDescriptor\DialDescriptor $dialDescriptor)
 
 Constructor.
 
@@ -522,6 +522,6 @@ Constructor.
 
 
 #### Arguments
-* $dialDescriptor **[PAGI\DialDescriptor\DialDescriptor](PAGI-DialDescriptor-DialDescriptor.md)**
+* $dialDescriptor **PAGI\CallSpool\PAGI\DialDescriptor\DialDescriptor** - &lt;p&gt;dial descriptor&lt;/p&gt;
 
 

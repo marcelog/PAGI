@@ -124,7 +124,7 @@ class MockedClientImpl extends AbstractClient
         $count = count($args);
         for ($i = 0; $i < $count; $i++) {
             if (!isset($arguments[$i])) {
-                throw new MockedException("Missing argument number " . $i + 1);
+                throw new MockedException("Missing argument number " . ($i + 1));
             }
             $arg = $arguments[$i];
             if ($arg !== $args[$i]) {

@@ -20,7 +20,7 @@ Properties
 
 ### $logger
 
-    protected \PAGI\Client\Logger $logger
+    protected \Psr\Log\LoggerInterface $logger
 
 PSR-3 logger.
 

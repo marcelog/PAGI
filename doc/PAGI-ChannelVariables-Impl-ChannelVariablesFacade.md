@@ -554,3 +554,31 @@ Constructor.
 * $arguments **array&lt;mixed,string&gt;** - &lt;p&gt;AGI arguments given by asterisk (agi_arg_N).&lt;/p&gt;
 
 
+
+### getNetworkScript
+
+    string PAGI\ChannelVariables\IChannelVariables::getNetworkScript()
+
+Returns agi_network_script.
+
+
+
+* Visibility: **public**
+* This method is defined by [PAGI\ChannelVariables\IChannelVariables](PAGI-ChannelVariables-IChannelVariables.md)
+
+
+
+
+### getNetwork
+
+    string PAGI\ChannelVariables\IChannelVariables::getNetwork()
+
+Returns agi_network.
+
+
+
+* Visibility: **public**
+* This method is defined by [PAGI\ChannelVariables\IChannelVariables](PAGI-ChannelVariables-IChannelVariables.md)
+
+
+

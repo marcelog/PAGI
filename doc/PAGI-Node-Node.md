@@ -1119,7 +1119,7 @@ Returns the kind of digit entered by the user, CANCEL, END, NORMAL.
 
 ### acceptInput
 
-    void PAGI\Node\Node::acceptInput($digit)
+    void PAGI\Node\Node::acceptInput(\PAGI\Node\@param $digit)
 
 Process a single digit input by the user. Changes the node state
 according to the digit entered (CANCEL, COMPLETE).
@@ -1130,7 +1130,7 @@ according to the digit entered (CANCEL, COMPLETE).
 
 
 #### Arguments
-* $digit **mixed**
+* $digit **PAGI\Node\@param** - &lt;p&gt;string $digit A single character, one of the DTMF_* constants.&lt;/p&gt;
 
 
 

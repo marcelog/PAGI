@@ -291,4 +291,18 @@ interface IChannelVariables
      * @return string
      */
     public function getDirectoryRun();
+
+    /**
+     * Returns agi_network_script.
+     *
+     * @return string
+     */
+    public function getNetworkScript();
+
+    /**
+     * Returns agi_network.
+     *
+     * @return string
+     */
+    public function getNetwork();
 }

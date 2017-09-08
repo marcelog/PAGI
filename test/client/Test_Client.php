@@ -69,6 +69,8 @@ namespace {
 		'agi_enhanced:0.0',
 		'agi_accountcode:123',
 		'agi_threadid:1105672528',
+        'agi_network:yes',
+        'agi_network_script:ScriptName',
         ''
     );
 
