@@ -312,6 +312,42 @@ class Test_Mock extends PHPUnit_Framework_TestCase
         $mock = new PAGI\Client\Impl\MockedClientImpl($this->_properties);
         $mock->onCreateNode('test')->runWithInput('*');
         $this->assertTrue($mock->createNode('test') instanceof MockedNode);
+    }
 
+    /**
+     * @test
+     */
+    public function can_get_channel_variables()
+    {
+        $mock = new PAGI\Client\Impl\MockedClientImpl([
+            'variables' => [
+                'request' => 'request.php',
+                'channel' => 'SIP/blah-00803890',
+                'language' => 'ar',
+                'type' => 'SIP',
+                'uniqueid' => '1330012581.77',
+                'version' => '1.6.0.9',
+                'callerid' => '40',
+                'calleridname' => 'Admin',
+                'callingpres' => '1',
+                'callingani2' => '0',
+                'callington' => '0',
+                'callingtns' => '0',
+                'dnid' => '55555555',
+                'rdnis' => 'unknown',
+                'context' => 'default',
+                'extension' => '55555555',
+                'priority' => '1',
+                'enhanced' => '0.0',
+                'accountcode' => '',
+                'threadid' => '1095317840',
+                'arg_1' => 'First',
+                'arg_2' => 'Second',
+            ]
+        ]);
+        $channelVariables = $mock->getChannelVariables();
+        $this->assertEquals('SIP/blah-00803890', $channelVariables->getChannel());
+        $this->assertEquals('First', $channelVariables->getArgument(1));
+        $this->assertEquals('Second', $channelVariables->getArgument(2));
     }
 }

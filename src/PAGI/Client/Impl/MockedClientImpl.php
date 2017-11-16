@@ -568,7 +568,17 @@ class MockedClientImpl extends AbstractClient
     {
         $this->_logger = new NullLogger;
         if (isset($options['variables'])) {
-            $this->_variables = $options['variables'];
+            $this->variables = $options['variables'];
+            foreach ($this->variables as $variableName => $variableValue) {
+                if (strpos($variableName, 'arg_') !== 0) {
+                    continue;
+                }
+                $number = substr($variableName, 4);
+                if (! is_numeric($number)) {
+                    continue;
+                }
+                $this->arguments[$number] =  $variableValue;
+            }
         }
         if (isset($options['resultStrings'])) {
             $this->mockedResultStrings = $options['resultStrings'];
