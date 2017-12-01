@@ -720,7 +720,7 @@ abstract class AbstractClient implements IClient
      */
     protected function readEnvironmentVariable($line)
     {
-        list($key, $value) = explode(':', substr($line, 4), 2);
+        list($key, $value) = array_map('trim', explode(':', substr($line, 4), 2));
         if (strncmp($key, 'arg_', 4) === 0) {
             $this->arguments[substr($key, 4)] = $value;
         } else {
