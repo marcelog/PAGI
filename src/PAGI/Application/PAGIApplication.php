@@ -56,7 +56,7 @@ abstract class PAGIApplication
      * AGI Client.
      * @var IClient
      */
-    private $agiClient;
+    protected $agiClient;
 
     /**
      * Called to initialize the application
