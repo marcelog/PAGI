@@ -52,19 +52,19 @@ class ClientImpl extends AbstractClient
      * Current instance.
      * @var ClientImpl
      */
-    private static $instance = false;
+    protected static $instance = false;
 
     /**
      * AGI input
      * @var stream
      */
-    private $input;
+    protected $input;
 
     /**
      * AGI output
      * @var stream
      */
-    private $output;
+    protected $output;
 
     /**
      * Sends a command to asterisk. Returns an array with:
@@ -164,13 +164,11 @@ class ClientImpl extends AbstractClient
      */
     public static function getInstance(array $options = array())
     {
-        if (self::$instance === false) {
-            $ret = new ClientImpl($options);
-            self::$instance = $ret;
-        } else {
-            $ret = self::$instance;
+        if (static::$instance === false) {
+            static::$instance = new static($options);
         }
-        return $ret;
+
+        return static::$instance;
     }
 
     /**
