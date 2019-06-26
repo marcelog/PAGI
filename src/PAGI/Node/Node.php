@@ -632,7 +632,7 @@ class Node
      * Loads a prompt message for dialing channel.
      *
      * @param string $channel
-     * @param string $options
+     * @param array $options
      *
      * @return Node
      */
