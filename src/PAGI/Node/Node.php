@@ -627,6 +627,20 @@ class Node
         $this->addClientMethodCall('streamFile', $filename, $this->validInterruptDigits);
         return $this;
     }
+    
+    /**
+     * Loads a prompt message for dialing channel.
+     *
+     * @param string $channel
+     * @param array $options
+     *
+     * @return Node
+     */
+    public function dial($channel, $options = array())
+    {
+        $this->addClientMethodCall('dial', $channel, $options);
+        return $this;
+    }
 
     /**
      * Configure the node to expect at least this many digits. The input is
